@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://u4gh4cyl0hk8"]
 
+[ext_resource type="Script" uid="uid://l27kypxngvy7" path="res://Scripts/button.gd" id="1_853f1"]
+[ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/SFX/click.wav" id="2_8saeu"]
+
 [node name="MainMenu" type="Node2D" unique_id=1909509357]
+script = ExtResource("1_853f1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1722504761]
+offset_right = 1155.0
+offset_bottom = 648.0
+color = Color(0.2627451, 0.2901961, 0.7294118, 1)
 
 [node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
 offset_right = 1152.0
@@ -61,10 +70,6 @@ layout_mode = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "SETTINGS"
-
-[node name="AspectRatioContainer6" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=513417334]
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=650696884]
 layout_mode = 2
@@ -332,7 +337,14 @@ ratio = 0.25
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1057682712]
 
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=119049907]
+stream = ExtResource("2_8saeu")
+
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7/Button" to="." method="_on_button_button_down"]
 [connection signal="drag_ended" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_drag_ended"]
-[connection signal="button_down" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" method="_on_button_down"]
+[connection signal="button_down" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" method="_on_pressed"]
 [connection signal="button_down" from="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" method="_on_button_down"]
