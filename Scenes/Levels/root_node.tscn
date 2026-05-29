@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cwpfq48wl82xj"]
+
+[ext_resource type="PackedScene" uid="uid://cwj3rem415o6w" path="res://Scenes/Levels/present_root.tscn" id="1_ujrlh"]
+[ext_resource type="PackedScene" uid="uid://xdluxu8sh5hd" path="res://Scenes/Levels/past_root.tscn" id="2_b5nw4"]
+
+[node name="Root" type="Node2D" unique_id=299460535]
+
+[node name="PresentRoot" parent="." unique_id=1551853872 instance=ExtResource("1_ujrlh")]
+
+[node name="PastRoot" parent="." unique_id=838563773 instance=ExtResource("2_b5nw4")]
