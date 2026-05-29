@@ -1,0 +1,338 @@
+[gd_scene format=3 uid="uid://u4gh4cyl0hk8"]
+
+[node name="MainMenu" type="Node2D" unique_id=1909509357]
+
+[node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu" unique_id=323585735]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu" unique_id=1034861613]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/AspectRatioContainer" unique_id=461313659]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1600647587]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.22
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1939456140]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=550096747]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "START"
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=3309692]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5" unique_id=1064011318]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "How to Play"
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=921335182]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1834916901]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+
+[node name="AspectRatioContainer6" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=513417334]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=650696884]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7" unique_id=35540494]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainMenu" unique_id=2106999447]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="Settings" type="HBoxContainer" parent="." unique_id=2111924631]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Settings" unique_id=880907250]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Settings" unique_id=1421831460]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.99
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/AspectRatioContainer" unique_id=1540810189]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1285634631]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=385058472]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 4.6413
+
+[node name="GridContainer" type="GridContainer" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=872668856]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1301909261]
+layout_mode = 2
+text = "SOUND VOLUME     "
+
+[node name="HSlider" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=755856970]
+custom_minimum_size = Vector2(124.25, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1661337764]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.09
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1577582994]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+
+[node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1084217131]
+custom_minimum_size = Vector2(252.54, 0)
+layout_mode = 2
+text = "back"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=638277375]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings" unique_id=1400610261]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="HowToPlay" type="HBoxContainer" parent="." unique_id=648488176]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HowToPlay" unique_id=1680903180]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HowToPlay" unique_id=898335136]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/AspectRatioContainer" unique_id=1087083430]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1019892536]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment_horizontal = 0
+
+[node name="Control" parent="HowToPlay/AspectRatioContainer/VBoxContainer/AspectRatioContainer3" unique_id=1213672650]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="ColorRect" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1801537988]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.08, 0.08, 0.08, 0.7411765)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay/AspectRatioContainer/VBoxContainer/TextureRect" unique_id=931644874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+text = "HELP
+
+OBJECTIVES
+Johnny's requests are shown:
+- in the speech bubble above his head
+- in the upper left corner
+
+Bring him the correct item before time runs out.
+
+
+JUICE
+1. Catch a falling fruit
+2. Use the mixer (S)
+3. Repeat twice
+4. Fill the can with juice
+5. Bring it to Johnny
+
+Be careful:
+Uncaught fruits disappear.
+
+
+COFFEE
+1. Grab the can
+2. Use the coffee machine
+3. Take the coffee to Johnny
+
+
+WATER
+Use the sink to:
+- fill the can with water
+- or empty the can
+
+
+CONTROLS
+A D or Arrow keys  -> Move
+SPACE -> Jump
+SHIFT    -> Run
+S        -> Interact
+
+
+WARNING
+If Johnny doesn't get what he wants...
+
+something terrible might happen."
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay" unique_id=665814855]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/AspectRatioContainer3" unique_id=2059061603]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer3/VBoxContainer" unique_id=455105560]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "BACK"
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="HBoxContainer" parent="." unique_id=2119201412]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Credits" unique_id=167130894]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Credits" unique_id=494841510]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.99
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/AspectRatioContainer" unique_id=1849373947]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=1494923064]
+custom_minimum_size = Vector2(0, 132.57)
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=1921505049]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 4.7613
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=261858209]
+layout_mode = 2
+text = "Code:
+Luise Münchgesang
+Vincent Knapp
+Benedek Kovacs
+
+Art:
+Luise Münchgesang
+Vincent Knapp
+Benedek Kovacs
+
+Audio:
+Luise Münchgesang
+Vincent Knapp"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=1111644556]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.09
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=58361180]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+
+[node name="Button" type="Button" parent="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=644158181]
+custom_minimum_size = Vector2(252.54, 0)
+layout_mode = 2
+text = "back"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=350959451]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Credits" unique_id=811958318]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1057682712]
+
+[connection signal="drag_ended" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_drag_ended"]
+[connection signal="button_down" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" method="_on_button_down"]
+[connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" method="_on_pressed"]
+[connection signal="button_down" from="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" method="_on_button_down"]
