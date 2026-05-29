@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bjnrl0ech1c7s" path="res://Scenes/WhatsApp Image 2026-05-29 at 19.04.05.jpeg" id="1_r150o"]
+[ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/character_body_2d.gd" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="2_kln2b"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kln2b"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
+
+[node name="Node2D" type="Node2D" unique_id=1663669848]
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
+physics_material_override = SubResource("PhysicsMaterial_idj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=108893747]
+position = Vector2(593, 696)
+shape = SubResource("WorldBoundaryShape2D_kln2b")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=629215280]
+script = ExtResource("2_idj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=680657664]
+shape = SubResource("CapsuleShape2D_kln2b")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1164150156]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1523009099]
+z_index = 1
+texture = ExtResource("2_kln2b")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
+
+[node name="WhatsAppImage20260529At19_04_05" type="Sprite2D" parent="Parallax2D" unique_id=602249235]
+position = Vector2(995, -42)
+texture = ExtResource("1_r150o")

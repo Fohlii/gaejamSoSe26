@@ -14,6 +14,8 @@ color = Color(0.2627451, 0.2901961, 0.7294118, 1)
 [node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
 offset_right = 1152.0
 offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 alignment = 1
 
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu" unique_id=323585735]
@@ -30,11 +32,6 @@ size_flags_stretch_ratio = 1.75
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 7
-
-[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1600647587]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.22
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1939456140]
 layout_mode = 2

@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="gaejam SoSe26"
+run/main_scene="uid://bjjsr5tpl74dk"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/itch_uploader/plugin.cfg")
 
 [physics]
 
