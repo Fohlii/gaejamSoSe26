@@ -25,7 +25,6 @@ scale = Vector2(0.66, 0.59)
 texture = SubResource("CompressedTexture2D_853f1")
 
 [node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
-visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 4
@@ -169,6 +168,7 @@ size_flags_horizontal = 3
 ratio = 0.25
 
 [node name="HowToPlay" type="HBoxContainer" parent="." unique_id=648488176]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 alignment = 1
@@ -227,6 +227,7 @@ text = "Back"
 metadata/_edit_use_anchors_ = true
 
 [node name="Credits" type="HBoxContainer" parent="." unique_id=2119201412]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 alignment = 1

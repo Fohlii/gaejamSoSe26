@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
-[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="2_idj7w"]
-[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="2_kln2b"]
+[ext_resource type="PackedScene" uid="uid://c20t03o5rsrji" path="res://Scenes/Player.tscn" id="1_r150o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -15,8 +14,6 @@ distance = -1478.5118
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(0.9999185, 0.012764918)
 distance = -5110.3623
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -45,17 +42,7 @@ shape = SubResource("WorldBoundaryShape2D_rgh2o")
 position = Vector2(582, 710)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=629215280]
-script = ExtResource("2_idj7w")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=680657664]
-shape = SubResource("CapsuleShape2D_kln2b")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1164150156]
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1523009099]
-z_index = 1
-texture = ExtResource("2_kln2b")
+[node name="CharacterBody2D" parent="." unique_id=2052906808 instance=ExtResource("1_r150o")]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 
