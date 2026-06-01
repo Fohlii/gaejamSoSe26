@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/character_body_2d.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://cmhn4asx1had" path="res://Assets/Player/advnt_full.png" id="2_kyqiw"]
+[ext_resource type="AudioStream" uid="uid://d0lqkaafs031d" path="res://Assets/SFX/sfx_step_grass_l.wav" id="3_dewec"]
+[ext_resource type="AudioStream" uid="uid://bhrkjf2wp4t0o" path="res://Assets/SFX/sfx_step_grass_r.wav" id="4_5ixxa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
 height = 44.0
@@ -134,6 +136,15 @@ z_index = 1
 position = Vector2(0, -4.25)
 scale = Vector2(1, 1.1197183)
 sprite_frames = SubResource("SpriteFrames_1e7my")
-animation = &"jump"
+animation = &"walk"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=423702122]
+
+[node name="left_foot" type="AudioStreamPlayer2D" parent="." unique_id=1519129858]
+stream = ExtResource("3_dewec")
+
+[node name="right_foot" type="AudioStreamPlayer2D" parent="." unique_id=2137069745]
+stream = ExtResource("4_5ixxa")
+
+[connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
+[connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]

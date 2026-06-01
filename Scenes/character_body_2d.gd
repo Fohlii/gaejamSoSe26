@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var left_foot: AudioStreamPlayer2D = $left_foot
+@onready var right_foot: AudioStreamPlayer2D = $right_foot
 var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
@@ -35,5 +37,9 @@ func _physics_process(delta: float) -> void:
 		sprite_2d.play("default")
 
 	move_and_slide()
-func _update_animation():
-	pass
+
+func _on_sprite_2d_frame_changed() -> void:
+	if sprite_2d.frame == 2:
+		left_foot.play()
+	elif sprite_2d.frame == 5:
+		right_foot.play()
