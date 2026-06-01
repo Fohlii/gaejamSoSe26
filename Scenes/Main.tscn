@@ -1,23 +1,27 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
-[ext_resource type="Texture2D" uid="uid://bjnrl0ech1c7s" path="res://Scenes/WhatsApp Image 2026-05-29 at 19.04.05.jpeg" id="1_r150o"]
 [ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/character_body_2d.gd" id="2_idj7w"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="2_kln2b"]
+[ext_resource type="Texture2D" uid="uid://2jmypf4ft01s" path="res://Assets/Background/Background_Meadow.jpg" id="3_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://b6xoeo0pnywxy" path="res://Assets/Background/Background_Sea.jpg" id="4_pbw6q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kln2b"]
-distance = -16.0
+distance = -174.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 normal = Vector2(-0.99991566, -0.012985918)
-distance = -1092.4146
+distance = -1478.5118
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(0.9999185, 0.012764918)
-distance = -970.6769
+distance = -2171.738
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
+load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=1663669848]
 
@@ -50,6 +54,17 @@ texture = ExtResource("2_kln2b")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 
-[node name="WhatsAppImage20260529At19_04_05" type="Sprite2D" parent="Parallax2D" unique_id=602249235]
-position = Vector2(635, 166)
-texture = ExtResource("1_r150o")
+[node name="BackgroundMeadow" type="Sprite2D" parent="." unique_id=1252281063]
+position = Vector2(673, 394)
+texture = ExtResource("3_rgh2o")
+
+[node name="BackgroundMeadow2" type="Sprite2D" parent="." unique_id=1232282730]
+z_index = -1
+position = Vector2(1074.25, 394)
+scale = Vector2(2.3776639, 1)
+texture = SubResource("CompressedTexture2D_rgh2o")
+
+[node name="BackgroundSea" type="Sprite2D" parent="." unique_id=316865649]
+position = Vector2(-904, 399.75)
+scale = Vector2(1, 1.1254493)
+texture = ExtResource("4_pbw6q")
