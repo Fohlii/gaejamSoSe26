@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/character_body_2d.gd" id="2_idj7w"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="2_kln2b"]
-[ext_resource type="Texture2D" uid="uid://2jmypf4ft01s" path="res://Assets/Background/Background_Meadow.jpg" id="3_rgh2o"]
-[ext_resource type="Texture2D" uid="uid://b6xoeo0pnywxy" path="res://Assets/Background/Background_Sea.jpg" id="4_pbw6q"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kln2b"]
-distance = -174.0
+distance = -480.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 normal = Vector2(-0.99991566, -0.012985918)
@@ -16,11 +14,19 @@ distance = -1478.5118
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(0.9999185, 0.012764918)
-distance = -2171.738
+distance = -7876.086
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idj7w"]
+load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
 [node name="Node2D" type="Node2D" unique_id=1663669848]
@@ -29,7 +35,6 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=108893747]
-position = Vector2(593, 696)
 shape = SubResource("WorldBoundaryShape2D_kln2b")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
@@ -37,7 +42,7 @@ position = Vector2(596, 710)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
-position = Vector2(596, 710)
+position = Vector2(582, 710)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=629215280]
@@ -54,17 +59,21 @@ texture = ExtResource("2_kln2b")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 
-[node name="BackgroundMeadow" type="Sprite2D" parent="." unique_id=1252281063]
-position = Vector2(673, 394)
-texture = ExtResource("3_rgh2o")
-
-[node name="BackgroundMeadow2" type="Sprite2D" parent="." unique_id=1232282730]
-z_index = -1
-position = Vector2(1074.25, 394)
-scale = Vector2(2.3776639, 1)
+[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D" unique_id=316865649]
+position = Vector2(-6636, -8)
+scale = Vector2(1, 1.127606)
 texture = SubResource("CompressedTexture2D_rgh2o")
 
-[node name="BackgroundSea" type="Sprite2D" parent="." unique_id=316865649]
-position = Vector2(-904, 399.75)
-scale = Vector2(1, 1.1254493)
-texture = ExtResource("4_pbw6q")
+[node name="Parallax2D" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
+repeat_size = Vector2(2526, 0)
+repeat_times = 4
+
+[node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1493244153]
+material = SubResource("CanvasItemMaterial_rgh2o")
+texture = SubResource("CompressedTexture2D_idj7w")
+
+[node name="BackgroundMeadow" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1252281063]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(1263, 0)
+texture = SubResource("CompressedTexture2D_kln2b")
+flip_h = true
