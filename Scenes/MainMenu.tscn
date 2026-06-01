@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l27kypxngvy7" path="res://Scripts/button.gd" id="1_853f1"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="2_8saeu"]
-[ext_resource type="AudioStream" uid="uid://tt5aevqinsaq" path="res://Assets/GameMusic/adventuring_song.mp3" id="2_ghw46"]
+[ext_resource type="AudioStream" uid="uid://d22sbnghiyo2w" path="res://Assets/GameMusic/the_budding_of_consciousness.wav" id="2_ghw46"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_853f1"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -268,7 +268,7 @@ Art:
 Luise Münchgesang
 Benedek Kovacs
 Music:
-https://opengameart.org/content/adventure-time"
+Music by Yoiyami"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
