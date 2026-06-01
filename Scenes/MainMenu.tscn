@@ -3,15 +3,29 @@
 [ext_resource type="Script" uid="uid://l27kypxngvy7" path="res://Scripts/button.gd" id="1_853f1"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/SFX/click.wav" id="2_8saeu"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_853f1"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
 [node name="MainMenu" type="Node2D" unique_id=1909509357]
 script = ExtResource("1_853f1")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1722504761]
-offset_right = 1155.0
-offset_bottom = 648.0
-color = Color(0.2627451, 0.2901961, 0.7294118, 1)
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1527103736]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -123.000015
+offset_right = 1885.0
+offset_bottom = 1268.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.66, 0.59)
+texture = SubResource("CompressedTexture2D_853f1")
 
 [node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 size_flags_horizontal = 4
@@ -43,7 +57,8 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
-text = "START"
+text = "Play
+"
 
 [node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=3309692]
 layout_mode = 2
@@ -66,7 +81,7 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
-text = "SETTINGS"
+text = "Settings"
 
 [node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=650696884]
 layout_mode = 2
@@ -154,7 +169,6 @@ size_flags_horizontal = 3
 ratio = 0.25
 
 [node name="HowToPlay" type="HBoxContainer" parent="." unique_id=648488176]
-visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 alignment = 1
@@ -180,10 +194,6 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment_horizontal = 0
 
-[node name="Control" parent="HowToPlay/AspectRatioContainer/VBoxContainer/AspectRatioContainer3" unique_id=1213672650]
-visible = false
-layout_mode = 2
-
 [node name="TextureRect" type="ColorRect" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1801537988]
 layout_mode = 2
 size_flags_vertical = 3
@@ -194,53 +204,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = -33.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-text = "HELP
-
-OBJECTIVES
-Johnny's requests are shown:
-- in the speech bubble above his head
-- in the upper left corner
-
-Bring him the correct item before time runs out.
-
-
-JUICE
-1. Catch a falling fruit
-2. Use the mixer (S)
-3. Repeat twice
-4. Fill the can with juice
-5. Bring it to Johnny
-
-Be careful:
-Uncaught fruits disappear.
-
-
-COFFEE
-1. Grab the can
-2. Use the coffee machine
-3. Take the coffee to Johnny
-
-
-WATER
-Use the sink to:
-- fill the can with water
-- or empty the can
-
-
-CONTROLS
-A D or Arrow keys  -> Move
-SPACE -> Jump
-SHIFT    -> Run
-S        -> Interact
-
-
-WARNING
-If Johnny doesn't get what he wants...
-
-something terrible might happen."
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay" unique_id=665814855]
 layout_mode = 2
@@ -255,11 +223,10 @@ size_flags_vertical = 0
 [node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer3/VBoxContainer" unique_id=455105560]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "BACK"
+text = "Back"
 metadata/_edit_use_anchors_ = true
 
 [node name="Credits" type="HBoxContainer" parent="." unique_id=2119201412]
-visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 alignment = 1
@@ -293,17 +260,12 @@ ratio = 4.7613
 layout_mode = 2
 text = "Code:
 Luise Münchgesang
-Vincent Knapp
 Benedek Kovacs
 
 Art:
 Luise Münchgesang
-Vincent Knapp
 Benedek Kovacs
-
-Audio:
-Luise Münchgesang
-Vincent Knapp"
+"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -337,11 +299,11 @@ ratio = 0.25
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=119049907]
 stream = ExtResource("2_8saeu")
 
-[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_play_button_pressed"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_settings_button_pressed"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7/Button" to="." method="_on_credits_button_pressed"]
 [connection signal="drag_ended" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_drag_ended"]
-[connection signal="button_down" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_button_down"]
-[connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" method="_on_pressed"]
-[connection signal="button_down" from="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" method="_on_button_down"]
+[connection signal="button_down" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="button_down" from="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_3_pressed"]
