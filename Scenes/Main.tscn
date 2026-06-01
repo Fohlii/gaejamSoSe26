@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
 [ext_resource type="PackedScene" uid="uid://c20t03o5rsrji" path="res://Scenes/Player.tscn" id="1_r150o"]
+[ext_resource type="AudioStream" uid="uid://tt5aevqinsaq" path="res://Assets/GameMusic/adventuring_song.mp3" id="2_idj7w"]
+[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="3_kln2b"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kln2b"]
-distance = -480.0
+distance = -648.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 normal = Vector2(-0.99991566, -0.012985918)
-distance = -1478.5118
+distance = -3753.398
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(0.9999185, 0.012764918)
@@ -44,12 +46,12 @@ shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
 [node name="CharacterBody2D" parent="." unique_id=2052906808 instance=ExtResource("1_r150o")]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
-
-[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D" unique_id=316865649]
-position = Vector2(-4102, -18)
+[node name="BackgroundSea" type="Sprite2D" parent="." unique_id=316865649]
+position = Vector2(-4080, 288.00003)
 scale = Vector2(1, 1.127606)
 texture = SubResource("CompressedTexture2D_rgh2o")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 
 [node name="Parallax2D" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
 repeat_size = Vector2(2526, 0)
@@ -57,10 +59,22 @@ repeat_times = 3
 
 [node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1493244153]
 material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(24, 298)
 texture = SubResource("CompressedTexture2D_idj7w")
 
 [node name="BackgroundMeadow" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1252281063]
 material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(1263, 0)
+position = Vector2(1287, 298)
 texture = SubResource("CompressedTexture2D_kln2b")
 flip_h = true
+
+[node name="Node2D" type="Node2D" parent="Parallax2D/Parallax2D" unique_id=1461643182]
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/Parallax2D/Node2D" unique_id=1590678452]
+position = Vector2(1929.4998, 1176)
+scale = Vector2(19.804686, 1.515625)
+texture = ExtResource("3_kln2b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1710529578]
+stream = ExtResource("2_idj7w")
+autoplay = true

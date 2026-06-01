@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bhrkjf2wp4t0o"
-path="res://.godot/imported/sfx_step_grass_r.wav-7c92337b5a7f2eb80ad034f519f8d307.sample"
+path="res://.godot/imported/sfx_step_grass_r.wav-9869724326d8c71737ba2aeee67e2e70.sample"
 
 [deps]
 
-source_file="res://Assets/SFX/sfx_step_grass_r.wav"
-dest_files=["res://.godot/imported/sfx_step_grass_r.wav-7c92337b5a7f2eb80ad034f519f8d307.sample"]
+source_file="res://Assets/GameMusic/SFX/sfx_step_grass_r.wav"
+dest_files=["res://.godot/imported/sfx_step_grass_r.wav-9869724326d8c71737ba2aeee67e2e70.sample"]
 
 [params]
 
