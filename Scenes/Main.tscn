@@ -14,7 +14,7 @@ distance = -1478.5118
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(0.9999185, 0.012764918)
-distance = -7876.086
+distance = -5110.3623
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
 
@@ -60,13 +60,13 @@ texture = ExtResource("2_kln2b")
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 
 [node name="BackgroundSea" type="Sprite2D" parent="Parallax2D" unique_id=316865649]
-position = Vector2(-6636, -8)
+position = Vector2(-4102, -18)
 scale = Vector2(1, 1.127606)
 texture = SubResource("CompressedTexture2D_rgh2o")
 
 [node name="Parallax2D" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
 repeat_size = Vector2(2526, 0)
-repeat_times = 4
+repeat_times = 3
 
 [node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1493244153]
 material = SubResource("CanvasItemMaterial_rgh2o")
