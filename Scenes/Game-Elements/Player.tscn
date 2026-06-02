@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bhrkjf2wp4t0o" path="res://Assets/GameMusic/SFX/sfx_step_grass_r.wav" id="4_5ixxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dewec"]
-size = Vector2(16, 50)
+size = Vector2(66, 118)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
 atlas = ExtResource("2_kyqiw")
@@ -126,13 +126,12 @@ animations = [{
 script = ExtResource("1_kyqiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219768441]
-position = Vector2(0, 6)
+position = Vector2(25, 40)
 shape = SubResource("RectangleShape2D_dewec")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1183754874]
-z_index = 1
-position = Vector2(0, -4.25)
-scale = Vector2(1, 1.1197183)
+position = Vector2(26, 30.95951)
+scale = Vector2(2.625, 2.2200155)
 sprite_frames = SubResource("SpriteFrames_1e7my")
 animation = &"walk"
 frame_progress = 0.79175544
