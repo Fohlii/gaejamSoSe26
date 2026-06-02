@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dplxe84ckax72"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
+normal = Vector2(-0.99991566, -0.012985918)
+distance = -3753.398
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
+normal = Vector2(0.9999185, 0.012764918)
+distance = -5110.3623
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
+size = Vector2(8188, 20)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idj7w"]
+load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
+load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
+
+[node name="PastRoot" type="Node2D" unique_id=1663669848]
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
+physics_material_override = SubResource("PhysicsMaterial_idj7w")
+
+[node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
+position = Vector2(2261, -105)
+shape = SubResource("WorldBoundaryShape2D_rgh2o")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
+position = Vector2(2941, 28)
+shape = SubResource("WorldBoundaryShape2D_pbw6q")
+
+[node name="Colliders" type="Node2D" parent="." unique_id=1484444843]
+
+[node name="Ground" type="Node2D" parent="Colliders" unique_id=1962164580]
+
+[node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
+position = Vector2(1920, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
+shape = SubResource("RectangleShape2D_kln2b")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
+z_as_relative = false
+scroll_offset = Vector2(0, -640)
+
+[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1018361539]
+z_index = -4
+scroll_scale = Vector2(0.2, 1)
+
+[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=316865649]
+position = Vector2(-1554, 263.62485)
+scale = Vector2(1, 1.1525879)
+texture = SubResource("CompressedTexture2D_rgh2o")
+
+[node name="BackgroundMeadow1" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1493244153]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(24, 298)
+texture = SubResource("CompressedTexture2D_idj7w")
+
+[node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1252281063]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(1287, 298)
+texture = SubResource("CompressedTexture2D_kln2b")
+flip_h = true
+
+[node name="BackgroundMeadow3" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1665989245]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(2550, 298)
+texture = SubResource("CompressedTexture2D_kln2b")
+
+[node name="BackgroundMeadow4" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=2018268714]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(3813, 298)
+texture = SubResource("CompressedTexture2D_idj7w")
+flip_h = true
+
+[node name="BackgroundSea2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1136097736]
+position = Vector2(5391, 264)
+scale = Vector2(1, 1.1525879)
+texture = SubResource("CompressedTexture2D_rgh2o")
+flip_h = true
+
+[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
+z_index = -3
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(2526, 0)
+
+[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1071852599]
+z_index = -2
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(2526, 0)
+
+[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=86989320]
+z_index = -1
+scroll_scale = Vector2(0.9, 1)
+
+[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=812787616]
+z_index = 1
