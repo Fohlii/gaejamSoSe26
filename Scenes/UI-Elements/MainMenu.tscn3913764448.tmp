@@ -1,0 +1,309 @@
+[gd_scene format=3 uid="uid://u4gh4cyl0hk8"]
+
+[ext_resource type="Script" uid="uid://l27kypxngvy7" path="res://Scripts/GD-Scripts/UI/MainMenuBehaviour.gd" id="1_853f1"]
+[ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="2_8saeu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_853f1"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[node name="MainMenu" type="Node2D" unique_id=1909509357]
+script = ExtResource("1_853f1")
+
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1527103736]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -123.000015
+offset_right = 1885.0
+offset_bottom = 1268.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.66, 0.59)
+texture = SubResource("CompressedTexture2D_853f1")
+
+[node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu" unique_id=323585735]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu" unique_id=1034861613]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/AspectRatioContainer" unique_id=461313659]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1939456140]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=550096747]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Play
+"
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=3309692]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5" unique_id=1064011318]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "How to Play"
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=921335182]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1834916901]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Settings"
+
+[node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=650696884]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7" unique_id=35540494]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainMenu" unique_id=2106999447]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="Settings" type="HBoxContainer" parent="." unique_id=2111924631]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Settings" unique_id=880907250]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Settings" unique_id=1421831460]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.99
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/AspectRatioContainer" unique_id=1540810189]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1285634631]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=385058472]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 4.6413
+
+[node name="GridContainer" type="GridContainer" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=872668856]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1301909261]
+layout_mode = 2
+text = "SOUND VOLUME     "
+
+[node name="HSlider" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=755856970]
+custom_minimum_size = Vector2(124.25, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1661337764]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.09
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1577582994]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+
+[node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1084217131]
+custom_minimum_size = Vector2(252.54, 0)
+layout_mode = 2
+text = "back"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=638277375]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings" unique_id=1400610261]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="HowToPlay" type="HBoxContainer" parent="." unique_id=648488176]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HowToPlay" unique_id=1680903180]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HowToPlay" unique_id=898335136]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/AspectRatioContainer" unique_id=1087083430]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1019892536]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment_horizontal = 0
+
+[node name="TextureRect" type="ColorRect" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1801537988]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.08, 0.08, 0.08, 0.7411765)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay/AspectRatioContainer/VBoxContainer/TextureRect" unique_id=931644874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay" unique_id=665814855]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/AspectRatioContainer3" unique_id=2059061603]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer3/VBoxContainer" unique_id=455105560]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="Credits" type="HBoxContainer" parent="." unique_id=2119201412]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Credits" unique_id=167130894]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Credits" unique_id=494841510]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.99
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/AspectRatioContainer" unique_id=1849373947]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=1494923064]
+custom_minimum_size = Vector2(0, 132.57)
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=1921505049]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 4.7613
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=261858209]
+layout_mode = 2
+text = "Code:
+Luise Münchgesang
+Benedek Kovacs
+
+Art:
+Luise Münchgesang
+
+Music:
+Music by Yoiyami"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=1111644556]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.09
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=58361180]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+
+[node name="Button" type="Button" parent="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=644158181]
+custom_minimum_size = Vector2(252.54, 0)
+layout_mode = 2
+text = "back"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Credits/AspectRatioContainer/VBoxContainer" unique_id=350959451]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Credits" unique_id=811958318]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=119049907]
+stream = ExtResource("2_8saeu")
+
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_play_button_pressed"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_settings_button_pressed"]
+[connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7/Button" to="." method="_on_credits_button_pressed"]
+[connection signal="drag_ended" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_drag_ended"]
+[connection signal="button_down" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="button_down" from="Credits/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_3_pressed"]

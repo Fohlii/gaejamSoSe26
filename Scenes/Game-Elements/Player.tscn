@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c20t03o5rsrji"]
 
-[ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/player_character_body_2d.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scripts/GD-Scripts/Player/player_character_body_2d.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://cmhn4asx1had" path="res://Assets/Player/advnt_full.png" id="2_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://d0lqkaafs031d" path="res://Assets/GameMusic/SFX/sfx_step_grass_l.wav" id="3_dewec"]
 [ext_resource type="AudioStream" uid="uid://bhrkjf2wp4t0o" path="res://Assets/GameMusic/SFX/sfx_step_grass_r.wav" id="4_5ixxa"]

@@ -1,10 +1,8 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
-[ext_resource type="PackedScene" uid="uid://c20t03o5rsrji" path="res://Scenes/Player.tscn" id="1_r150o"]
-[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="3_kln2b"]
-[ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="3_pbw6q"]
-[ext_resource type="AudioStream" uid="uid://d22sbnghiyo2w" path="res://Assets/GameMusic/the_budding_of_consciousness.wav" id="3_rgh2o"]
-[ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="4_pbw6q"]
+[ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
+[ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
+[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -30,7 +28,7 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
-[node name="Node2D" type="Node2D" unique_id=1663669848]
+[node name="PresentRoot" type="Node2D" unique_id=1663669848]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
@@ -52,9 +50,6 @@ position = Vector2(1920, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
 shape = SubResource("RectangleShape2D_kln2b")
-
-[node name="Player" parent="." unique_id=2052906808 instance=ExtResource("1_r150o")]
-position = Vector2(-643, -645)
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 z_as_relative = false
@@ -105,12 +100,12 @@ repeat_size = Vector2(2526, 0)
 [node name="Hill1" type="Sprite2D" parent="Parallax2D/FartherBackgroundLayer" unique_id=1579017096]
 position = Vector2(-264.00003, 509)
 scale = Vector2(0.55090636, 0.62107885)
-texture = ExtResource("3_pbw6q")
+texture = ExtResource("2_6aadu")
 
 [node name="Hill2" type="Sprite2D" parent="Parallax2D/FartherBackgroundLayer" unique_id=1204101252]
 position = Vector2(509.00003, 478)
 scale = Vector2(0.67205137, 0.6862125)
-texture = ExtResource("3_pbw6q")
+texture = ExtResource("2_6aadu")
 
 [node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1071852599]
 z_index = -2
@@ -120,7 +115,7 @@ repeat_size = Vector2(2526, 0)
 [node name="Grass" type="Sprite2D" parent="Parallax2D/FarBackgroundLayer" unique_id=2145575959]
 position = Vector2(654, 745)
 scale = Vector2(1.9967293, 1.1375325)
-texture = ExtResource("4_pbw6q")
+texture = ExtResource("3_3ukvu")
 
 [node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=86989320]
 z_index = -1
@@ -129,24 +124,20 @@ scroll_scale = Vector2(0.9, 1)
 [node name="Tree" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1590678452]
 position = Vector2(-247, 454)
 scale = Vector2(0.34375, 2.9453125)
-texture = ExtResource("3_kln2b")
+texture = ExtResource("4_g8hrq")
 
 [node name="Tree2" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1638677988]
 position = Vector2(694, 456)
 scale = Vector2(0.34375, 2.9453125)
-texture = ExtResource("3_kln2b")
+texture = ExtResource("4_g8hrq")
 
 [node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=812787616]
 z_index = 1
 
 [node name="Bush" type="Sprite2D" parent="Parallax2D/NearForeGroundLayer" unique_id=1212117377]
 position = Vector2(-450, 678)
-texture = ExtResource("3_kln2b")
+texture = ExtResource("4_g8hrq")
 
 [node name="Bush2" type="Sprite2D" parent="Parallax2D/NearForeGroundLayer" unique_id=1467699284]
 position = Vector2(254, 639)
-texture = ExtResource("3_kln2b")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1710529578]
-stream = ExtResource("3_rgh2o")
-autoplay = true
+texture = ExtResource("4_g8hrq")
