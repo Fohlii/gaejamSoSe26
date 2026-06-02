@@ -1,11 +1,13 @@
 extends Node2D
+
 @onready var main_menu: Node2D = $MainMenu
-@onready var MusicPlayer: AudioStreamPlayer = $MusicPlayer
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var present_root: Node2D = $PresentRoot
 @onready var past_root: Node2D = $PastRoot
-@onready var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
-var  in_past = false
 
+var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
+
+var in_past := false
 func _ready() -> void:	
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
