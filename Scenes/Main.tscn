@@ -6,9 +6,6 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kln2b"]
-distance = -648.0
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 normal = Vector2(-0.99991566, -0.012985918)
 distance = -3753.398
@@ -16,6 +13,9 @@ distance = -3753.398
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(0.9999185, 0.012764918)
 distance = -5110.3623
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
+size = Vector2(8188, 20)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -33,46 +33,113 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=108893747]
-shape = SubResource("WorldBoundaryShape2D_kln2b")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
+[node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
 position = Vector2(596, 710)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
+[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
 position = Vector2(582, 710)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
-[node name="CharacterBody2D" parent="." unique_id=2052906808 instance=ExtResource("1_r150o")]
+[node name="Colliders" type="Node2D" parent="." unique_id=1484444843]
 
-[node name="BackgroundSea" type="Sprite2D" parent="." unique_id=316865649]
-position = Vector2(-4080, 288.00003)
-scale = Vector2(1, 1.127606)
-texture = SubResource("CompressedTexture2D_rgh2o")
+[node name="Ground" type="Node2D" parent="Colliders" unique_id=1962164580]
+
+[node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
+position = Vector2(1920, 645)
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Ground/MainAreaGround" unique_id=802343645]
+scale = Vector2(63.968758, 0.16406257)
+texture = ExtResource("3_kln2b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
+shape = SubResource("RectangleShape2D_kln2b")
+
+[node name="Player" parent="." unique_id=2052906808 instance=ExtResource("1_r150o")]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
+z_as_relative = false
 
-[node name="Parallax2D" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
+[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1018361539]
+z_index = -3
+scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(2526, 0)
-repeat_times = 3
 
-[node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1493244153]
+[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=316865649]
+position = Vector2(-1554, 263.62485)
+scale = Vector2(1, 1.1525879)
+texture = SubResource("CompressedTexture2D_rgh2o")
+
+[node name="BackgroundMeadow1" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1493244153]
 material = SubResource("CanvasItemMaterial_rgh2o")
 position = Vector2(24, 298)
 texture = SubResource("CompressedTexture2D_idj7w")
 
-[node name="BackgroundMeadow" type="Sprite2D" parent="Parallax2D/Parallax2D" unique_id=1252281063]
+[node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1252281063]
 material = SubResource("CanvasItemMaterial_rgh2o")
 position = Vector2(1287, 298)
 texture = SubResource("CompressedTexture2D_kln2b")
 flip_h = true
 
-[node name="Node2D" type="Node2D" parent="Parallax2D/Parallax2D" unique_id=1461643182]
+[node name="BackgroundMeadow3" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1665989245]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(2550, 298)
+texture = SubResource("CompressedTexture2D_kln2b")
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D/Parallax2D/Node2D" unique_id=1590678452]
-position = Vector2(1929.4998, 1176)
-scale = Vector2(19.804686, 1.515625)
+[node name="BackgroundMeadow4" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=2018268714]
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(3813, 298)
+texture = SubResource("CompressedTexture2D_idj7w")
+flip_h = true
+
+[node name="BackgroundSea2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1136097736]
+position = Vector2(5391, 264)
+scale = Vector2(1, 1.1525879)
+texture = SubResource("CompressedTexture2D_rgh2o")
+flip_h = true
+
+[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
+z_index = -2
+scroll_scale = Vector2(0.5, 0.3)
+repeat_size = Vector2(2526, 0)
+
+[node name="Hill1" type="Sprite2D" parent="Parallax2D/FarBackgroundLayer" unique_id=1579017096]
+position = Vector2(-439.5, 399.5)
+scale = Vector2(1.2421876, 1.2421879)
+texture = ExtResource("3_kln2b")
+
+[node name="Hill2" type="Sprite2D" parent="Parallax2D/FarBackgroundLayer" unique_id=1102445202]
+position = Vector2(-99.00001, 292)
+scale = Vector2(1.1015625, 1.0703126)
+texture = ExtResource("3_kln2b")
+
+[node name="Hill3" type="Sprite2D" parent="Parallax2D/FarBackgroundLayer" unique_id=2049126761]
+position = Vector2(407, 359.00003)
+scale = Vector2(1.546875, 1.4921875)
+texture = ExtResource("3_kln2b")
+
+[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=86989320]
+z_index = -1
+
+[node name="Tree" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1590678452]
+position = Vector2(-247, 454)
+scale = Vector2(0.34375, 2.9453125)
+texture = ExtResource("3_kln2b")
+
+[node name="Tree2" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1638677988]
+position = Vector2(694, 456)
+scale = Vector2(0.34375, 2.9453125)
+texture = ExtResource("3_kln2b")
+
+[node name="ForeGroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=812787616]
+z_index = 1
+
+[node name="Bush" type="Sprite2D" parent="Parallax2D/ForeGroundLayer" unique_id=1212117377]
+position = Vector2(-450, 678)
+texture = ExtResource("3_kln2b")
+
+[node name="Bush2" type="Sprite2D" parent="Parallax2D/ForeGroundLayer" unique_id=1467699284]
+position = Vector2(254, 639)
 texture = ExtResource("3_kln2b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1710529578]

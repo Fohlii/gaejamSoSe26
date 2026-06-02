@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name PlayerCharacterBody2D extends CharacterBody2D
 
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var left_foot: AudioStreamPlayer2D = $left_foot

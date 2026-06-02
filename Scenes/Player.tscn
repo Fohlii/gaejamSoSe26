@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://c20t03o5rsrji"]
 
-[ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/character_body_2d.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://c3b08wok4vdvb" path="res://Scenes/player_character_body_2d.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://cmhn4asx1had" path="res://Assets/Player/advnt_full.png" id="2_kyqiw"]
 [ext_resource type="AudioStream" uid="uid://d0lqkaafs031d" path="res://Assets/GameMusic/SFX/sfx_step_grass_l.wav" id="3_dewec"]
 [ext_resource type="AudioStream" uid="uid://bhrkjf2wp4t0o" path="res://Assets/GameMusic/SFX/sfx_step_grass_r.wav" id="4_5ixxa"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kln2b"]
-height = 44.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dewec"]
+size = Vector2(16, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
 atlas = ExtResource("2_kyqiw")
@@ -122,11 +122,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2052906808]
+[node name="Player" type="CharacterBody2D" unique_id=2052906808]
 script = ExtResource("1_kyqiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219768441]
-shape = SubResource("CapsuleShape2D_kln2b")
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_dewec")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1183754874]
 z_index = 1
