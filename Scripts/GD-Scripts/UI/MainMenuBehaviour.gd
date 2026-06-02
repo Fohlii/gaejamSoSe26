@@ -5,10 +5,9 @@ extends Node
 @onready var how_to_play: HBoxContainer = $HowToPlay
 @onready var settings: HBoxContainer = $Settings
 @onready var main_menu: HBoxContainer = $MainMenu
-
+@onready var root_scene = get_tree().get_current_scene()
 @onready var present: Node = $"../PresentRoot"
 @onready var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
-
 
 func play_click_sound() -> void:
 	button_click.play()
@@ -17,12 +16,7 @@ func play_click_sound() -> void:
 
 func _on_play_button_pressed() -> void:
 	await play_click_sound()
-	var player: CharacterBody2D = playerPS.instantiate()
-	var playerCam: Camera2D = player.get_child(2)
-	player.position.y = -500
-	present.add_child(player)
-	playerCam.make_current()
-	self.get_parent().remove_child(self)
+	get_tree().current_scene.start_game()
 
 func _on_settings_button_pressed() -> void:
 	await play_click_sound()
