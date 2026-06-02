@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if Input.is_action_pressed("run"):
 			SPEED = 400.0
-		else:
+		if Input.is_action_just_released("run"):
 			SPEED = 200.0
 		if sprite_2d.animation != "walk":
 			sprite_2d.play("walk")
