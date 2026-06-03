@@ -20,12 +20,13 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		sprite_2d.play("jump")
 		velocity.y = JUMP_VELOCITY
-
+	
+	#TODO
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	#var direction := Input.get_axis("walk_left", "walk_right")
@@ -58,10 +59,11 @@ class PlayerMovementComponent:
 	var currentState: MotionState
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
+		
 		var idleMotionState = MotionState.new(
 			func(): print("idleMotionState entered"), 
 			func(): print("idleMotionState exited"), 
-			func(): 
+			func(): #TODO
 				var direction = Input.get_axis("walk_left", "walk_right")
 				if direction == 0:
 					return Vector2(0, player.velocity.y)
@@ -71,10 +73,11 @@ class PlayerMovementComponent:
 					return processInput()
 		)
 		playerMotionStates["IdleMotionState"] = idleMotionState
+		
 		var walkingMotionState = MotionState.new(
 			func(): print("walkingMotionState entered"), 
 			func(): print("walkingMotionState exited"), 
-			func(): 
+			func(): #TODO
 				var direction = Input.get_axis("walk_left", "walk_right")
 				if direction != 0:
 					return Vector2(direction * player.SPEED, player.velocity.y)
@@ -84,11 +87,51 @@ class PlayerMovementComponent:
 					return processInput()
 		)
 		playerMotionStates["WalkingMotionState"] = walkingMotionState
-		var runningMotionState #TODO
-		var jumpingMotionState #TODO
-		var fallingMotionState #TODO
-		var landingMotionState #TODO
-		var climbingMotionState #TODO
+		
+		var runningMotionState = MotionState.new(
+			func(): print("runningMotionState entered"), 
+			func(): print("runningMotionState exited"), 
+			func(): #TODO
+				print("runningMotionState process input called")
+				return player.velocity
+		)
+		playerMotionStates["RunningMotionState"] = runningMotionState
+		
+		var jumpingMotionState = MotionState.new(
+			func(): print("jumpingMotionState entered"), 
+			func(): print("jumpingMotionState exited"), 
+			func(): #TODO
+				print("jumpingMotionState process input called")
+				return player.velocity
+		)
+		playerMotionStates["JumpingMotionState"] = jumpingMotionState
+		
+		var fallingMotionState = MotionState.new(
+			func(): print("fallingMotionState entered"), 
+			func(): print("fallingMotionState exited"), 
+			func(): #TODO
+				print("fallingMotionState process input called")
+				return player.velocity
+		)
+		playerMotionStates["FallingMotionState"] = fallingMotionState
+		
+		var landingMotionState = MotionState.new(
+			func(): print("landingMotionState entered"), 
+			func(): print("landingMotionState exited"), 
+			func(): #TODO
+				print("landingMotionState process input called")
+				return player.velocity
+		)
+		playerMotionStates["LandingMotionState"] = landingMotionState
+		
+		var climbingMotionState = MotionState.new(
+			func(): print("climbingMotionState entered"), 
+			func(): print("climbingMotionState exited"), 
+			func(): #TODO
+				print("climbingMotionState process input called")
+				return player.velocity
+		)
+		playerMotionStates["ClimbingMotionState"] = climbingMotionState
 	
 	func changeState(newStateName: String):
 		if (currentState):
