@@ -84,6 +84,11 @@ class PlayerMovementComponent:
 					return processInput()
 		)
 		playerMotionStates["WalkingMotionState"] = walkingMotionState
+		var runningMotionState #TODO
+		var jumpingMotionState #TODO
+		var fallingMotionState #TODO
+		var landingMotionState #TODO
+		var climbingMotionState #TODO
 	
 	func changeState(newStateName: String):
 		if (currentState):
