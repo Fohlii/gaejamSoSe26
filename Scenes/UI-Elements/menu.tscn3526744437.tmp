@@ -66,6 +66,17 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "Settings"
 
+[node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1476832793]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7" unique_id=1189530061]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainMenu" unique_id=235756476]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -217,6 +228,7 @@ stream = ExtResource("3_i5h8a")
 [connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer7/Button" to="." method="_on_credits_button_pressed"]
 [connection signal="value_changed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2" method="_on_value_changed"]
 [connection signal="pressed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_pressed"]
