@@ -37,4 +37,5 @@ func start_game():
 	
 func show_menu():	
 	button_click.play()
+	GlobalVars.esc_pressed.emit()
 	menu.visible = !menu.visible
