@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bjjsr5tpl74dk" path="res://Scenes/Levels/Present.tscn" id="2_d31q8"]
 [ext_resource type="PackedScene" uid="uid://dplxe84ckax72" path="res://Scenes/Levels/Past.tscn" id="3_dmpbk"]
 [ext_resource type="PackedScene" uid="uid://u4gh4cyl0hk8" path="res://Scenes/UI-Elements/MainMenu.tscn" id="4_r66ge"]
+[ext_resource type="PackedScene" uid="uid://ckf4dwi6a6ud6" path="res://Scenes/UI-Elements/menu.tscn" id="6_dmpbk"]
+[ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="7_r66ge"]
 
 [node name="Root" type="Node2D" unique_id=1663669848]
 script = ExtResource("1_d31q8")
@@ -13,9 +15,18 @@ script = ExtResource("1_d31q8")
 stream = ExtResource("1_07780")
 autoplay = true
 
+[node name="Control" type="CanvasLayer" parent="." unique_id=802550207]
+visible = false
+
+[node name="Menu" parent="Control" unique_id=1329174015 instance=ExtResource("6_dmpbk")]
+
 [node name="PresentRoot" parent="." unique_id=1521700590 instance=ExtResource("2_d31q8")]
 
 [node name="PastRoot" parent="." unique_id=1285024051 instance=ExtResource("3_dmpbk")]
 visible = false
 
 [node name="MainMenu" parent="." unique_id=1909509357 instance=ExtResource("4_r66ge")]
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1233577497]
+stream = ExtResource("7_r66ge")
+bus = &"SFX"

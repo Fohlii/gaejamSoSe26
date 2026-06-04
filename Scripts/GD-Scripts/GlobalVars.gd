@@ -1,4 +1,4 @@
 extends Node
 
-var musicVol: int
-var sfxVol: int
+var musicVol: int = 100
+var sfxVol: int =100

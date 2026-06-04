@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://l27kypxngvy7" path="res://Scripts/GD-Scripts/UI/MainMenuBehaviour.gd" id="1_853f1"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="2_8saeu"]
 [ext_resource type="Script" uid="uid://b3g2prb57hmik" path="res://Scenes/UI-Elements/h_slider.gd" id="2_xb6rm"]
-[ext_resource type="Script" uid="uid://cyratwh2lp4wn" path="res://Scenes/UI-Elements/h_slider_2.gd" id="3_spb0t"]
+[ext_resource type="Script" path="res://Scenes/UI-Elements/h_slider_2.gd" id="3_spb0t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_853f1"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -310,6 +310,7 @@ ratio = 0.25
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=119049907]
 stream = ExtResource("2_8saeu")
+bus = &"SFX"
 
 [connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_play_button_pressed"]
 [connection signal="button_down" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_how_to_play_button_pressed"]
