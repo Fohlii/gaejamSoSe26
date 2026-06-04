@@ -17,6 +17,12 @@ distance = -5110.3623
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
 size = Vector2(8188, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk6vw"]
+radius = 32.0
+height = 448.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
@@ -28,7 +34,7 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
-[node name="PresentRoot" type="Node2D" unique_id=1663669848]
+[node name="PresentRoot" type="Node" unique_id=1396705721]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
@@ -41,15 +47,58 @@ shape = SubResource("WorldBoundaryShape2D_rgh2o")
 position = Vector2(2941, 28)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
-[node name="Colliders" type="Node2D" parent="." unique_id=1484444843]
+[node name="Colliders" type="Node" parent="." unique_id=1303131411]
 
-[node name="Ground" type="Node2D" parent="Colliders" unique_id=1962164580]
+[node name="Ground" type="Node" parent="Colliders" unique_id=1266792167]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
 position = Vector2(1920, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
 shape = SubResource("RectangleShape2D_kln2b")
+
+[node name="Objects" type="Node" parent="Colliders" unique_id=828176003]
+
+[node name="treelog" type="StaticBody2D" parent="Colliders/Objects" unique_id=518168430]
+process_mode = 4
+visible = false
+position = Vector2(1848, -44)
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/treelog" unique_id=1523268941]
+position = Vector2(-3.4332275e-05, -0.5)
+scale = Vector2(3.5000005, 0.5078125)
+texture = ExtResource("4_g8hrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/treelog" unique_id=172079]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kk6vw")
+
+[node name="tree" type="Node2D" parent="Colliders/Objects" unique_id=225820579]
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/tree" unique_id=1351859450]
+
+[node name="Area2D" type="Area2D" parent="Colliders/Objects/tree" unique_id=19911631]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/tree/Area2D" unique_id=1419583739]
+shape = SubResource("CircleShape2D_kk6vw")
+
+[node name="sapling" type="Node2D" parent="Colliders/Objects" unique_id=2137805971]
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/sapling" unique_id=1018033237]
+
+[node name="Area2D" type="Area2D" parent="Colliders/Objects/sapling" unique_id=393763993]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/sapling/Area2D" unique_id=382116490]
+shape = SubResource("CircleShape2D_kk6vw")
+
+[node name="stumpWithAxe" type="Node2D" parent="Colliders/Objects" unique_id=1264176407]
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/stumpWithAxe" unique_id=1837394018]
+
+[node name="Area2D" type="Area2D" parent="Colliders/Objects/stumpWithAxe" unique_id=1907657503]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/stumpWithAxe/Area2D" unique_id=507119672]
+shape = SubResource("CircleShape2D_kk6vw")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 z_as_relative = false
