@@ -143,10 +143,12 @@ zoom = Vector2(0.8, 0.8)
 [node name="left_foot" type="AudioStreamPlayer2D" parent="." unique_id=1519129858]
 stream = ExtResource("3_dewec")
 volume_db = 17.495
+bus = &"SFX"
 
 [node name="right_foot" type="AudioStreamPlayer2D" parent="." unique_id=2137069745]
 stream = ExtResource("4_5ixxa")
 volume_db = 17.495
+bus = &"SFX"
 
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]
