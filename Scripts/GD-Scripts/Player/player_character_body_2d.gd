@@ -214,9 +214,34 @@ class PlayerMovementComponent extends RefCounted:
 			return _processInput.call(delta)
 
 class PlayerInteractionComponent extends RefCounted:
+	var playerInventory: Inventory
+	var playerInventoryUI: Node2D
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		pass
+		playerInventory = Inventory.new()
+	
+	func playerInteract(interactable: Variant):
+		if interactable.needsItem() != "":
+			if playerInventory.hasItem(interactable.needsItem()):
+				# TODO remove item sprite from playerInventoryUI
+				playerInventory.removeItem(interactable.needsItem())
+				interactable.interactWith(interactable.needsItem())
+				if interactable.givesItem() != "":
+					# TODO add item sprite to playerInventoryUI
+					playerInventory.addItem(interactable.givesItem())
+		elif interactable.givesItem() != "":
+			interactable.interactWith("")
+			# TODO add item sprite to playerInventoryUI
+			playerInventory.addItem(interactable.givesItem())
 	
 	class Inventory extends RefCounted:
-		pass
+		var contents: Array[String]
+		
+		func addItem(itemId: String) -> void:
+			contents.append(itemId)
+		
+		func removeItem(itemId: String) -> void:
+			contents.remove_at(contents.find(itemId))
+		
+		func hasItem(itemId: String) -> bool:
+			return contents.has(itemId)

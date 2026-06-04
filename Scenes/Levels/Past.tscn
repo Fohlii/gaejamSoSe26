@@ -13,6 +13,8 @@ distance = -5110.3623
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
 size = Vector2(8188, 20)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
@@ -24,7 +26,7 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
-[node name="PastRoot" type="Node2D" unique_id=1663669848]
+[node name="PastRoot" type="Node" unique_id=2070937718]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
@@ -37,15 +39,26 @@ shape = SubResource("WorldBoundaryShape2D_rgh2o")
 position = Vector2(2941, 28)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
-[node name="Colliders" type="Node2D" parent="." unique_id=1484444843]
+[node name="Colliders" type="Node" parent="." unique_id=2101853269]
 
-[node name="Ground" type="Node2D" parent="Colliders" unique_id=1962164580]
+[node name="Ground" type="Node" parent="Colliders" unique_id=1990978823]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
 position = Vector2(1920, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
 shape = SubResource("RectangleShape2D_kln2b")
+
+[node name="Objects" type="Node" parent="Colliders" unique_id=875284887]
+
+[node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=992869190]
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/placeNearRiver" unique_id=25380208]
+
+[node name="Area2D" type="Area2D" parent="Colliders/Objects/placeNearRiver" unique_id=1725263679]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/placeNearRiver/Area2D" unique_id=2121509332]
+shape = SubResource("CircleShape2D_afb73")
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
 z_as_relative = false
