@@ -6,7 +6,7 @@ extends Node
 @onready var settings: HBoxContainer = $Settings
 @onready var main_menu: HBoxContainer = $MainMenu
 
-@onready var present: Node = $"../PresentRoot"
+@onready var present: Node = $"../../PresentRoot"
 @onready var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 
 

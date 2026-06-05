@@ -26,7 +26,7 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
-[node name="PastRoot" type="Node" unique_id=2070937718]
+[node name="PastRoot" type="Node2D" unique_id=91997941]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
@@ -39,9 +39,9 @@ shape = SubResource("WorldBoundaryShape2D_rgh2o")
 position = Vector2(2941, 28)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
-[node name="Colliders" type="Node" parent="." unique_id=2101853269]
+[node name="Colliders" type="Node2D" parent="." unique_id=1909346377]
 
-[node name="Ground" type="Node" parent="Colliders" unique_id=1990978823]
+[node name="Ground" type="Node2D" parent="Colliders" unique_id=822635641]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
 position = Vector2(1920, 0)
@@ -49,7 +49,7 @@ position = Vector2(1920, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
 shape = SubResource("RectangleShape2D_kln2b")
 
-[node name="Objects" type="Node" parent="Colliders" unique_id=875284887]
+[node name="Objects" type="Node2D" parent="Colliders" unique_id=1134882568]
 
 [node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=992869190]
 
