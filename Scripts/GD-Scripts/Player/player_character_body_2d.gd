@@ -3,6 +3,7 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var left_foot: AudioStreamPlayer2D = $left_foot
 @onready var right_foot: AudioStreamPlayer2D = $right_foot
+@onready var interactionArea: Area2D = $InteractionArea
 var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
@@ -16,8 +17,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity = playerMovement.processInput(delta)
-	
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	playerInteraction.processInput(interactionArea)
 
 func _on_sprite_2d_frame_changed() -> void:
 	if sprite_2d.frame == 2:
@@ -111,7 +114,9 @@ class PlayerMovementComponent extends RefCounted:
 				, 
 			func(delta: float): #TODO
 				changeState("FallingMotionState")
-				return Vector2(player.velocity.x, player.JUMP_VELOCITY)
+				var direction = Input.get_axis("walk_left", "walk_right")
+				player.sprite_2d.flip_h = (direction < 0)
+				return Vector2(direction * player.SPEED, player.JUMP_VELOCITY)
 		)
 		
 		playerMotionStates["FallingMotionState"] = MotionState.new(
@@ -220,7 +225,13 @@ class PlayerInteractionComponent extends RefCounted:
 	func _init(player: PlayerCharacterBody2D) -> void:
 		playerInventory = Inventory.new()
 	
-	func playerInteract(interactable: Variant):
+	func processInput(interactionZone: Area2D) -> void:
+		if Input.is_action_just_pressed("interact"):
+			if !interactionZone.get_overlapping_bodies().is_empty(): #.filter(func(node: Node2D) -> bool: return node.is_in_group("interactable"))
+				print("player interaction called")
+				playerInteract(interactionZone.get_overlapping_bodies()[0]) #arbitrary [0]
+	
+	func playerInteract(interactable: Interactable):
 		if interactable.needsItem() != "":
 			if playerInventory.hasItem(interactable.needsItem()):
 				# TODO remove item sprite from playerInventoryUI

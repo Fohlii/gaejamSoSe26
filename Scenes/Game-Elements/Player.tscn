@@ -151,5 +151,14 @@ volume_db = 17.495
 stream = ExtResource("4_5ixxa")
 volume_db = 17.495
 
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1531106874]
+collision_layer = 0
+collision_mask = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionArea" type="CollisionPolygon2D" parent="InteractionArea" unique_id=1632899401]
+polygon = PackedVector2Array(8, -19, 15, -18, 21, -15, 26, -11, 30, -6, 32, 0, 33, 6, 32, 12, 30, 18, 26, 24, 21, 28, 15, 30, 8, 31)
+
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]

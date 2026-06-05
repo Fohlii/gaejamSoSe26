@@ -15,7 +15,10 @@ normal = Vector2(0.9999185, 0.012764918)
 distance = -5110.3623
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
-size = Vector2(8188, 20)
+size = Vector2(7896, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
+size = Vector2(366, 18)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk6vw"]
 radius = 32.0
@@ -52,10 +55,18 @@ shape = SubResource("WorldBoundaryShape2D_pbw6q")
 [node name="Ground" type="Node2D" parent="Colliders" unique_id=885529901]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
-position = Vector2(1920, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
+position = Vector2(2082, 0)
 shape = SubResource("RectangleShape2D_kln2b")
+
+[node name="LeftBorderAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1973376293]
+position = Vector2(-1732, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/LeftBorderAreaGround" unique_id=767700206]
+position = Vector2(-289, 7.9999847)
+rotation = -0.48749033
+shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="Objects" type="Node2D" parent="Colliders" unique_id=12937242]
 
@@ -100,9 +111,9 @@ shape = SubResource("CircleShape2D_kk6vw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/stumpWithAxe/Area2D" unique_id=507119672]
 shape = SubResource("CircleShape2D_kk6vw")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
+[node name="Parallax2D" type="Node2D" parent="." unique_id=1389443476]
 z_as_relative = false
-scroll_offset = Vector2(0, -640)
+position = Vector2(0, -636)
 
 [node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1018361539]
 z_index = -4
