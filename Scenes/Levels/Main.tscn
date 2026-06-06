@@ -14,12 +14,10 @@ stream = ExtResource("1_07780")
 autoplay = true
 
 [node name="PresentRoot" parent="." unique_id=2116345146 instance=ExtResource("2_d31q8")]
-position = Vector2(10000, 0)
+position = Vector2(0, 10000)
 
 [node name="PastRoot" parent="." unique_id=1285024051 instance=ExtResource("3_dmpbk")]
-process_mode = 4
-visible = false
-position = Vector2(-10000, 0)
+position = Vector2(0, 20000)
 
 [node name="UI" type="Node2D" parent="." unique_id=1614021480]
 

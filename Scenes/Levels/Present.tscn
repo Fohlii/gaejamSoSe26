@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
+[ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
+[ext_resource type="Script" uid="uid://gr0e5cnprtax" path="res://Scenes/Levels/ParallaxEnterTrigger.gd" id="3_yoweg"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
-normal = Vector2(-0.99991566, -0.012985918)
-distance = -3753.398
+normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
-normal = Vector2(0.9999185, 0.012764918)
-distance = -5110.3623
+normal = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
-size = Vector2(16619, 20)
+size = Vector2(9849.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
 size = Vector2(366, 18)
@@ -25,6 +25,9 @@ radius = 32.0
 height = 448.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4naw"]
+size = Vector2(20, 1034)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -37,25 +40,28 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [node name="PresentRoot" type="Node2D" unique_id=2116345146]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
+position = Vector2(2208, 0)
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
 
 [node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
-position = Vector2(2261, -105)
+position = Vector2(7957, 0)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
 disabled = true
 
 [node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
-position = Vector2(2941, 28)
+position = Vector2(-2175, 0)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
+disabled = true
 
 [node name="Colliders" type="Node2D" parent="." unique_id=954489]
+position = Vector2(2208, 0)
 
 [node name="Ground" type="Node2D" parent="Colliders" unique_id=885529901]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
-position = Vector2(6426, 0)
+position = Vector2(3041.25, 0)
 shape = SubResource("RectangleShape2D_kln2b")
 
 [node name="LeftBorderAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1973376293]
@@ -70,8 +76,7 @@ shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="treelog" type="StaticBody2D" parent="Colliders/Objects" unique_id=518168430]
 process_mode = 4
-visible = false
-position = Vector2(1848, -44)
+position = Vector2(971, -44)
 
 [node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/treelog" unique_id=1523268941]
 position = Vector2(-3.4332275e-05, -0.5)
@@ -109,28 +114,66 @@ shape = SubResource("CircleShape2D_kk6vw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/stumpWithAxe/Area2D" unique_id=507119672]
 shape = SubResource("CircleShape2D_kk6vw")
 
-[node name="Parallax" type="Node2D" parent="." unique_id=1389443476]
+[node name="Parallax" type="Node2D" parent="." unique_id=1389443476 node_paths=PackedStringArray("parallax_chain")]
 z_as_relative = false
-position = Vector2(0, -1000)
+script = ExtResource("2_i4naw")
+parallax_chain = [NodePath("BackgroundLeftEnd"), NodePath("BackgroundMiddleArea"), NodePath("BackgroundRightEnd")]
+
+[node name="ZoneTriggers" type="Node2D" parent="Parallax" unique_id=311922840]
+
+[node name="LeftEndRightSide" type="Area2D" parent="Parallax/ZoneTriggers" unique_id=1919391178]
+position = Vector2(1369, 0)
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_yoweg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ZoneTriggers/LeftEndRightSide" unique_id=1772680290]
+shape = SubResource("RectangleShape2D_i4naw")
+
+[node name="MiddleLeftSide" type="Area2D" parent="Parallax/ZoneTriggers" unique_id=4207491]
+position = Vector2(3750, -5)
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_yoweg")
+zoneIndex = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ZoneTriggers/MiddleLeftSide" unique_id=1830857110]
+shape = SubResource("RectangleShape2D_i4naw")
+
+[node name="MiddleRightSide" type="Area2D" parent="Parallax/ZoneTriggers" unique_id=898080016]
+position = Vector2(7185, 0)
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_yoweg")
+zoneIndex = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ZoneTriggers/MiddleRightSide" unique_id=401838572]
+shape = SubResource("RectangleShape2D_i4naw")
+
+[node name="RightEndLeftSide" type="Area2D" parent="Parallax/ZoneTriggers" unique_id=1386627522]
+position = Vector2(9216, 0)
+collision_layer = 0
+monitorable = false
+script = ExtResource("3_yoweg")
+zoneIndex = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ZoneTriggers/RightEndLeftSide" unique_id=1382418703]
+shape = SubResource("RectangleShape2D_i4naw")
 
 [node name="BackgroundLeftEnd" type="Parallax2D" parent="Parallax" unique_id=1018361539]
-z_index = -6
-scroll_scale = Vector2(0.1, 0)
-scroll_offset = Vector2(-10000, 0)
-limit_begin = Vector2(10000, -10000000)
-limit_end = Vector2(15000, 10000000)
+z_index = -4
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-319, -1186)
 
 [node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/BackgroundLeftEnd" unique_id=316865649]
-scale = Vector2(1, 1.1525879)
+position = Vector2(0, 128)
 texture = SubResource("CompressedTexture2D_rgh2o")
 centered = false
 
 [node name="BackgroundMiddleArea" type="Parallax2D" parent="Parallax" unique_id=1134234197]
-z_index = -5
-scroll_scale = Vector2(0.2, 0)
-scroll_offset = Vector2(-7050, 0)
-limit_begin = Vector2(15000, -10000000)
-limit_end = Vector2(20000, 10000000)
+z_index = -4
+scroll_scale = Vector2(0.2, 1)
+scroll_offset = Vector2(1570, -1139)
 
 [node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/BackgroundMiddleArea" unique_id=488971309]
 material = SubResource("CanvasItemMaterial_rgh2o")
@@ -139,13 +182,11 @@ centered = false
 
 [node name="BackgroundRightEnd" type="Parallax2D" parent="Parallax" unique_id=1479364699]
 z_index = -4
-scroll_scale = Vector2(0.1, 0)
-scroll_offset = Vector2(-6856, 0)
-limit_begin = Vector2(20000, -10000000)
-limit_end = Vector2(25000, 10000000)
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(2840, -1276)
 
 [node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/BackgroundRightEnd" unique_id=288025432]
-scale = Vector2(1, 1.1525879)
+position = Vector2(0, 122)
 texture = SubResource("CompressedTexture2D_rgh2o")
 centered = false
 flip_h = true
@@ -154,9 +195,10 @@ flip_h = true
 visible = false
 z_index = -3
 scroll_scale = Vector2(0.3, 1)
+scroll_offset = Vector2(2208, -575)
 
 [node name="Hill" type="Sprite2D" parent="Parallax/FartherBackgroundLayer" unique_id=1579017096]
-position = Vector2(-264.00003, 509)
+position = Vector2(-264.00003, 490)
 scale = Vector2(0.55090636, 0.62107885)
 texture = ExtResource("2_6aadu")
 
@@ -164,9 +206,10 @@ texture = ExtResource("2_6aadu")
 visible = false
 z_index = -2
 scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(2208, -1000)
 
 [node name="Grass" type="Sprite2D" parent="Parallax/FarBackgroundLayer" unique_id=2145575959]
-position = Vector2(654, 745)
+position = Vector2(654, 1172)
 scale = Vector2(1.9967293, 1.1375325)
 texture = ExtResource("3_3ukvu")
 
@@ -174,16 +217,18 @@ texture = ExtResource("3_3ukvu")
 visible = false
 z_index = -1
 scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(2208, -1000)
 
 [node name="Tree" type="Sprite2D" parent="Parallax/NearBackgroundLayer" unique_id=1590678452]
-position = Vector2(-247, 454)
+position = Vector2(-247, 815)
 scale = Vector2(0.34375, 2.9453125)
 texture = ExtResource("4_g8hrq")
 
 [node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax" unique_id=812787616]
 visible = false
 z_index = 1
+scroll_offset = Vector2(2208, -1000)
 
 [node name="Bush" type="Sprite2D" parent="Parallax/NearForeGroundLayer" unique_id=1212117377]
-position = Vector2(-450, 678)
+position = Vector2(-450, 963)
 texture = ExtResource("4_g8hrq")

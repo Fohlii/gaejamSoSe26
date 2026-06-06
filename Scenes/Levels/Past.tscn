@@ -15,14 +15,6 @@ size = Vector2(8188, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
-load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idj7w"]
-load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
-
 [node name="PastRoot" type="Node2D" unique_id=91997941]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
@@ -31,10 +23,12 @@ physics_material_override = SubResource("PhysicsMaterial_idj7w")
 [node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
 position = Vector2(2261, -105)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
+disabled = true
 
 [node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
 position = Vector2(2941, 28)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
+disabled = true
 
 [node name="Colliders" type="Node2D" parent="." unique_id=1909346377]
 
@@ -57,28 +51,6 @@ shape = SubResource("RectangleShape2D_kln2b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/placeNearRiver/Area2D" unique_id=2121509332]
 shape = SubResource("CircleShape2D_afb73")
 
-[node name="Parallax2D" type="Node2D" parent="." unique_id=464978827]
+[node name="Parallax" type="Node2D" parent="." unique_id=464978827]
 z_as_relative = false
 position = Vector2(0, -664)
-
-[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1018361539]
-z_index = -4
-scroll_scale = Vector2(0, 0)
-scroll_offset = Vector2(-10000, 0)
-screen_offset = Vector2(-10000, 0)
-
-[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=316865649]
-position = Vector2(-1554, 263.62485)
-scale = Vector2(1, 1.1525879)
-texture = SubResource("CompressedTexture2D_rgh2o")
-
-[node name="BackgroundMeadow" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1493244153]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(24, 298)
-texture = SubResource("CompressedTexture2D_idj7w")
-
-[node name="BackgroundSea2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1136097736]
-position = Vector2(5391, 264)
-scale = Vector2(1, 1.1525879)
-texture = SubResource("CompressedTexture2D_rgh2o")
-flip_h = true

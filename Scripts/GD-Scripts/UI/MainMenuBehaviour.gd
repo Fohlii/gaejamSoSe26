@@ -22,6 +22,7 @@ func _on_play_button_pressed() -> void:
 	player.position.y = -500
 	present.add_child(player)
 	playerCam.make_current()
+	present.get_child(2).camera = playerCam
 	self.get_parent().remove_child(self)
 
 func _on_settings_button_pressed() -> void:
