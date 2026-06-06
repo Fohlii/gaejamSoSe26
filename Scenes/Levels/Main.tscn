@@ -20,6 +20,16 @@ autoplay = true
 visible = false
 script = ExtResource("3_oi5um")
 
+[node name="DarkOverlay" type="ColorRect" parent="Control" unique_id=244962845]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+color = Color(0.08959273, 0.12388409, 0.17481533, 0.5568628)
+
 [node name="Menu" parent="Control" unique_id=1329174015 instance=ExtResource("6_dmpbk")]
 
 [node name="PresentRoot" parent="." unique_id=1521700590 instance=ExtResource("2_d31q8")]
