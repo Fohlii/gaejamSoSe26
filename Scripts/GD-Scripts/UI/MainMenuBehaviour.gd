@@ -31,6 +31,8 @@ func _ready() -> void:
 	print(musicplayer.volume_db)
 	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider.volume_changed.connect(changeVol.bind())
 	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2.sfx_volume_changed.connect(changeSfxVol.bind())
+	$"../Control/Menu/Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2".sfx_volume_changed.connect(changeSfxVol.bind())
+	$"../Control/Menu/Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider".volume_changed.connect(changeVol.bind())
 ## 
 func changeVol() -> void:
 	#musicplayer.volume_db = -80 + (15*pow(settings.musicVol,0.37))
