@@ -4,7 +4,7 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var left_foot: AudioStreamPlayer2D = $left_foot
 @onready var right_foot: AudioStreamPlayer2D = $right_foot
 @onready var interactionArea: Area2D = $InteractionArea
-var SPEED = 200.0
+var SPEED = 2000.0
 const JUMP_VELOCITY = -400.0
 
 @onready var playerMovement: PlayerMovementComponent = PlayerMovementComponent.new(self)

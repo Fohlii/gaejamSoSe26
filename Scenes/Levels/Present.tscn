@@ -15,7 +15,7 @@ normal = Vector2(0.9999185, 0.012764918)
 distance = -5110.3623
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
-size = Vector2(7896, 20)
+size = Vector2(16619, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
 size = Vector2(366, 18)
@@ -34,9 +34,6 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idj7w"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
-load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
-
 [node name="PresentRoot" type="Node2D" unique_id=2116345146]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
@@ -45,6 +42,7 @@ physics_material_override = SubResource("PhysicsMaterial_idj7w")
 [node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
 position = Vector2(2261, -105)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
+disabled = true
 
 [node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
 position = Vector2(2941, 28)
@@ -57,7 +55,7 @@ shape = SubResource("WorldBoundaryShape2D_pbw6q")
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
-position = Vector2(2082, 0)
+position = Vector2(6426, 0)
 shape = SubResource("RectangleShape2D_kln2b")
 
 [node name="LeftBorderAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1973376293]
@@ -111,93 +109,81 @@ shape = SubResource("CircleShape2D_kk6vw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/stumpWithAxe/Area2D" unique_id=507119672]
 shape = SubResource("CircleShape2D_kk6vw")
 
-[node name="Parallax2D" type="Node2D" parent="." unique_id=1389443476]
+[node name="Parallax" type="Node2D" parent="." unique_id=1389443476]
 z_as_relative = false
-position = Vector2(0, -636)
+position = Vector2(0, -1000)
 
-[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1018361539]
+[node name="BackgroundLeftEnd" type="Parallax2D" parent="Parallax" unique_id=1018361539]
+z_index = -6
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-10000, 0)
+limit_begin = Vector2(10000, -10000000)
+limit_end = Vector2(15000, 10000000)
+
+[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/BackgroundLeftEnd" unique_id=316865649]
+scale = Vector2(1, 1.1525879)
+texture = SubResource("CompressedTexture2D_rgh2o")
+centered = false
+
+[node name="BackgroundMiddleArea" type="Parallax2D" parent="Parallax" unique_id=1134234197]
+z_index = -5
+scroll_scale = Vector2(0.2, 0)
+scroll_offset = Vector2(-7050, 0)
+limit_begin = Vector2(15000, -10000000)
+limit_end = Vector2(20000, 10000000)
+
+[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/BackgroundMiddleArea" unique_id=488971309]
+material = SubResource("CanvasItemMaterial_rgh2o")
+texture = SubResource("CompressedTexture2D_idj7w")
+centered = false
+
+[node name="BackgroundRightEnd" type="Parallax2D" parent="Parallax" unique_id=1479364699]
 z_index = -4
-scroll_scale = Vector2(0.2, 1)
+scroll_scale = Vector2(0.1, 0)
+scroll_offset = Vector2(-6856, 0)
+limit_begin = Vector2(20000, -10000000)
+limit_end = Vector2(25000, 10000000)
 
-[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=316865649]
-position = Vector2(-1554, 263.62485)
+[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/BackgroundRightEnd" unique_id=288025432]
 scale = Vector2(1, 1.1525879)
 texture = SubResource("CompressedTexture2D_rgh2o")
-
-[node name="BackgroundMeadow1" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1493244153]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(24, 298)
-texture = SubResource("CompressedTexture2D_idj7w")
-
-[node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1252281063]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(1287, 298)
-texture = SubResource("CompressedTexture2D_kln2b")
+centered = false
 flip_h = true
 
-[node name="BackgroundMeadow3" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1665989245]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(2550, 298)
-texture = SubResource("CompressedTexture2D_kln2b")
-
-[node name="BackgroundMeadow4" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=2018268714]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(3813, 298)
-texture = SubResource("CompressedTexture2D_idj7w")
-flip_h = true
-
-[node name="BackgroundSea2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1136097736]
-position = Vector2(5391, 264)
-scale = Vector2(1, 1.1525879)
-texture = SubResource("CompressedTexture2D_rgh2o")
-flip_h = true
-
-[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
+[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=26518790]
+visible = false
 z_index = -3
 scroll_scale = Vector2(0.3, 1)
-repeat_size = Vector2(2526, 0)
 
-[node name="Hill1" type="Sprite2D" parent="Parallax2D/FartherBackgroundLayer" unique_id=1579017096]
+[node name="Hill" type="Sprite2D" parent="Parallax/FartherBackgroundLayer" unique_id=1579017096]
 position = Vector2(-264.00003, 509)
 scale = Vector2(0.55090636, 0.62107885)
 texture = ExtResource("2_6aadu")
 
-[node name="Hill2" type="Sprite2D" parent="Parallax2D/FartherBackgroundLayer" unique_id=1204101252]
-position = Vector2(509.00003, 478)
-scale = Vector2(0.67205137, 0.6862125)
-texture = ExtResource("2_6aadu")
-
-[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1071852599]
+[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=1071852599]
+visible = false
 z_index = -2
 scroll_scale = Vector2(0.6, 1)
-repeat_size = Vector2(2526, 0)
 
-[node name="Grass" type="Sprite2D" parent="Parallax2D/FarBackgroundLayer" unique_id=2145575959]
+[node name="Grass" type="Sprite2D" parent="Parallax/FarBackgroundLayer" unique_id=2145575959]
 position = Vector2(654, 745)
 scale = Vector2(1.9967293, 1.1375325)
 texture = ExtResource("3_3ukvu")
 
-[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=86989320]
+[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=86989320]
+visible = false
 z_index = -1
 scroll_scale = Vector2(0.9, 1)
 
-[node name="Tree" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1590678452]
+[node name="Tree" type="Sprite2D" parent="Parallax/NearBackgroundLayer" unique_id=1590678452]
 position = Vector2(-247, 454)
 scale = Vector2(0.34375, 2.9453125)
 texture = ExtResource("4_g8hrq")
 
-[node name="Tree2" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1638677988]
-position = Vector2(694, 456)
-scale = Vector2(0.34375, 2.9453125)
-texture = ExtResource("4_g8hrq")
-
-[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=812787616]
+[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax" unique_id=812787616]
+visible = false
 z_index = 1
 
-[node name="Bush" type="Sprite2D" parent="Parallax2D/NearForeGroundLayer" unique_id=1212117377]
+[node name="Bush" type="Sprite2D" parent="Parallax/NearForeGroundLayer" unique_id=1212117377]
 position = Vector2(-450, 678)
-texture = ExtResource("4_g8hrq")
-
-[node name="Bush2" type="Sprite2D" parent="Parallax2D/NearForeGroundLayer" unique_id=1467699284]
-position = Vector2(254, 639)
 texture = ExtResource("4_g8hrq")
