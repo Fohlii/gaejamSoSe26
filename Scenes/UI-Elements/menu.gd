@@ -9,6 +9,7 @@ extends Node
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
 @onready var control: CanvasLayer = $".."
 @onready var exit: ConfirmationDialog = $ConfirmationDialog
+@onready var dark_overlay: ColorRect = $"../DarkOverlay"
 
 func _ready() -> void:
 	GlobalVars.connect( "esc_pressed",_on_esc_pressed)
@@ -26,9 +27,11 @@ func play_click_sound() -> void:
 	
 func _on_esc_pressed():
 	_on_button_3_pressed()
+
 func _on_play_button_pressed() -> void:
 	await play_click_sound()
 	control.visible = false
+	
 func _on_settings_button_pressed() -> void:
 	await play_click_sound()
 	## get_tree().change_scene_to_file("res://Scenes/UI-Elements/Settings.tscn")
