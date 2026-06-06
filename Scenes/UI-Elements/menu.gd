@@ -1,13 +1,14 @@
 extends Node
 
 @onready var button_click: AudioStreamPlayer = $ButtonClick
-@onready var how_to_play: HBoxContainer = %HowToPlay
-@onready var settings: HBoxContainer = %Settings
+@onready var how_to_play: HBoxContainer = $HowToPlay
+@onready var settings: HBoxContainer = $Settings
 @onready var main_menu: HBoxContainer = $MainMenu
 @onready var game_settings= $"/root/GlobalVars"
-@onready var musicplayer: AudioStreamPlayer = $"../MusicPlayer"
 @onready var master_bus_index = AudioServer.get_bus_index("Master")
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
+@onready var control: CanvasLayer = $".."
+@onready var exit: ConfirmationDialog = $ConfirmationDialog
 
 func _ready() -> void:
 	GlobalVars.connect( "esc_pressed",_on_esc_pressed)
@@ -27,16 +28,13 @@ func _on_esc_pressed():
 	_on_button_3_pressed()
 func _on_play_button_pressed() -> void:
 	await play_click_sound()
-	Input.action_press("esc")
-	Input.action_release("esc")
-	
+	control.visible = false
 func _on_settings_button_pressed() -> void:
 	await play_click_sound()
 	## get_tree().change_scene_to_file("res://Scenes/UI-Elements/Settings.tscn")
 	settings.visible = false
 	main_menu.visible = false
 	how_to_play.visible = true
-
 
 func _on_how_to_play_button_pressed() -> void:
 	await play_click_sound()
@@ -50,5 +48,16 @@ func _on_button_3_pressed() -> void:
 	main_menu.visible = true
 	how_to_play.visible = false
 
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_exit_button_pressed() -> void:
+	play_click_sound()
+	exit.popup_centered(Vector2i(300, 150))
+	main_menu.visible = false
+	
+func _on_confirmation_dialog_confirmed() -> void:
+	play_click_sound()
+	get_tree().quit()
+
+func _on_confirmation_dialog_canceled() -> void:
+	play_click_sound()
+	exit.hide()
+	main_menu.visible = true

@@ -6,6 +6,7 @@ extends Node2D
 @onready var past_root: Node2D = $PastRoot
 @onready var menu: CanvasLayer = $Control
 @onready var button_click: AudioStreamPlayer = $ButtonClick
+@onready var control: CanvasLayer = $Control
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
