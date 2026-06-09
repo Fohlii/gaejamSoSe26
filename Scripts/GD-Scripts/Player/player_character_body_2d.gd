@@ -3,6 +3,7 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var left_foot: AudioStreamPlayer2D = $left_foot
 @onready var right_foot: AudioStreamPlayer2D = $right_foot
+@onready var interactionArea: Area2D = $InteractionArea
 var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
@@ -15,35 +16,11 @@ func _ready() -> void:
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		sprite_2d.play("jump")
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		if Input.is_action_pressed("run"):
-			SPEED = 400.0
-		if Input.is_action_just_released("run"):
-			SPEED = 200.0
-		if sprite_2d.animation != "walk":
-			sprite_2d.play("walk")
-		velocity.x = direction * SPEED
-		if direction < 0:
-			sprite_2d.flip_h = true
-		else:
-			sprite_2d.flip_h= false
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		sprite_2d.play("default")
-
+	velocity = playerMovement.processInput(delta)
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	playerInteraction.processInput(interactionArea)
 
 func _on_sprite_2d_frame_changed() -> void:
 	if sprite_2d.frame == 2:
@@ -137,7 +114,9 @@ class PlayerMovementComponent extends RefCounted:
 				, 
 			func(delta: float): #TODO
 				changeState("FallingMotionState")
-				return Vector2(player.velocity.x, player.JUMP_VELOCITY)
+				var direction = Input.get_axis("walk_left", "walk_right")
+				player.sprite_2d.flip_h = (direction < 0)
+				return Vector2(direction * player.SPEED, player.JUMP_VELOCITY)
 		)
 		
 		playerMotionStates["FallingMotionState"] = MotionState.new(
@@ -246,19 +225,30 @@ class PlayerInteractionComponent extends RefCounted:
 	func _init(player: PlayerCharacterBody2D) -> void:
 		playerInventory = Inventory.new()
 	
-	func playerInteract(interactable: Variant):
+	func processInput(interactionZone: Area2D) -> void:
+		if Input.is_action_just_pressed("interact"):
+			print("player interaction called")
+			print(interactionZone.get_overlapping_areas())
+			if !interactionZone.get_overlapping_areas().is_empty(): #.filter(func(node: Node2D) -> bool: return node.is_in_group("interactable"))
+				playerInteract(interactionZone.get_overlapping_areas()[0].get_parent()) #arbitrary [0]
+				print("player interacting with ", interactionZone.get_overlapping_areas()[0])
+	
+	func playerInteract(interactable: Interactable):
 		if interactable.needsItem() != "":
 			if playerInventory.hasItem(interactable.needsItem()):
 				# TODO remove item sprite from playerInventoryUI
 				playerInventory.removeItem(interactable.needsItem())
-				interactable.interactWith(interactable.needsItem())
-				if interactable.givesItem() != "":
+				var temp = interactable.interactWith(interactable.needsItem())
+				if temp != "":
 					# TODO add item sprite to playerInventoryUI
-					playerInventory.addItem(interactable.givesItem())
+					playerInventory.addItem(temp)
+					print("player added to inventory: ", temp)
 		elif interactable.givesItem() != "":
-			interactable.interactWith("")
-			# TODO add item sprite to playerInventoryUI
-			playerInventory.addItem(interactable.givesItem())
+			var temp = interactable.interactWith("")
+			if temp != "":
+				# TODO add item sprite to playerInventoryUI
+				playerInventory.addItem(temp)
+				print("player added to inventory: ", temp)
 	
 	class Inventory extends RefCounted:
 		var contents: Array[String]

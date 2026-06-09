@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var main_menu: Node2D = $MainMenu
+@onready var main_menu: Node2D = $UI/MainMenu
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var present_root: Node2D = $PresentRoot
 @onready var past_root: Node2D = $PastRoot
-@onready var menu: CanvasLayer = $Control
+@onready var menu: CanvasLayer = $UI/Control
 @onready var button_click: AudioStreamPlayer = $ButtonClick
 @onready var control: CanvasLayer = $Control
 
@@ -15,14 +15,21 @@ func _ready() -> void:
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
-	pass
+	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree
 	
-func _process(delta: float) -> void:
+func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt??
 		if Input.is_action_just_pressed("timetravel"):
 			toggle_time()
 		if Input.is_action_just_pressed("esc"):
-			show_menu()
+			if main_menu.visible:
+				get_tree().quit()
+			else:
+				show_menu()
 func toggle_time() -> void:
+	if (in_past):
+		player.global_position.y = player.global_position.y-20500
+	else:
+		player.global_position.y = player.global_position.y+18500
 	in_past = !in_past
 	print("Is in past: " + str(in_past))
 	past_root.visible = in_past
@@ -32,8 +39,11 @@ func start_game():
 	main_menu.visible = false
 	player = playerPS.instantiate()
 	var playerCam: Camera2D = player.get_child(2)
-	player.global_position.y = -500
+	player.global_position.x = 1000
+	player.global_position.y = -100
 	add_child(player)
+	#present_root.add_child(player)
+	#present_root.get_child(2).camera = playerCam
 	playerCam.make_current()
 	
 func show_menu():	

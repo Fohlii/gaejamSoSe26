@@ -1,27 +1,32 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
+[ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Items/sapling.gd" id="1_1h27j"]
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
+[ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Items/axe_in_stump.gd" id="2_dorp1"]
+[ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
+[ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="3_ck43e"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
-normal = Vector2(-0.99991566, -0.012985918)
-distance = -3753.398
+normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
-normal = Vector2(0.9999185, 0.012764918)
-distance = -5110.3623
+normal = Vector2(1, 0)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
-size = Vector2(8188, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
+size = Vector2(100, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4naw"]
+size = Vector2(5, 100)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk6vw"]
 radius = 32.0
 height = 448.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -31,162 +36,635 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idj7w"]
 load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kln2b"]
-load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
+[node name="PresentRoot" type="Node2D" unique_id=2116345146]
 
-[node name="PresentRoot" type="Node2D" unique_id=717009702]
-
-[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
+[node name="WorldBorders" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
 
-[node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
-position = Vector2(2261, -105)
+[node name="RightBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=527916392]
+position = Vector2(10000, 0)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
-[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
-position = Vector2(2941, 28)
+[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=1944299633]
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
-[node name="Colliders" type="Node2D" parent="." unique_id=648809151]
+[node name="Areas" type="Node" parent="." unique_id=1803724932]
 
-[node name="Ground" type="Node2D" parent="Colliders" unique_id=1512771672]
+[node name="Coast" type="Node2D" parent="Areas" unique_id=750849750]
 
-[node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
-position = Vector2(1920, 0)
+[node name="BackLayer" type="Node" parent="Areas/Coast" unique_id=1508436891]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
-shape = SubResource("RectangleShape2D_kln2b")
+[node name="Objects" type="Node" parent="Areas/Coast/BackLayer" unique_id=2083084324]
 
-[node name="Objects" type="Node2D" parent="Colliders" unique_id=257425003]
+[node name="Buildings" type="Node" parent="Areas/Coast/BackLayer" unique_id=712599373]
 
-[node name="treelog" type="StaticBody2D" parent="Colliders/Objects" unique_id=518168430]
-process_mode = 4
+[node name="NPCs" type="Node" parent="Areas/Coast/BackLayer" unique_id=1889526398]
+
+[node name="FrontLayer" type="Node" parent="Areas/Coast" unique_id=927355420]
+
+[node name="Ground" type="Node" parent="Areas/Coast/FrontLayer" unique_id=940366122]
+
+[node name="LowTideIsland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1729926701]
+
+[node name="CoastGround" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=335344915]
+position = Vector2(124, 0)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround" unique_id=347031493]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround2" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1377255271]
+position = Vector2(244, -31)
+rotation = -0.5235988
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround2" unique_id=1482060486]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround3" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1466066780]
+position = Vector2(325, -114)
+rotation = -1.0471976
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround3" unique_id=1229854841]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround4" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1451707668]
+position = Vector2(399, -193)
+rotation = -0.5235988
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround4" unique_id=390480913]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround5" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1725605684]
+position = Vector2(501, -220)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround5" unique_id=159293917]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround6" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1900190806]
+position = Vector2(595, -196.00003)
+rotation = 0.5235988
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround6" unique_id=1753640976]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround7" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1094864350]
+position = Vector2(668, -121.000015)
+rotation = 1.0471976
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround7" unique_id=320029488]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround8" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=713966279]
+position = Vector2(744.99994, -48)
+rotation = 0.5235988
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround8" unique_id=1639531173]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround9" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=2136682135]
+position = Vector2(855, -13)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround9" unique_id=1577450854]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Beach" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1290535138]
+position = Vector2(900, 0)
+
+[node name="CoastGround" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1392505445]
+position = Vector2(77, -13)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround" unique_id=1667865863]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround2" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1923354095]
+position = Vector2(197, -26)
+rotation = -0.2617994
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround2" unique_id=2091740124]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround3" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1210670084]
+position = Vector2(299, -72)
+rotation = -0.5235988
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround3" unique_id=693747024]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround4" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1063358276]
+position = Vector2(389, -140)
+rotation = -0.7853982
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround4" unique_id=1811960933]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround5" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1144876413]
+position = Vector2(473, -211)
+rotation = -0.5235988
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround5" unique_id=384259242]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround6" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1718258611]
+position = Vector2(576, -264)
+rotation = -0.2617994
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround6" unique_id=685861465]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="CoastGround7" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=524684223]
+position = Vector2(696, -290)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround7" unique_id=930208480]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Inland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=909745747]
+position = Vector2(1716, 0)
+
+[node name="CoastGround" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Inland" unique_id=1103883227]
+position = Vector2(0, -293)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Inland/CoastGround" unique_id=937147832]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Objects" type="Node" parent="Areas/Coast/FrontLayer" unique_id=1047195248]
+
+[node name="Meadow" type="Node2D" parent="Areas" unique_id=295658585]
+
+[node name="BackLayer" type="Node" parent="Areas/Meadow" unique_id=1193024743]
+
+[node name="Objects" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1282926288]
+
+[node name="sapling" type="Node2D" parent="Areas/Meadow/BackLayer/Objects" unique_id=1319605110]
+position = Vector2(2111, -337)
+script = ExtResource("1_1h27j")
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=1917620976]
+
+[node name="Area2D" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=251920770]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/sapling/Area2D" unique_id=208307967]
+shape = SubResource("CircleShape2D_kk6vw")
+
+[node name="stumpWithAxe" type="Node2D" parent="Areas/Meadow/BackLayer/Objects" unique_id=772835730]
+position = Vector2(2773, -342)
+script = ExtResource("2_dorp1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1876211793]
+
+[node name="Area2D" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1261545406]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe/Area2D" unique_id=1236905993]
+shape = SubResource("CircleShape2D_kk6vw")
+
+[node name="Buildings" type="Node" parent="Areas/Meadow/BackLayer" unique_id=707125439]
+
+[node name="NPCs" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1597700349]
+
+[node name="FrontLayer" type="Node" parent="Areas/Meadow" unique_id=68165331]
+
+[node name="Ground" type="Node" parent="Areas/Meadow/FrontLayer" unique_id=1384509661]
+
+[node name="SmallRiver" type="Node2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1666310603]
+
+[node name="MeadowGround" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=2118618184]
+position = Vector2(1837, -290)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround" unique_id=891298324]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1091873728]
+position = Vector2(1895, -244)
+rotation = 1.3962634
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround2" unique_id=665991883]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround3" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1611432371]
+position = Vector2(1912, -225)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround3" unique_id=307953067]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround4" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=132634582]
+position = Vector2(1976, -224)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround4" unique_id=893310999]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround5" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=390484984]
+position = Vector2(2031, -226)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround5" unique_id=159748799]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround6" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1379454491]
+position = Vector2(2049, -251.00003)
+rotation = -1.3962634
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround6" unique_id=1028037719]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround7" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=67386283]
+position = Vector2(2210, -295)
+scale = Vector2(2.92, 1)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround7" unique_id=1710619196]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround8" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=572847643]
+position = Vector2(2410, -292)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround8" unique_id=1421924168]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Village" type="Node2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1156633973]
+
+[node name="MeadowGround" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/Village" unique_id=739278464]
+position = Vector2(2524, -296)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/Village/MeadowGround" unique_id=125795483]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/Village" unique_id=377200368]
+position = Vector2(2643, -296)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/Village/MeadowGround2" unique_id=1284607760]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround3" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/Village" unique_id=1383153348]
+position = Vector2(2765, -296)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/Village/MeadowGround3" unique_id=1587723136]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Forest" type="Node2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=912040392]
+
+[node name="MeadowGround" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/Forest" unique_id=709702948]
+position = Vector2(2882, -294)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/Forest/MeadowGround" unique_id=1662850662]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/Forest" unique_id=663034286]
+position = Vector2(2999, -297)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/Forest/MeadowGround2" unique_id=758165678]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Objects" type="Node" parent="Areas/Meadow/FrontLayer" unique_id=1528493236]
+
+[node name="Mountain" type="Node2D" parent="Areas" unique_id=2135547183]
+
+[node name="BackLayer" type="Node" parent="Areas/Mountain" unique_id=838541419]
+
+[node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1790029395]
+
+[node name="tree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=535348852 node_paths=PackedStringArray("treeBridge")]
+position = Vector2(3235, -357)
+script = ExtResource("3_ck43e")
+treeBridge = NodePath("../../../FrontLayer/Objects/treelog")
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=552386117]
+
+[node name="Area2D" type="Area2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=4892399]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/tree/Area2D" unique_id=75326161]
+shape = SubResource("CircleShape2D_kk6vw")
+
+[node name="Buildings" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1660353972]
+
+[node name="NPCs" type="Node" parent="Areas/Mountain/BackLayer" unique_id=648269687]
+
+[node name="FrontLayer" type="Node" parent="Areas/Mountain" unique_id=186046000]
+
+[node name="Ground" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=479827283]
+
+[node name="LargeRiver" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=400258866]
+
+[node name="MountainGround" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1742966049]
+position = Vector2(3124, -294)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround" unique_id=295388588]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=967654086]
+position = Vector2(3238, -291)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround2" unique_id=755425985]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1762912128]
+position = Vector2(3310, -248)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround3" unique_id=237743079]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround4" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=2019180968]
+position = Vector2(3329.9998, -159)
+rotation = 1.2217305
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround4" unique_id=2090605301]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround5" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=978155718]
+position = Vector2(3506, -112)
+scale = Vector2(3.12, 1)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround5" unique_id=1031879130]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround6" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=209325615]
+position = Vector2(3683, -154)
+rotation = -1.2217305
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround6" unique_id=1156838862]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround7" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1445027784]
+position = Vector2(3709, -246)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround7" unique_id=1175583722]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround8" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1030011680]
+position = Vector2(3761, -294)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround8" unique_id=324365028]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround9" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1727029209]
+position = Vector2(3863, -294)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround9" unique_id=1389664564]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="RockyPath" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=591049327]
+
+[node name="MountainGround" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath" unique_id=830134891]
+position = Vector2(3963.9998, -318.0001)
+rotation = -0.34906584
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath/MountainGround" unique_id=1828003357]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath" unique_id=593723443]
+position = Vector2(4059.9995, -355.0001)
+rotation = -0.34906584
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath/MountainGround2" unique_id=1164423050]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath" unique_id=1887517038]
+position = Vector2(4156, -391.00012)
+rotation = -0.34906584
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath/MountainGround3" unique_id=1615093601]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Cave" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1245833422]
+
+[node name="MountainGround" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=1674056240]
+position = Vector2(4391, -408)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/MountainGround" unique_id=1174215516]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=956866440]
+position = Vector2(4445, -484)
+scale = Vector2(1, 1.5999902)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/MountainGround2" unique_id=1587343330]
+shape = SubResource("RectangleShape2D_i4naw")
+
+[node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=1600999272]
+position = Vector2(4379, -562)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/MountainGround3" unique_id=132481408]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Mountain" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=716072885]
+
+[node name="MountainGround" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=124162814]
+position = Vector2(4281, -407)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround" unique_id=1881880123]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1120547247]
+position = Vector2(4276, -562)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround2" unique_id=1511103559]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1776236889]
+position = Vector2(4226, -615)
+rotation = 1.5707964
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround3" unique_id=567573221]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround4" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1447008469]
+position = Vector2(4280, -666)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround4" unique_id=1023302483]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="MountainGround5" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1654766566]
+position = Vector2(4382, -668)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround5" unique_id=362274862]
+shape = SubResource("RectangleShape2D_kk6vw")
+
+[node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=1251482045]
+
+[node name="treelog" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Objects" unique_id=1107097117]
 visible = false
-position = Vector2(1848, -44)
+position = Vector2(3519, -332)
+collision_layer = 0
+collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/treelog" unique_id=1523268941]
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/FrontLayer/Objects/treelog" unique_id=1320587596]
 position = Vector2(-3.4332275e-05, -0.5)
 scale = Vector2(3.5000005, 0.5078125)
 texture = ExtResource("4_g8hrq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/treelog" unique_id=172079]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Objects/treelog" unique_id=1661938178]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kk6vw")
 
-[node name="tree" type="Node2D" parent="Colliders/Objects" unique_id=225820579]
+[node name="Parallax" type="Node" parent="." unique_id=1310805743]
+script = ExtResource("2_i4naw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/tree" unique_id=1351859450]
-
-[node name="Area2D" type="Area2D" parent="Colliders/Objects/tree" unique_id=19911631]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/tree/Area2D" unique_id=1419583739]
-shape = SubResource("CircleShape2D_kk6vw")
-
-[node name="sapling" type="Node2D" parent="Colliders/Objects" unique_id=2137805971]
-
-[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/sapling" unique_id=1018033237]
-
-[node name="Area2D" type="Area2D" parent="Colliders/Objects/sapling" unique_id=393763993]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/sapling/Area2D" unique_id=382116490]
-shape = SubResource("CircleShape2D_kk6vw")
-
-[node name="stumpWithAxe" type="Node2D" parent="Colliders/Objects" unique_id=1264176407]
-
-[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/stumpWithAxe" unique_id=1837394018]
-
-[node name="Area2D" type="Area2D" parent="Colliders/Objects/stumpWithAxe" unique_id=1907657503]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/stumpWithAxe/Area2D" unique_id=507119672]
-shape = SubResource("CircleShape2D_kk6vw")
-
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=335551964]
-z_as_relative = false
-scroll_offset = Vector2(0, -640)
-
-[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1018361539]
+[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=1018361539]
 z_index = -4
-scroll_scale = Vector2(0.2, 1)
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-315, -1488)
 
-[node name="BackgroundSea" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=316865649]
-position = Vector2(-1554, 263.62485)
-scale = Vector2(1, 1.1525879)
+[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=316865649]
+position = Vector2(0, 97)
 texture = SubResource("CompressedTexture2D_rgh2o")
+centered = false
 
-[node name="BackgroundMeadow1" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1493244153]
+[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=488971309]
 material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(24, 298)
+position = Vector2(1889, 16)
 texture = SubResource("CompressedTexture2D_idj7w")
+centered = false
 
-[node name="BackgroundMeadow2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1252281063]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(1287, 298)
-texture = SubResource("CompressedTexture2D_kln2b")
-flip_h = true
-
-[node name="BackgroundMeadow3" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1665989245]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(2550, 298)
-texture = SubResource("CompressedTexture2D_kln2b")
-
-[node name="BackgroundMeadow4" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=2018268714]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(3813, 298)
-texture = SubResource("CompressedTexture2D_idj7w")
-flip_h = true
-
-[node name="BackgroundSea2" type="Sprite2D" parent="Parallax2D/FarthestBackgroundLayer" unique_id=1136097736]
-position = Vector2(5391, 264)
-scale = Vector2(1, 1.1525879)
+[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
+position = Vector2(3155, 0)
 texture = SubResource("CompressedTexture2D_rgh2o")
+centered = false
 flip_h = true
 
-[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=26518790]
+[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=26518790]
+visible = false
 z_index = -3
 scroll_scale = Vector2(0.3, 1)
-repeat_size = Vector2(2526, 0)
+scroll_offset = Vector2(2208, -575)
 
-[node name="Hill1" type="Sprite2D" parent="Parallax2D/FartherBackgroundLayer" unique_id=1579017096]
-position = Vector2(-264.00003, 509)
+[node name="Hill" type="Sprite2D" parent="Parallax/FartherBackgroundLayer" unique_id=1579017096]
+position = Vector2(-264.00003, 490)
 scale = Vector2(0.55090636, 0.62107885)
 texture = ExtResource("2_6aadu")
 
-[node name="Hill2" type="Sprite2D" parent="Parallax2D/FartherBackgroundLayer" unique_id=1204101252]
-position = Vector2(509.00003, 478)
-scale = Vector2(0.67205137, 0.6862125)
-texture = ExtResource("2_6aadu")
-
-[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=1071852599]
+[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=1071852599]
+visible = false
 z_index = -2
 scroll_scale = Vector2(0.6, 1)
-repeat_size = Vector2(2526, 0)
+scroll_offset = Vector2(2208, -1000)
 
-[node name="Grass" type="Sprite2D" parent="Parallax2D/FarBackgroundLayer" unique_id=2145575959]
-position = Vector2(654, 745)
+[node name="Grass" type="Sprite2D" parent="Parallax/FarBackgroundLayer" unique_id=2145575959]
+position = Vector2(654, 1172)
 scale = Vector2(1.9967293, 1.1375325)
 texture = ExtResource("3_3ukvu")
 
-[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=86989320]
+[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=86989320]
+visible = false
 z_index = -1
 scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(2208, -1000)
 
-[node name="Tree" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1590678452]
-position = Vector2(-247, 454)
+[node name="Tree" type="Sprite2D" parent="Parallax/NearBackgroundLayer" unique_id=1590678452]
+position = Vector2(-247, 815)
 scale = Vector2(0.34375, 2.9453125)
 texture = ExtResource("4_g8hrq")
 
-[node name="Tree2" type="Sprite2D" parent="Parallax2D/NearBackgroundLayer" unique_id=1638677988]
-position = Vector2(694, 456)
-scale = Vector2(0.34375, 2.9453125)
-texture = ExtResource("4_g8hrq")
-
-[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax2D" unique_id=812787616]
+[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax" unique_id=812787616]
+visible = false
 z_index = 1
+scroll_offset = Vector2(2208, -1000)
 
-[node name="Bush" type="Sprite2D" parent="Parallax2D/NearForeGroundLayer" unique_id=1212117377]
-position = Vector2(-450, 678)
-texture = ExtResource("4_g8hrq")
-
-[node name="Bush2" type="Sprite2D" parent="Parallax2D/NearForeGroundLayer" unique_id=1467699284]
-position = Vector2(254, 639)
+[node name="Bush" type="Sprite2D" parent="Parallax/NearForeGroundLayer" unique_id=1212117377]
+position = Vector2(-450, 963)
 texture = ExtResource("4_g8hrq")

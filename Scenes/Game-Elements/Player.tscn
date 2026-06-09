@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://d0lqkaafs031d" path="res://Assets/GameMusic/SFX/sfx_step_grass_l.wav" id="3_dewec"]
 [ext_resource type="AudioStream" uid="uid://bhrkjf2wp4t0o" path="res://Assets/GameMusic/SFX/sfx_step_grass_r.wav" id="4_5ixxa"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dewec"]
-size = Vector2(66, 118)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ldl8"]
+height = 46.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyqiw"]
 atlas = ExtResource("2_kyqiw")
@@ -123,20 +123,25 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=2052906808]
+collision_mask = 16
 script = ExtResource("1_kyqiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219768441]
-shape = SubResource("RectangleShape2D_dewec")
+position = Vector2(0, 12.000003)
+scale = Vector2(3, 3)
+shape = SubResource("CapsuleShape2D_3ldl8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1183754874]
-scale = Vector2(2.625, 2.2200155)
+z_index = 1
+position = Vector2(0, -14)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1e7my")
 animation = &"walk"
 frame_progress = 0.79175544
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=996611759]
+position = Vector2(0, 136)
 offset = Vector2(0, -300)
-zoom = Vector2(0.8, 0.8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=423702122]
 
@@ -149,6 +154,17 @@ bus = &"SFX"
 stream = ExtResource("4_5ixxa")
 volume_db = 17.495
 bus = &"SFX"
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=1531106874]
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(2.5, 2.5)
+collision_layer = 0
+collision_mask = 14
+input_pickable = false
+monitorable = false
+
+[node name="CollisionArea" type="CollisionPolygon2D" parent="InteractionArea" unique_id=1632899401]
+polygon = PackedVector2Array(8, -19, 15, -18, 21, -15, 26, -11, 30, -6, 32, 0, 33, 6, 32, 12, 30, 18, 26, 24, 21, 28, 15, 30, 8, 31)
 
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]

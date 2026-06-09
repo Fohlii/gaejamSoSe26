@@ -6,10 +6,10 @@ extends Node
 @onready var settings: HBoxContainer = $Settings
 @onready var main_menu: HBoxContainer = $MainMenu
 @onready var root_scene = get_tree().get_current_scene()
-@onready var present: Node = $"../PresentRoot"
+@onready var present: Node = $"../../PresentRoot"
 @onready var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 @onready var game_settings= $"/root/GlobalVars"
-@onready var musicplayer: AudioStreamPlayer = $"../MusicPlayer"
+@onready var musicplayer: AudioStreamPlayer = $"../../MusicPlayer"
 @onready var master_bus_index = AudioServer.get_bus_index("Master")
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
 
@@ -56,7 +56,6 @@ func _on_settings_button_pressed() -> void:
 	how_to_play.visible = false
 	credits.visible = false
 
-
 func _on_how_to_play_button_pressed() -> void:
 	await play_click_sound()
 	settings.visible = false
@@ -71,14 +70,12 @@ func _on_credits_button_pressed() -> void:
 	how_to_play.visible = false
 	credits.visible = true
 
-
 func _on_button_3_pressed() -> void:
 	await play_click_sound()
 	settings.visible = false
 	main_menu.visible = true
 	how_to_play.visible = false
 	credits.visible = false
-
 
 func _on_button_button_down() -> void:
 	pass # Replace with function body.
