@@ -227,23 +227,28 @@ class PlayerInteractionComponent extends RefCounted:
 	
 	func processInput(interactionZone: Area2D) -> void:
 		if Input.is_action_just_pressed("interact"):
-			if !interactionZone.get_overlapping_bodies().is_empty(): #.filter(func(node: Node2D) -> bool: return node.is_in_group("interactable"))
-				print("player interaction called")
-				playerInteract(interactionZone.get_overlapping_bodies()[0]) #arbitrary [0]
+			print("player interaction called")
+			print(interactionZone.get_overlapping_areas())
+			if !interactionZone.get_overlapping_areas().is_empty(): #.filter(func(node: Node2D) -> bool: return node.is_in_group("interactable"))
+				playerInteract(interactionZone.get_overlapping_areas()[0].get_parent()) #arbitrary [0]
+				print("player interacting with ", interactionZone.get_overlapping_areas()[0])
 	
 	func playerInteract(interactable: Interactable):
 		if interactable.needsItem() != "":
 			if playerInventory.hasItem(interactable.needsItem()):
 				# TODO remove item sprite from playerInventoryUI
 				playerInventory.removeItem(interactable.needsItem())
-				interactable.interactWith(interactable.needsItem())
-				if interactable.givesItem() != "":
+				var temp = interactable.interactWith(interactable.needsItem())
+				if temp != "":
 					# TODO add item sprite to playerInventoryUI
-					playerInventory.addItem(interactable.givesItem())
+					playerInventory.addItem(temp)
+					print("player added to inventory: ", temp)
 		elif interactable.givesItem() != "":
-			interactable.interactWith("")
-			# TODO add item sprite to playerInventoryUI
-			playerInventory.addItem(interactable.givesItem())
+			var temp = interactable.interactWith("")
+			if temp != "":
+				# TODO add item sprite to playerInventoryUI
+				playerInventory.addItem(temp)
+				print("player added to inventory: ", temp)
 	
 	class Inventory extends RefCounted:
 		var contents: Array[String]

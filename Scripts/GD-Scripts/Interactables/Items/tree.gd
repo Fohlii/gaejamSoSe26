@@ -6,14 +6,14 @@ var felledTreeTexture = load("")
 var canInteract: bool
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@export var treeBridge: Node2D
+@export var treeBridge: StaticBody2D
 
 func _ready() -> void:	
 	canInteract = true
 	sprite_2d.texture = noTreeTexture
 
 func needsItem() -> String:
-	if canInteract:
+	if canInteract && (sprite_2d.texture == treeTexture):
 		return "axe"
 	else:
 		return ""
@@ -24,12 +24,15 @@ func givesItem() -> String:
 	else:
 		return ""
 
-func interactWith(itemId: String) -> void:
-	if canInteract && itemId == "axe":
+func interactWith(itemId: String) -> String:
+	var returnValue = ""
+	if canInteract && itemId == "axe" && (sprite_2d.texture == treeTexture):
+		returnValue = givesItem()
 		canInteract = false
 		sprite_2d.texture = felledTreeTexture
 		if treeBridge:
-			treeBridge.set_process(PROCESS_MODE_INHERIT)
+			treeBridge.set_collision_layer_value(5,true)
 			treeBridge.visible = true
 		else:
 			print("treebridge reference not set in tree")
+	return returnValue

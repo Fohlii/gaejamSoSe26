@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
+[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Items/place_near_river.gd" id="1_h2wri"]
+[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="2_04hkd"]
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
@@ -35,7 +38,9 @@ disabled = true
 [node name="Ground" type="Node2D" parent="Colliders" unique_id=822635641]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
-position = Vector2(1920, 0)
+position = Vector2(1920, -301)
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
 shape = SubResource("RectangleShape2D_kln2b")
@@ -43,10 +48,16 @@ shape = SubResource("RectangleShape2D_kln2b")
 [node name="Objects" type="Node2D" parent="Colliders" unique_id=1134882568]
 
 [node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=992869190]
+position = Vector2(3235, -357)
+script = ExtResource("1_h2wri")
 
 [node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/placeNearRiver" unique_id=25380208]
+texture = ExtResource("2_04hkd")
 
 [node name="Area2D" type="Area2D" parent="Colliders/Objects/placeNearRiver" unique_id=1725263679]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/placeNearRiver/Area2D" unique_id=2121509332]
 shape = SubResource("CircleShape2D_afb73")

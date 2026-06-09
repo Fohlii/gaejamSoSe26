@@ -19,8 +19,9 @@ func _on_play_button_pressed() -> void:
 	await play_click_sound()
 	var player: CharacterBody2D = playerPS.instantiate()
 	var playerCam: Camera2D = player.get_child(2)
-	player.position.y = -500
 	present.add_child(player)
+	player.global_position.x = 1000
+	player.global_position.y = -100
 	playerCam.make_current()
 	present.get_child(2).camera = playerCam
 	self.get_parent().remove_child(self)
@@ -32,7 +33,6 @@ func _on_settings_button_pressed() -> void:
 	main_menu.visible = false
 	how_to_play.visible = false
 	credits.visible = false
-
 
 func _on_how_to_play_button_pressed() -> void:
 	await play_click_sound()
@@ -48,14 +48,12 @@ func _on_credits_button_pressed() -> void:
 	how_to_play.visible = false
 	credits.visible = true
 
-
 func _on_button_3_pressed() -> void:
 	await play_click_sound()
 	settings.visible = false
 	main_menu.visible = true
 	how_to_play.visible = false
 	credits.visible = false
-
 
 func _on_button_button_down() -> void:
 	pass # Replace with function body.

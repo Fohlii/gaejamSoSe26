@@ -22,7 +22,10 @@ func givesItem() -> String:
 	else:
 		return ""
 
-func interactWith(itemId: String) -> void:
+func interactWith(itemId: String) -> String:
+	var returnValue = ""
 	if canInteract:
+		returnValue = givesItem()
 		canInteract = false
 		sprite_2d.texture = stumpWithoutAxeTexture
+	return returnValue

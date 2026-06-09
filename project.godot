@@ -66,6 +66,15 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="PlayerCollisionLayer"
+2d_physics/layer_2="InteractableObjectCollisionLayer"
+2d_physics/layer_3="BuildingCollisionLayer"
+2d_physics/layer_4="NPCCollisionLayer"
+2d_physics/layer_5="GroundCollisionLayer"
+2d_physics/layer_6="TimetravelAuxiliaryCollisionLayer"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

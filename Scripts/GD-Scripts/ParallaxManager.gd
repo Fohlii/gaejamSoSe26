@@ -1,4 +1,4 @@
-class_name ParallaxManager extends Node2D
+class_name ParallaxManager extends Node
 
 @onready var parallax_node: Parallax2D = $FarthestBackgroundLayer
 var camera: Camera2D
