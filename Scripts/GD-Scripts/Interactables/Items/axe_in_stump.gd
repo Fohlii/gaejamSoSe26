@@ -1,6 +1,6 @@
 extends Interactable
 var id: String
-var stumpWithAxeTexture = load("")
+var stumpWithAxeTexture = load("res://icon.svg")
 var stumpWithoutAxeTexture = load("")
 var canInteract: bool
 

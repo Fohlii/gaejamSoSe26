@@ -1,7 +1,7 @@
 extends Interactable
 var id: String
 var noTreeTexture = load("")
-var treeTexture = load("")
+var treeTexture = load("res://icon.svg")
 var felledTreeTexture = load("")
 var canInteract: bool
 
@@ -11,6 +11,11 @@ var canInteract: bool
 func _ready() -> void:	
 	canInteract = true
 	sprite_2d.texture = noTreeTexture
+
+func PlantTree() -> void:
+	if sprite_2d.texture == noTreeTexture:
+		sprite_2d.texture = treeTexture
+		print("a tree has grown")
 
 func needsItem() -> String:
 	if canInteract && (sprite_2d.texture == treeTexture):

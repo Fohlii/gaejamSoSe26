@@ -1,6 +1,6 @@
 extends Interactable
 var id: String
-var saplingTexture = load("")
+var saplingTexture = load("res://icon.svg")
 var noSaplingTexture = load("")
 var canInteract: bool
 

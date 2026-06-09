@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
 [ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Items/place_near_river.gd" id="1_h2wri"]
-[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="2_04hkd"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -18,7 +17,7 @@ size = Vector2(8188, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
 
-[node name="PastRoot" type="Node2D" unique_id=91997941]
+[node name="PastRoot" type="Node2D" unique_id=1856037297]
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
@@ -33,9 +32,9 @@ position = Vector2(2941, 28)
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 disabled = true
 
-[node name="Colliders" type="Node2D" parent="." unique_id=1909346377]
+[node name="Colliders" type="Node2D" parent="." unique_id=688708548]
 
-[node name="Ground" type="Node2D" parent="Colliders" unique_id=822635641]
+[node name="Ground" type="Node2D" parent="Colliders" unique_id=1937999256]
 
 [node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
 position = Vector2(1920, -301)
@@ -45,14 +44,13 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Ground/MainAreaGround" unique_id=150461810]
 shape = SubResource("RectangleShape2D_kln2b")
 
-[node name="Objects" type="Node2D" parent="Colliders" unique_id=1134882568]
+[node name="Objects" type="Node2D" parent="Colliders" unique_id=1730887571]
 
 [node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=992869190]
 position = Vector2(3235, -357)
 script = ExtResource("1_h2wri")
 
 [node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/placeNearRiver" unique_id=25380208]
-texture = ExtResource("2_04hkd")
 
 [node name="Area2D" type="Area2D" parent="Colliders/Objects/placeNearRiver" unique_id=1725263679]
 collision_layer = 2

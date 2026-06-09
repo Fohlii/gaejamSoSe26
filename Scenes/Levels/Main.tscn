@@ -4,7 +4,10 @@
 [ext_resource type="Script" uid="uid://cfqp4062r2evg" path="res://Scripts/GD-Scripts/GameManager.gd" id="1_d31q8"]
 [ext_resource type="PackedScene" uid="uid://bjjsr5tpl74dk" path="res://Scenes/Levels/Present.tscn" id="2_d31q8"]
 [ext_resource type="PackedScene" uid="uid://dplxe84ckax72" path="res://Scenes/Levels/Past.tscn" id="3_dmpbk"]
+[ext_resource type="Script" uid="uid://lgwkbcpkla53" path="res://Scenes/Levels/controlBehaviour.gd" id="3_oi5um"]
 [ext_resource type="PackedScene" uid="uid://u4gh4cyl0hk8" path="res://Scenes/UI-Elements/MainMenu.tscn" id="4_r66ge"]
+[ext_resource type="PackedScene" uid="uid://ckf4dwi6a6ud6" path="res://Scenes/UI-Elements/menu.tscn" id="6_dmpbk"]
+[ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="7_r66ge"]
 
 [node name="Root" type="Node2D" unique_id=1663669848]
 script = ExtResource("1_d31q8")
@@ -13,15 +16,36 @@ script = ExtResource("1_d31q8")
 stream = ExtResource("1_07780")
 autoplay = true
 
-[node name="PresentRoot" parent="." unique_id=2116345146 instance=ExtResource("2_d31q8")]
+[node name="PresentRoot" parent="." unique_id=1521700590 instance=ExtResource("2_d31q8")]
 position = Vector2(0, 10000)
 
 [node name="PastRoot" parent="." unique_id=1285024051 instance=ExtResource("3_dmpbk")]
+visible = false
 position = Vector2(0, 20000)
 
-[node name="UI" type="Node2D" parent="." unique_id=1614021480]
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1233577497]
+stream = ExtResource("7_r66ge")
+bus = &"SFX"
 
-[node name="MainMenu" parent="UI" unique_id=1909509357 instance=ExtResource("4_r66ge")]
+[node name="UI" type="Node" parent="." unique_id=667192446]
 
 [node name="Camera2D" type="Camera2D" parent="UI" unique_id=1916750664]
 position = Vector2(588, 317)
+
+[node name="MainMenu" parent="UI" unique_id=1909509357 instance=ExtResource("4_r66ge")]
+
+[node name="Control" type="CanvasLayer" parent="UI" unique_id=802550207]
+visible = false
+script = ExtResource("3_oi5um")
+
+[node name="DarkOverlay" type="ColorRect" parent="UI/Control" unique_id=244962845]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+color = Color(0.08959273, 0.12388409, 0.17481533, 0.5568628)
+
+[node name="Menu" parent="UI/Control" unique_id=1329174015 instance=ExtResource("6_dmpbk")]

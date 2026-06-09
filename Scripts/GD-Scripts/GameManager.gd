@@ -1,12 +1,52 @@
 extends Node2D
 
-@onready var MusicPlayer: AudioStreamPlayer = $MusicPlayer
+@onready var main_menu: Node2D = $UI/MainMenu
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var present_root: Node2D = $PresentRoot
+@onready var past_root: Node2D = $PastRoot
+@onready var menu: CanvasLayer = $UI/Control
+@onready var button_click: AudioStreamPlayer = $ButtonClick
+@onready var control: CanvasLayer = $Control
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
+var player: CharacterBody2D
+var in_past := false
+func _ready() -> void:	
+	print("past_root: ", past_root)
+	print("present_root: ", present_root)
+	print("main_menu: ", main_menu)
+	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree
+	
+func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt??
+		if Input.is_action_just_pressed("timetravel"):
+			toggle_time()
+		if Input.is_action_just_pressed("esc"):
+			if main_menu.visible:
+				get_tree().quit()
+			else:
+				show_menu()
+func toggle_time() -> void:
+	if (in_past):
+		player.global_position.y = player.global_position.y-20500
+	else:
+		player.global_position.y = player.global_position.y+18500
+	in_past = !in_past
+	print("Is in past: " + str(in_past))
+	past_root.visible = in_past
+	present_root.visible = !in_past
+	
+func start_game():
+	main_menu.visible = false
+	player = playerPS.instantiate()
+	var playerCam: Camera2D = player.get_child(2)
+	player.global_position.x = 1000
+	player.global_position.y = -100
+	add_child(player)
+	#present_root.add_child(player)
+	#present_root.get_child(2).camera = playerCam
+	playerCam.make_current()
+	
+func show_menu():	
+	button_click.play()
+	GlobalVars.esc_pressed.emit()
+	menu.visible = !menu.visible

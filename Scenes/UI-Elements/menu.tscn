@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://ckf4dwi6a6ud6"]
+
+[ext_resource type="Script" uid="uid://bs1gwmlgcqbl2" path="res://Scenes/UI-Elements/menu.gd" id="1_b8n8p"]
+[ext_resource type="Script" uid="uid://b6wy46tuludwb" path="res://Scenes/UI-Elements/menu_h_slider.gd" id="2_w633m"]
+[ext_resource type="Script" uid="uid://cgb4sylpqdfca" path="res://Scenes/UI-Elements/menu_h_slider_2.gd" id="3_b8n8p"]
+[ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="3_i5h8a"]
+
+[node name="Menu" type="Node2D" unique_id=895278807]
+script = ExtResource("1_b8n8p")
+
+[node name="MainMenu" type="HBoxContainer" parent="." unique_id=1992371372]
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu" unique_id=1441049213]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu" unique_id=1550411350]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/AspectRatioContainer" unique_id=779275177]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1596915322]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=1029027687]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Play
+"
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=415924683]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=25751057]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Settings"
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1428356565]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5" unique_id=900318894]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "How to Play"
+
+[node name="AspectRatioContainer6" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1302405145]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="Button" type="Button" parent="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer6" unique_id=1328059288]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainMenu" unique_id=235756476]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="Settings" type="HBoxContainer" parent="." unique_id=397673217]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Settings" unique_id=837591844]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Settings" unique_id=1225947780]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.99
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/AspectRatioContainer" unique_id=742080746]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=94264281]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=675347487]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 4.6413
+
+[node name="GridContainer" type="GridContainer" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=351538359]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=968158146]
+layout_mode = 2
+text = "Sound Volume   "
+
+[node name="HSlider" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=37038581]
+custom_minimum_size = Vector2(124.25, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+rounded = true
+script = ExtResource("2_w633m")
+
+[node name="Label2" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1884975352]
+layout_mode = 2
+text = "Sound Effect Volume
+"
+
+[node name="HSlider2" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=700416821]
+layout_mode = 2
+value = 100.0
+script = ExtResource("3_b8n8p")
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=749738101]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.09
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1443609576]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+
+[node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1097606873]
+custom_minimum_size = Vector2(252.54, 0)
+layout_mode = 2
+text = "back"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1336176467]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings" unique_id=1707419875]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.25
+
+[node name="HowToPlay" type="HBoxContainer" parent="." unique_id=1488541442]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HowToPlay" unique_id=669297789]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HowToPlay" unique_id=1213798061]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/AspectRatioContainer" unique_id=1913608172]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=509282896]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment_horizontal = 0
+
+[node name="TextureRect" type="ColorRect" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1200411915]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.08, 0.08, 0.08, 0.7411765)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay/AspectRatioContainer/VBoxContainer/TextureRect" unique_id=2143306108]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay" unique_id=1734624839]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/AspectRatioContainer3" unique_id=1001517266]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer3/VBoxContainer" unique_id=634155028]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1463582821]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(327, 100)
+dialog_text = "Are you sure you want to exit the game?"
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1321695019]
+stream = ExtResource("3_i5h8a")
+
+[connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer/Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer6/Button" to="." method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2" method="_on_value_changed"]
+[connection signal="pressed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
