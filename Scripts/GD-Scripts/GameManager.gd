@@ -26,14 +26,16 @@ func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im Gam
 			else:
 				show_menu()
 func toggle_time() -> void:
-	if (in_past):
-		player.global_position.y = player.global_position.y-20500
-	else:
-		player.global_position.y = player.global_position.y+18500
+	#if (in_past):
+	#	player.global_position.y = player.global_position.y-20500
+	#else:
+	#	player.global_position.y = player.global_position.y+18500
 	in_past = !in_past
 	print("Is in past: " + str(in_past))
 	past_root.visible = in_past
 	present_root.visible = !in_past
+	print("past visible: " + str(past_root.visible))
+	print("present visible" + str(present_root.visible))
 	
 func start_game():
 	main_menu.visible = false

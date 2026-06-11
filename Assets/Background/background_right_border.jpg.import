@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhswacxtufy1m"
-path="res://.godot/imported/background_meadow.jpg-745ac547ce6104ba999005bf22644788.ctex"
+uid="uid://l2w7v7yl5igl"
+path="res://.godot/imported/background_right_border.jpg-4bd28463197037fa054f4beedb757def.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/background_meadow.jpg"
-dest_files=["res://.godot/imported/background_meadow.jpg-745ac547ce6104ba999005bf22644788.ctex"]
+source_file="res://Assets/Background/background_right_border.jpg"
+dest_files=["res://.godot/imported/background_right_border.jpg-4bd28463197037fa054f4beedb757def.ctex"]
 
 [params]
 

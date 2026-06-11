@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="3_ck43e"]
+[ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="4_dorp1"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
@@ -24,6 +25,9 @@ size = Vector2(100, 5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4naw"]
 size = Vector2(5, 100)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dorp1"]
+distance = 211.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk6vw"]
 radius = 32.0
 height = 448.0
@@ -31,10 +35,15 @@ height = 448.0
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dorp1"]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_idj7w"]
-load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dorp1"]
+load_path = "res://.godot/imported/background_meadow.jpg-745ac547ce6104ba999005bf22644788.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1h27j"]
+load_path = "res://.godot/imported/background_left_border.jpg-227aeb1ad3eab3d1a193004c0e2b3480.ctex"
 
 [node name="PresentRoot" type="Node2D" unique_id=2116345146]
 
@@ -533,6 +542,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/MountainGround2" unique_id=1587343330]
 shape = SubResource("RectangleShape2D_i4naw")
+disabled = true
 
 [node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=1600999272]
 position = Vector2(4379, -562)
@@ -585,6 +595,19 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround5" unique_id=362274862]
 shape = SubResource("RectangleShape2D_kk6vw")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround5" unique_id=303965333]
+position = Vector2(-4382, 668)
+shape = SubResource("WorldBoundaryShape2D_dorp1")
+
+[node name="Killzone" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=735702524]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone" unique_id=891767526]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone/StaticBody2D" unique_id=668653709]
+build_mode = 1
+polygon = PackedVector2Array(2779, -379, 2406, -609, 3688, -622, 3222, -379, 3408, -303, 3536, -297, 3669, -260, 3782, -207, 3888, -142, 3954, -101, 2235, -119)
+script = ExtResource("4_dorp1")
+
 [node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=1251482045]
 
 [node name="treelog" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Objects" unique_id=1107097117]
@@ -611,21 +634,41 @@ scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-315, -1488)
 
 [node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=316865649]
-position = Vector2(0, 97)
+position = Vector2(-81, 90)
 texture = SubResource("CompressedTexture2D_rgh2o")
 centered = false
 
-[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=488971309]
-material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(1889, 16)
-texture = SubResource("CompressedTexture2D_idj7w")
+[node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=520419469]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_dorp1")
+position = Vector2(3277.9998, 82)
+scale = Vector2(1.0058233, 1.0100647)
+texture = SubResource("CompressedTexture2D_rgh2o")
 centered = false
 
-[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
-position = Vector2(3155, 0)
+[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=742797374]
+texture_filter = 1
+position = Vector2(1797, 91)
+scale = Vector2(0.78930646, 1)
 texture = SubResource("CompressedTexture2D_rgh2o")
 centered = false
 flip_h = true
+
+[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=488971309]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_rgh2o")
+position = Vector2(5164.0005, 82.00001)
+scale = Vector2(2.3027022, 2.0695267)
+texture = SubResource("CompressedTexture2D_dorp1")
+centered = false
+
+[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
+z_index = -1
+texture_filter = 1
+position = Vector2(6437.0005, 92.99983)
+scale = Vector2(2.1298692, 2.4452178)
+texture = SubResource("CompressedTexture2D_1h27j")
+centered = false
 
 [node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=26518790]
 visible = false

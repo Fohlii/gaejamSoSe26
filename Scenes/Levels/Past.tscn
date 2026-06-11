@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
 [ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Items/place_near_river.gd" id="1_h2wri"]
+[ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_s4ijd"]
+[ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="3_huo5r"]
+[ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="4_8gr7i"]
+[ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="5_qlr6k"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -16,6 +20,31 @@ distance = -5110.3623
 size = Vector2(8188, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4ijd"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_web4q"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_huo5r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8gr7i"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlr6k"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_huo5r"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ff8ec"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q4cgg"]
+load_path = "res://.godot/imported/background_meadow.jpg-745ac547ce6104ba999005bf22644788.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mekaa"]
+load_path = "res://.godot/imported/background_left_border.jpg-227aeb1ad3eab3d1a193004c0e2b3480.ctex"
 
 [node name="PastRoot" type="Node2D" unique_id=1856037297]
 
@@ -63,3 +92,108 @@ shape = SubResource("CircleShape2D_afb73")
 [node name="Parallax" type="Node2D" parent="." unique_id=464978827]
 z_as_relative = false
 position = Vector2(0, -664)
+
+[node name="Parallax" type="Node" parent="Parallax" unique_id=943235636]
+script = ExtResource("2_s4ijd")
+
+[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=757298214]
+z_index = -4
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-315, -1488)
+
+[node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer" unique_id=113094983]
+texture_filter = 1
+position = Vector2(3277.9998, 82)
+scale = Vector2(1.0058233, 1.0100647)
+texture = SubResource("CompressedTexture2D_s4ijd")
+centered = false
+
+[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1557153879]
+position = Vector2(-3339.5525, 7.920288)
+scale = Vector2(0.9942104, 0.9900355)
+texture = SubResource("CompressedTexture2D_web4q")
+centered = false
+
+[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=377347501]
+texture_filter = 1
+material = SubResource("ShaderMaterial_huo5r")
+position = Vector2(-1472.4254, 8.910278)
+scale = Vector2(0.7847367, 0.9900355)
+texture = SubResource("CompressedTexture2D_8gr7i")
+centered = false
+flip_h = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=59369668]
+position = Vector2(42.35943, 1086.5387)
+rotation = 3.1415927
+scale = Vector2(2.9726923, 0.9158206)
+texture = SubResource("CompressedTexture2D_qlr6k")
+region_enabled = true
+region_rect = Rect2(676.198, 909.4662, 533.75244, 152.78503)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1710270647]
+position = Vector2(47.17706, 1223.6841)
+rotation = 3.1415927
+scale = Vector2(2.959496, 0.9158206)
+texture = SubResource("CompressedTexture2D_huo5r")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(676.198, 909.4662, 533.75244, 152.78503)
+
+[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer" unique_id=1950846813]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ff8ec")
+position = Vector2(5164.0005, 82.00001)
+scale = Vector2(2.3027022, 2.0695267)
+texture = SubResource("CompressedTexture2D_q4cgg")
+centered = false
+
+[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer" unique_id=1266274734]
+z_index = -1
+texture_filter = 1
+position = Vector2(6437.0005, 92.99983)
+scale = Vector2(2.1298692, 2.4452178)
+texture = SubResource("CompressedTexture2D_mekaa")
+centered = false
+
+[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=619332740]
+visible = false
+z_index = -3
+scroll_scale = Vector2(0.3, 1)
+scroll_offset = Vector2(2208, -575)
+
+[node name="Hill" type="Sprite2D" parent="Parallax/Parallax/FartherBackgroundLayer" unique_id=681377471]
+position = Vector2(-264.00003, 490)
+scale = Vector2(0.55090636, 0.62107885)
+texture = ExtResource("3_huo5r")
+
+[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=547239889]
+visible = false
+z_index = -2
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(2208, -1000)
+
+[node name="Grass" type="Sprite2D" parent="Parallax/Parallax/FarBackgroundLayer" unique_id=2041045571]
+position = Vector2(654, 1172)
+scale = Vector2(1.9967293, 1.1375325)
+texture = ExtResource("4_8gr7i")
+
+[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=1960438254]
+visible = false
+z_index = -1
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(2208, -1000)
+
+[node name="Tree" type="Sprite2D" parent="Parallax/Parallax/NearBackgroundLayer" unique_id=599633332]
+position = Vector2(-247, 815)
+scale = Vector2(0.34375, 2.9453125)
+texture = ExtResource("5_qlr6k")
+
+[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=306011460]
+visible = false
+z_index = 1
+scroll_offset = Vector2(2208, -1000)
+
+[node name="Bush" type="Sprite2D" parent="Parallax/Parallax/NearForeGroundLayer" unique_id=998908350]
+position = Vector2(-450, 963)
+texture = ExtResource("5_qlr6k")
