@@ -74,7 +74,7 @@ size = Vector2(95.751434, 5.2283936)
 size = Vector2(96.21524, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8xji"]
-size = Vector2(429.66525, 5)
+size = Vector2(1759.117, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb4y2"]
 size = Vector2(323.6341, 6.9577026)
@@ -573,11 +573,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontLayer/Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround4" unique_id=1950077392]
 shape = SubResource("RectangleShape2D_vt5t1")
 
-[node name="MeadowGround5" type="StaticBody2D" parent="FrontLayer/Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1398646944]
-position = Vector2(5359.0005, -230)
-collision_layer = 16
-collision_mask = 0
-
 [node name="MeadowGround6" type="StaticBody2D" parent="FrontLayer/Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1405852192]
 position = Vector2(5377, -254.99988)
 rotation = -1.3962634
@@ -596,7 +591,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontLayer/Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround7" unique_id=1371319042]
-position = Vector2(161.19476, 0)
+position = Vector2(825.9208, 0)
 shape = SubResource("RectangleShape2D_l8xji")
 
 [node name="Objects" type="Node" parent="FrontLayer/Areas/Meadow/FrontLayer" unique_id=689534520]
