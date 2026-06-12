@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/tree.gd" id="3_ck43e"]
+[ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/treeLogBridge.gd" id="4_dorp1"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
@@ -384,10 +385,9 @@ shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1790029395]
 
-[node name="tree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=535348852 node_paths=PackedStringArray("treeBridge")]
+[node name="tree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=535348852]
 position = Vector2(3235, -357)
 script = ExtResource("3_ck43e")
-treeBridge = NodePath("../../../FrontLayer/Objects/treelog")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=552386117]
 
@@ -592,6 +592,7 @@ visible = false
 position = Vector2(3519, -332)
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("4_dorp1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/FrontLayer/Objects/treelog" unique_id=1320587596]
 position = Vector2(-3.4332275e-05, -0.5)

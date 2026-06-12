@@ -13,12 +13,12 @@ extends Node
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
 var in_past := false
+
 func _ready() -> void:	
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
-	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree # TODO: remove hardcoded puzzle
-	
+
 func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt??
 		if Input.is_action_just_pressed("timetravel"):
 			toggle_time()
@@ -36,8 +36,9 @@ func toggle_time() -> void:
 	print("Is in past: " + str(in_past))
 	past_root.visible = in_past
 	present_root.visible = !in_past
-	
+
 func start_game():
+	timeobjectManager.start()
 	main_menu.visible = false
 	player = playerPS.instantiate()
 	var playerCam: Camera2D = player.get_child(2)
@@ -47,7 +48,7 @@ func start_game():
 	#present_root.add_child(player)
 	#present_root.get_child(2).camera = playerCam
 	playerCam.make_current()
-	
+
 func show_menu():	
 	button_click.play()
 	GlobalVars.esc_pressed.emit()

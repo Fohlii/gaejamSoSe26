@@ -222,11 +222,11 @@ class PlayerMovementComponent extends RefCounted:
 			return _processInput.call(delta)
 
 class PlayerInteractionComponent extends RefCounted:
-	var playerInventory: Array[Item]
+	var playerInventoryItem: Item
 	var playerInventoryUI: Node2D
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		playerInventory = []
+		playerInventoryItem = null
 	
 	func processInput(interactionZone: Area2D) -> void:
 		if Input.is_action_just_pressed("interact"):
@@ -237,10 +237,7 @@ class PlayerInteractionComponent extends RefCounted:
 				print("player interacting with ", interactionZone.get_overlapping_areas()[0])
 	
 	func _playerInteract(interactable: Interactable):
-		print("player uses ", playerInventory[0], " on ", interactable.id)
-		if playerInventory.is_empty():
-			playerInventory.push_front(interactable.interact("NONE"))
-		else:
-			playerInventory.push_front(interactable.interact(playerInventory.pop_at(0).id))
+		print("player uses ", (playerInventoryItem.id if playerInventoryItem else "empty hand"), " on ", interactable.id)
+		playerInventoryItem = interactable.interact(playerInventoryItem)
+		print("player received ", playerInventoryItem)
 		# TODO update playerInventoryUI
-		print("player received ", playerInventory[0])

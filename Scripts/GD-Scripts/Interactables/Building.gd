@@ -1,8 +1,8 @@
 @abstract class_name Building extends Interactable
 
-func interact(withItemId: String) -> Item:
+func interact(item: Item) -> Item:
 	enter()
-	return null
+	return item
 
 func enter() -> void:
 	pass
