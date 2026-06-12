@@ -2,6 +2,12 @@ extends Timeobject
 
 func _init() -> void:
 	id = "PresentObjectStumpWithAxe"
+	
+func needsItem():
+	pass
+	
+func givesItem():
+	pass
 
-func _ready() -> void:
-	super()
+func interactWith(...args):
+	pass

@@ -93,6 +93,10 @@ class PlayerMovementComponent extends RefCounted:
 				
 				var direction = Input.get_axis("walk_left", "walk_right")
 				player.sprite_2d.flip_h = (direction < 0)
+				if player.sprite_2d.flip_h:
+					player.interactionArea.rotation = 110
+				else:
+					player.interactionArea.rotation = 0
 				return Vector2(direction * player.SPEED, player.velocity.y)
 		)
 		
@@ -234,7 +238,7 @@ class PlayerInteractionComponent extends RefCounted:
 				print("player interacting with ", interactionZone.get_overlapping_areas()[0])
 	
 	func playerInteract(interactable: Interactable):
-		if interactable.needsItem() != "":
+		if interactable.needsItem():
 			if playerInventory.hasItem(interactable.needsItem()):
 				# TODO remove item sprite from playerInventoryUI
 				playerInventory.removeItem(interactable.needsItem())
@@ -243,7 +247,7 @@ class PlayerInteractionComponent extends RefCounted:
 					# TODO add item sprite to playerInventoryUI
 					playerInventory.addItem(temp)
 					print("player added to inventory: ", temp)
-		elif interactable.givesItem() != "":
+		elif interactable.givesItem():
 			var temp = interactable.interactWith("")
 			if temp != "":
 				# TODO add item sprite to playerInventoryUI
@@ -251,7 +255,7 @@ class PlayerInteractionComponent extends RefCounted:
 				print("player added to inventory: ", temp)
 	
 	class Inventory extends RefCounted:
-		var contents: Array[String]
+		var contents: Array[String] = []
 		
 		func addItem(itemId: String) -> void:
 			contents.append(itemId)
@@ -260,4 +264,7 @@ class PlayerInteractionComponent extends RefCounted:
 			contents.remove_at(contents.find(itemId))
 		
 		func hasItem(itemId: String) -> bool:
-			return contents.has(itemId)
+			if contents.size() > 0:
+				return contents.has(itemId)
+			else:
+				return false
