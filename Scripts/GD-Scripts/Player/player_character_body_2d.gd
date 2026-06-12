@@ -238,8 +238,9 @@ class PlayerInteractionComponent extends RefCounted:
 	
 	func _playerInteract(interactable: Interactable):
 		print("player uses ", playerInventory[0], " on ", interactable.id)
-		if playerInventory[0]:
-			playerInventory.push_front(interactable.interact(playerInventory.pop_at(0).id))
-		else:
+		if playerInventory.is_empty():
 			playerInventory.push_front(interactable.interact("NONE"))
+		else:
+			playerInventory.push_front(interactable.interact(playerInventory.pop_at(0).id))
+		# TODO update playerInventoryUI
 		print("player received ", playerInventory[0])

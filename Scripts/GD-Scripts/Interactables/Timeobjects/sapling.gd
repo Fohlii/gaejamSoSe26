@@ -1,4 +1,4 @@
-extends Interactable
+extends Timeobject
 var saplingTexture = load("res://icon.svg")
 var noSaplingTexture = load("")
 var canInteract: bool

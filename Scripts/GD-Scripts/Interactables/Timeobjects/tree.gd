@@ -1,4 +1,4 @@
-extends Interactable
+extends Timeobject
 var noTreeTexture = load("")
 var treeTexture = load("res://icon.svg")
 var felledTreeTexture = load("")

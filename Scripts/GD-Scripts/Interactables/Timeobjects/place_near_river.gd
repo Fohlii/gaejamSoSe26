@@ -1,34 +1,19 @@
-extends Interactable
-var placeWithoutSaplingTexture = load("")
-var placeWithSaplingTexture = load("res://icon.svg")
-var canInteract: bool
+extends Timeobject
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-var future_tree: Callable
+func _init() -> void:
+	id = "PastSaplingPlantationSpot"
+	layer = InteractableLayer.BACKGROUND
+	timeline = Timeline.PAST
+	dependsOnPast = false
 
-func _ready() -> void:	
-	canInteract = true
-	sprite_2d.texture = placeWithoutSaplingTexture
+func _ready() -> void:
+	var withoutSapling: TimeobjectState = TimeobjectState.new("emptyPlantationSpot", Vector2(0,0), true, "", "", "NONE")
+	var withSapling: TimeobjectState = TimeobjectState.new("saplingPlantedInSpot", Vector2(0,0), true, "res://icon.svg", "", "NONE")
+	withoutSapling.addInteractionTransition("sapling", withSapling.id)
+	
+	statesById.set(withoutSapling.id, withoutSapling)
+	statesById.set(withSapling.id, withSapling)
+	
+	currentState = withoutSapling
 
-func needsItem() -> String:
-	if canInteract:
-		return "sapling"
-	else:
-		return ""
-
-func givesItem() -> String:
-	if canInteract:
-		return ""
-	else:
-		return ""
-
-func interactWith(itemId: String) -> String:
-	var returnValue = ""
-	if canInteract && itemId == "sapling":
-		returnValue = givesItem()
-		canInteract = false
-		sprite_2d.texture = placeWithSaplingTexture
-		print("sapling planted")
-		if future_tree:
-			future_tree.call()
-	return returnValue
+	super()
