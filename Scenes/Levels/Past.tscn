@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
-[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Items/place_near_river.gd" id="1_h2wri"]
+[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/place_near_river.gd" id="1_h2wri"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
