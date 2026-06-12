@@ -14,26 +14,40 @@ func _ready() -> void:
 	if currentState.visibleAndColliding:
 		sprite.texture = currentState.texture
 		collider.shape = currentState.colliderShape
-	# TODO: register listeners
+	for state in currentState.cascadeTransitions.keys():
+		# TODO: test
+		get_tree().root.get_script().timeobjectManager.timeobjectsById(state).timeobject_state_changed.connect(self.on_other_timeobject_state_changed)
 
 ## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
 func interact(withItemId: String = "") -> Item:
+	# TODO: test
 	if currentState.interactionTransitions.keys().has(withItemId):
-		# TODO: deregister listeners
-		currentState = statesById[currentState.interactionTransitions[withItemId]]
-		# TODO: register listeners
-		timeobject_state_changed.emit(currentState.id)
+		_interactionTransition(withItemId)
 		return currentState.itemToReturnOnTransition
 	else:
 		return null
 
-func on_timeobject_state_changed(notifierStateId: String) -> void:
-	# TODO: call _cascadeTransition
-	pass
+func on_other_timeobject_state_changed(notifierStateId: String) -> void:
+	# TODO: test
+	_cascadeTransition(currentState.cascadeTransitions[notifierStateId])
+
+func _interactionTransition(itemId: String) -> void:
+	# TODO: test
+	for state in currentState.cascadeTransitions.keys():
+		get_tree().root.get_script().timeobjectManager.timeobjectsById(state).timeobject_state_changed.disconnect(self.on_timeobject_state_changed)
+	currentState = statesById[currentState.interactionTransitions[itemId]]
+	for state in currentState.cascadeTransitions.keys():
+		get_tree().root.get_script().timeobjectManager.timeobjectsById(state).timeobject_state_changed.connect(self.on_timeobject_state_changed)
+	timeobject_state_changed.emit(currentState.id)
 
 func _cascadeTransition(newStateId: String) -> void:
-	# TODO same as true-branch of interact
-	pass
+	# TODO: test
+	for state in currentState.cascadeTransitions.keys():
+		get_tree().root.get_script().timeobjectManager.timeobjectsById(state).timeobject_state_changed.disconnect(self.on_timeobject_state_changed)
+	currentState = statesById[currentState.cascadeTransitions[newStateId]]
+	for state in currentState.cascadeTransitions.keys():
+		get_tree().root.get_script().timeobjectManager.timeobjectsById(state).timeobject_state_changed.connect(self.on_timeobject_state_changed)
+	timeobject_state_changed.emit(currentState.id)
 
 class TimeobjectState extends Resource:
 	var id: String

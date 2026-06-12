@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var main_menu: Node2D = $UI/MainMenu
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
@@ -7,6 +7,7 @@ extends Node2D
 @onready var menu: CanvasLayer = $UI/Control
 @onready var button_click: AudioStreamPlayer = $ButtonClick
 @onready var control: CanvasLayer = $Control
+@onready var timeobjectManager: TimeobjectManager
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
