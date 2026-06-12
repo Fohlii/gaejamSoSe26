@@ -11,7 +11,7 @@ var currentState: TimeobjectState
 signal timeobject_state_changed(notifierId: String, notifierStateId: String)
 
 func _ready() -> void:
-	if currentState.visibleAndColliding:
+	if currentState && currentState.visibleAndColliding:
 		sprite.texture = currentState.texture
 		collider.shape = currentState.colliderShape
 
@@ -23,15 +23,15 @@ func initializeAfterReadyStepTwo() -> void:
 		get_tree().current_scene.timeobjectManager.timeobjectsById(tuple.first).timeobject_state_changed.connect(self.on_other_timeobject_state_changed)
 
 ## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
-func interact(withItemId: String = "") -> Item:
-	if currentState.interactionTransitions.keys().has(withItemId):
-		_interactionTransition(withItemId)
+func interact(itemId: String = "") -> Item:
+	if currentState.interactionTransitions.keys().has(itemId):
+		_interactionTransition(itemId)
 		return currentState.itemToReturnOnTransition
 	else:
 		return null
 
 func on_other_timeobject_state_changed(notifierId: String, notifierStateId: String) -> void:
-	_cascadeTransition(currentState.cascadeTransitions[StringTuple.new(notifierId, notifierStateId)]) #TODO test if this works as key
+	_cascadeTransition(currentState.cascadeTransitions[StringTuple.new(notifierId, notifierStateId)])
 
 func _interactionTransition(itemId: String) -> void:
 	for tuple in currentState.cascadeTransitions.keys():
@@ -82,5 +82,5 @@ class TimeobjectState extends Resource:
 	func addInteractionTransition(itemId: String, stateId: String):
 		self.interactionTransitions.set(itemId, stateId)
 	
-	func addCascadeTransition(notifierStateId: String, ownStateId: String):
-		self.cascadeTransitions.set(notifierStateId, ownStateId)
+	func addCascadeTransition(notifierId: String, notifierStateId: String, ownStateId: String):
+		self.cascadeTransitions.set(StringTuple.new(notifierId, notifierStateId), ownStateId)

@@ -13,5 +13,5 @@ var timeline: Timeline
 enum InteractableLayer {ACTIVE, BACKGROUND}
 enum Timeline {PAST, PRESENT}
 
-func interact(withItemId: String) -> Item:
+func interact(itemId: String) -> Item:
 	return null
