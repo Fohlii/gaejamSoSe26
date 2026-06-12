@@ -93,32 +93,28 @@ height = 448.0
 
 [node name="PastRoot" type="Node2D" unique_id=1856037297]
 
-[node name="Parallax" type="Node2D" parent="." unique_id=464978827]
-z_as_relative = false
-position = Vector2(0, -664)
-
-[node name="Parallax" type="Node" parent="Parallax" unique_id=943235636]
+[node name="Parallax" type="Node" parent="." unique_id=1340712028]
 script = ExtResource("2_s4ijd")
 
-[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=757298214]
+[node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=757298214]
 z_index = -4
 scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-315, -1488)
 
-[node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer" unique_id=113094983]
+[node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=113094983]
 texture_filter = 1
 position = Vector2(3277.9998, 82)
 scale = Vector2(1.0058233, 1.0100647)
 texture = SubResource("CompressedTexture2D_s4ijd")
 centered = false
 
-[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1557153879]
+[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1557153879]
 position = Vector2(-3339.5525, 7.920288)
 scale = Vector2(0.9942104, 0.9900355)
 texture = SubResource("CompressedTexture2D_web4q")
 centered = false
 
-[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=377347501]
+[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=377347501]
 texture_filter = 1
 material = SubResource("ShaderMaterial_huo5r")
 position = Vector2(-1472.4254, 8.910278)
@@ -127,7 +123,7 @@ texture = SubResource("CompressedTexture2D_8gr7i")
 centered = false
 flip_h = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=59369668]
+[node name="Sprite2D" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=59369668]
 position = Vector2(42.35943, 1086.5387)
 rotation = 3.1415927
 scale = Vector2(2.9726923, 0.9158206)
@@ -135,7 +131,7 @@ texture = SubResource("CompressedTexture2D_qlr6k")
 region_enabled = true
 region_rect = Rect2(676.198, 909.4662, 533.75244, 152.78503)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1710270647]
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1710270647]
 position = Vector2(47.17706, 1223.6841)
 rotation = 3.1415927
 scale = Vector2(2.959496, 0.9158206)
@@ -144,7 +140,7 @@ flip_v = true
 region_enabled = true
 region_rect = Rect2(676.198, 909.4662, 533.75244, 152.78503)
 
-[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer" unique_id=1950846813]
+[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=1950846813]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_ff8ec")
 position = Vector2(5164.0005, 82.00001)
@@ -152,7 +148,7 @@ scale = Vector2(2.3027022, 2.0695267)
 texture = SubResource("CompressedTexture2D_q4cgg")
 centered = false
 
-[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/Parallax/FarthestBackgroundLayer" unique_id=1266274734]
+[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=1266274734]
 z_index = -1
 texture_filter = 1
 position = Vector2(6437.0005, 92.99983)
@@ -160,45 +156,45 @@ scale = Vector2(4.0670986, 2.4452178)
 texture = SubResource("CompressedTexture2D_mekaa")
 centered = false
 
-[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=619332740]
+[node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=619332740]
 visible = false
 z_index = -3
 scroll_scale = Vector2(0.3, 1)
 scroll_offset = Vector2(2208, -575)
 
-[node name="Hill" type="Sprite2D" parent="Parallax/Parallax/FartherBackgroundLayer" unique_id=681377471]
+[node name="Hill" type="Sprite2D" parent="Parallax/FartherBackgroundLayer" unique_id=681377471]
 position = Vector2(-264.00003, 490)
 scale = Vector2(0.55090636, 0.62107885)
 texture = ExtResource("3_huo5r")
 
-[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=547239889]
+[node name="FarBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=547239889]
 visible = false
 z_index = -2
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(2208, -1000)
 
-[node name="Grass" type="Sprite2D" parent="Parallax/Parallax/FarBackgroundLayer" unique_id=2041045571]
+[node name="Grass" type="Sprite2D" parent="Parallax/FarBackgroundLayer" unique_id=2041045571]
 position = Vector2(654, 1172)
 scale = Vector2(1.9967293, 1.1375325)
 texture = ExtResource("4_8gr7i")
 
-[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=1960438254]
+[node name="NearBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=1960438254]
 visible = false
 z_index = -1
 scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(2208, -1000)
 
-[node name="Tree" type="Sprite2D" parent="Parallax/Parallax/NearBackgroundLayer" unique_id=599633332]
+[node name="Tree" type="Sprite2D" parent="Parallax/NearBackgroundLayer" unique_id=599633332]
 position = Vector2(-247, 815)
 scale = Vector2(0.34375, 2.9453125)
 texture = ExtResource("5_qlr6k")
 
-[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax/Parallax" unique_id=306011460]
+[node name="NearForeGroundLayer" type="Parallax2D" parent="Parallax" unique_id=306011460]
 visible = false
 z_index = 1
 scroll_offset = Vector2(2208, -1000)
 
-[node name="Bush" type="Sprite2D" parent="Parallax/Parallax/NearForeGroundLayer" unique_id=998908350]
+[node name="Bush" type="Sprite2D" parent="Parallax/NearForeGroundLayer" unique_id=998908350]
 position = Vector2(-450, 963)
 texture = ExtResource("5_qlr6k")
 

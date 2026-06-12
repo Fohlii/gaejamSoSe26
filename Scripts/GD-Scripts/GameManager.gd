@@ -17,7 +17,7 @@ func _ready() -> void:
 	print("main_menu: ", main_menu)
 	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree
 	
-func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt??
+func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt?? -> Weil das Skript am root attached ist 
 		if Input.is_action_just_pressed("timetravel"):
 			toggle_time()
 		if Input.is_action_just_pressed("esc"):
@@ -26,21 +26,14 @@ func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im Gam
 			else:
 				show_menu()
 func toggle_time() -> void:
-	#if (in_past):
-	#	player.global_position.y = player.global_position.y-20500
-	#else:
-	#	player.global_position.y = player.global_position.y+18500
 	in_past = !in_past
 	print("Is in past: " + str(in_past))
-	if in_past:
-		past_root.show()
-		present_root.hide()
-	else: 
-		past_root.show()
-		present_root.hide()
+
 	print("past visible: " + str(past_root.visible))
 	print("present visible" + str(present_root.visible))
-	
+	#Parallax layer müssen einzeln unsichtbar gemacht werden, weil bei regulären Nodes visible nicht gesetzt werden kann
+	$PresentRoot/Parallax/FarthestBackgroundLayer.visible = !in_past
+	$PastRoot/Parallax/FarthestBackgroundLayer.visible = in_past
 func start_game():
 	main_menu.visible = false
 	player = playerPS.instantiate()
