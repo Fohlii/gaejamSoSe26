@@ -10,16 +10,6 @@
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="8_ff8ec"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="9_q4cgg"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
-normal = Vector2(-0.99991566, -0.012985918)
-distance = -3753.398
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
-normal = Vector2(0.9999185, 0.012764918)
-distance = -5110.3623
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4ijd"]
@@ -102,19 +92,6 @@ radius = 32.0
 height = 448.0
 
 [node name="PastRoot" type="Node2D" unique_id=1856037297]
-
-[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1774505568]
-physics_material_override = SubResource("PhysicsMaterial_idj7w")
-
-[node name="RightBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=527916392]
-position = Vector2(2261, -105)
-shape = SubResource("WorldBoundaryShape2D_rgh2o")
-disabled = true
-
-[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorder" unique_id=1944299633]
-position = Vector2(2941, 28)
-shape = SubResource("WorldBoundaryShape2D_pbw6q")
-disabled = true
 
 [node name="Colliders" type="Node2D" parent="." unique_id=688708548]
 
@@ -204,7 +181,7 @@ centered = false
 z_index = -1
 texture_filter = 1
 position = Vector2(6437.0005, 92.99983)
-scale = Vector2(2.1298692, 2.4452178)
+scale = Vector2(4.0670986, 2.4452178)
 texture = SubResource("CompressedTexture2D_mekaa")
 centered = false
 
