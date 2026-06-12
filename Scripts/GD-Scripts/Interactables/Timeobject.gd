@@ -12,8 +12,10 @@ signal timeobject_state_changed(notifierId: String, notifierStateId: String)
 
 func _ready() -> void:
 	if currentState && currentState.visibleAndColliding:
-		sprite.texture = currentState.texture
-		collider.shape = currentState.colliderShape
+		if sprite && currentState.texture:
+			sprite.texture = currentState.texture
+		if collider && currentState.colliderShape:
+			collider.shape = currentState.colliderShape
 
 func initializeAfterReadyStepOne() -> void:
 	get_tree().current_scene.timeobjectManager.timeobjectsById.set(id, self)
@@ -76,7 +78,7 @@ class TimeobjectState extends Resource:
 		self.colliderShape = load(col)
 		self.visibleAndColliding = vis
 		self.itemToReturnOnTransition = load(item)
-		self.interactions = {}
+		self.interactionTransitions = {}
 		self.cascadeTransitions = {}
 	
 	func addInteractionTransition(itemId: String, stateId: String):

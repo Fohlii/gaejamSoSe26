@@ -33,7 +33,6 @@ class PlayerMovementComponent extends RefCounted:
 	var currentState: MotionState
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		
 		playerMotionStates["IdleMotionState"] = MotionState.new(
 			func(): 
 				print("idleMotionState entered")
@@ -93,6 +92,7 @@ class PlayerMovementComponent extends RefCounted:
 				
 				var direction = Input.get_axis("walk_left", "walk_right")
 				player.sprite_2d.flip_h = (direction < 0)
+				player.interactionArea.rotation = PI if (direction < 0) else 0
 				return Vector2(direction * player.SPEED, player.velocity.y)
 		)
 		
@@ -115,7 +115,9 @@ class PlayerMovementComponent extends RefCounted:
 			func(delta: float): #TODO
 				changeState("FallingMotionState")
 				var direction = Input.get_axis("walk_left", "walk_right")
-				player.sprite_2d.flip_h = (direction < 0)
+				if direction != 0:
+					player.sprite_2d.flip_h = (direction < 0)
+					player.interactionArea.rotation = PI if (direction < 0) else 0
 				return Vector2(direction * player.SPEED, player.JUMP_VELOCITY)
 		)
 		
@@ -134,6 +136,7 @@ class PlayerMovementComponent extends RefCounted:
 				var direction = Input.get_axis("walk_left", "walk_right")
 				if direction != 0:
 					player.sprite_2d.flip_h = (direction < 0)
+					player.interactionArea.rotation = PI if (direction < 0) else 0
 				
 				return (player.velocity + (player.get_gravity() * delta))
 		)
@@ -219,45 +222,24 @@ class PlayerMovementComponent extends RefCounted:
 			return _processInput.call(delta)
 
 class PlayerInteractionComponent extends RefCounted:
-	var playerInventory: Inventory
+	var playerInventory: Array[Item]
 	var playerInventoryUI: Node2D
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		playerInventory = Inventory.new()
+		playerInventory = []
 	
 	func processInput(interactionZone: Area2D) -> void:
 		if Input.is_action_just_pressed("interact"):
 			print("player interaction called")
 			print(interactionZone.get_overlapping_areas())
-			if !interactionZone.get_overlapping_areas().is_empty(): #.filter(func(node: Node2D) -> bool: return node.is_in_group("interactable"))
-				playerInteract(interactionZone.get_overlapping_areas()[0].get_parent()) #arbitrary [0]
+			if !interactionZone.get_overlapping_areas().is_empty():
+				_playerInteract(interactionZone.get_overlapping_areas()[0].get_parent()) # Design Choice: Interactables should be spread apart to make [0] unambiguous
 				print("player interacting with ", interactionZone.get_overlapping_areas()[0])
 	
-	func playerInteract(interactable: Interactable):
-		if interactable.needsItem() != "":
-			if playerInventory.hasItem(interactable.needsItem()):
-				# TODO remove item sprite from playerInventoryUI
-				playerInventory.removeItem(interactable.needsItem())
-				var temp = interactable.interactWith(interactable.needsItem())
-				if temp != "":
-					# TODO add item sprite to playerInventoryUI
-					playerInventory.addItem(temp)
-					print("player added to inventory: ", temp)
-		elif interactable.givesItem() != "":
-			var temp = interactable.interactWith("")
-			if temp != "":
-				# TODO add item sprite to playerInventoryUI
-				playerInventory.addItem(temp)
-				print("player added to inventory: ", temp)
-	
-	class Inventory extends RefCounted:
-		var contents: Array[String]
-		
-		func addItem(itemId: String) -> void:
-			contents.append(itemId)
-		
-		func removeItem(itemId: String) -> void:
-			contents.remove_at(contents.find(itemId))
-		
-		func hasItem(itemId: String) -> bool:
-			return contents.has(itemId)
+	func _playerInteract(interactable: Interactable):
+		print("player uses ", playerInventory[0], " on ", interactable.id)
+		if playerInventory[0]:
+			playerInventory.push_front(interactable.interact(playerInventory.pop_at(0).id))
+		else:
+			playerInventory.push_front(interactable.interact("NONE"))
+		print("player received ", playerInventory[0])
