@@ -309,11 +309,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround4" unique_id=893310999]
 shape = SubResource("RectangleShape2D_kk6vw")
 
-[node name="MeadowGround5" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=390484984]
-position = Vector2(5359.0005, -230)
-collision_layer = 16
-collision_mask = 0
-
 [node name="MeadowGround6" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1379454491]
 position = Vector2(5377, -254.99988)
 rotation = -1.3962634

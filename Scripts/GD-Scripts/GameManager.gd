@@ -32,8 +32,12 @@ func toggle_time() -> void:
 	#	player.global_position.y = player.global_position.y+18500
 	in_past = !in_past
 	print("Is in past: " + str(in_past))
-	past_root.visible = in_past
-	present_root.visible = !in_past
+	if in_past:
+		past_root.show()
+		present_root.hide()
+	else: 
+		past_root.show()
+		present_root.hide()
 	print("past visible: " + str(past_root.visible))
 	print("present visible" + str(present_root.visible))
 	

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
-[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Items/place_near_river.gd" id="1_h2wri"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_s4ijd"]
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="3_huo5r"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="4_8gr7i"]
@@ -9,8 +8,7 @@
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Items/axe_in_stump.gd" id="7_c23j1"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="8_ff8ec"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="9_q4cgg"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
+[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Items/place_near_river.gd" id="9_web4q"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4ijd"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -91,32 +89,9 @@ size = Vector2(219.00008, 7.5)
 radius = 32.0
 height = 448.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
+
 [node name="PastRoot" type="Node2D" unique_id=1856037297]
-
-[node name="Colliders" type="Node2D" parent="." unique_id=688708548]
-
-[node name="Ground" type="Node2D" parent="Colliders" unique_id=1937999256]
-
-[node name="MainAreaGround" type="StaticBody2D" parent="Colliders/Ground" unique_id=1964272620]
-position = Vector2(1920, -301)
-collision_layer = 16
-collision_mask = 0
-
-[node name="Objects" type="Node2D" parent="Colliders" unique_id=1730887571]
-
-[node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=992869190]
-position = Vector2(3235, -357)
-script = ExtResource("1_h2wri")
-
-[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/placeNearRiver" unique_id=25380208]
-
-[node name="Area2D" type="Area2D" parent="Colliders/Objects/placeNearRiver" unique_id=1725263679]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/placeNearRiver/Area2D" unique_id=2121509332]
-shape = SubResource("CircleShape2D_afb73")
 
 [node name="Parallax" type="Node2D" parent="." unique_id=464978827]
 z_as_relative = false
@@ -825,3 +800,21 @@ texture = ExtResource("5_qlr6k")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontLayer/Areas/Mountain/FrontLayer/Objects/treelog" unique_id=813817151]
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_57fhp")
+
+[node name="Colliders" type="Node2D" parent="." unique_id=1480561374]
+
+[node name="Objects" type="Node" parent="Colliders" unique_id=1830196446]
+
+[node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=276242168]
+position = Vector2(6563.0005, -361)
+script = ExtResource("9_web4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/placeNearRiver" unique_id=316426104]
+
+[node name="Area2D" type="Area2D" parent="Colliders/Objects/placeNearRiver" unique_id=1044945791]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/placeNearRiver/Area2D" unique_id=413163457]
+shape = SubResource("CircleShape2D_kk6vw")
