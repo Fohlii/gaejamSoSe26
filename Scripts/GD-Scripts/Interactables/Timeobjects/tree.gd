@@ -1,5 +1,4 @@
 extends Interactable
-var id: String
 var noTreeTexture = load("")
 var treeTexture = load("res://icon.svg")
 var felledTreeTexture = load("")

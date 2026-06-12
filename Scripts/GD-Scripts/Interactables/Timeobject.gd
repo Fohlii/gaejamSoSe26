@@ -1,4 +1,4 @@
-class_name Timeobject extends Interactable
+@abstract class_name Timeobject extends Interactable
 ## A Timeobject is any instantiable in past or present that changes due to player action
 ## directly or indirectly through other Timeobjects
 

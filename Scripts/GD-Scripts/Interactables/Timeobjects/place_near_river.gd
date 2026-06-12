@@ -1,5 +1,4 @@
 extends Interactable
-var id: String
 var placeWithoutSaplingTexture = load("")
 var placeWithSaplingTexture = load("res://icon.svg")
 var canInteract: bool

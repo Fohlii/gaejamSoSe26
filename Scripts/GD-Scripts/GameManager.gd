@@ -7,7 +7,8 @@ extends Node
 @onready var menu: CanvasLayer = $UI/Control
 @onready var button_click: AudioStreamPlayer = $ButtonClick
 @onready var control: CanvasLayer = $Control
-@onready var timeobjectManager: TimeobjectManager
+
+@onready var timeobjectManager: TimeobjectManager # TODO
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
@@ -16,7 +17,8 @@ func _ready() -> void:
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
-	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree
+	timeobjectManager = TimeobjectManager.new() # TODO
+	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree # TODO: remove hardcoded puzzle
 	
 func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt??
 		if Input.is_action_just_pressed("timetravel"):

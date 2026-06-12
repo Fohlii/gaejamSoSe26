@@ -1,4 +1,4 @@
-class_name Interactable extends StaticBody2D
+@abstract class_name Interactable extends Node2D
 var id: String
 
 ## Which layer (same as player or behind) this Node is encountered in
