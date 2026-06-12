@@ -1,30 +1,7 @@
-extends Interactable
-var stumpWithAxeTexture = load("res://icon.svg")
-var stumpWithoutAxeTexture = load("")
-var canInteract: bool
+extends Timeobject
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+func _init() -> void:
+	id = "PresentObjectStumpWithAxe"
 
-func _ready() -> void:	
-	canInteract = true
-	sprite_2d.texture = stumpWithAxeTexture
-
-func needsItem() -> String:
-	if canInteract:
-		return ""
-	else:
-		return ""
-
-func givesItem() -> String:
-	if canInteract:
-		return "axe"
-	else:
-		return ""
-
-func interactWith(itemId: String) -> String:
-	var returnValue = ""
-	if canInteract:
-		returnValue = givesItem()
-		canInteract = false
-		sprite_2d.texture = stumpWithoutAxeTexture
-	return returnValue
+func _ready() -> void:
+	super()
