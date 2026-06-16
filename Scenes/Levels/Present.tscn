@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Items/sapling.gd" id="1_1h27j"]
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
-[ext_resource type="Texture2D" uid="uid://cuf136t8q20ml" path="res://Assets/Background/Background_Meadow_mitFluss.jpg" id="2_ck43e"]
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Items/axe_in_stump.gd" id="2_dorp1"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
@@ -14,32 +13,39 @@
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rlqni"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
+size = Vector2(472.4082, 422)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dorp1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rlqni"]
-load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
-size = Vector2(286.5, 422)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_do8mn"]
+load_path = "res://.godot/imported/Background_Meadow_mitFluss.jpg-0b1ff3783a0f54d9bab2182ddadb69ad.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1h27j"]
 load_path = "res://.godot/imported/background_left_border.jpg-227aeb1ad3eab3d1a193004c0e2b3480.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k8w"]
+size = Vector2(82.38214, 282.59244)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 normal = Vector2(-1, 0)
+distance = -1459.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
 normal = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
-size = Vector2(107.275696, 5)
+size = Vector2(141.63785, 6.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dorp1"]
 size = Vector2(261.63785, 5)
@@ -51,7 +57,7 @@ size = Vector2(114.46155, 6.526291)
 size = Vector2(100, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhuu5"]
-size = Vector2(3684, 5)
+size = Vector2(2898, 5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
 
@@ -62,16 +68,13 @@ size = Vector2(95.751434, 5.2283936)
 size = Vector2(96.21524, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkieh"]
-size = Vector2(429.66525, 5)
+size = Vector2(1406.0348, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wprut"]
 size = Vector2(323.6341, 6.9577026)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4naw"]
-size = Vector2(5, 100)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioaai"]
-size = Vector2(219.00008, 7.5)
+size = Vector2(2590, 7.5)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk6vw"]
 radius = 32.0
@@ -89,49 +92,64 @@ scroll_offset = Vector2(-315, -1488)
 
 [node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=316865649]
 position = Vector2(324, 90)
-scale = Vector2(0.78560084, 1)
+scale = Vector2(0.78824776, 1)
 texture = SubResource("CompressedTexture2D_ck43e")
 centered = false
+
+[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd" unique_id=742797374]
+texture_filter = 1
+position = Vector2(1874.998, 1)
+scale = Vector2(1.004717, 1)
+texture = SubResource("CompressedTexture2D_rlqni")
+centered = false
+flip_h = true
+
+[node name="FirstPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2" unique_id=1703908237]
+position = Vector2(-1877.5977, 1397)
+scale = Vector2(1.266935, 1)
+
+[node name="CoastQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2/FirstPuzzle" unique_id=1161456420]
+position = Vector2(2638, -389)
+shape = SubResource("RectangleShape2D_rlqni")
 
 [node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=520419469]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_dorp1")
 position = Vector2(3277.9998, 82)
-scale = Vector2(1.0058233, 1.0100647)
+scale = Vector2(0.5907889, 1.0100647)
 texture = SubResource("CompressedTexture2D_rgh2o")
 centered = false
-
-[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=742797374]
-texture_filter = 1
-position = Vector2(1797, 91)
-scale = Vector2(0.78930646, 1)
-texture = SubResource("CompressedTexture2D_rlqni")
-centered = false
-flip_h = true
-
-[node name="FirstPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd2" unique_id=1703908237]
-position = Vector2(-1877.5977, 1397)
-scale = Vector2(1.266935, 1)
-
-[node name="CoastQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd2/FirstPuzzle" unique_id=1161456420]
-position = Vector2(2638, -389)
-shape = SubResource("RectangleShape2D_rlqni")
 
 [node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=488971309]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(5164.0005, 82.00001)
+position = Vector2(4373.001, 89)
 scale = Vector2(2.3027022, 2.0695267)
-texture = ExtResource("2_ck43e")
+texture = SubResource("CompressedTexture2D_do8mn")
 centered = false
+
+[node name="SecondPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea" unique_id=100603710]
+position = Vector2(-2105.8003, 679.3824)
+scale = Vector2(0.4357356, 0.48320228)
+
+[node name="RiverQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle" unique_id=1621991290]
+position = Vector2(5210.4746, -297)
+shape = SubResource("RectangleShape2D_rlqni")
 
 [node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
 z_index = -1
 texture_filter = 1
-position = Vector2(6437.0005, 92.99983)
-scale = Vector2(3.9328992, 2.4452178)
+position = Vector2(5646.0015, -376.99988)
+scale = Vector2(3.9328992, 3.2747824)
 texture = SubResource("CompressedTexture2D_1h27j")
 centered = false
+
+[node name="ThirdPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundRightEnd" unique_id=692798173]
+
+[node name="CaveQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundRightEnd/ThirdPuzzle" unique_id=6804271]
+position = Vector2(269.52075, 443.1099)
+scale = Vector2(0.9999997, 1)
+shape = SubResource("RectangleShape2D_p1k8w")
 
 [node name="FartherBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=26518790]
 visible = false
@@ -343,7 +361,7 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Inland/CoastGround" unique_id=937147832]
-position = Vector2(1649, 5.5)
+position = Vector2(1256, 5.5)
 shape = SubResource("RectangleShape2D_jhuu5")
 
 [node name="Objects" type="Node" parent="Areas/Coast/FrontLayer" unique_id=1047195248]
@@ -355,7 +373,7 @@ shape = SubResource("RectangleShape2D_jhuu5")
 [node name="Objects" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1282926288]
 
 [node name="sapling" type="Node2D" parent="Areas/Meadow/BackLayer/Objects" unique_id=1319605110]
-position = Vector2(5439.0005, -341)
+position = Vector2(4648.001, -334)
 script = ExtResource("1_1h27j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=1917620976]
@@ -369,7 +387,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_kk6vw")
 
 [node name="stumpWithAxe" type="Node2D" parent="Areas/Meadow/BackLayer/Objects" unique_id=772835730]
-position = Vector2(6101.0005, -346)
+position = Vector2(5310.001, -339)
 script = ExtResource("2_dorp1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1876211793]
@@ -393,7 +411,7 @@ shape = SubResource("CircleShape2D_kk6vw")
 [node name="SmallRiver" type="Node2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1666310603]
 
 [node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1091873728]
-position = Vector2(5223, -248.00012)
+position = Vector2(4432.0005, -241.00012)
 rotation = 1.3962634
 collision_layer = 16
 collision_mask = 0
@@ -404,7 +422,7 @@ scale = Vector2(1.0000002, 1.0000002)
 shape = SubResource("RectangleShape2D_8ycl7")
 
 [node name="MeadowGround4" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=132634582]
-position = Vector2(5304.0005, -228)
+position = Vector2(4513.001, -221)
 collision_layer = 16
 collision_mask = 0
 
@@ -412,7 +430,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MeadowGround6" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1379454491]
-position = Vector2(5377, -254.99988)
+position = Vector2(4586.0005, -247.99988)
 rotation = -1.3962634
 collision_layer = 16
 collision_mask = 0
@@ -423,13 +441,13 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_jef47")
 
 [node name="MeadowGround7" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=67386283]
-position = Vector2(5538.0005, -299)
+position = Vector2(4747.001, -292)
 scale = Vector2(2.92, 1)
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround7" unique_id=1710619196]
-position = Vector2(161.19476, 0)
+position = Vector2(649.37964, 0)
 shape = SubResource("RectangleShape2D_jkieh")
 
 [node name="Objects" type="Node" parent="Areas/Meadow/FrontLayer" unique_id=1528493236]
@@ -441,7 +459,7 @@ shape = SubResource("RectangleShape2D_jkieh")
 [node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1790029395]
 
 [node name="tree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=535348852 node_paths=PackedStringArray("treeBridge")]
-position = Vector2(6563.0005, -361)
+position = Vector2(8625, -290)
 script = ExtResource("3_ck43e")
 treeBridge = NodePath("../../../FrontLayer/Objects/treelog")
 
@@ -466,16 +484,17 @@ shape = SubResource("CircleShape2D_kk6vw")
 [node name="LargeRiver" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=400258866]
 
 [node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1762912128]
-position = Vector2(6638.0005, -252)
+position = Vector2(8700, -181)
 rotation = 1.5707964
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/MountainGround3" unique_id=237743079]
+position = Vector2(-17.181076, 0.75)
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MountainGround4" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=2019180968]
-position = Vector2(6658.0005, -163)
+position = Vector2(8720, -92)
 rotation = 1.2217305
 collision_layer = 16
 collision_mask = 0
@@ -484,7 +503,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MountainGround5" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=978155718]
-position = Vector2(6834.0005, -116)
+position = Vector2(8896, -45)
 scale = Vector2(3.12, 1)
 collision_layer = 16
 collision_mask = 0
@@ -493,7 +512,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MountainGround6" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=209325615]
-position = Vector2(7011.0005, -158)
+position = Vector2(9073, -87)
 rotation = -1.2217305
 collision_layer = 16
 collision_mask = 0
@@ -502,7 +521,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MountainGround7" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1445027784]
-position = Vector2(7037.0005, -250)
+position = Vector2(9099, -179)
 rotation = 1.5707964
 collision_layer = 16
 collision_mask = 0
@@ -511,7 +530,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MountainGround8" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1030011680]
-position = Vector2(7089.0005, -298)
+position = Vector2(9151, -227)
 collision_layer = 16
 collision_mask = 0
 
@@ -519,7 +538,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="MountainGround9" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1727029209]
-position = Vector2(7191.0005, -298)
+position = Vector2(9253, -227)
 collision_layer = 16
 collision_mask = 0
 
@@ -529,7 +548,7 @@ shape = SubResource("RectangleShape2D_kk6vw")
 [node name="RockyPath" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=591049327]
 
 [node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath" unique_id=593723443]
-position = Vector2(7388.002, -359.00006)
+position = Vector2(9450.003, -288.00012)
 rotation = -0.34906584
 collision_layer = 16
 collision_mask = 0
@@ -541,67 +560,16 @@ shape = SubResource("RectangleShape2D_wprut")
 
 [node name="Cave" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1245833422]
 
-[node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=956866440]
-position = Vector2(7773.0005, -488)
-scale = Vector2(1, 1.5999902)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/MountainGround2" unique_id=1587343330]
-shape = SubResource("RectangleShape2D_i4naw")
-disabled = true
-
-[node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=1600999272]
-position = Vector2(7707.0005, -566)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/MountainGround3" unique_id=132481408]
-shape = SubResource("RectangleShape2D_kk6vw")
-
 [node name="Mountain" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=716072885]
 
 [node name="MountainGround" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=124162814]
-position = Vector2(7609.0005, -411)
+position = Vector2(9671, -340)
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround" unique_id=1881880123]
-position = Vector2(52.5, 1.25)
+position = Vector2(1238, 1.25)
 shape = SubResource("RectangleShape2D_ioaai")
-
-[node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1120547247]
-position = Vector2(7604.0005, -566)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround2" unique_id=1511103559]
-shape = SubResource("RectangleShape2D_kk6vw")
-
-[node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1776236889]
-position = Vector2(7554.0005, -619)
-rotation = 1.5707964
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround3" unique_id=567573221]
-shape = SubResource("RectangleShape2D_kk6vw")
-
-[node name="MountainGround4" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1447008469]
-position = Vector2(7608.0005, -670)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround4" unique_id=1023302483]
-shape = SubResource("RectangleShape2D_kk6vw")
-
-[node name="MountainGround5" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1654766566]
-position = Vector2(7710.0005, -672)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain/MountainGround5" unique_id=362274862]
-shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="Killzone" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=735702524]
 
@@ -635,4 +603,6 @@ shape = SubResource("CapsuleShape2D_kk6vw")
 [node name="QuestAreas" type="Node" parent="." unique_id=985230138]
 script = ExtResource("10_do8mn")
 
-[connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd2/FirstPuzzle" to="QuestAreas" method="_on_first_puzzle_body_entered"]
+[connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2/FirstPuzzle" to="QuestAreas" method="_on_first_puzzle_body_entered"]
+[connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle" to="QuestAreas" method="_on_second_body_entered"]
+[connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundRightEnd/ThirdPuzzle" to="QuestAreas" method="_on_third_puzzle_body_entered"]

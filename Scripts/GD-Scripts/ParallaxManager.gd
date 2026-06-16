@@ -16,7 +16,3 @@ func transition_parallax_scale(new_scale: float) -> void:
 	
 	parallax_node.scroll_scale = Vector2(new_scale, parallax_node.scroll_scale.y)
 	parallax_node.scroll_offset.x = calculated_offset
-
-
-func _on_first_puzzle_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.

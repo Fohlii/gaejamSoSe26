@@ -11,6 +11,21 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 [node name="MainMenu" type="Node2D" unique_id=1909509357]
 script = ExtResource("1_853f1")
 
+[node name="Label" type="Label" parent="." unique_id=749481623]
+z_index = 20
+offset_left = 178.0
+offset_top = 65.0
+offset_right = 973.0
+offset_bottom = 337.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+SUKARI
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ColorRect" type="TextureRect" parent="." unique_id=1527103736]
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,6 +39,8 @@ offset_bottom = 1268.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.66, 0.59)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_853f1")
 
 [node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]

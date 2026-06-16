@@ -27,6 +27,8 @@ directories/dch_directory={
 "character": "res://Assets/Player/character.dch"
 }
 directories/dtl_directory={
+"Cave": "res://Scenes/UI-Elements/Cave.dtl",
+"River": "res://Scenes/UI-Elements/River.dtl",
 "WaterRising": "res://Scenes/UI-Elements/WaterRising.dtl",
 "timeline": "res://Scenes/UI-Elements/timeline.dtl"
 }
@@ -68,6 +70,9 @@ audio/channel_defaults={
 layout/style_list=["res://Scenes/UI-Elements/dialogs.tres"]
 layout/default_style=""
 glossary/default_case_sensitive=true
+variables={
+"in_past": false
+}
 
 [dotnet]
 
