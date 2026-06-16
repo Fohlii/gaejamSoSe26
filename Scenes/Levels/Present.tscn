@@ -9,14 +9,21 @@
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="3_ck43e"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="4_dorp1"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
+[ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scenes/Levels/quest_areas.gd" id="10_do8mn"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dorp1"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
+load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rlqni"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
+size = Vector2(286.5, 422)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
 
@@ -81,8 +88,9 @@ scroll_scale = Vector2(0.5, 1)
 scroll_offset = Vector2(-315, -1488)
 
 [node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=316865649]
-position = Vector2(-81, 90)
-texture = SubResource("CompressedTexture2D_rgh2o")
+position = Vector2(324, 90)
+scale = Vector2(0.78560084, 1)
+texture = SubResource("CompressedTexture2D_ck43e")
 centered = false
 
 [node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=520419469]
@@ -100,6 +108,14 @@ scale = Vector2(0.78930646, 1)
 texture = SubResource("CompressedTexture2D_rlqni")
 centered = false
 flip_h = true
+
+[node name="FirstPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd2" unique_id=1703908237]
+position = Vector2(-1877.5977, 1397)
+scale = Vector2(1.266935, 1)
+
+[node name="CoastQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd2/FirstPuzzle" unique_id=1161456420]
+position = Vector2(2638, -389)
+shape = SubResource("RectangleShape2D_rlqni")
 
 [node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=488971309]
 texture_filter = 1
@@ -615,3 +631,8 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_kk6vw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1308970944]
+
+[node name="QuestAreas" type="Node" parent="." unique_id=985230138]
+script = ExtResource("10_do8mn")
+
+[connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd2/FirstPuzzle" to="QuestAreas" method="_on_first_puzzle_body_entered"]
