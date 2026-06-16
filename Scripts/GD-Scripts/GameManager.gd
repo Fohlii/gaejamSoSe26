@@ -44,6 +44,7 @@ func start_game():
 	#present_root.add_child(player)
 	#present_root.get_child(2).camera = playerCam
 	playerCam.make_current()
+	Dialogic.start("timeline")
 	
 func show_menu():	
 	button_click.play()
