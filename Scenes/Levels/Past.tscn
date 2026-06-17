@@ -152,7 +152,7 @@ centered = false
 z_index = -1
 texture_filter = 1
 position = Vector2(5653, 98.99983)
-scale = Vector2(4.0670986, 2.4452178)
+scale = Vector2(3.3917751, 2.4139135)
 texture = SubResource("CompressedTexture2D_mekaa")
 centered = false
 

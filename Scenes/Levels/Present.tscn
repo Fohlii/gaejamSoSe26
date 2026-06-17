@@ -139,8 +139,8 @@ shape = SubResource("RectangleShape2D_rlqni")
 [node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
 z_index = -1
 texture_filter = 1
-position = Vector2(5646.0015, -376.99988)
-scale = Vector2(3.9328992, 3.2747824)
+position = Vector2(5646.0015, 112.00014)
+scale = Vector2(3.2813826, 2.3808694)
 texture = SubResource("CompressedTexture2D_1h27j")
 centered = false
 

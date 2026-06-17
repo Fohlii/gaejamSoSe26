@@ -152,7 +152,7 @@ size_flags_stretch_ratio = 0.65
 [node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1097606873]
 custom_minimum_size = Vector2(252.54, 0)
 layout_mode = 2
-text = "back"
+text = "Back"
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1336176467]
 layout_mode = 2

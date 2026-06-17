@@ -16,8 +16,10 @@ extends Node
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("MainMenu")
-	game_settings.musicVol = 100	
-	game_settings.sfxVol = 100
+	game_settings.musicVol = AudioServer.get_bus_volume_db(master_bus_index)
+	game_settings.sfxVol = AudioServer.get_bus_volume_db(sfx_bus_index)
+	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider.value = AudioServer.get_bus_volume_db(master_bus_index)
+	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2.value = AudioServer.get_bus_volume_db(sfx_bus_index)
 	musicplayer.playing = true
 	var increaseVol:Tween = get_tree().create_tween()
 	increaseVol.tween_property(musicplayer,"volume_db",-80 + (15*pow(game_settings.musicVol,0.37)),1).set_trans(Tween.TRANS_QUAD)
@@ -37,9 +39,11 @@ func _ready() -> void:
 func changeVol() -> void:
 	#musicplayer.volume_db = -80 + (15*pow(settings.musicVol,0.37))
 	AudioServer.set_bus_volume_db(master_bus_index,-80 + (15*pow(game_settings.musicVol,0.37)))
+	SaveLoadSettings._save_settings()
 func changeSfxVol() -> void:
 	#musicplayer.volume_db = -80 + (15*pow(settings.musicVol,0.37))
 	AudioServer.set_bus_volume_db(sfx_bus_index,-80 + (15*pow(game_settings.sfxVol,0.37)))
+	SaveLoadSettings._save_settings()
 func play_click_sound() -> void:
 	button_click.play()
 	await button_click.finished

@@ -12,6 +12,7 @@ var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
 var in_past := false
 func _ready() -> void:	
+	SaveLoadSettings._load_settings()
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
