@@ -233,6 +233,8 @@ position = Vector2(2111, -337)
 script = ExtResource("1_1h27j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=1917620976]
+position = Vector2(40, -410)
+scale = Vector2(0.8, 0.8)
 
 [node name="Area2D" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=251920770]
 collision_layer = 2

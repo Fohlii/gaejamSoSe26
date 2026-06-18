@@ -7,8 +7,8 @@ var layer: InteractableLayer
 ## Which Scene (PastRoot or PresentRoot) this Node is encountered in
 var timeline: Timeline
 
-@onready var sprite: Sprite2D
-@onready var collider: Variant ## Either collisionshape or collisionpolygon
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var collider: CollisionShape2D = $CollisionShape2D
 
 enum InteractableLayer {ACTIVE, BACKGROUND}
 enum Timeline {PAST, PRESENT}

@@ -8,8 +8,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown", Vector2(3235.0,-357.0), 0, true, "", CircleShape2D.new(), "")
-	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(3235.0,-357.0), 0, true, "res://icon.svg", CircleShape2D.new(), "")
-	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(3235.0,-357.0), 0, true, "", CircleShape2D.new(), "")
+	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(3235.0,-357.0), 0, true, "res://Assets/Timeobjects/Textures/tree.png", CircleShape2D.new(), "")
+	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(3235.0,-357.0), 0, true, "res://Assets/Timeobjects/Textures/tree_felled.png", CircleShape2D.new(), "")
 	
 	treeGrown.addInteractionTransition("axe", treeFelled.id)
 	treeNotGrown.addCascadeTransition("PastSaplingPlantationSpot", "saplingPlantedInSpot", treeGrown.id)

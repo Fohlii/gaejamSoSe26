@@ -17,8 +17,10 @@ func _ready() -> void:
 	if currentState && currentState.visibleAndColliding:
 		if sprite && currentState.texture:
 			sprite.texture = currentState.texture
+			print("set texture for " + id)
 		if collider && currentState.colliderShape:
 			collider.shape = currentState.colliderShape
+			print("set collider for " + id)
 	get_tree().current_scene.ready.connect(initializeAfterReadyStepOne)
 
 func initializeAfterReadyStepOne() -> void:
@@ -56,6 +58,13 @@ func _interactionTransition(itemId: String) -> void:
 	if dependsOnOther:
 		_deregisterListeners()
 	currentState = statesById[currentState.interactionTransitions[itemId]]
+	if currentState && currentState.visibleAndColliding:
+		if sprite:
+			sprite.texture = currentState.texture
+			print("set new texture for " + id)
+		if collider:
+			collider.shape = currentState.colliderShape
+			print("set new collider for " + id)
 	if dependsOnOther:
 		_registerListeners()
 	timeobject_state_changed.emit(currentState.id)
