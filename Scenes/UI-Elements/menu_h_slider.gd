@@ -4,7 +4,8 @@ extends HSlider
 
 signal volume_changed
 func _ready() -> void:
-	self.value = settings.musicVol
+	self.set_value_no_signal(settings.musicVol)
+
 
 func _on_value_changed(value: float) -> void:
 	settings.musicVol = value

@@ -12,10 +12,15 @@ extends Node
 @onready var musicplayer: AudioStreamPlayer = $"../../MusicPlayer"
 @onready var master_bus_index = AudioServer.get_bus_index("Master")
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
+@onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
+@onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("MainMenu")
+	SaveLoadSettings._load_settings()
+	h_slider.set_value_no_signal(GlobalVars.musicVol)
+	h_slider_2.set_value_no_signal(GlobalVars.sfxVol)
 	musicplayer.playing = true
 	var increaseVol:Tween = get_tree().create_tween()
 	increaseVol.tween_property(musicplayer,"volume_db",-80 + (15*pow(game_settings.musicVol,0.37)),1).set_trans(Tween.TRANS_QUAD)

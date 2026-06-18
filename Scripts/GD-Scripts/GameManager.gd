@@ -7,12 +7,13 @@ extends Node2D
 @onready var menu: CanvasLayer = $UI/Control
 @onready var button_click: AudioStreamPlayer = $ButtonClick
 @onready var control: CanvasLayer = $Control
+@onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
+@onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
 var in_past := false
 func _ready() -> void:	
-	SaveLoadSettings._load_settings()
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)

@@ -159,7 +159,6 @@ custom_minimum_size = Vector2(124.25, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
 script = ExtResource("2_xb6rm")
 
 [node name="Label2" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1483486675]

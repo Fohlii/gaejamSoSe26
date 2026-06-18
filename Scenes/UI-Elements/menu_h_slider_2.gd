@@ -3,7 +3,7 @@ extends HSlider
 signal sfx_volume_changed
 
 func _ready():
-	self.value = settings.sfxVol
+	self.set_value_no_signal(settings.sfxVol)
 	
 func _on_value_changed(value: float) -> void:
 	settings.sfxVol = value
