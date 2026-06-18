@@ -9,6 +9,7 @@ extends Node
 @onready var present: Node = $"../../PresentRoot"
 @onready var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 @onready var game_settings= $"/root/GlobalVars"
+#@onready var SaveLoadSettings = $"/root/save_load_settings"
 @onready var musicplayer: AudioStreamPlayer = $"../../MusicPlayer"
 @onready var master_bus_index = AudioServer.get_bus_index("Master")
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
