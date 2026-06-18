@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Items/sapling.gd" id="1_1h27j"]
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
+[ext_resource type="Texture2D" uid="uid://yfhbfaess57u" path="res://Assets/Background/background_v2.png" id="2_do8mn"]
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Items/axe_in_stump.gd" id="2_dorp1"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="3_ck43e"]
+[ext_resource type="Texture2D" uid="uid://cxur0pt6twauq" path="res://Assets/Background/bg_right_v3.png" id="3_jhuu5"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="4_dorp1"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scenes/Levels/quest_areas.gd" id="10_do8mn"]
@@ -17,7 +19,7 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
-size = Vector2(472.4082, 422)
+size = Vector2(690.36914, 422)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dorp1"]
 
@@ -26,14 +28,8 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_do8mn"]
-load_path = "res://.godot/imported/Background_Meadow_mitFluss.jpg-0b1ff3783a0f54d9bab2182ddadb69ad.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1h27j"]
-load_path = "res://.godot/imported/background_left_border.jpg-227aeb1ad3eab3d1a193004c0e2b3480.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k8w"]
-size = Vector2(82.38214, 282.59244)
+size = Vector2(226.28842, 282.59244)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -123,9 +119,8 @@ centered = false
 [node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=488971309]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_rgh2o")
-position = Vector2(4373.001, 89)
-scale = Vector2(2.3027022, 2.0695267)
-texture = SubResource("CompressedTexture2D_do8mn")
+position = Vector2(4394, 88)
+texture = ExtResource("2_do8mn")
 centered = false
 
 [node name="SecondPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea" unique_id=100603710]
@@ -133,21 +128,19 @@ position = Vector2(-2105.8003, 679.3824)
 scale = Vector2(0.4357356, 0.48320228)
 
 [node name="RiverQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle" unique_id=1621991290]
-position = Vector2(5210.4746, -297)
+position = Vector2(5635.1426, 841.3696)
 shape = SubResource("RectangleShape2D_rlqni")
 
 [node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
-z_index = -1
 texture_filter = 1
-position = Vector2(5646.0015, 112.00014)
-scale = Vector2(3.2813826, 2.3808694)
-texture = SubResource("CompressedTexture2D_1h27j")
+position = Vector2(5516, 88)
+texture = ExtResource("3_jhuu5")
 centered = false
 
 [node name="ThirdPuzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundRightEnd" unique_id=692798173]
 
 [node name="CaveQuest" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundRightEnd/ThirdPuzzle" unique_id=6804271]
-position = Vector2(269.52075, 443.1099)
+position = Vector2(754, 1061)
 scale = Vector2(0.9999997, 1)
 shape = SubResource("RectangleShape2D_p1k8w")
 
@@ -574,7 +567,6 @@ shape = SubResource("RectangleShape2D_ioaai")
 [node name="Killzone" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=735702524]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone" unique_id=891767526]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone/StaticBody2D" unique_id=668653709]
 build_mode = 1
@@ -584,7 +576,6 @@ script = ExtResource("4_dorp1")
 [node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=1251482045]
 
 [node name="treelog" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Objects" unique_id=1107097117]
-visible = false
 position = Vector2(3519, -332)
 collision_layer = 0
 collision_mask = 0
