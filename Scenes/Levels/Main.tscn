@@ -49,3 +49,4 @@ size_flags_vertical = 3
 color = Color(0.08959273, 0.12388409, 0.17481533, 0.5568628)
 
 [node name="Menu" parent="UI/Control" unique_id=1329174015 instance=ExtResource("6_dmpbk")]
+top_level = true

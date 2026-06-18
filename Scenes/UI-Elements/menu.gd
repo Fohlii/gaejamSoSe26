@@ -13,8 +13,7 @@ extends Node
 
 func _ready() -> void:
 	GlobalVars.connect( "esc_pressed",_on_esc_pressed)
-	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider.value = AudioServer.get_bus_volume_db(master_bus_index)
-	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2.value = AudioServer.get_bus_volume_db(sfx_bus_index)
+
 func changeVol() -> void:
 	#musicplayer.volume_db = -80 + (15*pow(settings.musicVol,0.37))
 	AudioServer.set_bus_volume_db(master_bus_index,-80 + (15*pow(game_settings.musicVol,0.37)))

@@ -160,7 +160,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 100.0
-rounded = true
 script = ExtResource("2_xb6rm")
 
 [node name="Label2" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1483486675]
@@ -170,7 +169,6 @@ text = "Sound Effect Volume
 
 [node name="HSlider2" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1790742097]
 layout_mode = 2
-value = 100.0
 script = ExtResource("3_spb0t")
 
 [node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1661337764]
@@ -186,7 +184,7 @@ size_flags_stretch_ratio = 0.65
 [node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1084217131]
 custom_minimum_size = Vector2(252.54, 0)
 layout_mode = 2
-text = "back"
+text = "Back"
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=638277375]
 layout_mode = 2

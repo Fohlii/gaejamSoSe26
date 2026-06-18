@@ -16,10 +16,6 @@ extends Node
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("MainMenu")
-	game_settings.musicVol = AudioServer.get_bus_volume_db(master_bus_index)
-	game_settings.sfxVol = AudioServer.get_bus_volume_db(sfx_bus_index)
-	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider.value = AudioServer.get_bus_volume_db(master_bus_index)
-	$Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2.value = AudioServer.get_bus_volume_db(sfx_bus_index)
 	musicplayer.playing = true
 	var increaseVol:Tween = get_tree().create_tween()
 	increaseVol.tween_property(musicplayer,"volume_db",-80 + (15*pow(game_settings.musicVol,0.37)),1).set_trans(Tween.TRANS_QUAD)
