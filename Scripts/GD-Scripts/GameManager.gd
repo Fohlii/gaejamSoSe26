@@ -29,6 +29,7 @@ func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im Gam
 				show_menu()
 func toggle_time() -> void:
 	in_past = !in_past
+	GlobalVars.player_in_past = in_past
 	Dialogic.VAR.in_past = in_past
 	print("Is in past: " + str(in_past))
 

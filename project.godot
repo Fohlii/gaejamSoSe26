@@ -24,11 +24,13 @@ SaveLoadSettings="*uid://c1o6jyqodkers"
 [dialogic]
 
 directories/dch_directory={
-"Resources/unit_test_character": "res://Tests/Resources/unit_test_character.dch",
-"character": "res://Assets/Player/character.dch"
+"character": "res://Assets/Player/character.dch",
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
 directories/dtl_directory={
 "Cave": "res://Scenes/UI-Elements/Cave.dtl",
+"DieInRiver": "res://Scenes/UI-Elements/DieInRiver.dtl",
+"DieInWater": "res://Scenes/UI-Elements/DieInWater.dtl",
 "River": "res://Scenes/UI-Elements/River.dtl",
 "WaterRising": "res://Scenes/UI-Elements/WaterRising.dtl",
 "timeline": "res://Scenes/UI-Elements/timeline.dtl"

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Items/tree.gd" id="3_ck43e"]
 [ext_resource type="Texture2D" uid="uid://cxur0pt6twauq" path="res://Assets/Background/bg_right_v3.png" id="3_jhuu5"]
+[ext_resource type="Script" uid="uid://ddh67imhsg5iq" path="res://Scenes/Levels/collision_shape.gd" id="4_8ycl7"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="4_dorp1"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scenes/Levels/quest_areas.gd" id="10_do8mn"]
@@ -27,6 +28,9 @@ size = Vector2(690.36914, 422)
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rgh2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h710c"]
+size = Vector2(59.99994, 122.61621)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k8w"]
 size = Vector2(226.28842, 282.59244)
@@ -108,6 +112,15 @@ scale = Vector2(1.266935, 1)
 position = Vector2(2638, -389)
 shape = SubResource("RectangleShape2D_rlqni")
 
+[node name="Killzone_first_puzzle" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2" unique_id=177269328]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2/Killzone_first_puzzle" unique_id=668653709]
+position = Vector2(-1877.5594, 1397)
+scale = Vector2(1.2626806, 1)
+build_mode = 1
+polygon = PackedVector2Array(2779, -379, 2406, -609, 3688, -622, 3298, -518, 3092, -362, 3225, -263, 3259, -205, 3367, -137, 3502, -109, 3540, -47, 3572, -19, 2209, -32, 2419, -255)
+script = ExtResource("4_dorp1")
+
 [node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=520419469]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_dorp1")
@@ -120,6 +133,7 @@ centered = false
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_rgh2o")
 position = Vector2(4394, 88)
+scale = Vector2(1.1987523, 1)
 texture = ExtResource("2_do8mn")
 centered = false
 
@@ -131,9 +145,20 @@ scale = Vector2(0.4357356, 0.48320228)
 position = Vector2(5635.1426, 841.3696)
 shape = SubResource("RectangleShape2D_rlqni")
 
+[node name="Killzone_second_puzzle2" type="Area2D" parent="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle" unique_id=903639788]
+position = Vector2(-129.61694, -1399.7913)
+scale = Vector2(1.5161912, 2.0695267)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle/Killzone_second_puzzle2" unique_id=1128567668]
+position = Vector2(3786.022, 1165.2489)
+rotation = 0.48520157
+scale = Vector2(1.2626805, 1)
+shape = SubResource("RectangleShape2D_h710c")
+script = ExtResource("4_8ycl7")
+
 [node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=288025432]
 texture_filter = 1
-position = Vector2(5516, 88)
+position = Vector2(5736, 88)
 texture = ExtResource("3_jhuu5")
 centered = false
 
@@ -568,11 +593,6 @@ shape = SubResource("RectangleShape2D_ioaai")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone" unique_id=891767526]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone/StaticBody2D" unique_id=668653709]
-build_mode = 1
-polygon = PackedVector2Array(2779, -379, 2406, -609, 3688, -622, 3222, -379, 3408, -303, 3536, -297, 3669, -260, 3782, -207, 3888, -142, 3954, -101, 2235, -119)
-script = ExtResource("4_dorp1")
-
 [node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=1251482045]
 
 [node name="treelog" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Objects" unique_id=1107097117]
@@ -595,5 +615,7 @@ shape = SubResource("CapsuleShape2D_kk6vw")
 script = ExtResource("10_do8mn")
 
 [connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2/FirstPuzzle" to="QuestAreas" method="_on_first_puzzle_body_entered"]
+[connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2/Killzone_first_puzzle" to="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd/BackgroundLeftEnd2/Killzone_first_puzzle/CollisionPolygon2D" method="_on_killzone_first_puuzzle_body_entered"]
 [connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle" to="QuestAreas" method="_on_second_body_entered"]
+[connection signal="body_exited" from="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle/Killzone_second_puzzle2" to="Parallax/FarthestBackgroundLayer/BackgroundMiddleArea/SecondPuzzle/Killzone_second_puzzle2/CollisionShape" method="_on_killzone_second_puzzle_2_body_exited"]
 [connection signal="body_entered" from="Parallax/FarthestBackgroundLayer/BackgroundRightEnd/ThirdPuzzle" to="QuestAreas" method="_on_third_puzzle_body_entered"]

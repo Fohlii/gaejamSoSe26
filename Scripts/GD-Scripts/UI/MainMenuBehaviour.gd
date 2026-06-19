@@ -82,11 +82,3 @@ func _on_button_3_pressed() -> void:
 	main_menu.visible = true
 	how_to_play.visible = false
 	credits.visible = false
-
-func _on_button_button_down() -> void:
-	pass # Replace with function body.
-
-
-func _on_h_slider_drag_ended(value_changed: bool) -> void:
-	
-	pass # Replace with function body.
