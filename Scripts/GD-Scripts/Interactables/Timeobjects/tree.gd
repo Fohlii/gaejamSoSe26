@@ -2,22 +2,23 @@ extends Timeobject
 
 func _init() -> void:
 	id = "PresentTreeNearRiver"
-	layer = InteractableLayer.BACKGROUND
-	timeline = Timeline.PRESENT
-	dependsOnOther = true
+	_layer = InteractableLayer.BACKGROUND
+	_timeline = Timeline.PRESENT
 
 func _ready() -> void:
-	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown", Vector2(3235.0,-357.0), 0, true, "", CircleShape2D.new(), "")
-	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(3235.0,-357.0), 0, true, "res://Assets/Timeobjects/Textures/tree.png", CircleShape2D.new(), "")
-	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(3235.0,-357.0), 0, true, "res://Assets/Timeobjects/Textures/tree_felled.png", CircleShape2D.new(), "")
+	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown", Vector2(3235.0,-357.0))
+	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(3235.0,-357.0), 0, true, "tree.png")
+	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(3235.0,-357.0), 0, true, "tree_felled.png")
 	
 	treeGrown.addInteractionTransition("axe", treeFelled.id)
-	treeNotGrown.addCascadeTransition("PastSaplingPlantationSpot", "saplingPlantedInSpot", treeGrown.id)
+	treeNotGrown.addCascadeTransition("saplingPlantedInSpot", treeGrown.id)
 	
-	statesById.set(treeNotGrown.id, treeNotGrown)
-	statesById.set(treeGrown.id, treeGrown)
-	statesById.set(treeFelled.id, treeFelled)
+	_observedTimeobjects.push_back("PastSaplingPlantationSpot")
 	
-	currentState = treeNotGrown
+	_statesById.set(treeNotGrown.id, treeNotGrown)
+	_statesById.set(treeGrown.id, treeGrown)
+	_statesById.set(treeFelled.id, treeFelled)
+	
+	_currentState = _statesById[treeNotGrown.id]
 	
 	super()

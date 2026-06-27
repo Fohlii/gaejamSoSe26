@@ -4,6 +4,8 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var left_foot: AudioStreamPlayer2D = $left_foot
 @onready var right_foot: AudioStreamPlayer2D = $right_foot
 @onready var interactionArea: Area2D = $InteractionArea
+@onready var inventoryUI: Node2D = null
+
 var SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 
@@ -35,11 +37,13 @@ class PlayerMovementComponent extends RefCounted:
 	func _init(player: PlayerCharacterBody2D) -> void:
 		playerMotionStates["IdleMotionState"] = MotionState.new(
 			func(): 
-				print("idleMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("idleMotionState entered")
 				player.sprite_2d.play("default")
 				, 
 			func(): 
-				print("idleMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("idleMotionState exited")
 				, 
 			func(delta: float):
 				#if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
@@ -65,11 +69,13 @@ class PlayerMovementComponent extends RefCounted:
 		
 		playerMotionStates["WalkingMotionState"] = MotionState.new(
 			func(): 
-				print("walkingMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("walkingMotionState entered")
 				player.sprite_2d.play("walk")
 				, 
 			func(): 
-				print("walkingMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("walkingMotionState exited")
 				, 
 			func(delta: float):
 				if Input.get_axis("walk_left", "walk_right") == 0:
@@ -97,20 +103,27 @@ class PlayerMovementComponent extends RefCounted:
 		)
 		
 		playerMotionStates["RunningMotionState"] = MotionState.new(
-			func(): print("runningMotionState entered"), 
-			func(): print("runningMotionState exited"), 
+			func(): 
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("runningMotionState entered"), 
+			func(): 
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("runningMotionState exited"), 
 			func(): #TODO
-				print("runningMotionState process input called")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("runningMotionState process input called")
 				return player.velocity
 		)
 		
 		playerMotionStates["JumpingMotionState"] = MotionState.new(
 			func(): 
-				print("jumpingMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("jumpingMotionState entered")
 				player.sprite_2d.play("jump")
 				, 
 			func(): 
-				print("jumpingMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("jumpingMotionState exited")
 				, 
 			func(delta: float): #TODO
 				changeState("FallingMotionState")
@@ -123,10 +136,12 @@ class PlayerMovementComponent extends RefCounted:
 		
 		playerMotionStates["FallingMotionState"] = MotionState.new(
 			func(): 
-				print("fallingMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("fallingMotionState entered")
 				, 
 			func(): 
-				print("fallingMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("fallingMotionState exited")
 				, 
 			func(delta: float): #TODO
 				if player.is_on_floor():
@@ -143,10 +158,12 @@ class PlayerMovementComponent extends RefCounted:
 		
 		playerMotionStates["LandingMotionState"] = MotionState.new(
 			func(): 
-				print("landingMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("landingMotionState entered")
 				, 
 			func(): 
-				print("landingMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("landingMotionState exited")
 				, 
 			func(delta: float): 
 				changeState("IdleMotionState")
@@ -155,34 +172,42 @@ class PlayerMovementComponent extends RefCounted:
 		
 		playerMotionStates["IdleClimbingMotionState"] = MotionState.new(
 			func(): 
-				print("idleClimbingMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("idleClimbingMotionState entered")
 				, 
 			func(): 
-				print("idleClimbingMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("idleClimbingMotionState exited")
 				, 
 			func(delta: float): #TODO
-				print("idleClimbingMotionState process input called")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("idleClimbingMotionState process input called")
 				return player.velocity
 		)
 		
 		playerMotionStates["ClimbingMotionState"] = MotionState.new(
 			func(): 
-				print("climbingMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("climbingMotionState entered")
 				, 
 			func(): 
-				print("climbingMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("climbingMotionState exited")
 				, 
 			func(delta: float): #TODO
-				print("climbingMotionState process input called")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("climbingMotionState process input called")
 				return player.velocity
 		)
 		
 		playerMotionStates["TimetravelMotionState"] = MotionState.new(
 			func(): 
-				print("timetravelMotionState entered")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("timetravelMotionState entered")
 				, 
 			func(): 
-				print("timetravelMotionState exited")
+				if GlobalVars.DEBUG_PLAYERMOVEMENT:
+					print("timetravelMotionState exited")
 				, 
 			func(delta: float): #TODO
 				if !player.is_on_floor():
@@ -227,17 +252,14 @@ class PlayerInteractionComponent extends RefCounted:
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
 		playerInventoryItem = null
+		playerInventoryUI = player.inventoryUI
 	
 	func processInput(interactionZone: Area2D) -> void:
 		if Input.is_action_just_pressed("interact"):
-			print("player interaction called")
-			print(interactionZone.get_overlapping_areas())
 			if !interactionZone.get_overlapping_areas().is_empty():
-				_playerInteract(interactionZone.get_overlapping_areas()[0].get_parent()) # Design Choice: Interactables should be spread apart to make [0] unambiguous
-				print("player interacting with ", interactionZone.get_overlapping_areas()[0])
+				## Level Design Choice: Interactables should be spread far enough apart to make [0] unambiguous
+				_playerInteract(interactionZone.get_overlapping_areas()[0].get_parent())
 	
 	func _playerInteract(interactable: Interactable):
-		print("player uses ", (playerInventoryItem.id if playerInventoryItem else "empty hand"), " on ", interactable.id)
 		playerInventoryItem = interactable.interact(playerInventoryItem)
-		print("player received ", playerInventoryItem)
-		# TODO update playerInventoryUI
+		# TODO update playerInventoryUI with texture from held item or clear

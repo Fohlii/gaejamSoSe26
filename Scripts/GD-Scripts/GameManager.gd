@@ -38,7 +38,7 @@ func toggle_time() -> void:
 	present_root.visible = !in_past
 
 func start_game():
-	timeobjectManager.start()
+	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false
 	player = playerPS.instantiate()
 	var playerCam: Camera2D = player.get_child(2)

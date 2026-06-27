@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
-[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/place_near_river.gd" id="1_h2wri"]
+[ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="1_04hkd"]
+[ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/placeNearRiver.gd" id="1_h2wri"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -14,8 +15,6 @@ distance = -5110.3623
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kln2b"]
 size = Vector2(8188, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_afb73"]
 
 [node name="PastRoot" type="Node2D" unique_id=1856037297]
 
@@ -46,19 +45,9 @@ shape = SubResource("RectangleShape2D_kln2b")
 
 [node name="Objects" type="Node2D" parent="Colliders" unique_id=1730887571]
 
-[node name="placeNearRiver" type="Node2D" parent="Colliders/Objects" unique_id=992869190]
-position = Vector2(3235, -357)
+[node name="PlaceNearRiver" parent="Colliders/Objects" unique_id=1227715888 instance=ExtResource("1_04hkd")]
+position = Vector2(3254, -353)
 script = ExtResource("1_h2wri")
-
-[node name="Sprite2D" type="Sprite2D" parent="Colliders/Objects/placeNearRiver" unique_id=25380208]
-
-[node name="Area2D" type="Area2D" parent="Colliders/Objects/placeNearRiver" unique_id=1725263679]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Objects/placeNearRiver/Area2D" unique_id=2121509332]
-shape = SubResource("CircleShape2D_afb73")
 
 [node name="Parallax" type="Node2D" parent="." unique_id=464978827]
 z_as_relative = false

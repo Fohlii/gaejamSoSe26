@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/sapling.gd" id="1_1h27j"]
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
-[ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/axe_in_stump.gd" id="2_dorp1"]
+[ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/stumpWithAxe.gd" id="2_dorp1"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dq8jql0pfulyc" path="res://Assets/Background/Background_Meadow_Grass.png" id="3_3ukvu"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/tree.gd" id="3_ck43e"]
+[ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="4_ck43e"]
 [ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/treeLogBridge.gd" id="4_dorp1"]
 [ext_resource type="Texture2D" uid="uid://dkv00saxy67qw" path="res://icon.svg" id="4_g8hrq"]
 
@@ -20,14 +21,8 @@ normal = Vector2(1, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
 size = Vector2(100, 5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kk6vw"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4naw"]
 size = Vector2(5, 100)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kk6vw"]
-radius = 32.0
-height = 448.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rgh2o"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -228,35 +223,13 @@ shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="Objects" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1282926288]
 
-[node name="sapling" type="Node2D" parent="Areas/Meadow/BackLayer/Objects" unique_id=1319605110]
-position = Vector2(2111, -337)
+[node name="Sapling" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227715888 instance=ExtResource("4_ck43e")]
+position = Vector2(2096, -342)
 script = ExtResource("1_1h27j")
 
-[node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=1917620976]
-position = Vector2(40, -410)
-scale = Vector2(0.8, 0.8)
-
-[node name="Area2D" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/sapling" unique_id=251920770]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/sapling/Area2D" unique_id=208307967]
-shape = SubResource("CircleShape2D_kk6vw")
-
-[node name="stumpWithAxe" type="Node2D" parent="Areas/Meadow/BackLayer/Objects" unique_id=772835730]
-position = Vector2(2773, -342)
+[node name="StumpWithAxe" parent="Areas/Meadow/BackLayer/Objects" unique_id=1366062793 instance=ExtResource("4_ck43e")]
+position = Vector2(2692, -353)
 script = ExtResource("2_dorp1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1876211793]
-
-[node name="Area2D" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1261545406]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe/Area2D" unique_id=1236905993]
-shape = SubResource("CircleShape2D_kk6vw")
 
 [node name="Buildings" type="Node" parent="Areas/Meadow/BackLayer" unique_id=707125439]
 
@@ -387,19 +360,9 @@ shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1790029395]
 
-[node name="tree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=535348852]
-position = Vector2(3235, -357)
+[node name="Tree" parent="Areas/Mountain/BackLayer/Objects" unique_id=1297053470 instance=ExtResource("4_ck43e")]
+position = Vector2(3254, -353)
 script = ExtResource("3_ck43e")
-
-[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=552386117]
-
-[node name="Area2D" type="Area2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=4892399]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/tree/Area2D" unique_id=75326161]
-shape = SubResource("CircleShape2D_kk6vw")
 
 [node name="Buildings" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1660353972]
 
@@ -589,21 +552,10 @@ shape = SubResource("RectangleShape2D_kk6vw")
 
 [node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=1251482045]
 
-[node name="treelog" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Objects" unique_id=1107097117]
-visible = false
-position = Vector2(3519, -332)
-collision_layer = 0
-collision_mask = 0
+[node name="TreeLogBridge" parent="Areas/Mountain/FrontLayer/Objects" unique_id=744999656 instance=ExtResource("4_ck43e")]
+position = Vector2(3511, -308)
+collision_layer = 18
 script = ExtResource("4_dorp1")
-
-[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/FrontLayer/Objects/treelog" unique_id=1320587596]
-position = Vector2(-3.4332275e-05, -0.5)
-scale = Vector2(3.5000005, 0.5078125)
-texture = ExtResource("4_g8hrq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Objects/treelog" unique_id=1661938178]
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_kk6vw")
 
 [node name="Parallax" type="Node" parent="." unique_id=1310805743]
 script = ExtResource("2_i4naw")

@@ -1,17 +1,21 @@
-@abstract class_name Interactable extends Node2D
+@abstract class_name Interactable extends StaticBody2D
+## A custom project-unique, interactable-unique identifier
 var id: String
 
 ## Which layer (same as player or behind) this Node is encountered in
-var layer: InteractableLayer
+var _layer: InteractableLayer
 
 ## Which Scene (PastRoot or PresentRoot) this Node is encountered in
-var timeline: Timeline
+var _timeline: Timeline
 
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var collider: CollisionShape2D = $CollisionShape2D
+@onready var _sprite: Sprite2D = $Sprite2D
+@onready var _collider: CollisionPolygon2D = $CollisionPolygon2D
+@onready var _interactionArea: Area2D = $InteractionArea2D
 
 enum InteractableLayer {ACTIVE, BACKGROUND}
 enum Timeline {PAST, PRESENT}
 
-func interact(item: Item) -> Item:
-	return null
+func _ready() -> void:
+	set_collision_layer_value(2, true)
+
+@abstract func interact(item: Item) -> Item

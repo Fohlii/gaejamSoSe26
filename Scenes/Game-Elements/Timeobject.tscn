@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dkdrt2ehmiis0"]
+
+[ext_resource type="Script" uid="uid://bhundf2jalg5s" path="res://Scenes/Game-Elements/InteractionArea2D.gd" id="1_vbhj5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghop2"]
+radius = 5.0
+
+[node name="Timeobject" type="StaticBody2D" unique_id=1227715888]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1801657247]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1177901891]
+
+[node name="InteractionArea2D" type="Area2D" parent="." unique_id=1433204358]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_vbhj5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D" unique_id=512086781]
+shape = SubResource("CircleShape2D_ghop2")

@@ -2,18 +2,17 @@ extends Timeobject
 
 func _init() -> void:
 	id = "PresentSaplingSource"
-	layer = InteractableLayer.BACKGROUND
-	timeline = Timeline.PRESENT
-	dependsOnOther = false
+	_layer = InteractableLayer.BACKGROUND
+	_timeline = Timeline.PRESENT
 
 func _ready() -> void:
-	var saplingNotTaken: TimeobjectState = TimeobjectState.new("saplingNotTaken", Vector2(2111.0,-337.0), 0, true, "res://Assets/Timeobjects/Textures/sapling.png", CircleShape2D.new(), "")
-	var saplingTaken: TimeobjectState = TimeobjectState.new("saplingTaken", Vector2(2111.0,-337.0), 0, true, "", CircleShape2D.new(), "res://Resources/Items/sapling.tres")
-	saplingNotTaken.addInteractionTransition("NONE", saplingTaken.id)
+	var saplingNotTaken: TimeobjectState = TimeobjectState.new("saplingNotTaken", Vector2(2111.0,-337.0), 0, true, "sapling.png", Vector2(15,-35))
+	var saplingTaken: TimeobjectState = TimeobjectState.new("saplingTaken", Vector2(2111.0,-337.0), 0, true, "", Vector2.ZERO, [], "sapling.tres")
+	saplingNotTaken.addInteractionTransition("EMPTY_HAND", saplingTaken.id)
 	
-	statesById.set(saplingNotTaken.id, saplingNotTaken)
-	statesById.set(saplingTaken.id, saplingTaken)
+	_statesById.set(saplingNotTaken.id, saplingNotTaken)
+	_statesById.set(saplingTaken.id, saplingTaken)
 	
-	currentState = saplingNotTaken
+	_currentState = _statesById[saplingNotTaken.id]
 	
 	super()

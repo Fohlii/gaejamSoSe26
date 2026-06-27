@@ -1,7 +1,12 @@
-class_name TimeobjectManager extends Node
-@export var timeobjectsById: Dictionary[String, Timeobject]
+class_name TimeobjectManager extends RefCounted
 
-func start() -> void:
-	print(timeobjectsById.values())
+## All Timeobjects in Past and Present
+var timeobjectsById: Dictionary[String, Timeobject]
+
+func initializeTimeobjects(tree: SceneTree) -> void:
+	for to in tree.get_nodes_in_group("Timeobjects"):
+		timeobjectsById[to.id] = to
 	for to in timeobjectsById.values():
-		to.initializeAfterReadyStepTwo()
+		to.registerListeners()
+	for to in timeobjectsById.values():
+		to.updateTextureAndCollider()
