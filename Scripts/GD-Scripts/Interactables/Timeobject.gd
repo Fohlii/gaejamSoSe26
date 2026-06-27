@@ -1,0 +1,95 @@
+@abstract class_name Timeobject extends Interactable
+## A Timeobject is any instantiable in past or present that changes directly due to player action
+## or indirectly through player action on other Timeobjects
+
+## All possible states for this Timeobject
+var _statesById: Dictionary[String, TimeobjectState]
+
+## The currently active state of this Timeobject
+var _currentState: TimeobjectState
+
+## TimeobjectIDs that this Timeobject's state depends on
+var _observedTimeobjects: Array[String]
+
+signal timeobject_state_changed_event(notifierNewStateId: String)
+
+func _ready() -> void:
+	super()
+	add_to_group("Timeobjects", true)
+
+## Whether this Timeobject depends on a state-change of another Timeobject
+func observesOther() -> bool:
+	return _observedTimeobjects.is_empty()
+
+## Register this Timeobject's dependencies on state-changes of other Timeobjects
+func registerListeners() -> void:
+	for notifierId in _observedTimeobjects:
+		get_tree().current_scene.timeobjectManager.timeobjectsById[notifierId].timeobject_state_changed_event.connect(self.on_other_timeobject_state_changed)
+		print(self.id + " registered listener for " + notifierId)
+
+func updatePositionAndRotation() -> void:
+	self.position = _currentState.pos
+	self.rotation = _currentState.rot
+
+func updateTextureAndCollider() -> void:
+	if _currentState.visibleAndColliding:
+		_sprite.texture = _currentState.texture
+		_sprite.offset = _currentState.spriteOffset
+		_collider.polygon = _currentState.colliderPolygon
+
+## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
+func interact(item: Item) -> Item:
+	if !item && _currentState.interactionTransitions.keys().has("EMPTY_HAND"):
+		_interactionTransition("EMPTY_HAND")
+		return _currentState.itemToReturnOnTransition
+	elif item && _currentState.interactionTransitions.keys().has(item.id):
+		_interactionTransition(item.id)
+		return _currentState.itemToReturnOnTransition
+	else:
+		return item # return item if not used
+
+func on_other_timeobject_state_changed(notifierStateId: String) -> void:
+	if _currentState.cascadeTransitions.keys().has(notifierStateId):
+		_cascadeTransition(_currentState.cascadeTransitions[notifierStateId])
+
+func _interactionTransition(itemId: String) -> void:
+	_currentState = _statesById[_currentState.interactionTransitions[itemId]]
+	updatePositionAndRotation()
+	updateTextureAndCollider()
+	timeobject_state_changed_event.emit(_currentState.id)
+
+func _cascadeTransition(newStateId: String) -> void:
+	_currentState = _statesById[newStateId]
+	updatePositionAndRotation()
+	updateTextureAndCollider()
+	timeobject_state_changed_event.emit(_currentState.id)
+
+class TimeobjectState extends Resource:
+	var id: String
+	var pos: Vector2
+	var rot: float
+	var visibleAndColliding: bool
+	var texture: Texture2D
+	var spriteOffset: Vector2
+	var colliderPolygon: PackedVector2Array
+	var itemToReturnOnTransition: Item ## Can be null
+	var interactionTransitions: Dictionary[String, String] ## ItemId mapped to own TimeobjectStateId
+	var cascadeTransitions: Dictionary[String, String] ## notifierStateId mapped to own TimeobjectStateId
+	
+	func _init(id: String, pos: Vector2, rot: float = 0, vis: bool = true, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: PackedVector2Array = [], itemPath: String = "") -> void:
+		self.id = id
+		self.pos = pos
+		self.rot = rot
+		self.visibleAndColliding = vis
+		self.texture = load("res://Assets/Timeobjects/Textures/" + texPath) if texPath != "" else null
+		self.spriteOffset = sprOff
+		self.colliderPolygon = col
+		self.itemToReturnOnTransition = load("res://Resources/Items/" + itemPath) if itemPath != "" else null
+		self.interactionTransitions = {}
+		self.cascadeTransitions = {}
+	
+	func addInteractionTransition(itemId: String, stateId: String):
+		self.interactionTransitions.set(itemId, stateId)
+	
+	func addCascadeTransition(notifierStateId: String, ownStateId: String):
+		self.cascadeTransitions.set(notifierStateId, ownStateId)

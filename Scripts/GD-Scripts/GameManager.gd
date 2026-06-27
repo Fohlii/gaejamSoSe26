@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var main_menu: Node2D = $UI/MainMenu
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
@@ -10,16 +10,18 @@ extends Node2D
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
 
+@onready var timeobjectManager: TimeobjectManager = TimeobjectManager.new()
+
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D
 var in_past := false
+
 func _ready() -> void:	
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
-	$PastRoot/Colliders/Objects/placeNearRiver.future_tree = $PresentRoot/Areas/Mountain/BackLayer/Objects/tree.PlantTree
-	
-func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt?? -> Weil das Skript am root attached ist 
+
+func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt?? -> Weil das Skript am root attached ist -> Na und? Separation of Concerns? Single Responsibility? Lose Kopplung?
 		if Input.is_action_just_pressed("timetravel"):
 			toggle_time()
 		if Input.is_action_just_pressed("esc"):
@@ -39,6 +41,7 @@ func toggle_time() -> void:
 	$PresentRoot/Parallax/FarthestBackgroundLayer.visible = !in_past
 	$PastRoot/Parallax/FarthestBackgroundLayer.visible = in_past
 func start_game():
+	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false
 	player = playerPS.instantiate()
 	var playerCam: Camera2D = player.get_child(2)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
-[ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Items/sapling.gd" id="1_1h27j"]
+[ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/sapling.gd" id="1_1h27j"]
 [ext_resource type="Texture2D" uid="uid://bc3wvut5lmbhy" path="res://Assets/Background/Background_Meadow_Hills.png" id="2_6aadu"]
 [ext_resource type="Texture2D" uid="uid://yfhbfaess57u" path="res://Assets/Background/background_v2.png" id="2_do8mn"]
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Items/axe_in_stump.gd" id="2_dorp1"]
@@ -408,16 +408,6 @@ shape = SubResource("CircleShape2D_kk6vw")
 position = Vector2(5310.001, -339)
 script = ExtResource("2_dorp1")
 
-[node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1876211793]
-
-[node name="Area2D" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe" unique_id=1261545406]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/stumpWithAxe/Area2D" unique_id=1236905993]
-shape = SubResource("CircleShape2D_kk6vw")
-
 [node name="Buildings" type="Node" parent="Areas/Meadow/BackLayer" unique_id=707125439]
 
 [node name="NPCs" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1597700349]
@@ -479,17 +469,6 @@ shape = SubResource("RectangleShape2D_jkieh")
 [node name="tree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=535348852 node_paths=PackedStringArray("treeBridge")]
 position = Vector2(8625, -290)
 script = ExtResource("3_ck43e")
-treeBridge = NodePath("../../../FrontLayer/Objects/treelog")
-
-[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=552386117]
-
-[node name="Area2D" type="Area2D" parent="Areas/Mountain/BackLayer/Objects/tree" unique_id=4892399]
-collision_layer = 2
-collision_mask = 0
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/tree/Area2D" unique_id=75326161]
-shape = SubResource("CircleShape2D_kk6vw")
 
 [node name="Buildings" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1660353972]
 

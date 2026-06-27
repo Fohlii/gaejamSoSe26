@@ -123,7 +123,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=2052906808]
-collision_mask = 16
+collision_mask = 18
 script = ExtResource("1_kyqiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219768441]
@@ -156,7 +156,7 @@ volume_db = 17.495
 bus = &"SFX"
 
 [node name="InteractionArea" type="Area2D" parent="." unique_id=1531106874]
-position = Vector2(0, -4.7683716e-07)
+position = Vector2(0, 12)
 scale = Vector2(2.5, 2.5)
 collision_layer = 0
 collision_mask = 14
@@ -164,7 +164,7 @@ input_pickable = false
 monitorable = false
 
 [node name="CollisionArea" type="CollisionPolygon2D" parent="InteractionArea" unique_id=1632899401]
-polygon = PackedVector2Array(8, -19, 15, -18, 21, -15, 26, -11, 30, -6, 32, 0, 33, 6, 32, 12, 30, 18, 26, 24, 21, 28, 15, 30, 8, 31)
+polygon = PackedVector2Array(0, -24, 12, -24, 18, -21, 22.5, -17, 26, -12, 28.5, -6, 29.5, 0, 28.5, 6, 26, 12, 22.5, 17, 18, 21, 12, 24, 0, 24)
 
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]
