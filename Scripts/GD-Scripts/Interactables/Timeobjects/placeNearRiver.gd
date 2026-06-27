@@ -6,8 +6,8 @@ func _init() -> void:
 	_timeline = Timeline.PAST
 
 func _ready() -> void:
-	var withoutSapling: TimeobjectState = TimeobjectState.new("emptyPlantationSpot", Vector2(3235.0,-357.0))
-	var withSapling: TimeobjectState = TimeobjectState.new("saplingPlantedInSpot", Vector2(3235.0,-357.0), 0, true, "sapling.png")
+	var withoutSapling: TimeobjectState = TimeobjectState.new("emptyPlantationSpot", Vector2(4375.0,-324.0))
+	var withSapling: TimeobjectState = TimeobjectState.new("saplingPlantedInSpot", Vector2(4375.0,-324.0), 0, 1.0, true, "sapling.png")
 	
 	withoutSapling.addInteractionTransition("sapling", withSapling.id)
 	

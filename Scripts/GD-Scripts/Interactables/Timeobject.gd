@@ -68,6 +68,7 @@ class TimeobjectState extends Resource:
 	var id: String
 	var pos: Vector2
 	var rot: float
+	var sca: float
 	var visibleAndColliding: bool
 	var texture: Texture2D
 	var spriteOffset: Vector2
@@ -76,10 +77,11 @@ class TimeobjectState extends Resource:
 	var interactionTransitions: Dictionary[String, String] ## ItemId mapped to own TimeobjectStateId
 	var cascadeTransitions: Dictionary[String, String] ## notifierStateId mapped to own TimeobjectStateId
 	
-	func _init(id: String, pos: Vector2, rot: float = 0, vis: bool = true, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: PackedVector2Array = [], itemPath: String = "") -> void:
+	func _init(id: String, pos: Vector2, rot: float = 0, sca: float = 1.0, vis: bool = true, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: PackedVector2Array = [], itemPath: String = "") -> void:
 		self.id = id
 		self.pos = pos
 		self.rot = rot
+		self.sca = sca
 		self.visibleAndColliding = vis
 		self.texture = load("res://Assets/Timeobjects/Textures/" + texPath) if texPath != "" else null
 		self.spriteOffset = sprOff

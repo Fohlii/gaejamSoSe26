@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="2_kfgl4"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_s4ijd"]
+[ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/stumpWithAxe.gd" id="7_c23j1"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="9_q4cgg"]
 [ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/placeNearRiver.gd" id="9_web4q"]
 
@@ -145,7 +146,7 @@ shape = SubResource("WorldBoundaryShape2D_huo5r")
 [node name="LeftBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=1655643150]
 shape = SubResource("WorldBoundaryShape2D_8gr7i")
 
-[node name="Areas" type="Node" parent="." unique_id=826676408]
+[node name="Areas" type="Node2D" parent="." unique_id=498881932]
 
 [node name="Coast" type="Node2D" parent="Areas" unique_id=1328720255]
 
@@ -157,9 +158,9 @@ shape = SubResource("WorldBoundaryShape2D_8gr7i")
 
 [node name="NPCs" type="Node" parent="Areas/Coast/BackLayer" unique_id=1476089888]
 
-[node name="FrontLayer" type="Node" parent="Areas/Coast" unique_id=2000698251]
+[node name="FrontLayer" type="Node2D" parent="Areas/Coast" unique_id=561772771]
 
-[node name="Ground" type="Node" parent="Areas/Coast/FrontLayer" unique_id=417972048]
+[node name="Ground" type="Node2D" parent="Areas/Coast/FrontLayer" unique_id=1137662194]
 
 [node name="LowTideIsland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1116178125]
 
@@ -314,16 +315,20 @@ shape = SubResource("RectangleShape2D_vmwla")
 [node name="Objects" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1063563665]
 
 [node name="P1_StumpWithAxe" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227715888 instance=ExtResource("2_kfgl4")]
+script = ExtResource("7_c23j1")
 
 [node name="P1_SpadeInEarth" parent="Areas/Meadow/BackLayer/Objects" unique_id=984575629 instance=ExtResource("2_kfgl4")]
+
+[node name="P1_PlantationSpotNearRiver" parent="Areas/Meadow/BackLayer/Objects" unique_id=763848641 instance=ExtResource("2_kfgl4")]
+script = ExtResource("9_web4q")
 
 [node name="Buildings" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1409768755]
 
 [node name="NPCs" type="Node" parent="Areas/Meadow/BackLayer" unique_id=212846550]
 
-[node name="FrontLayer" type="Node" parent="Areas/Meadow" unique_id=1630220709]
+[node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=1151405105]
 
-[node name="Ground" type="Node" parent="Areas/Meadow/FrontLayer" unique_id=1353674302]
+[node name="Ground" type="Node2D" parent="Areas/Meadow/FrontLayer" unique_id=228947780]
 
 [node name="SmallRiver" type="Node2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1295723103]
 
@@ -375,16 +380,13 @@ shape = SubResource("RectangleShape2D_l8xji")
 
 [node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=404147123]
 
-[node name="P1_PlantationSpotNearRiver" parent="Areas/Mountain/BackLayer/Objects" unique_id=763848641 instance=ExtResource("2_kfgl4")]
-script = ExtResource("9_web4q")
-
 [node name="Buildings" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1732833636]
 
 [node name="NPCs" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1540449957]
 
-[node name="FrontLayer" type="Node" parent="Areas/Mountain" unique_id=845885947]
+[node name="FrontLayer" type="Node2D" parent="Areas/Mountain" unique_id=225791523]
 
-[node name="Ground" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=674644320]
+[node name="Ground" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=791318979]
 
 [node name="LargeRiver" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=363944108]
 

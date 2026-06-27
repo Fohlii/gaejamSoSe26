@@ -45,8 +45,8 @@ func start_game():
 	main_menu.visible = false
 	player = playerPS.instantiate()
 	var playerCam: Camera2D = player.get_child(2)
-	player.global_position.x = 1000
-	player.global_position.y = -100
+	player.global_position.x = 500
+	player.global_position.y = -350
 	add_child(player)
 	#present_root.add_child(player)
 	#present_root.get_child(2).camera = playerCam

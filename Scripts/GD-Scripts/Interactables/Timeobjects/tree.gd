@@ -6,9 +6,9 @@ func _init() -> void:
 	_timeline = Timeline.PRESENT
 
 func _ready() -> void:
-	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown", Vector2(3235.0,-357.0))
-	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(3235.0,-357.0), 0, true, "tree.png")
-	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(3235.0,-357.0), 0, true, "tree_felled.png")
+	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown", Vector2(4375.0,-324.0))
+	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(4375.0,-324.0), 0, 1.0, true, "tree.png")
+	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(4375.0,-324.0), 0, 1.0, true, "tree_felled.png")
 	
 	treeGrown.addInteractionTransition("axe", treeFelled.id)
 	treeNotGrown.addCascadeTransition("saplingPlantedInSpot", treeGrown.id)

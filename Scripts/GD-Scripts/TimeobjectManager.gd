@@ -9,4 +9,5 @@ func initializeTimeobjects(tree: SceneTree) -> void:
 	for to in timeobjectsById.values():
 		to.registerListeners()
 	for to in timeobjectsById.values():
+		to.updatePositionAndRotation()
 		to.updateTextureAndCollider()
