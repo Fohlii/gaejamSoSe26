@@ -11,6 +11,21 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 [node name="MainMenu" type="Node2D" unique_id=1909509357]
 script = ExtResource("1_853f1")
 
+[node name="Label" type="Label" parent="." unique_id=749481623]
+z_index = 20
+offset_left = 178.0
+offset_top = 65.0
+offset_right = 973.0
+offset_bottom = 337.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "
+SUKARI
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ColorRect" type="TextureRect" parent="." unique_id=1527103736]
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,6 +39,8 @@ offset_bottom = 1268.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.66, 0.59)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = SubResource("CompressedTexture2D_853f1")
 
 [node name="MainMenu" type="HBoxContainer" parent="." unique_id=1585539027]
@@ -142,8 +159,6 @@ custom_minimum_size = Vector2(124.25, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
-rounded = true
 script = ExtResource("2_xb6rm")
 
 [node name="Label2" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1483486675]
@@ -153,7 +168,6 @@ text = "Sound Effect Volume
 
 [node name="HSlider2" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1790742097]
 layout_mode = 2
-value = 100.0
 script = ExtResource("3_spb0t")
 
 [node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1661337764]
@@ -169,7 +183,7 @@ size_flags_stretch_ratio = 0.65
 [node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1084217131]
 custom_minimum_size = Vector2(252.54, 0)
 layout_mode = 2
-text = "back"
+text = "Back"
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=638277375]
 layout_mode = 2

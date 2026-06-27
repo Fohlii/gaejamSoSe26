@@ -1,0 +1,6 @@
+join character center [animation="Slide From Left" z_index="1"]
+character: Ufff What happened?
+character: Where am i ? My head hurts so badly....
+character: Oh i am on an island but how did i get here?
+character: I should move on since i cannot stay here....
+[wait time="1.0" skippable="true"]

@@ -20,7 +20,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	velocity = playerMovement.processInput(delta)
 	move_and_slide()
-
+func player():
+	pass
 func _process(delta: float) -> void:
 	playerInteraction.processInput(interactionArea)
 

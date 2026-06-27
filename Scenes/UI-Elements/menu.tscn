@@ -125,8 +125,6 @@ custom_minimum_size = Vector2(124.25, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 100.0
-rounded = true
 script = ExtResource("2_w633m")
 
 [node name="Label2" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1884975352]
@@ -136,7 +134,6 @@ text = "Sound Effect Volume
 
 [node name="HSlider2" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=700416821]
 layout_mode = 2
-value = 100.0
 script = ExtResource("3_b8n8p")
 
 [node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=749738101]
@@ -152,7 +149,7 @@ size_flags_stretch_ratio = 0.65
 [node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1097606873]
 custom_minimum_size = Vector2(252.54, 0)
 layout_mode = 2
-text = "back"
+text = "Back"
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1336176467]
 layout_mode = 2
@@ -226,7 +223,9 @@ metadata/_edit_use_anchors_ = true
 oversampling_override = 1.0
 initial_position = 2
 size = Vector2i(327, 100)
+popup_window = true
 dialog_text = "Are you sure you want to exit the game?"
+dialog_autowrap = true
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1321695019]
 stream = ExtResource("3_i5h8a")
