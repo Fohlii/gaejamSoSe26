@@ -3,11 +3,16 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var left_foot: AudioStreamPlayer2D = $left_foot
 @onready var right_foot: AudioStreamPlayer2D = $right_foot
+@onready var climbCheckArea: Area2D = $ClimbCheckArea
 @onready var interactionArea: Area2D = $InteractionArea
 @onready var inventoryUI: Node2D = null
 
 var SPEED = 200.0
-const JUMP_VELOCITY = -400.0
+@export var WALK_SPEED = 200.0
+@export var RUN_SPEED = 300.0
+@export var JUMP_VELOCITY = -400.0
+@export var CLIMB_VELOCITY = -40.0
+@export var STANDING_JUMP_X = 100.0
 
 @onready var playerMovement: PlayerMovementComponent = PlayerMovementComponent.new(self)
 #@onready var playerTimetravel: PlayerTimetravelComponent = PlayerTimetravelComponent.new(self)
@@ -18,12 +23,9 @@ func _ready() -> void:
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
+	playerInteraction.processInput(interactionArea)
 	velocity = playerMovement.processInput(delta)
 	move_and_slide()
-func player():
-	pass
-func _process(delta: float) -> void:
-	playerInteraction.processInput(interactionArea)
 
 func _on_sprite_2d_frame_changed() -> void:
 	if sprite_2d.frame == 2:
@@ -34,8 +36,11 @@ func _on_sprite_2d_frame_changed() -> void:
 class PlayerMovementComponent extends RefCounted:
 	var playerMotionStates: Dictionary[String, MotionState]
 	var currentState: MotionState
+	var canClimb: Callable
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
+		canClimb = player.climbCheckArea.has_overlapping_areas
+		
 		playerMotionStates["IdleMotionState"] = MotionState.new(
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
@@ -47,14 +52,18 @@ class PlayerMovementComponent extends RefCounted:
 					print("idleMotionState exited")
 				, 
 			func(delta: float):
-				#if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
-				#	changeState("RunningMotionState")
-				#	return processInput()
-				
 				if Input.get_axis("walk_left", "walk_right") != 0:
 					changeState("WalkingMotionState")
 					return processInput(delta)
-					
+				
+				if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
+					changeState("RunningMotionState")
+					return processInput(delta)
+				
+				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+					changeState("ClimbingMotionState")
+					return processInput(delta)
+				
 				if Input.is_action_pressed("jump"):
 					changeState("JumpingMotionState")
 					return processInput(delta)
@@ -63,9 +72,7 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("FallingMotionState")
 					return processInput(delta)
 				
-				#TODO check climbing
-				
-				return Vector2(move_toward(player.velocity.x, 0, player.SPEED), player.velocity.y)
+				return Vector2(move_toward(player.velocity.x, 0, player.WALK_SPEED), player.velocity.y)
 		)
 		
 		playerMotionStates["WalkingMotionState"] = MotionState.new(
@@ -83,9 +90,13 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("IdleMotionState")
 					return processInput(delta)
 				
-				#if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
-				#	changeState("RunningMotionState")
-				#	return processInput()
+				if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
+					changeState("RunningMotionState")
+					return processInput(delta)
+				
+				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+					changeState("ClimbingMotionState")
+					return processInput(delta)
 				
 				if Input.is_action_pressed("jump"):
 					changeState("JumpingMotionState")
@@ -95,12 +106,10 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("FallingMotionState")
 					return processInput(delta)
 				
-				#TODO check climbing
-				
 				var direction = Input.get_axis("walk_left", "walk_right")
 				player.sprite_2d.flip_h = (direction < 0)
 				player.interactionArea.rotation = PI if (direction < 0) else 0
-				return Vector2(direction * player.SPEED, player.velocity.y)
+				return Vector2(direction * player.WALK_SPEED, player.velocity.y)
 		)
 		
 		playerMotionStates["RunningMotionState"] = MotionState.new(
@@ -110,10 +119,31 @@ class PlayerMovementComponent extends RefCounted:
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("runningMotionState exited"), 
-			func(): #TODO
-				if GlobalVars.DEBUG_PLAYERMOVEMENT:
-					print("runningMotionState process input called")
-				return player.velocity
+			func(delta: float):
+				if Input.get_axis("walk_left", "walk_right") == 0:
+					changeState("IdleMotionState")
+					return processInput(delta)
+				
+				if Input.get_axis("walk_left", "walk_right") != 0 && !Input.is_action_pressed("run"):
+					changeState("WalkingMotionState")
+					return processInput(delta)
+				
+				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+					changeState("ClimbingMotionState")
+					return processInput(delta)
+				
+				if Input.is_action_pressed("jump"):
+					changeState("JumpingMotionState")
+					return processInput(delta)
+				
+				if !player.is_on_floor():
+					changeState("FallingMotionState")
+					return processInput(delta)
+				
+				var direction = Input.get_axis("walk_left", "walk_right")
+				player.sprite_2d.flip_h = (direction < 0)
+				player.interactionArea.rotation = PI if (direction < 0) else 0
+				return Vector2(direction * player.RUN_SPEED, player.velocity.y)
 		)
 		
 		playerMotionStates["JumpingMotionState"] = MotionState.new(
@@ -126,13 +156,13 @@ class PlayerMovementComponent extends RefCounted:
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("jumpingMotionState exited")
 				, 
-			func(delta: float): #TODO
+			func(delta: float):
 				changeState("FallingMotionState")
-				var direction = Input.get_axis("walk_left", "walk_right")
+				var direction: float = Input.get_axis("walk_left", "walk_right")
 				if direction != 0:
 					player.sprite_2d.flip_h = (direction < 0)
-					player.interactionArea.rotation = PI if (direction < 0) else 0
-				return Vector2(direction * player.SPEED, player.JUMP_VELOCITY)
+					player.interactionArea.rotation = (PI) if (direction < 0) else (0)
+				return Vector2(direction * max(abs(player.velocity.x), player.STANDING_JUMP_X), player.JUMP_VELOCITY)
 		)
 		
 		playerMotionStates["FallingMotionState"] = MotionState.new(
@@ -144,15 +174,19 @@ class PlayerMovementComponent extends RefCounted:
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("fallingMotionState exited")
 				, 
-			func(delta: float): #TODO
+			func(delta: float):
 				if player.is_on_floor():
 					changeState("LandingMotionState")
 					return processInput(delta)
 				
+				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+					changeState("ClimbingMotionState")
+					return Vector2.ZERO
+				
 				var direction = Input.get_axis("walk_left", "walk_right")
 				if direction != 0:
 					player.sprite_2d.flip_h = (direction < 0)
-					player.interactionArea.rotation = PI if (direction < 0) else 0
+					player.interactionArea.rotation = (PI) if (direction < 0) else (0)
 				
 				return (player.velocity + (player.get_gravity() * delta))
 		)
@@ -167,6 +201,7 @@ class PlayerMovementComponent extends RefCounted:
 					print("landingMotionState exited")
 				, 
 			func(delta: float): 
+				await player.get_tree().create_timer(0.2)
 				changeState("IdleMotionState")
 				return processInput(delta)
 		)
@@ -175,6 +210,7 @@ class PlayerMovementComponent extends RefCounted:
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("idleClimbingMotionState entered")
+				player.sprite_2d.play("default")
 				, 
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
@@ -183,13 +219,23 @@ class PlayerMovementComponent extends RefCounted:
 			func(delta: float): #TODO
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("idleClimbingMotionState process input called")
-				return player.velocity
+				
+				if Input.get_axis("climb_down", "climb_up") != 0:
+					changeState("ClimbingMotionState")
+					return processInput(delta)
+				
+				if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
+					changeState("FallingMotionState")
+					return processInput(delta)
+				
+				return Vector2.ZERO
 		)
 		
 		playerMotionStates["ClimbingMotionState"] = MotionState.new(
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("climbingMotionState entered")
+				player.sprite_2d.play("walk")
 				, 
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
@@ -198,7 +244,16 @@ class PlayerMovementComponent extends RefCounted:
 			func(delta: float): #TODO
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("climbingMotionState process input called")
-				return player.velocity
+				
+				if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
+					changeState("FallingMotionState")
+					return processInput(delta)
+				
+				if Input.get_axis("climb_down", "climb_up") == 0:
+					changeState("IdleClimbingMotionState")
+					return processInput(delta)
+				
+				return Vector2(0, Input.get_axis("climb_down", "climb_up") * player.CLIMB_VELOCITY)
 		)
 		
 		playerMotionStates["TimetravelMotionState"] = MotionState.new(
