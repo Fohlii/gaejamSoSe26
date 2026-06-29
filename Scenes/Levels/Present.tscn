@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="6_1h27j"]
 [ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/treeLogBridge.gd" id="9_do8mn"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scenes/Levels/quest_areas.gd" id="10_do8mn"]
+[ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/BlockingBoulders.gd" id="10_jhuu5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -512,6 +513,9 @@ shape = SubResource("RectangleShape2D_ioaai")
 [node name="StaticBody2D" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Killzone" unique_id=891767526]
 
 [node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=1251482045]
+
+[node name="P2_BlockingBoulders" parent="Areas/Mountain/FrontLayer/Objects" unique_id=446946623 instance=ExtResource("6_1h27j")]
+script = ExtResource("10_jhuu5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1308970944]
 

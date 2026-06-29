@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="2_kfgl4"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_s4ijd"]
+[ext_resource type="Script" uid="uid://db02bsvasqrmx" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/TreeForScaffoldingWood.gd" id="5_8gr7i"]
+[ext_resource type="Script" uid="uid://d2pm63lvdhc7v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/CaveEntranceScaffolding.gd" id="6_qlr6k"]
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/stumpWithAxe.gd" id="7_c23j1"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="9_q4cgg"]
 [ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/placeNearRiver.gd" id="9_web4q"]
@@ -379,6 +381,12 @@ shape = SubResource("RectangleShape2D_l8xji")
 [node name="BackLayer" type="Node" parent="Areas/Mountain" unique_id=1622982601]
 
 [node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=404147123]
+
+[node name="P2_TreeForScaffoldingWood" parent="Areas/Mountain/BackLayer/Objects" unique_id=1020522894 instance=ExtResource("2_kfgl4")]
+script = ExtResource("5_8gr7i")
+
+[node name="P2_CaveEntranceScaffolding" parent="Areas/Mountain/BackLayer/Objects" unique_id=356062506 instance=ExtResource("2_kfgl4")]
+script = ExtResource("6_qlr6k")
 
 [node name="Buildings" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1732833636]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c4n5qe88s8ujx"]
 
 [ext_resource type="AudioStream" uid="uid://d22sbnghiyo2w" path="res://Assets/GameMusic/the_budding_of_consciousness.wav" id="1_07780"]
-[ext_resource type="Script" uid="uid://cfqp4062r2evg" path="res://Scripts/GD-Scripts/GameManager.gd" id="1_d31q8"]
+[ext_resource type="Script" uid="uid://cfqp4062r2evg" path="res://Scripts/GD-Scripts/Autoload/GameManager.gd" id="1_d31q8"]
 [ext_resource type="PackedScene" uid="uid://bjjsr5tpl74dk" path="res://Scenes/Levels/Present.tscn" id="2_d31q8"]
 [ext_resource type="PackedScene" uid="uid://dplxe84ckax72" path="res://Scenes/Levels/Past.tscn" id="3_dmpbk"]
 [ext_resource type="Script" uid="uid://lgwkbcpkla53" path="res://Scenes/Levels/controlBehaviour.gd" id="3_oi5um"]
