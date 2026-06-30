@@ -14,12 +14,14 @@ var SPEED = 200.0
 @export var CLIMB_VELOCITY = -40.0
 @export var STANDING_JUMP_X = 100.0
 
-@onready var playerMovement: PlayerMovementComponent = PlayerMovementComponent.new(self)
-#@onready var playerTimetravel: PlayerTimetravelComponent = PlayerTimetravelComponent.new(self)
-@onready var playerInteraction: PlayerInteractionComponent = PlayerInteractionComponent.new(self)
-#@onready var playerAnimation: PlayerAnimationComponent = PlayerAnimationComponent.new(self)
+var playerMovement: PlayerMovementComponent
+#var playerTimetravel: PlayerTimetravelComponent = PlayerTimetravelComponent.new(self)
+var playerInteraction: PlayerInteractionComponent
+#var playerAnimation: PlayerAnimationComponent = PlayerAnimationComponent.new(self)
 
 func _ready() -> void:
+	playerMovement = PlayerMovementComponent.new(self)
+	playerInteraction = PlayerInteractionComponent.new(self)
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
@@ -36,10 +38,10 @@ func _on_sprite_2d_frame_changed() -> void:
 class PlayerMovementComponent extends RefCounted:
 	var playerMotionStates: Dictionary[String, MotionState]
 	var currentState: MotionState
-	var canClimb: Callable
+	# var canClimb: Callable
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		canClimb = player.climbCheckArea.has_overlapping_areas
+		# canClimb = player.climbCheckArea.has_overlapping_areas
 		
 		playerMotionStates["IdleMotionState"] = MotionState.new(
 			func(): 
@@ -60,7 +62,7 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("RunningMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -70,7 +72,7 @@ class PlayerMovementComponent extends RefCounted:
 				
 				if !player.is_on_floor():
 					changeState("FallingMotionState")
-					return processInput(delta)
+					return Vector2.ZERO
 				
 				return Vector2(move_toward(player.velocity.x, 0, player.WALK_SPEED), player.velocity.y)
 		)
@@ -94,7 +96,7 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("RunningMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -104,7 +106,7 @@ class PlayerMovementComponent extends RefCounted:
 				
 				if !player.is_on_floor():
 					changeState("FallingMotionState")
-					return processInput(delta)
+					return player.velocity
 				
 				var direction = Input.get_axis("walk_left", "walk_right")
 				player.sprite_2d.flip_h = (direction < 0)
@@ -128,7 +130,7 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("WalkingMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -138,7 +140,7 @@ class PlayerMovementComponent extends RefCounted:
 				
 				if !player.is_on_floor():
 					changeState("FallingMotionState")
-					return processInput(delta)
+					return player.velocity
 				
 				var direction = Input.get_axis("walk_left", "walk_right")
 				player.sprite_2d.flip_h = (direction < 0)
@@ -179,7 +181,7 @@ class PlayerMovementComponent extends RefCounted:
 					changeState("LandingMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && canClimb.call():
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
 					changeState("ClimbingMotionState")
 					return Vector2.ZERO
 				
@@ -220,13 +222,13 @@ class PlayerMovementComponent extends RefCounted:
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("idleClimbingMotionState process input called")
 				
-				if Input.get_axis("climb_down", "climb_up") != 0:
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
 				if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
 					changeState("FallingMotionState")
-					return processInput(delta)
+					return Vector2.ZERO
 				
 				return Vector2.ZERO
 		)
@@ -245,13 +247,17 @@ class PlayerMovementComponent extends RefCounted:
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("climbingMotionState process input called")
 				
-				if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
-					changeState("FallingMotionState")
+				if !player.climbCheckArea.has_overlapping_areas:
+					changeState("IdleClimbingMotionState")
 					return processInput(delta)
 				
 				if Input.get_axis("climb_down", "climb_up") == 0:
 					changeState("IdleClimbingMotionState")
 					return processInput(delta)
+				
+				if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
+					changeState("FallingMotionState")
+					return Vector2.ZERO
 				
 				return Vector2(0, Input.get_axis("climb_down", "climb_up") * player.CLIMB_VELOCITY)
 		)
@@ -268,7 +274,7 @@ class PlayerMovementComponent extends RefCounted:
 			func(delta: float): #TODO
 				if !player.is_on_floor():
 					changeState("FallingMotionState")
-					return processInput(delta)
+					return player.velocity
 				else:
 					return player.velocity
 		)

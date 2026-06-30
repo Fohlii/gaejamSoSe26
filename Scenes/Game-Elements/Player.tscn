@@ -122,8 +122,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3ldl8"]
-radius = 14.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8ojx"]
+radius = 11.999999
+height = 55.199997
 
 [node name="Player" type="CharacterBody2D" unique_id=2052906808]
 collision_mask = 18
@@ -178,7 +179,7 @@ input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbCheckArea" unique_id=1669083209]
-shape = SubResource("CircleShape2D_3ldl8")
+shape = SubResource("CapsuleShape2D_j8ojx")
 
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]
