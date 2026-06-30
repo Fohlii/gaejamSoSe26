@@ -40,6 +40,9 @@ distance = -1459.0
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8gr7i"]
 normal = Vector2(1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gr7i"]
+size = Vector2(33.260742, 305)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt5t1"]
 size = Vector2(107.275696, 5)
 
@@ -155,6 +158,16 @@ shape = SubResource("WorldBoundaryShape2D_8gr7i")
 [node name="BackLayer" type="Node" parent="Areas/Coast" unique_id=1492278019]
 
 [node name="Objects" type="Node" parent="Areas/Coast/BackLayer" unique_id=2046696754]
+
+[node name="test_ladder" type="Area2D" parent="Areas/Coast/BackLayer/Objects" unique_id=27143479]
+position = Vector2(882.26074, -124.84946)
+collision_layer = 64
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/BackLayer/Objects/test_ladder" unique_id=124631245]
+position = Vector2(-6.630371, -48.650543)
+shape = SubResource("RectangleShape2D_8gr7i")
 
 [node name="Buildings" type="Node" parent="Areas/Coast/BackLayer" unique_id=1112642537]
 
@@ -309,6 +322,16 @@ position = Vector2(1262, 5.5)
 shape = SubResource("RectangleShape2D_vmwla")
 
 [node name="Objects" type="Node" parent="Areas/Coast/FrontLayer" unique_id=1115844539]
+
+[node name="test_platform" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Objects" unique_id=1247288823]
+position = Vector2(839, -262)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Objects/test_platform" unique_id=1434047810]
+position = Vector2(154, 81)
+shape = SubResource("RectangleShape2D_jy32g")
+one_way_collision = true
 
 [node name="Meadow" type="Node2D" parent="Areas" unique_id=1875028413]
 

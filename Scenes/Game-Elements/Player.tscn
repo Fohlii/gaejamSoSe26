@@ -122,6 +122,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j8ojx"]
+radius = 11.999999
+height = 55.199997
+
 [node name="Player" type="CharacterBody2D" unique_id=2052906808]
 collision_mask = 18
 script = ExtResource("1_kyqiw")
@@ -165,6 +169,17 @@ monitorable = false
 
 [node name="CollisionArea" type="CollisionPolygon2D" parent="InteractionArea" unique_id=1632899401]
 polygon = PackedVector2Array(0, -24, 12, -24, 18, -21, 22.5, -17, 26, -12, 28.5, -6, 29.5, 0, 28.5, 6, 26, 12, 22.5, 17, 18, 21, 12, 24, 0, 24)
+
+[node name="ClimbCheckArea" type="Area2D" parent="." unique_id=741260348]
+position = Vector2(0, 12)
+scale = Vector2(2.5, 2.5)
+collision_layer = 0
+collision_mask = 64
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbCheckArea" unique_id=1669083209]
+shape = SubResource("CapsuleShape2D_j8ojx")
 
 [connection signal="frame_changed" from="Sprite2D" to="." method="_on_sprite_2d_frame_changed"]
 [connection signal="sprite_frames_changed" from="Sprite2D" to="." method="_on_sprite_2d_sprite_frames_changed"]
