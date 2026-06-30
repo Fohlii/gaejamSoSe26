@@ -9,7 +9,7 @@ extends Node
 @onready var control: CanvasLayer = $Control
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
-
+@onready var inventory_overlay: CanvasLayer = $UI/InventoryOverlay
 @onready var timeobjectManager: TimeobjectManager = TimeobjectManager.new()
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
@@ -29,6 +29,8 @@ func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im Gam
 				get_tree().quit()
 			else:
 				show_menu()
+		if Input.is_action_just_pressed("inventory"):
+			inventory_overlay.visible = !inventory_overlay.visible
 func toggle_time() -> void:
 	in_past = !in_past
 	GlobalVars.player_in_past = in_past
@@ -40,6 +42,7 @@ func toggle_time() -> void:
 	#Parallax layer müssen einzeln unsichtbar gemacht werden, weil bei regulären Nodes visible nicht gesetzt werden kann
 	$PresentRoot/Parallax/FarthestBackgroundLayer.visible = !in_past
 	$PastRoot/Parallax/FarthestBackgroundLayer.visible = in_past
+	
 func start_game():
 	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false

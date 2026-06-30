@@ -41,9 +41,20 @@ func updateTextureAndCollider() -> void:
 func interact(item: Item) -> Item:
 	if !item && _currentState.interactionTransitions.keys().has("EMPTY_HAND"):
 		_interactionTransition("EMPTY_HAND")
+		print(self._sprite.texture)
+		if item != null:
+			if item.textureInInventory != null:
+				Inventory.add_item(item.textureInInventory)		
+			if item.textureOnCharacter != null:
+				Inventory.add_item(item.textureOnCharacter)
+		else:
+			Inventory.add_item(self._sprite.texture)
 		return _currentState.itemToReturnOnTransition
 	elif item && _currentState.interactionTransitions.keys().has(item.id):
 		_interactionTransition(item.id)
+		Inventory.remove_from_slot(0)
+		print(item.textureInInventory)
+		print(item.textureOnCharacter)
 		return _currentState.itemToReturnOnTransition
 	else:
 		return item # return item if not used
