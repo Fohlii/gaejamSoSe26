@@ -84,7 +84,7 @@ script = ExtResource("2_i4naw")
 [node name="FarthestBackgroundLayer" type="Parallax2D" parent="Parallax" unique_id=1018361539]
 z_index = -4
 scroll_scale = Vector2(0.5, 1)
-scroll_offset = Vector2(-315, -1488)
+scroll_offset = Vector2(-315, -11488)
 
 [node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=316865649]
 position = Vector2(324, 90)

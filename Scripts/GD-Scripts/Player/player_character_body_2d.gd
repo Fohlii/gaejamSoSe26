@@ -15,17 +15,19 @@ var SPEED = 200.0
 @export var STANDING_JUMP_X = 100.0
 
 var playerMovement: PlayerMovementComponent
-#var playerTimetravel: PlayerTimetravelComponent = PlayerTimetravelComponent.new(self)
+var playerTimetravel: PlayerTimetravelComponent
 var playerInteraction: PlayerInteractionComponent
 #var playerAnimation: PlayerAnimationComponent = PlayerAnimationComponent.new(self)
 
 func _ready() -> void:
 	playerMovement = PlayerMovementComponent.new(self)
+	playerTimetravel = PlayerTimetravelComponent.new(self)
 	playerInteraction = PlayerInteractionComponent.new(self)
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
 	playerInteraction.processInput(interactionArea)
+	playerTimetravel.processInput()
 	velocity = playerMovement.processInput(delta)
 	move_and_slide()
 
@@ -43,6 +45,7 @@ class PlayerMovementComponent extends RefCounted:
 	func _init(player: PlayerCharacterBody2D) -> void:
 		# canClimb = player.climbCheckArea.has_overlapping_areas
 		
+		# TODO: check processInput Callables for correctness and impossiblity of infinite recursion
 		playerMotionStates["IdleMotionState"] = MotionState.new(
 			func(): 
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
@@ -307,6 +310,19 @@ class PlayerMovementComponent extends RefCounted:
 		
 		func processInput(delta: float) -> Vector2:
 			return _processInput.call(delta)
+
+class PlayerTimetravelComponent extends RefCounted:
+	signal PlayerTimetravel
+	var player: PlayerCharacterBody2D
+	
+	func _init(player: PlayerCharacterBody2D) -> void:
+		PlayerTimetravel.connect(player.get_tree().current_scene.toggle_time)
+		self.player = player
+	
+	func processInput() -> void:
+		if Input.is_action_just_pressed("timetravel"):
+			PlayerTimetravel.emit()
+			player.global_position.y += ((19999) if (GlobalVars.player_in_past) else (-20001))
 
 class PlayerInteractionComponent extends RefCounted:
 	var playerInventoryItem: Item
