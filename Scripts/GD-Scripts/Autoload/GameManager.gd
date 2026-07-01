@@ -38,8 +38,8 @@ func start_game():
 	main_menu.visible = false
 	player = playerPS.instantiate()
 	add_child(player)
-	player.global_position.x = 500
-	player.global_position.y = -10350
+	player.global_position.x = 1700
+	player.global_position.y = -10550
 	player.find_child("Camera2D").make_current()
 	Dialogic.start("timeline")
 
