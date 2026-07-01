@@ -168,6 +168,7 @@ dialogic_default_action={
 2d_physics/layer_5="GroundCollisionLayer"
 2d_physics/layer_6="TimetravelAuxiliaryCollisionLayer"
 2d_physics/layer_7="ClimbablesLayer"
+2d_physics/layer_8="DeadlyLayer"
 
 [physics]
 
