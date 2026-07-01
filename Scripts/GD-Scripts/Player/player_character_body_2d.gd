@@ -322,7 +322,7 @@ class PlayerTimetravelComponent extends RefCounted:
 	func processInput() -> void:
 		if Input.is_action_just_pressed("timetravel"):
 			PlayerTimetravel.emit()
-			player.global_position.y += ((19999) if (GlobalVars.player_in_past) else (-20001))
+			player.global_position.y += ((19799) if (GlobalVars.player_in_past) else (-20201))
 
 class PlayerInteractionComponent extends RefCounted:
 	var playerInventoryItem: Item

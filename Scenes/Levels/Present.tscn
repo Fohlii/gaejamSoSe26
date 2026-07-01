@@ -211,9 +211,11 @@ shape = SubResource("RectangleShape2D_trkkw")
 [node name="Objects" type="Node2D" parent="Areas/Meadow/BackLayer" unique_id=837820116]
 
 [node name="P1_TreeNearRiver" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227648963 instance=ExtResource("6_1h27j")]
+position = Vector2(6615, -528)
 script = ExtResource("3_ck43e")
 
 [node name="P1_Sapling" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227715888 instance=ExtResource("6_1h27j")]
+position = Vector2(3572, -486)
 script = ExtResource("1_1h27j")
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=930101728]
@@ -259,6 +261,7 @@ texture_repeat = 2
 polygon = PackedVector2Array(-161, 0, -176, 11, 155, 11, 140, 0)
 
 [node name="P1_TreeLogBridge" parent="Areas/Meadow/FrontLayer/Objects" unique_id=1975205875 instance=ExtResource("6_1h27j")]
+position = Vector2(6942, -481)
 script = ExtResource("9_do8mn")
 
 [node name="ParallaxEnterFromLeftTrigger" type="Area2D" parent="Areas/Meadow" unique_id=277458585]
@@ -407,6 +410,7 @@ position = Vector2(8858, -531)
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=1844831231]
 
 [node name="P2_BlockingBoulders" parent="Areas/Mountain/FrontLayer/Objects" unique_id=446946623 instance=ExtResource("6_1h27j")]
+position = Vector2(8810, -592)
 script = ExtResource("10_jhuu5")
 
 [node name="ParallaxEnterFromLeftTrigger" type="Area2D" parent="Areas/Mountain" unique_id=109219366]

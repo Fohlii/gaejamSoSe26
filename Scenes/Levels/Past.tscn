@@ -150,13 +150,9 @@ shape = SubResource("WorldBoundaryShape2D_8gr7i")
 
 [node name="Coast" type="Node2D" parent="Areas" unique_id=1328720255]
 
-[node name="BackLayer" type="Node" parent="Areas/Coast" unique_id=1492278019]
+[node name="BackLayer" type="Node2D" parent="Areas/Coast" unique_id=1213081053]
 
-[node name="Objects" type="Node" parent="Areas/Coast/BackLayer" unique_id=2046696754]
-
-[node name="Buildings" type="Node" parent="Areas/Coast/BackLayer" unique_id=1112642537]
-
-[node name="NPCs" type="Node" parent="Areas/Coast/BackLayer" unique_id=1476089888]
+[node name="Objects" type="Node2D" parent="Areas/Coast/BackLayer" unique_id=763427798]
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Coast" unique_id=561772771]
 
@@ -310,21 +306,17 @@ shape = SubResource("RectangleShape2D_vmwla")
 
 [node name="Meadow" type="Node2D" parent="Areas" unique_id=1875028413]
 
-[node name="BackLayer" type="Node" parent="Areas/Meadow" unique_id=943275865]
+[node name="BackLayer" type="Node2D" parent="Areas/Meadow" unique_id=894892785]
 
-[node name="Objects" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1063563665]
+[node name="Objects" type="Node2D" parent="Areas/Meadow/BackLayer" unique_id=491113487]
 
 [node name="P1_StumpWithAxe" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227715888 instance=ExtResource("2_kfgl4")]
+position = Vector2(4698, -340)
 script = ExtResource("7_c23j1")
 
-[node name="P1_SpadeInEarth" parent="Areas/Meadow/BackLayer/Objects" unique_id=984575629 instance=ExtResource("2_kfgl4")]
-
 [node name="P1_PlantationSpotNearRiver" parent="Areas/Meadow/BackLayer/Objects" unique_id=763848641 instance=ExtResource("2_kfgl4")]
+position = Vector2(5820, -322)
 script = ExtResource("9_web4q")
-
-[node name="Buildings" type="Node" parent="Areas/Meadow/BackLayer" unique_id=1409768755]
-
-[node name="NPCs" type="Node" parent="Areas/Meadow/BackLayer" unique_id=212846550]
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=1151405105]
 
@@ -376,19 +368,17 @@ shape = SubResource("RectangleShape2D_l8xji")
 
 [node name="Mountain" type="Node2D" parent="Areas" unique_id=241279091]
 
-[node name="BackLayer" type="Node" parent="Areas/Mountain" unique_id=1622982601]
+[node name="BackLayer" type="Node2D" parent="Areas/Mountain" unique_id=429298239]
 
-[node name="Objects" type="Node" parent="Areas/Mountain/BackLayer" unique_id=404147123]
+[node name="Objects" type="Node2D" parent="Areas/Mountain/BackLayer" unique_id=2047965347]
 
 [node name="P2_TreeForScaffoldingWood" parent="Areas/Mountain/BackLayer/Objects" unique_id=1020522894 instance=ExtResource("2_kfgl4")]
+position = Vector2(6386, -370)
 script = ExtResource("5_8gr7i")
 
 [node name="P2_CaveEntranceScaffolding" parent="Areas/Mountain/BackLayer/Objects" unique_id=356062506 instance=ExtResource("2_kfgl4")]
+position = Vector2(6749, -415)
 script = ExtResource("6_qlr6k")
-
-[node name="Buildings" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1732833636]
-
-[node name="NPCs" type="Node" parent="Areas/Mountain/BackLayer" unique_id=1540449957]
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Mountain" unique_id=225791523]
 
@@ -544,4 +534,4 @@ build_mode = 1
 polygon = PackedVector2Array(2779, -379, 2406, -609, 3688, -622, 3222, -379, 3408, -303, 3536, -297, 3669, -260, 3782, -207, 3888, -142, 3954, -101, 2235, -119)
 script = ExtResource("9_q4cgg")
 
-[node name="Objects" type="Node" parent="Areas/Mountain/FrontLayer" unique_id=450095310]
+[node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=489368831]
