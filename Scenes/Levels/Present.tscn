@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
 [ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/sapling.gd" id="1_1h27j"]
-[ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/ParallaxManager.gd" id="2_i4naw"]
+[ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/Manager/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/tree.gd" id="3_ck43e"]
 [ext_resource type="Texture2D" uid="uid://cxur0pt6twauq" path="res://Assets/Background/bg_right_v3.png" id="3_jhuu5"]
 [ext_resource type="Script" uid="uid://ddh67imhsg5iq" path="res://Scenes/Levels/collision_shape.gd" id="4_8ycl7"]

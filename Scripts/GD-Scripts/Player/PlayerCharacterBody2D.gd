@@ -7,27 +7,26 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var interactionArea: Area2D = $InteractionArea
 @onready var inventoryUI: Node2D = null
 
-var SPEED = 200.0
 @export var WALK_SPEED = 200.0
 @export var RUN_SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 @export var CLIMB_VELOCITY = -40.0
 @export var STANDING_JUMP_X = 100.0
 
-var playerMovement: PlayerMovementComponent
-var playerTimetravel: PlayerTimetravelComponent
-var playerInteraction: PlayerInteractionComponent
+var playerMovement: PlayerMovement
+var playerTimetravel: PlayerTimetravel
+var playerInteraction: PlayerInteraction
 #var playerAnimation: PlayerAnimationComponent = PlayerAnimationComponent.new(self)
 
 func _ready() -> void:
-	playerMovement = PlayerMovementComponent.new(self)
-	playerTimetravel = PlayerTimetravelComponent.new(self)
-	playerInteraction = PlayerInteractionComponent.new(self)
+	playerMovement = PlayerMovement.new(self)
+	playerTimetravel = PlayerTimetravel.new(self)
+	playerInteraction = PlayerInteraction.new(self)
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
-	playerInteraction.processInput(interactionArea)
-	playerTimetravel.processInput()
+	playerInteraction.processInput(delta)
+	playerTimetravel.processInput(delta)
 	velocity = playerMovement.processInput(delta)
 	move_and_slide()
 
@@ -37,12 +36,13 @@ func _on_sprite_2d_frame_changed() -> void:
 	elif sprite_2d.frame == 5:
 		right_foot.play()
 
-class PlayerMovementComponent extends RefCounted:
+class PlayerMovement extends PlayerComponent:
 	var playerMotionStates: Dictionary[String, MotionState]
 	var currentState: MotionState
 	# var canClimb: Callable
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
+		super(player)
 		# canClimb = player.climbCheckArea.has_overlapping_areas
 		
 		# TODO: check processInput Callables for correctness and impossiblity of infinite recursion
@@ -311,32 +311,34 @@ class PlayerMovementComponent extends RefCounted:
 		func processInput(delta: float) -> Vector2:
 			return _processInput.call(delta)
 
-class PlayerTimetravelComponent extends RefCounted:
-	signal PlayerTimetravel
+class PlayerTimetravel extends PlayerComponent:
 	var player: PlayerCharacterBody2D
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		PlayerTimetravel.connect(player.get_tree().current_scene.toggle_time)
+		super(player)
 		self.player = player
 	
-	func processInput() -> void:
+	func processInput(delta: float) -> void:
 		if Input.is_action_just_pressed("timetravel"):
-			PlayerTimetravel.emit()
+			player.get_tree().current_scene.toggle_time()
 			player.global_position.y += ((19799) if (GlobalVars.player_in_past) else (-20201))
 
-class PlayerInteractionComponent extends RefCounted:
-	var playerInventoryItem: Item
+class PlayerInteraction extends PlayerComponent:
+	var playerInteractionArea: Area2D
 	var playerInventoryUI: Node2D
+	var playerInventoryItem: Item
 	
 	func _init(player: PlayerCharacterBody2D) -> void:
-		playerInventoryItem = null
+		super(player)
+		playerInteractionArea = player.interactionArea
 		playerInventoryUI = player.inventoryUI
+		playerInventoryItem = null
 	
-	func processInput(interactionZone: Area2D) -> void:
+	func processInput(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
-			if !interactionZone.get_overlapping_areas().is_empty():
+			if !playerInteractionArea.get_overlapping_areas().is_empty():
 				## Level Design Choice: Interactables should be spread far enough apart to make [0] unambiguous
-				_playerInteract(interactionZone.get_overlapping_areas()[0].get_parent())
+				_playerInteract(playerInteractionArea.get_overlapping_areas()[0].get_parent())
 	
 	func _playerInteract(interactable: Interactable):
 		playerInventoryItem = interactable.interact(playerInventoryItem)
