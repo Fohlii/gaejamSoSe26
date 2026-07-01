@@ -1,11 +1,19 @@
 extends Timeobject
 
+func _init() -> void:
+	id = "PastCaveEntranceScaffolding"
+	_layer = InteractableLayer.BACKGROUND
+	_timeline = Timeline.PAST
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	var scaffoldingNotBuilt: TimeobjectState = TimeobjectState.new("scaffoldingNotBuilt", Vector2.ZERO)
+	var scaffoldingBuilt: TimeobjectState = TimeobjectState.new("scaffoldingBuilt", Vector2.ZERO)
+	
+	scaffoldingNotBuilt.addInteractionTransition("woodPlanks", scaffoldingBuilt.id)
+	
+	_statesById.set(scaffoldingNotBuilt.id, scaffoldingNotBuilt)
+	_statesById.set(scaffoldingBuilt.id, scaffoldingBuilt)
+	
+	_currentState = _statesById[scaffoldingNotBuilt.id]
+	
+	super()
