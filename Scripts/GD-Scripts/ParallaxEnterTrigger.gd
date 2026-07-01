@@ -1,6 +1,6 @@
 class_name ParallaxEnterTrigger extends Area2D
 
-@onready var parallaxManager: ParallaxManager = $".."
+@onready var parallaxManager: ParallaxManager = $"../../../Parallax"
 
 @export var zoneScrollScale: float
 
