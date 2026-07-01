@@ -164,6 +164,30 @@ metadata/_custom_type_script = "uid://gr0e5cnprtax"
 position = Vector2(0, -281.5)
 shape = SubResource("RectangleShape2D_58uic")
 
+[node name="ParallaxEnterTrigger2" type="Area2D" parent="Parallax" unique_id=1152709623]
+position = Vector2(3148, -10417)
+collision_layer = 0
+monitorable = false
+script = ExtResource("6_8ycl7")
+zoneScrollScale = 2.0
+metadata/_custom_type_script = "uid://gr0e5cnprtax"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxEnterTrigger2" unique_id=1677027403]
+position = Vector2(0, -281.5)
+shape = SubResource("RectangleShape2D_58uic")
+
+[node name="ParallaxEnterTrigger3" type="Area2D" parent="Parallax" unique_id=67612837]
+position = Vector2(3514, -10417)
+collision_layer = 0
+monitorable = false
+script = ExtResource("6_8ycl7")
+zoneScrollScale = 0.5
+metadata/_custom_type_script = "uid://gr0e5cnprtax"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Parallax/ParallaxEnterTrigger3" unique_id=1935662917]
+position = Vector2(0, -281.5)
+shape = SubResource("RectangleShape2D_58uic")
+
 [node name="WorldBorders" type="StaticBody2D" parent="." unique_id=1774505568]
 physics_material_override = SubResource("PhysicsMaterial_idj7w")
 
