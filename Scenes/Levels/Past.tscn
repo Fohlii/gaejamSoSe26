@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
+[ext_resource type="Texture2D" uid="uid://dp4qhy2mlrcn0" path="res://Assets/Background/AmbientCG/Ground093A/Ground093A_rect.png" id="1_8gr7i"]
 [ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="2_kfgl4"]
 [ext_resource type="Script" uid="uid://db02bsvasqrmx" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/TreeForScaffoldingWood.gd" id="5_8gr7i"]
+[ext_resource type="Texture2D" uid="uid://dyoaeq3aa685i" path="res://Assets/Background/AmbientCG/Grass001/Grass001_2K-PNG_Color.png" id="5_qlr6k"]
 [ext_resource type="Script" uid="uid://d2pm63lvdhc7v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/CaveEntranceScaffolding.gd" id="6_qlr6k"]
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/stumpWithAxe.gd" id="7_c23j1"]
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="9_q4cgg"]
@@ -41,27 +43,6 @@ normal = Vector2(1, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt5t1"]
 size = Vector2(107.275696, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jy32g"]
-size = Vector2(261.63785, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8w3f"]
-size = Vector2(114.46155, 6.526291)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq76p"]
-size = Vector2(100, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmwla"]
-size = Vector2(2910, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsyfs"]
-size = Vector2(95.751434, 5.2283936)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_twi7g"]
-size = Vector2(96.21524, 5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8xji"]
-size = Vector2(1759.117, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb4y2"]
 size = Vector2(323.6341, 6.9577026)
@@ -158,149 +139,18 @@ shape = SubResource("WorldBoundaryShape2D_8gr7i")
 
 [node name="Ground" type="Node2D" parent="Areas/Coast/FrontLayer" unique_id=1137662194]
 
-[node name="LowTideIsland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1116178125]
-
-[node name="CoastGround" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=393327493]
-position = Vector2(124, 0)
+[node name="TideIsland" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=406501960]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround" unique_id=1604230937]
-shape = SubResource("RectangleShape2D_vt5t1")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Coast/FrontLayer/Ground/TideIsland" unique_id=41068948]
+polygon = PackedVector2Array(0, 0, 116, -9, 216, -37, 298, -79, 378, -139, 458, -213, 519, -256, 599, -283, 679, -290, 772, -290, 1649, -324, 1728, -387, 1838, -425, 1838, 0)
 
-[node name="CoastGround2" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=273732742]
-position = Vector2(244, -31)
-rotation = -0.5235988
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround2" unique_id=766892301]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround3" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=2040495298]
-position = Vector2(325, -114)
-rotation = -1.0471976
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround3" unique_id=1876430151]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround4" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1011520378]
-position = Vector2(399, -193)
-rotation = -0.5235988
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround4" unique_id=857792965]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround5" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=125218178]
-position = Vector2(501, -220)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround5" unique_id=1390655757]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround6" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1049663209]
-position = Vector2(595, -196.00003)
-rotation = 0.5235988
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround6" unique_id=139481651]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround7" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=2066104809]
-position = Vector2(668, -121.000015)
-rotation = 1.0471976
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround7" unique_id=236441420]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround8" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1052333582]
-position = Vector2(744.99994, -48)
-rotation = 0.5235988
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround8" unique_id=1647341345]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround9" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1571963098]
-position = Vector2(855, -13)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/CoastGround9" unique_id=384950195]
-position = Vector2(77.18109, 0)
-shape = SubResource("RectangleShape2D_jy32g")
-
-[node name="Beach" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1572536915]
-position = Vector2(900, 0)
-
-[node name="CoastGround2" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=151697616]
-position = Vector2(197, -26)
-rotation = -0.2617994
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround2" unique_id=1754442298]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround3" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=654874719]
-position = Vector2(299, -72)
-rotation = -0.5235988
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround3" unique_id=849557369]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround4" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1476576087]
-position = Vector2(389, -140)
-rotation = -0.7853982
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround4" unique_id=684703949]
-position = Vector2(3.6378784, 6.1035156e-05)
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="CoastGround5" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=535308479]
-position = Vector2(473, -211)
-rotation = -0.5235988
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround5" unique_id=468839573]
-position = Vector2(7.230835, 6.1650696)
-shape = SubResource("RectangleShape2D_k8w3f")
-
-[node name="CoastGround6" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Beach" unique_id=1039465398]
-position = Vector2(576, -264)
-rotation = -0.2617994
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Beach/CoastGround6" unique_id=1299152853]
-rotation = -0.23212878
-shape = SubResource("RectangleShape2D_wq76p")
-
-[node name="Inland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1070190965]
-position = Vector2(1716, 0)
-
-[node name="CoastGround" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/Inland" unique_id=1751000093]
-position = Vector2(0, -293)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/FrontLayer/Ground/Inland/CoastGround" unique_id=343102359]
-position = Vector2(1262, 5.5)
-shape = SubResource("RectangleShape2D_vmwla")
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Coast/FrontLayer/Ground/TideIsland" unique_id=1569973073]
+texture_repeat = 2
+texture = ExtResource("1_8gr7i")
+texture_scale = Vector2(0.85, 0.85)
+polygon = PackedVector2Array(0, 0, 116, -9, 216, -37, 298, -79, 378, -139, 458, -213, 519, -256, 599, -283, 679, -290, 772, -290, 1649, -324, 1728, -387, 1838, -425, 1838, 0)
 
 [node name="Objects" type="Node" parent="Areas/Coast/FrontLayer" unique_id=1115844539]
 
@@ -315,54 +165,25 @@ position = Vector2(4698, -340)
 script = ExtResource("7_c23j1")
 
 [node name="P1_PlantationSpotNearRiver" parent="Areas/Meadow/BackLayer/Objects" unique_id=763848641 instance=ExtResource("2_kfgl4")]
-position = Vector2(5820, -322)
+position = Vector2(6624, -546)
 script = ExtResource("9_web4q")
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=1151405105]
 
 [node name="Ground" type="Node2D" parent="Areas/Meadow/FrontLayer" unique_id=228947780]
 
-[node name="SmallRiver" type="Node2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1295723103]
-
-[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=781276619]
-position = Vector2(4438.9995, -242.0001)
-rotation = 1.3962634
+[node name="MeadowGround" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1917205440]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround2" unique_id=1294121907]
-position = Vector2(5.762146, 0.11401367)
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("RectangleShape2D_wsyfs")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround" unique_id=446614251]
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
 
-[node name="MeadowGround4" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=738862337]
-position = Vector2(4520, -222)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround4" unique_id=1950077392]
-shape = SubResource("RectangleShape2D_vt5t1")
-
-[node name="MeadowGround6" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=1405852192]
-position = Vector2(4592.9995, -248.9999)
-rotation = -1.3962634
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround6" unique_id=24679752]
-position = Vector2(-5.5302734, 0)
-scale = Vector2(1.0000001, 1.0000001)
-shape = SubResource("RectangleShape2D_twi7g")
-
-[node name="MeadowGround7" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=626725242]
-position = Vector2(4754, -293)
-scale = Vector2(2.92, 1)
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/MeadowGround7" unique_id=1371319042]
-position = Vector2(825.9208, 0)
-shape = SubResource("RectangleShape2D_l8xji")
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround" unique_id=895312885]
+texture_repeat = 2
+texture = ExtResource("5_qlr6k")
+texture_scale = Vector2(5, 5)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
 
 [node name="Objects" type="Node" parent="Areas/Meadow/FrontLayer" unique_id=689534520]
 
@@ -385,6 +206,7 @@ script = ExtResource("6_qlr6k")
 [node name="Ground" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=791318979]
 
 [node name="LargeRiver" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=363944108]
+position = Vector2(894, -122)
 
 [node name="MountainGround3" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=618914522]
 position = Vector2(5854, -246)
@@ -448,6 +270,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_vt5t1")
 
 [node name="RockyPath" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1019411927]
+position = Vector2(882, -122)
 
 [node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/RockyPath" unique_id=1124667917]
 position = Vector2(6604.0015, -353.00006)
@@ -461,6 +284,7 @@ scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_tb4y2")
 
 [node name="Cave" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=321041129]
+position = Vector2(900, -120)
 
 [node name="MountainGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=1920190159]
 position = Vector2(6989, -482)
@@ -481,6 +305,7 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_vt5t1")
 
 [node name="Mountain" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1592235623]
+position = Vector2(886, -120)
 
 [node name="MountainGround" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Mountain" unique_id=1534761672]
 position = Vector2(6825, -405)
