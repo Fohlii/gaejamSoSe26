@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dplxe84ckax72"]
 
+[ext_resource type="Texture2D" uid="uid://l2w7v7yl5igl" path="res://Assets/Background/background_right_border.jpg" id="1_qlr6k"]
 [ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="2_kfgl4"]
 [ext_resource type="Script" uid="uid://db02bsvasqrmx" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/TreeForScaffoldingWood.gd" id="5_8gr7i"]
 [ext_resource type="Script" uid="uid://d2pm63lvdhc7v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/CaveEntranceScaffolding.gd" id="6_qlr6k"]
@@ -7,8 +8,8 @@
 [ext_resource type="Script" uid="uid://daolf1sjaestl" path="res://Scenes/Levels/killzone.gd" id="9_q4cgg"]
 [ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/placeNearRiver.gd" id="9_web4q"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s4ijd"]
-load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlr6k"]
+load_path = "res://.godot/imported/background_right_border.jpg-4bd28463197037fa054f4beedb757def.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_web4q"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -16,13 +17,7 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huo5r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8gr7i"]
-load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlr6k"]
-load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_huo5r"]
-load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
+load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d12681349650a1553.ctex"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ff8ec"]
 
@@ -83,42 +78,33 @@ scroll_offset = Vector2(-315, 8512)
 
 [node name="BackgroundLeftEnd3" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=113094983]
 texture_filter = 1
-position = Vector2(3277.9998, 82)
-scale = Vector2(0.591, 1.01)
-texture = SubResource("CompressedTexture2D_s4ijd")
+position = Vector2(3507, 82)
+scale = Vector2(2.385, 2.4400005)
+texture = ExtResource("1_qlr6k")
 centered = false
 
-[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1557153879]
-position = Vector2(-3339.5525, 7.920288)
-scale = Vector2(0.9942104, 0.9900355)
-texture = SubResource("CompressedTexture2D_web4q")
-centered = false
-
-[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=377347501]
+[node name="BackgroundLeftEnd4" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=581104899]
 texture_filter = 1
-material = SubResource("ShaderMaterial_huo5r")
-position = Vector2(-1472.4254, 8.910278)
-scale = Vector2(0.7847367, 0.9900355)
-texture = SubResource("CompressedTexture2D_8gr7i")
+position = Vector2(4608, 83)
+scale = Vector2(2.385, 2.4400005)
+texture = SubResource("CompressedTexture2D_qlr6k")
 centered = false
 flip_h = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=59369668]
-position = Vector2(42.35943, 1086.5387)
-rotation = 3.1415927
-scale = Vector2(2.9726923, 0.9158206)
-texture = SubResource("CompressedTexture2D_qlr6k")
-region_enabled = true
-region_rect = Rect2(676.198, 909.4662, 533.75244, 152.78503)
+[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=1557153879]
+position = Vector2(1304.3242, 89.99902)
+scale = Vector2(0.788, 1)
+texture = SubResource("CompressedTexture2D_web4q")
+centered = false
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer/BackgroundLeftEnd3" unique_id=1710270647]
-position = Vector2(47.17706, 1223.6841)
-rotation = 3.1415927
-scale = Vector2(2.959496, 0.9158206)
-texture = SubResource("CompressedTexture2D_huo5r")
-flip_v = true
-region_enabled = true
-region_rect = Rect2(676.198, 909.4662, 533.75244, 152.78503)
+[node name="BackgroundLeftEnd2" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=377347501]
+texture_filter = 1
+material = SubResource("ShaderMaterial_huo5r")
+position = Vector2(2470, 58)
+scale = Vector2(1.89, 2.1065087)
+texture = SubResource("CompressedTexture2D_8gr7i")
+centered = false
+flip_h = true
 
 [node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackgroundLayer" unique_id=1950846813]
 texture_filter = 1

@@ -9,6 +9,7 @@ extends Node
 @onready var control: CanvasLayer = $Control
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
+@onready var game_over: CanvasLayer = $UI/GameOver
 
 @onready var timeobjectManager: TimeobjectManager = TimeobjectManager.new()
 
@@ -47,3 +48,6 @@ func show_menu():
 	button_click.play()
 	GlobalVars.esc_pressed.emit()
 	menu.visible = !menu.visible
+	
+func game_lost(lost:bool):
+	game_over.visible = lost
