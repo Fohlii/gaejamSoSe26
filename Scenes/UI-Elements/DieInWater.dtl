@@ -1,5 +1,4 @@
-join character center [animation="Instant In"]
-character: Ufff that .... is ... the ...... end
-character: blubb blubbb
-character: puff
-do GameManager.game_lost(true)
+Ufff that .... is ... the ...... end
+blubb blubbb
+puff
+[signal arg="player_lost"]

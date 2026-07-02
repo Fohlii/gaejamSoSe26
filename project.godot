@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 GlobalVars="*uid://corpmvh0xcksf"
 Dialogic="*uid://ds2q0uclmolvu"
 SaveLoadSettings="*uid://c1o6jyqodkers"
-GameManager="*uid://cfqp4062r2evg"
 
 [dialogic]
 

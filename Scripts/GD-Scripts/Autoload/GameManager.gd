@@ -14,14 +14,15 @@ extends Node
 @onready var timeobjectManager: TimeobjectManager = TimeobjectManager.new()
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
-var player: CharacterBody2D
+var player: CharacterBody2D = null
 
 func _ready() -> void:
 	GlobalVars.player_in_past = false
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
-
+	Dialogic.signal_event.connect(game_lost)
+	
 func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("esc"):
 			if main_menu.visible:
@@ -37,7 +38,9 @@ func toggle_time() -> void:
 func start_game():
 	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false
-	player = playerPS.instantiate()
+	game_over.visible = false
+	if player== null:
+		player =  playerPS.instantiate()
 	add_child(player)
 	player.global_position.x = 600
 	player.global_position.y = -10400
@@ -45,9 +48,11 @@ func start_game():
 	Dialogic.start("timeline")
 
 func show_menu():	
+	game_over.visible = false
 	button_click.play()
 	GlobalVars.esc_pressed.emit()
 	menu.visible = !menu.visible
 	
-func game_lost(lost:bool):
-	game_over.visible = lost
+func game_lost(argument):
+	if argument == "player_lost":
+		game_over.visible = true

@@ -1,22 +1,13 @@
 extends Control
 @onready var exit: ConfirmationDialog = $exit
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+@onready var GameManager = get_tree().current_scene
 
 func _on_restart_pressed() -> void:
 	GameManager.start_game()
 
 
 func _on_back_to_menu_pressed() -> void:
+	GameManager.show_menu()
 	pass # Replace with function body.
 
 
@@ -25,7 +16,6 @@ func _on_exit_pressed() -> void:
 	
 func _on_exit_confirmed() -> void:
 	get_tree().quit()
-
 
 func _on_exit_canceled() -> void:
 	exit.hide()
