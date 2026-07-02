@@ -25,8 +25,6 @@ GameManager="*uid://cfqp4062r2evg"
 [dialogic]
 
 directories/dch_directory={
-"Player/character": "res://Ohne Titel/Assets/Player/character.dch",
-"Resources/unit_test_character": "res://Ohne Titel/Tests/Resources/unit_test_character.dch",
 "character": "res://Assets/Player/character.dch",
 "unit_test_character": "res://Tests/Resources/unit_test_character.dch"
 }
@@ -35,12 +33,6 @@ directories/dtl_directory={
 "DieInRiver": "res://Scenes/UI-Elements/DieInRiver.dtl",
 "DieInWater": "res://Scenes/UI-Elements/DieInWater.dtl",
 "River": "res://Scenes/UI-Elements/River.dtl",
-"UI-Elements/Cave": "res://Ohne Titel/Scenes/UI-Elements/Cave.dtl",
-"UI-Elements/DieInRiver": "res://Ohne Titel/Scenes/UI-Elements/DieInRiver.dtl",
-"UI-Elements/DieInWater": "res://Ohne Titel/Scenes/UI-Elements/DieInWater.dtl",
-"UI-Elements/River": "res://Ohne Titel/Scenes/UI-Elements/River.dtl",
-"UI-Elements/WaterRising": "res://Ohne Titel/Scenes/UI-Elements/WaterRising.dtl",
-"UI-Elements/timeline": "res://Ohne Titel/Scenes/UI-Elements/timeline.dtl",
 "WaterRising": "res://Scenes/UI-Elements/WaterRising.dtl",
 "timeline": "res://Scenes/UI-Elements/timeline.dtl"
 }
@@ -86,13 +78,6 @@ variables={
 "in_past": false
 }
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
-window/stretch/mode="viewport"
-
 [dotnet]
 
 project/assembly_name="gaejam SoSe26"
@@ -100,10 +85,6 @@ project/assembly_name="gaejam SoSe26"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/itch_uploader/plugin.cfg")
-
-[filesystem]
-
-import/blender/enabled=false
 
 [input]
 
