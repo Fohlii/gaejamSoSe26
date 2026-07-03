@@ -62,6 +62,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
-color = Color(0.08959273, 0.12388409, 0.17481533, 0.5568628)
+color = Color(0.2, 0.09200001, 0.020000005, 0.78039217)
 
 [node name="GameOverScreen" parent="UI/GameOver" unique_id=602681557 instance=ExtResource("7_saai4")]

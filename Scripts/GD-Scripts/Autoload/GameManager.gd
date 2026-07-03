@@ -1,6 +1,6 @@
 extends Node
 
-@onready var main_menu: Node2D = $UI/MainMenu
+@onready var main_menu = $UI/MainMenu
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var present_root: Node2D = $PresentRoot
 @onready var past_root: Node2D = $PastRoot

@@ -50,8 +50,10 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74, 0.19979998, 0.19979998, 1)
 theme_override_constants/outline_size = 8
-text = "Game Over
+text = "	Game Over	
+	you died
 "
 horizontal_alignment = 1
 
@@ -72,18 +74,6 @@ theme_override_font_sizes/font_size = 20
 text = "Restart
 "
 
-[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer" unique_id=423605614]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.9
-
-[node name="BackToMenu" type="Button" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5" unique_id=1403611153]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 20
-text = "Back to Menu"
-
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1642116943]
 layout_mode = 2
 size_flags_vertical = 3
@@ -101,9 +91,10 @@ size_flags_horizontal = 3
 ratio = 0.3
 
 [node name="exit" type="ConfirmationDialog" parent="." unique_id=59824632]
+title = ""
+dialog_text = "Do you really want to quit the game?"
 
 [connection signal="pressed" from="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer3/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer5/BackToMenu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Exit" to="." method="_on_exit_pressed"]
 [connection signal="canceled" from="exit" to="." method="_on_exit_canceled"]
 [connection signal="confirmed" from="exit" to="." method="_on_exit_confirmed"]
