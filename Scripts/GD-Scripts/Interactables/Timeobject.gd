@@ -27,15 +27,19 @@ func registerListeners() -> void:
 		get_tree().current_scene.timeobjectManager.timeobjectsById[notifierId].timeobject_state_changed_event.connect(self.on_other_timeobject_state_changed)
 		print(self.id + " registered listener for " + notifierId)
 
-func updatePositionAndRotation() -> void:
+func updateTransform() -> void:
 	self.position = _currentState.pos
 	self.rotation = _currentState.rot
+	self.scale = Vector2.ONE * _currentState.sca
 
 func updateTextureAndCollider() -> void:
 	if _currentState.visibleAndColliding:
 		_sprite.texture = _currentState.texture
 		_sprite.offset = _currentState.spriteOffset
 		_collider.polygon = _currentState.colliderPolygon
+	else:
+		_sprite.texture = null
+		_collider.polygon = PackedVector2Array([])
 
 ## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
 func interact(item: Item) -> Item:
@@ -65,13 +69,13 @@ func on_other_timeobject_state_changed(notifierStateId: String) -> void:
 
 func _interactionTransition(itemId: String) -> void:
 	_currentState = _statesById[_currentState.interactionTransitions[itemId]]
-	updatePositionAndRotation()
+	updateTransform()
 	updateTextureAndCollider()
 	timeobject_state_changed_event.emit(_currentState.id)
 
 func _cascadeTransition(newStateId: String) -> void:
 	_currentState = _statesById[newStateId]
-	updatePositionAndRotation()
+	updateTransform()
 	updateTextureAndCollider()
 	timeobject_state_changed_event.emit(_currentState.id)
 
@@ -88,7 +92,7 @@ class TimeobjectState extends Resource:
 	var interactionTransitions: Dictionary[String, String] ## ItemId mapped to own TimeobjectStateId
 	var cascadeTransitions: Dictionary[String, String] ## notifierStateId mapped to own TimeobjectStateId
 	
-	func _init(id: String, pos: Vector2, rot: float = 0, sca: float = 1.0, vis: bool = true, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: PackedVector2Array = [], itemPath: String = "") -> void:
+	func _init(id: String, pos: Vector2 = Vector2.ZERO, rot: float = 0, sca: float = 1.0, vis: bool = true, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: Array[Vector2] = [], itemPath: String = "") -> void:
 		self.id = id
 		self.pos = pos
 		self.rot = rot
@@ -96,10 +100,42 @@ class TimeobjectState extends Resource:
 		self.visibleAndColliding = vis
 		self.texture = load("res://Assets/Timeobjects/Textures/" + texPath) if texPath != "" else null
 		self.spriteOffset = sprOff
-		self.colliderPolygon = col
+		self.colliderPolygon = PackedVector2Array(col)
 		self.itemToReturnOnTransition = load("res://Resources/Items/" + itemPath) if itemPath != "" else null
 		self.interactionTransitions = {}
 		self.cascadeTransitions = {}
+	
+	func setPosition(pos: Vector2 = Vector2.ZERO) -> TimeobjectState:
+		self.pos = pos
+		return self
+	
+	func setRotation(rot: float = 0) -> TimeobjectState:
+		self.rot = rot
+		return self
+	
+	func setScale(sca: float = 1.0) -> TimeobjectState:
+		self.sca = sca
+		return self
+	
+	func setVisibility(vis: bool = true) -> TimeobjectState:
+		self.visibleAndColliding = vis
+		return self
+	
+	func setTexture(texPath: String = "") -> TimeobjectState:
+		self.texture = load("res://Assets/Timeobjects/Textures/" + texPath) if texPath != "" else null
+		return self
+	
+	func setSpriteOffset(sprOff: Vector2 = Vector2.ZERO) -> TimeobjectState:
+		self.spriteOffset = sprOff
+		return self
+	
+	func setColliderPolygon(col: Array[Vector2] = []) -> TimeobjectState:
+		self.colliderPolygon = PackedVector2Array(col)
+		return self
+	
+	func setItem(itemPath: String = "") -> TimeobjectState:
+		self.itemToReturnOnTransition = load("res://Resources/Items/" + itemPath) if itemPath != "" else null
+		return self
 	
 	func addInteractionTransition(itemId: String, stateId: String):
 		self.interactionTransitions.set(itemId, stateId)
