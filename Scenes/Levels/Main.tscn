@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckf4dwi6a6ud6" path="res://Scenes/UI-Elements/menu.tscn" id="6_dmpbk"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="7_r66ge"]
 [ext_resource type="PackedScene" uid="uid://c06n34wl1e32k" path="res://Scenes/UI-Elements/game_over_screen.tscn" id="7_saai4"]
+[ext_resource type="PackedScene" uid="uid://ctw44afg6fuue" path="res://Scenes/Game-Elements/Inventory.tscn" id="10_nl3m6"]
 
 [node name="Root" type="Node2D" unique_id=1663669848]
 script = ExtResource("1_d31q8")
@@ -65,3 +66,8 @@ size_flags_vertical = 3
 color = Color(0.2, 0.09200001, 0.020000005, 0.78039217)
 
 [node name="GameOverScreen" parent="UI/GameOver" unique_id=602681557 instance=ExtResource("7_saai4")]
+
+[node name="InventoryOverlay" type="CanvasLayer" parent="UI" unique_id=261644803]
+visible = false
+
+[node name="Inventory" parent="UI/InventoryOverlay" unique_id=1480022267 instance=ExtResource("10_nl3m6")]

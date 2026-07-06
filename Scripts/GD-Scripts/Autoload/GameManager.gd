@@ -10,6 +10,7 @@ extends Node
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
 @onready var game_over: CanvasLayer = $UI/GameOver
+@onready var inventory_overlay: CanvasLayer = $UI/InventoryOverlay
 
 @onready var timeobjectManager: TimeobjectManager = TimeobjectManager.new()
 
@@ -29,6 +30,8 @@ func _process(delta: float) -> void:
 				get_tree().quit()
 			else:
 				show_menu()
+		if Input.is_action_just_pressed("inventory"):
+			inventory_overlay.visible =!inventory_overlay.visible
 
 func toggle_time() -> void:
 	GlobalVars.player_in_past = !GlobalVars.player_in_past
