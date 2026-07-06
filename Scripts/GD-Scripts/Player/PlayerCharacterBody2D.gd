@@ -65,7 +65,7 @@ class PlayerMovement extends PlayerComponent:
 					changeState("RunningMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -99,7 +99,7 @@ class PlayerMovement extends PlayerComponent:
 					changeState("RunningMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -133,7 +133,7 @@ class PlayerMovement extends PlayerComponent:
 					changeState("WalkingMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -184,7 +184,7 @@ class PlayerMovement extends PlayerComponent:
 					changeState("LandingMotionState")
 					return processInput(delta)
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
 					changeState("ClimbingMotionState")
 					return Vector2.ZERO
 				
@@ -225,7 +225,7 @@ class PlayerMovement extends PlayerComponent:
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("idleClimbingMotionState process input called")
 				
-				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas:
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
 					changeState("ClimbingMotionState")
 					return processInput(delta)
 				
@@ -250,7 +250,7 @@ class PlayerMovement extends PlayerComponent:
 				if GlobalVars.DEBUG_PLAYERMOVEMENT:
 					print("climbingMotionState process input called")
 				
-				if !player.climbCheckArea.has_overlapping_areas:
+				if !player.climbCheckArea.has_overlapping_areas():
 					changeState("IdleClimbingMotionState")
 					return processInput(delta)
 				
