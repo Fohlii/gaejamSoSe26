@@ -57,7 +57,7 @@ func interact(item: Item) -> Item:
 		print(item.textureOnCharacter)
 		return _currentState.itemToReturnOnTransition
 	else:
-		return item # return item if not used
+		return item # return item if not used and interactable doesn't specify that it shouldn't be returned
 
 func on_other_timeobject_state_changed(notifierStateId: String) -> void:
 	if _currentState.cascadeTransitions.keys().has(notifierStateId):

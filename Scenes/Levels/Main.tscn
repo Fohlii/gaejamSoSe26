@@ -8,15 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://u4gh4cyl0hk8" path="res://Scenes/UI-Elements/MainMenu.tscn" id="4_r66ge"]
 [ext_resource type="PackedScene" uid="uid://ckf4dwi6a6ud6" path="res://Scenes/UI-Elements/menu.tscn" id="6_dmpbk"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="7_r66ge"]
-[ext_resource type="PackedScene" uid="uid://ctw44afg6fuue" path="res://Scenes/Game-Elements/Inventory.tscn" id="9_saai4"]
+[ext_resource type="PackedScene" uid="uid://c06n34wl1e32k" path="res://Scenes/UI-Elements/game_over_screen.tscn" id="7_saai4"]
 
 [node name="Root" type="Node2D" unique_id=1663669848]
 script = ExtResource("1_d31q8")
 
 [node name="PastRoot" parent="." unique_id=1285024051 instance=ExtResource("3_dmpbk")]
-visible = false
+position = Vector2(0, 10000)
 
 [node name="PresentRoot" parent="." unique_id=1521700590 instance=ExtResource("2_d31q8")]
+position = Vector2(0, -10000)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1710529578]
 stream = ExtResource("1_07780")
@@ -50,7 +51,17 @@ color = Color(0.08959273, 0.12388409, 0.17481533, 0.5568628)
 [node name="Menu" parent="UI/Control" unique_id=1329174015 instance=ExtResource("6_dmpbk")]
 top_level = true
 
-[node name="InventoryOverlay" type="CanvasLayer" parent="UI" unique_id=1087386884]
+[node name="GameOver" type="CanvasLayer" parent="UI" unique_id=1372311552]
 visible = false
 
-[node name="Inventory" parent="UI/InventoryOverlay" unique_id=1480022267 instance=ExtResource("9_saai4")]
+[node name="DarkOverlay2" type="ColorRect" parent="UI/GameOver" unique_id=1457794497]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+color = Color(0.2, 0.09200001, 0.020000005, 0.78039217)
+
+[node name="GameOverScreen" parent="UI/GameOver" unique_id=602681557 instance=ExtResource("7_saai4")]

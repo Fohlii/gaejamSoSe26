@@ -1,6 +1,6 @@
 extends Node
 
-@onready var main_menu: Node2D = $UI/MainMenu
+@onready var main_menu = $UI/MainMenu
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
 @onready var present_root: Node2D = $PresentRoot
 @onready var past_root: Node2D = $PastRoot
@@ -9,54 +9,50 @@ extends Node
 @onready var control: CanvasLayer = $Control
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
-@onready var inventory_overlay: CanvasLayer = $UI/InventoryOverlay
+@onready var game_over: CanvasLayer = $UI/GameOver
+
 @onready var timeobjectManager: TimeobjectManager = TimeobjectManager.new()
 
 var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
-var player: CharacterBody2D
-var in_past := false
+var player: CharacterBody2D = null
 
-func _ready() -> void:	
+func _ready() -> void:
+	GlobalVars.player_in_past = false
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
 	print("main_menu: ", main_menu)
-
-func _process(delta: float) -> void: ## Warum wird Playerinput-Timetravel im GameManager behandelt?? -> Weil das Skript am root attached ist -> Na und? Separation of Concerns? Single Responsibility? Lose Kopplung?
-		if Input.is_action_just_pressed("timetravel"):
-			toggle_time()
+	Dialogic.signal_event.connect(game_lost)
+	
+func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("esc"):
 			if main_menu.visible:
 				get_tree().quit()
 			else:
 				show_menu()
-		if Input.is_action_just_pressed("inventory"):
-			inventory_overlay.visible = !inventory_overlay.visible
-func toggle_time() -> void:
-	in_past = !in_past
-	GlobalVars.player_in_past = in_past
-	Dialogic.VAR.in_past = in_past
-	print("Is in past: " + str(in_past))
 
-	print("past visible: " + str(past_root.visible))
-	print("present visible" + str(present_root.visible))
-	#Parallax layer müssen einzeln unsichtbar gemacht werden, weil bei regulären Nodes visible nicht gesetzt werden kann
-	$PresentRoot/Parallax/FarthestBackgroundLayer.visible = !in_past
-	$PastRoot/Parallax/FarthestBackgroundLayer.visible = in_past
-	
+func toggle_time() -> void:
+	GlobalVars.player_in_past = !GlobalVars.player_in_past
+	Dialogic.VAR.in_past = GlobalVars.player_in_past
+	print("Is in past: " + str(GlobalVars.player_in_past))
+
 func start_game():
 	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false
-	player = playerPS.instantiate()
-	var playerCam: Camera2D = player.get_child(2)
-	player.global_position.x = 500
-	player.global_position.y = -350
+	game_over.visible = false
+	if player== null:
+		player =  playerPS.instantiate()
 	add_child(player)
-	#present_root.add_child(player)
-	#present_root.get_child(2).camera = playerCam
-	playerCam.make_current()
+	player.global_position.x = 600
+	player.global_position.y = -10400
+	player.find_child("Camera2D").make_current()
 	Dialogic.start("timeline")
-	
+
 func show_menu():	
+	game_over.visible = false
 	button_click.play()
 	GlobalVars.esc_pressed.emit()
 	menu.visible = !menu.visible
+	
+func game_lost(argument):
+	if argument == "player_lost":
+		game_over.visible = true

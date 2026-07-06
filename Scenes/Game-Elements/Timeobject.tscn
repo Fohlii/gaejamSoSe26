@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://dkdrt2ehmiis0"]
 
-[ext_resource type="Script" uid="uid://bhundf2jalg5s" path="res://Scripts/GD-Scripts/Player/InteractionArea2D.gd" id="1_vbhj5"]
+[sub_resource type="GDScript" id="GDScript_ghop2"]
+script/source = "class_name InteractionArea2D extends Area2D
+
+@onready var collider: CollisionShape2D = $CollisionShape2D
+
+func _ready() -> void:
+	collider.shape = CircleShape2D.new()
+	collider.shape.set_radius(40.0)
+	set_collision_layer_value(2, true)
+	monitoring = false
+	monitorable = true
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghop2"]
 radius = 5.0
@@ -17,7 +28,7 @@ collision_mask = 0
 collision_layer = 2
 collision_mask = 0
 monitoring = false
-script = ExtResource("1_vbhj5")
+script = SubResource("GDScript_ghop2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2D" unique_id=512086781]
 shape = SubResource("CircleShape2D_ghop2")

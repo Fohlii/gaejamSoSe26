@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://c06n34wl1e32k"]
+
+[ext_resource type="Script" uid="uid://dyt2lymfhwfer" path="res://game_over_screen.gd" id="1_yanq6"]
+
+[node name="GameOverScreen" type="Control" unique_id=602681557]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yanq6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1324505572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="MainMenu" type="HBoxContainer" parent="MarginContainer" unique_id=1216699872]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/MainMenu" unique_id=734394528]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/MainMenu" unique_id=1248013822]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainMenu/AspectRatioContainer" unique_id=1299650540]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer" unique_id=314281649]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="text" type="Label" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer" unique_id=1232705447]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.74, 0.19979998, 0.19979998, 1)
+theme_override_constants/outline_size = 8
+text = "	Game Over	
+	you died
+"
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1804378641]
+layout_mode = 2
+ratio = 7.8068
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1143734762]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Restart" type="Button" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer3" unique_id=2007383563]
+clip_contents = true
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Restart
+"
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1642116943]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Exit" type="Button" parent="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=983450987]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "Exit Game"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MarginContainer/MainMenu" unique_id=1269864930]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="exit" type="ConfirmationDialog" parent="." unique_id=59824632]
+title = ""
+dialog_text = "Do you really want to quit the game?"
+
+[connection signal="pressed" from="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer3/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MarginContainer/MainMenu/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Exit" to="." method="_on_exit_pressed"]
+[connection signal="canceled" from="exit" to="." method="_on_exit_canceled"]
+[connection signal="confirmed" from="exit" to="." method="_on_exit_confirmed"]
