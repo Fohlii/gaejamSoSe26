@@ -12,16 +12,18 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @export var JUMP_VELOCITY = -400.0
 @export var CLIMB_VELOCITY = -40.0
 @export var STANDING_JUMP_X = 100.0
+@export var TELEPORT_BUFFER = 50
 
 var playerMovement: PlayerMovement
 var playerTimetravel: PlayerTimetravel
 var playerInteraction: PlayerInteraction
-#var playerAnimation: PlayerAnimationComponent = PlayerAnimationComponent.new(self)
+#var playerAnimation: PlayerAnimation
 
 func _ready() -> void:
 	playerMovement = PlayerMovement.new(self)
 	playerTimetravel = PlayerTimetravel.new(self)
 	playerInteraction = PlayerInteraction.new(self)
+	#playerAnimation = PlayerAnimation.new(self)
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
@@ -321,7 +323,7 @@ class PlayerTimetravel extends PlayerComponent:
 	func processInput(delta: float) -> void:
 		if Input.is_action_just_pressed("timetravel"):
 			player.get_tree().current_scene.toggle_time()
-			player.global_position.y += ((19799) if (GlobalVars.player_in_past) else (-20201))
+			player.global_position.y += ((20000-player.TELEPORT_BUFFER) if (GlobalVars.player_in_past) else (-20000-player.TELEPORT_BUFFER))
 
 class PlayerInteraction extends PlayerComponent:
 	var playerInteractionArea: Area2D

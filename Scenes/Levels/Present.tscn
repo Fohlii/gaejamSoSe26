@@ -41,6 +41,24 @@ load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioaai"]
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ycr"]
+size = Vector2(99, 1020)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58uic"]
+size = Vector2(136, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jef47"]
+size = Vector2(53, 355)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkieh"]
+size = Vector2(53, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k8w"]
+size = Vector2(40, 545)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h710c"]
+size = Vector2(40, 7)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
 size = Vector2(141.63785, 6.5)
 
@@ -103,7 +121,7 @@ physics_material_override = SubResource("PhysicsMaterial_idj7w")
 shape = SubResource("WorldBoundaryShape2D_pbw6q")
 
 [node name="RightBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=527916392]
-position = Vector2(8845, 0)
+position = Vector2(9460, 0)
 shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
 [node name="Areas" type="Node2D" parent="." unique_id=817166167]
@@ -182,6 +200,18 @@ script = ExtResource("3_ck43e")
 position = Vector2(3572, -486)
 script = ExtResource("1_1h27j")
 
+[node name="AncientTree" type="Node2D" parent="Areas/Meadow/BackLayer" unique_id=682740023]
+position = Vector2(4995, -95.00001)
+scale = Vector2(2.5, 2.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/AncientTree" unique_id=171603566]
+
+[node name="BranchPlatform" type="StaticBody2D" parent="Areas/Meadow/BackLayer/AncientTree" unique_id=855314322]
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/BackLayer/AncientTree/BranchPlatform" unique_id=1279184397]
+polygon = PackedVector2Array(685, -764, 510, -801, 247, -810, -128, -855, -473, -867, -703, -850, -655, -841, -470, -852, -130, -822, -61, -775, 116, -765, 243, -787, 498, -783, 664, -759)
+
 [node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=930101728]
 
 [node name="Ground" type="Node2D" parent="Areas/Meadow/FrontLayer" unique_id=165344946]
@@ -207,7 +237,7 @@ collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround2" unique_id=522713303]
 position = Vector2(5323, 11)
-polygon = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3646, -543, 3777, -473, 4097, -474, 4148, -477, 4144, -28, 1426, -27, 1430, -165, 1797, -168)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround2" unique_id=604903923]
 texture_repeat = 2
@@ -215,7 +245,7 @@ position = Vector2(5316, 7)
 texture = SubResource("CompressedTexture2D_ioaai")
 texture_offset = Vector2(0, -562.85)
 texture_scale = Vector2(1, 0.34)
-polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3696, -540, 4041, -540, 6333, -540, 6740, -529, 6735, 8, 1423, -14, 1430, -165, 1797, -168)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3646, -543, 3777, -473, 4097, -474, 4148, -477, 4144, -28, 1426, -27, 1430, -165, 1797, -168)
 uv = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
 
 [node name="SmallRiver" type="Area2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1021630791 groups=["Deadly"]]
@@ -274,6 +304,93 @@ shape = SubResource("RectangleShape2D_trkkw")
 [node name="BackLayer" type="Node2D" parent="Areas/Mountain" unique_id=1944369619]
 
 [node name="Objects" type="Node2D" parent="Areas/Mountain/BackLayer" unique_id=1883454058]
+
+[node name="Tree_ladder" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=1610093764]
+position = Vector2(7595, -1314)
+
+[node name="ladder_area" type="Area2D" parent="Areas/Mountain/BackLayer/Objects/Tree_ladder" unique_id=183574347]
+position = Vector2(14, 11)
+collision_layer = 64
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Tree_ladder/ladder_area" unique_id=1901845462]
+position = Vector2(39.5, -500)
+shape = SubResource("RectangleShape2D_b1ycr")
+
+[node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Tree_ladder" unique_id=1148259008]
+position = Vector2(-19, -779)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Tree_ladder/ladder_top_platform" unique_id=327079414]
+position = Vector2(58, -1.5)
+shape = SubResource("RectangleShape2D_58uic")
+one_way_collision = true
+
+[node name="Cave_ladder_lower" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=905436282]
+position = Vector2(9260, -500)
+
+[node name="ladder_area" type="Area2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower" unique_id=970240454]
+position = Vector2(-27, 27)
+collision_layer = 64
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower/ladder_area" unique_id=1358997315]
+position = Vector2(16.5, -167.5)
+shape = SubResource("RectangleShape2D_jef47")
+
+[node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower" unique_id=1579666001]
+position = Vector2(-27, -150)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower/ladder_top_platform" unique_id=660870763]
+position = Vector2(16.5, -4.5)
+shape = SubResource("RectangleShape2D_jkieh")
+one_way_collision = true
+
+[node name="Cave_ladder_upper" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=982798793]
+position = Vector2(8993, -771)
+
+[node name="ladder_area" type="Area2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper" unique_id=1832709851]
+position = Vector2(-15, 17)
+collision_layer = 64
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper/ladder_area" unique_id=1046833073]
+position = Vector2(10, -262.5)
+shape = SubResource("RectangleShape2D_p1k8w")
+
+[node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper" unique_id=679004445]
+position = Vector2(-15, -381)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper/ladder_top_platform" unique_id=2014552080]
+position = Vector2(10, -6.5)
+shape = SubResource("RectangleShape2D_h710c")
+one_way_collision = true
+
+[node name="BrokenCliff_background" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=448987810]
+position = Vector2(8911, -1155)
+
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/BackLayer/Objects/BrokenCliff_background" unique_id=568716672]
+polygon = PackedVector2Array(45, -9, 39, 9, 27, 26, 23, 47, -19, 22, -67, 9, -134, -5, -159, -11, -156, -20, -147, -25, -67, -21, 1, -15)
+
+[node name="TreeHouseTree" type="Node2D" parent="Areas/Mountain/BackLayer/Objects" unique_id=1978492714]
+position = Vector2(7964, -432)
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/TreeHouseTree" unique_id=637253754]
+
+[node name="BranchPlatform_lower" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/TreeHouseTree" unique_id=1467255994]
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/BackLayer/Objects/TreeHouseTree/BranchPlatform_lower" unique_id=1953355636]
+polygon = PackedVector2Array(625, -773, 510, -795, 408, -797, 121, -798, 85, -795, 56, -779, 27, -767, -6, -765, -33, -765, -67, -772, -80, -782, -102, -797, -130, -821, -157, -841, -182, -858, -228, -861, -387, -862, -387, -853, -185, -849, -59, -753, 31, -751, 97, -787, 511, -782)
+
+[node name="BranchPlatform_upper" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/TreeHouseTree" unique_id=1245589089]
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/BackLayer/Objects/TreeHouseTree/BranchPlatform_upper" unique_id=2025726290]
+polygon = PackedVector2Array(-395, -1671, -606, -1671, -639, -1642, -673, -1616, -715, -1602, -769, -1597, -824, -1597, -863, -1613, -907, -1636, -936, -1664, -967, -1693, -1021, -1693, -1625, -1693, -1626, -1655, -979, -1658, -909, -1595, -772, -1556, -633, -1588, -595, -1635, -398, -1635)
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Mountain" unique_id=2028015888]
 
@@ -395,13 +512,30 @@ texture_repeat = 2
 scale = Vector2(1.0000004, 1.0000004)
 shape = SubResource("RectangleShape2D_wprut")
 
-[node name="Cave" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1245833422]
+[node name="Cave_lower" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=394382721]
 position = Vector2(8858, -531)
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave_lower" unique_id=1393012670]
+polygon = PackedVector2Array(-5, -6, 101, -6, 245, 68, 537, 68, 537, -324, 376, -324, 300, -621, 359, -734, 458, -800, 610, -800, 611, 80, -7, 80)
+
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave_lower" unique_id=364038301]
+polygon = PackedVector2Array(-5, -6, 101, -6, 245, 68, 537, 68, 537, -324, 376, -324, 300, -621, 359, -734, 458, -800, 610, -800, 611, 80, -7, 80)
+
+[node name="Cave_upper" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1658304345]
+position = Vector2(8856, -593)
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave_upper" unique_id=739356774]
+polygon = PackedVector2Array(113, -137, 152, -137, 281, -56, 367, -56, 367, -67, 284, -67, 152, -151, 112, -151, 112, -569, 100, -571, 94, -553, 82, -536, 78, -515, 94, -501, 94, -138)
+
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave_upper" unique_id=309862956]
+polygon = PackedVector2Array(113, -137, 152, -137, 281, -56, 367, -56, 367, -67, 284, -67, 152, -151, 112, -151, 112, -569, 100, -571, 94, -553, 82, -536, 78, -515, 94, -501, 94, -138)
 
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=1844831231]
 
 [node name="P2_BlockingBoulders" parent="Areas/Mountain/FrontLayer/Objects" unique_id=446946623 instance=ExtResource("6_1h27j")]
-position = Vector2(8810, -592)
+position = Vector2(8916, -592)
 script = ExtResource("10_jhuu5")
 
 [node name="ParallaxEnterFromLeftTrigger" type="Area2D" parent="Areas/Mountain" unique_id=109219366]
