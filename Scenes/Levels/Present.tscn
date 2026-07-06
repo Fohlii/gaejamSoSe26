@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
 [ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/sapling.gd" id="1_1h27j"]
-[ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/Manager/ParallaxManager.gd" id="2_i4naw"]
+[ext_resource type="Script" path="res://Scripts/GD-Scripts/Manager/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dhswacxtufy1m" path="res://Assets/Background/Background_Meadow.jpg" id="2_jkieh"]
 [ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/tree.gd" id="3_ck43e"]
 [ext_resource type="Texture2D" uid="uid://l2w7v7yl5igl" path="res://Assets/Background/background_right_border.jpg" id="3_wprut"]
@@ -9,10 +9,10 @@
 [ext_resource type="Script" uid="uid://gr0e5cnprtax" path="res://Scripts/GD-Scripts/ParallaxEnterTrigger.gd" id="6_8ycl7"]
 [ext_resource type="Script" uid="uid://qats31byq8up" path="res://Scenes/Levels/tide.gd" id="6_jkieh"]
 [ext_resource type="Texture2D" uid="uid://bdu6ovywrceu5" path="res://Assets/Background/meerBild.jpg" id="7_ioaai"]
-[ext_resource type="Texture2D" uid="uid://dp4qhy2mlrcn0" path="res://Assets/Background/AmbientCG/Ground093A/Ground093A_rect.png" id="7_jkieh"]
 [ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/treeLogBridge.gd" id="9_do8mn"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scenes/Levels/quest_areas.gd" id="10_do8mn"]
 [ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/BlockingBoulders.gd" id="10_jhuu5"]
+[ext_resource type="Script" uid="uid://bskm7onsj02hu" path="res://Scenes/Levels/encounterRiver.gd" id="12_jkieh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -30,13 +30,22 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jef47"]
+load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b5c5d0.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trkkw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wprut"]
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioaai"]
+load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk6vw"]
 size = Vector2(141.63785, 6.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
+size = Vector2(123, 803)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ioaai"]
 size = Vector2(2590, 7.5)
@@ -129,8 +138,8 @@ polygon = PackedVector2Array(0, 0, 116, -9, 216, -37, 298, -79, 378, -139, 458, 
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Coast/FrontLayer/Ground/TideIsland" unique_id=1445054831]
 texture_repeat = 2
-texture = ExtResource("7_jkieh")
-texture_scale = Vector2(0.85, 0.85)
+texture = SubResource("CompressedTexture2D_jef47")
+texture_scale = Vector2(0.34, 0.34)
 polygon = PackedVector2Array(0, 0, 116, -9, 216, -37, 298, -79, 378, -139, 458, -213, 519, -256, 599, -283, 679, -290, 772, -290, 865, -272, 935, -234, 990, -173, 1043, -119, 1126, -76, 1249, -57, 1364, -57, 1458, -91, 1535, -154, 1585, -227, 1649, -324, 1728, -387, 1838, -425, 1838, 0)
 
 [node name="Tide" type="Area2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=261050670 groups=["Deadly"]]
@@ -189,7 +198,24 @@ texture_repeat = 2
 texture = SubResource("CompressedTexture2D_wprut")
 texture_offset = Vector2(0, -562.85)
 texture_scale = Vector2(1, 0.34)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6786, -155, 6735, 8, 1838, 0)
+uv = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
+
+[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1715786936]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround2" unique_id=522713303]
+position = Vector2(5323, 11)
 polygon = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround2" unique_id=604903923]
+texture_repeat = 2
+position = Vector2(5316, 7)
+texture = SubResource("CompressedTexture2D_ioaai")
+texture_offset = Vector2(0, -562.85)
+texture_scale = Vector2(1, 0.34)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3696, -540, 4041, -540, 6333, -540, 6740, -529, 6735, 8, 1423, -14, 1430, -165, 1797, -168)
 uv = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
 
 [node name="SmallRiver" type="Area2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=1021630791 groups=["Deadly"]]
@@ -331,6 +357,14 @@ collision_mask = 0
 texture_repeat = 2
 shape = SubResource("RectangleShape2D_kk6vw")
 
+[node name="RiverDialogArea" type="Area2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver" unique_id=1049426477]
+position = Vector2(8695, -300)
+script = ExtResource("12_jkieh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/RiverDialogArea" unique_id=1006255042]
+position = Vector2(-88.5, -26.5)
+shape = SubResource("RectangleShape2D_rlqni")
+
 [node name="Forest" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=716072885]
 position = Vector2(-1963, -129)
 
@@ -388,3 +422,4 @@ script = ExtResource("10_do8mn")
 
 [connection signal="body_entered" from="Areas/Coast/FrontLayer/Ground/OuterSea" to="Areas/Coast/FrontLayer/Ground/Tide" method="_on_body_entered"]
 [connection signal="body_entered" from="Areas/Coast/FrontLayer/Ground/Tide" to="Areas/Coast/FrontLayer/Ground/Tide" method="_on_body_entered"]
+[connection signal="body_entered" from="Areas/Mountain/FrontLayer/Ground/LargeRiver/RiverDialogArea" to="Areas/Mountain/FrontLayer/Ground/LargeRiver/RiverDialogArea" method="_on_body_entered"]

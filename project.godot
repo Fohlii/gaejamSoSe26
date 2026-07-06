@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalVars="*uid://corpmvh0xcksf"
 Dialogic="*uid://ds2q0uclmolvu"
-SaveLoadSettings="*uid://c1o6jyqodkers"
+SaveLoadSettings="*res://Scripts/GD-Scripts/Autoload/save_load_settings.gd"
 
 [dialogic]
 
@@ -33,6 +33,7 @@ directories/dtl_directory={
 "DieInWater": "res://Scenes/UI-Elements/DieInWater.dtl",
 "River": "res://Scenes/UI-Elements/River.dtl",
 "WaterRising": "res://Scenes/UI-Elements/WaterRising.dtl",
+"interactTreeNoAxe": "res://Scenes/UI-Elements/interactTreeNoAxe.dtl",
 "timeline": "res://Scenes/UI-Elements/timeline.dtl"
 }
 layout/style_directory={
