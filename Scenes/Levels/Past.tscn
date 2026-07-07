@@ -29,15 +29,6 @@ load_path = "res://.godot/imported/Background_Meadow.jpg-d1c9335c0c41614d1268134
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c2amd"]
 load_path = "res://.godot/imported/meerBild.jpg-f5cd2304a87c9765e7a853f9ed74da73.ctex"
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s4ijd"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_huo5r"]
-normal = Vector2(-1, 0)
-distance = -1459.0
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8gr7i"]
-normal = Vector2(1, 0)
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c23j1"]
 load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b5c5d0.ctex"
 
@@ -108,16 +99,6 @@ scale = Vector2(0.784, 0.74649996)
 texture = SubResource("CompressedTexture2D_c2amd")
 flip_h = true
 
-[node name="WorldBorders" type="StaticBody2D" parent="." unique_id=1679097619]
-physics_material_override = SubResource("PhysicsMaterial_s4ijd")
-
-[node name="RightBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=1938570658]
-position = Vector2(10000, 0)
-shape = SubResource("WorldBoundaryShape2D_huo5r")
-
-[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=1655643150]
-shape = SubResource("WorldBoundaryShape2D_8gr7i")
-
 [node name="Areas" type="Node2D" parent="." unique_id=498881932]
 
 [node name="Coast" type="Node2D" parent="Areas" unique_id=1328720255]
@@ -130,25 +111,20 @@ shape = SubResource("WorldBoundaryShape2D_8gr7i")
 
 [node name="Ground" type="Node2D" parent="Areas/Coast/FrontLayer" unique_id=1137662194]
 
-[node name="LowTideIsland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1116178125]
-
-[node name="TideIsland" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland" unique_id=1037185707]
+[node name="TideIsland" type="StaticBody2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1037185707]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/TideIsland" unique_id=2131071244]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Coast/FrontLayer/Ground/TideIsland" unique_id=2131071244]
 polygon = PackedVector2Array(0, 0, 116, -9, 216, -37, 298, -79, 378, -139, 458, -213, 519, -256, 599, -283, 679, -290, 772, -290, 865, -272, 1838, -425, 1838, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="Areas/Coast/FrontLayer/Ground/LowTideIsland/TideIsland" unique_id=1998120536]
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Coast/FrontLayer/Ground/TideIsland" unique_id=1998120536]
 texture_repeat = 2
 texture = SubResource("CompressedTexture2D_c23j1")
 texture_scale = Vector2(0.34, 0.34)
 polygon = PackedVector2Array(0, 0, 116, -9, 216, -37, 298, -79, 378, -139, 458, -213, 519, -256, 599, -283, 679, -290, 772, -290, 865, -272, 1838, -425, 1838, 0)
 
-[node name="Inland" type="Node2D" parent="Areas/Coast/FrontLayer/Ground" unique_id=1070190965]
-position = Vector2(1716, 0)
-
-[node name="Objects" type="Node" parent="Areas/Coast/FrontLayer" unique_id=1115844539]
+[node name="Objects" type="Node2D" parent="Areas/Coast/FrontLayer" unique_id=400716183]
 
 [node name="Meadow" type="Node2D" parent="Areas" unique_id=1875028413]
 
@@ -185,38 +161,23 @@ texture_scale = Vector2(1, 0.34)
 polygon = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6786, -155, 6735, 8, 1838, 0)
 uv = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
 
-[node name="SmallRiver" type="Area2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver" unique_id=2004047908 groups=["Deadly"]]
+[node name="Water" type="Node2D" parent="Areas/Meadow/FrontLayer" unique_id=499387134]
+
+[node name="SmallRiver" type="Area2D" parent="Areas/Meadow/FrontLayer/Water" unique_id=2004047908 groups=["Deadly"]]
 position = Vector2(-1.2, 0)
 collision_layer = 16
 script = ExtResource("5_web4q")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/SmallRiver" unique_id=1050231608]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Water/SmallRiver" unique_id=1050231608]
 polygon = PackedVector2Array(3042, -396, 3070, -280, 3200, -240, 3330, -280, 3358, -396)
 
-[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Ground/SmallRiver/SmallRiver" unique_id=972261777]
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Water/SmallRiver" unique_id=972261777]
 texture_repeat = 2
 texture = ExtResource("2_qlr6k")
 texture_scale = Vector2(1.315, 1.315)
 polygon = PackedVector2Array(3042, -396, 3070, -280, 3200, -240, 3330, -280, 3358, -396)
 
-[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Ground" unique_id=2100840246]
-collision_layer = 16
-collision_mask = 0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround2" unique_id=597729500]
-position = Vector2(5323, 11)
-polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3696, -540, 4041, -540, 6333, -540, 6740, -529, 6735, 8, 1423, -14, 1430, -165, 1797, -168)
-
-[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Ground/MeadowGround2" unique_id=1438250108]
-texture_repeat = 2
-position = Vector2(5316, 7)
-texture = SubResource("CompressedTexture2D_3p8gh")
-texture_offset = Vector2(0, -562.85)
-texture_scale = Vector2(1, 0.34)
-polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3696, -540, 4041, -540, 6333, -540, 6740, -529, 6735, 8, 1423, -14, 1430, -165, 1797, -168)
-uv = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
-
-[node name="Objects" type="Node" parent="Areas/Meadow/FrontLayer" unique_id=689534520]
+[node name="Objects" type="Node2D" parent="Areas/Meadow/FrontLayer" unique_id=949667889]
 
 [node name="Mountain" type="Node2D" parent="Areas" unique_id=241279091]
 
@@ -236,14 +197,23 @@ script = ExtResource("6_qlr6k")
 
 [node name="Ground" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=791318979]
 
-[node name="LargeRiver" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=363944108]
+[node name="MeadowGround2" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=2100840246]
+collision_layer = 16
+collision_mask = 0
 
-[node name="RockyPath" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1019411927]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/MeadowGround2" unique_id=597729500]
+position = Vector2(5323, 11)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3696, -540, 4041, -540, 6333, -540, 6740, -529, 6735, 8, 1423, -14, 1430, -165, 1797, -168)
 
-[node name="Cave" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=321041129]
-
-[node name="Mountain" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=1592235623]
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/MeadowGround2" unique_id=1438250108]
+texture_repeat = 2
+position = Vector2(5316, 7)
+texture = SubResource("CompressedTexture2D_3p8gh")
+texture_offset = Vector2(0, -562.85)
+texture_scale = Vector2(1, 0.34)
+polygon = PackedVector2Array(1838, -425, 3035, -425, 3107, -431, 3186, -423, 3537, -544, 3696, -540, 4041, -540, 6333, -540, 6740, -529, 6735, 8, 1423, -14, 1430, -165, 1797, -168)
+uv = PackedVector2Array(1838, -425, 3035, -425, 3070, -280, 3200, -240, 3330, -280, 3365, -425, 3720, -425, 4041, -540, 6333, -540, 6730, -425, 6735, 8, 1838, 0)
 
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=489368831]
 
-[connection signal="body_entered" from="Areas/Meadow/FrontLayer/Ground/SmallRiver/SmallRiver" to="Areas/Meadow/FrontLayer/Ground/SmallRiver/SmallRiver" method="_on_body_entered"]
+[connection signal="body_entered" from="Areas/Meadow/FrontLayer/Water/SmallRiver" to="Areas/Meadow/FrontLayer/Water/SmallRiver" method="_on_body_entered"]

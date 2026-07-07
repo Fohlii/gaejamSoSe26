@@ -1,6 +1,6 @@
 class_name ParallaxManager extends Node
 
-@onready var parallaxNodes: Array[Parallax2D] = [$BackgroundLayer]
+@onready var parallaxNodes: Array[Parallax2D] = [$FarthestBackLayer]
 
 func transition_parallax_scale(player: Node2D, new_scale: float) -> void:
 	for parallaxNode in parallaxNodes:
