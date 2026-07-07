@@ -11,7 +11,7 @@ extends Node
 @onready var game_settings= $"/root/GlobalVars"
 #@onready var SaveLoadSettings = $"/root/save_load_settings"
 @onready var musicplayer: AudioStreamPlayer = $"../../MusicPlayer"
-@onready var master_bus_index = AudioServer.get_bus_index("Master")
+@onready var master_bus_index = AudioServer.get_bus_index("Music")
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2

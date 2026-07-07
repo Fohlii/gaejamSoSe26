@@ -5,7 +5,7 @@ extends Node
 @onready var settings: HBoxContainer = $Settings
 @onready var main_menu: HBoxContainer = $MainMenu
 @onready var game_settings= $"/root/GlobalVars"
-@onready var master_bus_index = AudioServer.get_bus_index("Master")
+@onready var master_bus_index = AudioServer.get_bus_index("Music")
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
 @onready var control: CanvasLayer = $".."
 @onready var exit: ConfirmationDialog = $ConfirmationDialog
