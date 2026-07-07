@@ -24,14 +24,6 @@ load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jkieh"]
 load_path = "res://.godot/imported/background_right_border.jpg-4bd28463197037fa054f4beedb757def.ctex"
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pbw6q"]
-normal = Vector2(1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rgh2o"]
-normal = Vector2(-1, 0)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trkkw"]
 size = Vector2(1, 3114.5)
 
@@ -131,18 +123,6 @@ scroll_offset = Vector2(0, -10000)
 [node name="Sprite2D" type="Sprite2D" parent="Parallax/ForeLayer" unique_id=1693143672]
 position = Vector2(1092, -420)
 texture = ExtResource("4_jkieh")
-
-[node name="WorldBorders" type="StaticBody2D" parent="." unique_id=1774505568]
-collision_layer = 16
-physics_material_override = SubResource("PhysicsMaterial_idj7w")
-
-[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=1944299633]
-position = Vector2(493, 0)
-shape = SubResource("WorldBoundaryShape2D_pbw6q")
-
-[node name="RightBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=527916392]
-position = Vector2(7340, 0)
-shape = SubResource("WorldBoundaryShape2D_rgh2o")
 
 [node name="Areas" type="Node2D" parent="." unique_id=817166167]
 
@@ -268,7 +248,7 @@ shape = SubResource("RectangleShape2D_trkkw")
 [node name="Objects" type="Node2D" parent="Areas/Meadow/BackLayer" unique_id=837820116]
 
 [node name="P1_TreeNearRiver" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227648963 instance=ExtResource("6_1h27j")]
-position = Vector2(5225, -596)
+position = Vector2(5543, -584)
 script = ExtResource("3_ck43e")
 
 [node name="P1_Sapling" parent="Areas/Meadow/BackLayer/Objects" unique_id=1227715888 instance=ExtResource("6_1h27j")]

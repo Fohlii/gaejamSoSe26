@@ -11,6 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://c06n34wl1e32k" path="res://Scenes/UI-Elements/game_over_screen.tscn" id="7_saai4"]
 [ext_resource type="PackedScene" uid="uid://ctw44afg6fuue" path="res://Scenes/Game-Elements/Inventory.tscn" id="10_nl3m6"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nl3m6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4ih0k"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mv52a"]
+normal = Vector2(-1, 0)
+
 [node name="Root" type="Node2D" unique_id=1663669848]
 script = ExtResource("1_d31q8")
 
@@ -71,3 +79,15 @@ color = Color(0.2, 0.09200001, 0.020000005, 0.78039217)
 visible = false
 
 [node name="Inventory" parent="UI/InventoryOverlay" unique_id=1480022267 instance=ExtResource("10_nl3m6")]
+
+[node name="WorldBorders" type="StaticBody2D" parent="." unique_id=386192966]
+collision_layer = 16
+physics_material_override = SubResource("PhysicsMaterial_nl3m6")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=221287744]
+position = Vector2(493, 0)
+shape = SubResource("WorldBoundaryShape2D_4ih0k")
+
+[node name="RightBorder" type="CollisionShape2D" parent="WorldBorders" unique_id=663159262]
+position = Vector2(7340, 0)
+shape = SubResource("WorldBoundaryShape2D_mv52a")
