@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckf4dwi6a6ud6" path="res://Scenes/UI-Elements/menu.tscn" id="6_dmpbk"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="7_r66ge"]
 [ext_resource type="PackedScene" uid="uid://c06n34wl1e32k" path="res://Scenes/UI-Elements/game_over_screen.tscn" id="7_saai4"]
+[ext_resource type="PackedScene" uid="uid://176anl6r8uqn" path="res://Scenes/UI-Elements/game_win.tscn" id="10_4ih0k"]
 [ext_resource type="PackedScene" uid="uid://ctw44afg6fuue" path="res://Scenes/Game-Elements/Inventory.tscn" id="10_nl3m6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nl3m6"]
@@ -74,6 +75,21 @@ size_flags_vertical = 3
 color = Color(0.2, 0.09200001, 0.020000005, 0.78039217)
 
 [node name="GameOverScreen" parent="UI/GameOver" unique_id=602681557 instance=ExtResource("7_saai4")]
+
+[node name="GameWon" type="CanvasLayer" parent="UI" unique_id=1011662050]
+visible = false
+
+[node name="DarkOverlay2" type="ColorRect" parent="UI/GameWon" unique_id=1041720269]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+color = Color(0.34263194, 0.9025392, 0.7579352, 1)
+
+[node name="GameWin" parent="UI/GameWon" unique_id=301587960 instance=ExtResource("10_4ih0k")]
 
 [node name="InventoryOverlay" type="CanvasLayer" parent="UI" unique_id=261644803]
 visible = false

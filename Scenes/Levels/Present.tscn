@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://gr0e5cnprtax" path="res://Scripts/GD-Scripts/ParallaxEnterTrigger.gd" id="6_8ycl7"]
 [ext_resource type="Script" uid="uid://qats31byq8up" path="res://Scenes/Levels/tide.gd" id="6_jkieh"]
 [ext_resource type="Texture2D" uid="uid://bdu6ovywrceu5" path="res://Assets/Background/meerBild.jpg" id="7_ioaai"]
+[ext_resource type="Script" uid="uid://bklh2f5yjp57x" path="res://Scenes/Levels/win_area.gd" id="7_rlqni"]
 [ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/treeLogBridge.gd" id="9_do8mn"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scenes/Levels/quest_areas.gd" id="10_do8mn"]
 [ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/BlockingBoulders.gd" id="10_jhuu5"]
@@ -30,6 +31,9 @@ size = Vector2(1, 3114.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0asn"]
 size = Vector2(485, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ycr"]
+size = Vector2(472, 335)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jef47"]
 load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b5c5d0.ctex"
@@ -161,6 +165,13 @@ position = Vector2(134, -1236)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse/second_floor" unique_id=998701081]
 position = Vector2(-27.5, 0)
 shape = SubResource("RectangleShape2D_x0asn")
+
+[node name="WinArea" type="Area2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=1665299051]
+script = ExtResource("7_rlqni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse/WinArea" unique_id=636619370]
+position = Vector2(113, -1412)
+shape = SubResource("RectangleShape2D_b1ycr")
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Coast" unique_id=1761772948]
 
@@ -445,6 +456,7 @@ polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 575
 [node name="QuestAreas" type="Node" parent="." unique_id=985230138]
 script = ExtResource("10_do8mn")
 
+[connection signal="body_entered" from="Areas/Coast/BackLayer/Objects/Lighthouse/WinArea" to="Areas/Coast/BackLayer/Objects/Lighthouse/WinArea" method="_on_body_entered"]
 [connection signal="body_entered" from="Areas/Coast/FrontLayer/Water/OuterSea" to="Areas/Coast/FrontLayer/Water/Tide" method="_on_body_entered"]
 [connection signal="body_entered" from="Areas/Coast/FrontLayer/Water/Tide" to="Areas/Coast/FrontLayer/Water/Tide" method="_on_body_entered"]
 [connection signal="body_entered" from="Areas/Meadow/FrontLayer/Water/SmallRiver" to="Areas/Coast/FrontLayer/Water/Tide" method="_on_body_entered"]
