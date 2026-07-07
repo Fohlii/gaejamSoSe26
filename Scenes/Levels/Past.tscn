@@ -254,3 +254,4 @@ polygon = PackedVector2Array(6424, -450, 6630, -450, 6530, -800, 6471, -1434, 63
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=489368831]
 
 [connection signal="body_entered" from="Areas/Meadow/FrontLayer/Water/SmallRiver" to="Areas/Meadow/FrontLayer/Water/SmallRiver" method="_on_body_entered"]
+[connection signal="body_entered" from="Areas/Meadow/FrontLayer/Water/WideRiver" to="Areas/Meadow/FrontLayer/Water/SmallRiver" method="_on_body_entered"]

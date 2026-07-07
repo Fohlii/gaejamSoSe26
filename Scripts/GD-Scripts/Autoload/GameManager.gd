@@ -39,6 +39,7 @@ func toggle_time() -> void:
 	print("Is in past: " + str(GlobalVars.player_in_past))
 
 func start_game():
+	Dialogic.VAR.playing = true
 	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false
 	game_over.visible = false

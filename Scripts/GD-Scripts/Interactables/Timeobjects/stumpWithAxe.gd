@@ -9,11 +9,11 @@ func _ready() -> void:
 	super()
 	
 	var withAxe: TimeobjectState = TimeobjectState.new("stumpWithAxe"
-	).setPosition(Vector2(4698.0, -340.0)
+	).setPosition(Vector2(4192.0, -625.0)
 	).setTexture("stump_with_axe.png")
 	
 	var withoutAxe: TimeobjectState = TimeobjectState.new("stumpWithoutAxe"
-	).setPosition(Vector2(4698.0, -340.0)
+	).setPosition(Vector2(4192.0, -625.0)
 	).setTexture("stump.png"
 	).setItem("P1_P2_axe.tres")
 	

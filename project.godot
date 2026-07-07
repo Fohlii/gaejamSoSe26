@@ -76,7 +76,8 @@ layout/style_list=["res://Scenes/UI-Elements/dialogs.tres"]
 layout/default_style=""
 glossary/default_case_sensitive=true
 variables={
-"in_past": false
+"in_past": false,
+"playing": false
 }
 
 [dotnet]
