@@ -37,7 +37,8 @@ func _on_sprite_2d_frame_changed() -> void:
 		left_foot.play()
 	elif sprite_2d.frame == 5:
 		right_foot.play()
-
+func player(): #bitte diese Funktion drinne lassen
+	pass
 class PlayerMovement extends PlayerComponent:
 	var playerMotionStates: Dictionary[String, MotionState]
 	var currentState: MotionState

@@ -12,7 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("player won")
-	GlobalVars.player_won = true
-	GlobalVars.winning_condition.emit()
+	if body.has_method("player"):
+		print("player won")
+		GlobalVars.player_won = true
+		GlobalVars.winning_condition.emit()
 	pass # Replace with function body.

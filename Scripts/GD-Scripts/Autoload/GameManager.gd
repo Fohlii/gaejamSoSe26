@@ -19,6 +19,7 @@ var playerPS: PackedScene = preload("res://Scenes/Game-Elements/Player.tscn")
 var player: CharacterBody2D = null
 
 func _ready() -> void:
+	game_won.visible = false
 	GlobalVars.player_in_past = false
 	print("past_root: ", past_root)
 	print("present_root: ", present_root)
