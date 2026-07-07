@@ -58,7 +58,7 @@ func interact(item: Item) -> Item:
 		return item # return item if not used and interactable doesn't specify that it shouldn't be returned
 
 ## handles state change events of observed timeobjects
-func on_other_timeobject_state_changed(notifierStateId: String) -> void:
+func on_other_timeobject_state_changed(notifierId: String, notifierStateId: String) -> void:
 	if _currentState.cascadeTransitions.keys().has(notifierStateId):
 		_cascadeTransition(_currentState.cascadeTransitions[notifierStateId])
 
