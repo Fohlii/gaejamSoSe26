@@ -229,7 +229,7 @@ polygon = PackedVector2Array(5727, -433, 5750, -275, 5825, -75, 6200, -75, 6275,
 [node name="Objects" type="Node2D" parent="Areas/Mountain/BackLayer" unique_id=2047965347]
 
 [node name="P2_TreeForScaffoldingWood" parent="Areas/Mountain/BackLayer/Objects" unique_id=1020522894 instance=ExtResource("2_kfgl4")]
-position = Vector2(5138, -621)
+position = Vector2(5138, -825)
 script = ExtResource("5_8gr7i")
 
 [node name="P2_CaveEntranceScaffolding" parent="Areas/Mountain/BackLayer/Objects" unique_id=356062506 instance=ExtResource("2_kfgl4")]

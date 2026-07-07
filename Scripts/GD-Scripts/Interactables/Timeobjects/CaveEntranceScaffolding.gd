@@ -6,14 +6,21 @@ func _init() -> void:
 	_timeline = Timeline.PAST
 
 func _ready() -> void:
-	var scaffoldingNotBuilt: TimeobjectState = TimeobjectState.new("scaffoldingNotBuilt", Vector2.ZERO)
-	var scaffoldingBuilt: TimeobjectState = TimeobjectState.new("scaffoldingBuilt", Vector2.ZERO)
+	super()
+	
+	var scaffoldingNotBuilt: TimeobjectState = TimeobjectState.new("scaffoldingNotBuilt"
+	).setPosition(Vector2(6482.0, -526.0)
+	).setTexture("")
+	
+	var scaffoldingBuilt: TimeobjectState = TimeobjectState.new("scaffoldingBuilt"
+	).setPosition(Vector2(6482.0, -526.0)
+	).setTexture("icon.svg")
 	
 	scaffoldingNotBuilt.addInteractionTransition("woodPlanks", scaffoldingBuilt.id)
+	#scaffoldingBuilt.addInteractionTransition("axe", scaffoldingNotBuilt.id)
 	
 	_statesById.set(scaffoldingNotBuilt.id, scaffoldingNotBuilt)
 	_statesById.set(scaffoldingBuilt.id, scaffoldingBuilt)
 	
 	_currentState = _statesById[scaffoldingNotBuilt.id]
 	
-	super()

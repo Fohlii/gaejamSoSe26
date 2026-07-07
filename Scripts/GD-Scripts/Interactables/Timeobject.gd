@@ -11,7 +11,7 @@ var _currentState: TimeobjectState
 ## TimeobjectIDs that this Timeobject's state depends on
 var _observedTimeobjects: Array[String]
 
-signal timeobject_state_changed_event(notifierNewStateId: String)
+signal timeobject_state_changed_event(notifierId: String, notifierNewStateId: String)
 
 func _ready() -> void:
 	super()
@@ -33,19 +33,14 @@ func updateTransform() -> void:
 	self.scale = Vector2.ONE * _currentState.sca
 
 func updateTextureAndCollider() -> void:
-	if _currentState.visibleAndColliding:
-		_sprite.texture = _currentState.texture
-		_sprite.offset = _currentState.spriteOffset
-		_collider.polygon = _currentState.colliderPolygon
-	else:
-		_sprite.texture = null
-		_collider.polygon = PackedVector2Array([])
+	_sprite.texture = _currentState.texture
+	_sprite.offset = _currentState.spriteOffset
+	_collider.polygon = _currentState.colliderPolygon
 
 ## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
 func interact(item: Item) -> Item:
 	if !item && _currentState.interactionTransitions.keys().has("EMPTY_HAND"):
 		_interactionTransition("EMPTY_HAND")
-		print(self._sprite.texture)
 		if item != null:
 			if item.textureInInventory != null:
 				Inventory.add_item(item.textureInInventory)		
@@ -58,46 +53,44 @@ func interact(item: Item) -> Item:
 		_interactionTransition(item.id)
 		Inventory.remove_from_slot(0)
 		print(item.textureInInventory)
-		print(item.textureOnCharacter)
 		return _currentState.itemToReturnOnTransition
 	else:
 		return item # return item if not used and interactable doesn't specify that it shouldn't be returned
 
+## handles state change events of observed timeobjects
 func on_other_timeobject_state_changed(notifierStateId: String) -> void:
 	if _currentState.cascadeTransitions.keys().has(notifierStateId):
 		_cascadeTransition(_currentState.cascadeTransitions[notifierStateId])
 
 func _interactionTransition(itemId: String) -> void:
-	_currentState = _statesById[_currentState.interactionTransitions[itemId]]
-	updateTransform()
-	updateTextureAndCollider()
-	timeobject_state_changed_event.emit(_currentState.id)
+	_cascadeTransition(_currentState.interactionTransitions[itemId])
 
 func _cascadeTransition(newStateId: String) -> void:
 	_currentState = _statesById[newStateId]
 	updateTransform()
 	updateTextureAndCollider()
-	timeobject_state_changed_event.emit(_currentState.id)
+	timeobject_state_changed_event.emit(id, _currentState.id)
 
 class TimeobjectState extends Resource:
 	var id: String
+	
 	var pos: Vector2
 	var rot: float
 	var sca: float
-	var visibleAndColliding: bool
+	
 	var texture: Texture2D
 	var spriteOffset: Vector2
 	var colliderPolygon: PackedVector2Array
+	
 	var itemToReturnOnTransition: Item ## Can be null
 	var interactionTransitions: Dictionary[String, String] ## ItemId mapped to own TimeobjectStateId
 	var cascadeTransitions: Dictionary[String, String] ## notifierStateId mapped to own TimeobjectStateId
 	
-	func _init(id: String, pos: Vector2 = Vector2.ZERO, rot: float = 0, sca: float = 1.0, vis: bool = true, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: Array[Vector2] = [], itemPath: String = "") -> void:
+	func _init(id: String, pos: Vector2 = Vector2.ZERO, rot: float = 0, sca: float = 1.0, texPath: String = "", sprOff: Vector2 = Vector2.ZERO, col: Array[Vector2] = [], itemPath: String = "") -> void:
 		self.id = id
 		self.pos = pos
 		self.rot = rot
 		self.sca = sca
-		self.visibleAndColliding = vis
 		self.texture = load("res://Assets/Timeobjects/Textures/" + texPath) if texPath != "" else null
 		self.spriteOffset = sprOff
 		self.colliderPolygon = PackedVector2Array(col)
@@ -115,10 +108,6 @@ class TimeobjectState extends Resource:
 	
 	func setScale(sca: float = 1.0) -> TimeobjectState:
 		self.sca = sca
-		return self
-	
-	func setVisibility(vis: bool = true) -> TimeobjectState:
-		self.visibleAndColliding = vis
 		return self
 	
 	func setTexture(texPath: String = "") -> TimeobjectState:

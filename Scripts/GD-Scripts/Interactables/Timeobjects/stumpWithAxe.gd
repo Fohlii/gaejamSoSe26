@@ -6,8 +6,17 @@ func _init() -> void:
 	_timeline = Timeline.PRESENT
 
 func _ready() -> void:
-	var withAxe: TimeobjectState = TimeobjectState.new("stumpWithAxe", Vector2(4698.0, -340.0), 0, 1.0, true, "stump_with_axe.png")
-	var withoutAxe: TimeobjectState = TimeobjectState.new("stumpWithoutAxe", Vector2(4698.0, -340.0), 0, 1.0, true, "stump.png", Vector2.ZERO, [], "P1_P2_axe.tres")
+	super()
+	
+	var withAxe: TimeobjectState = TimeobjectState.new("stumpWithAxe"
+	).setPosition(Vector2(4698.0, -340.0)
+	).setTexture("stump_with_axe.png")
+	
+	var withoutAxe: TimeobjectState = TimeobjectState.new("stumpWithoutAxe"
+	).setPosition(Vector2(4698.0, -340.0)
+	).setTexture("stump.png"
+	).setItem("P1_P2_axe.tres")
+	
 	withAxe.addInteractionTransition("EMPTY_HAND", withoutAxe.id)
 	withoutAxe.addInteractionTransition("axe", withAxe.id)
 	
@@ -16,4 +25,3 @@ func _ready() -> void:
 	
 	_currentState = _statesById[withAxe.id]
 	
-	super()
