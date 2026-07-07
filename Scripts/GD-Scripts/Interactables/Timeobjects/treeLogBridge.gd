@@ -6,10 +6,22 @@ func _init() -> void:
 	_timeline = Timeline.PRESENT
 
 func _ready() -> void:
-	var treeLogNotInPlace: TimeobjectState = TimeobjectState.new("treeLogNotInPlace", Vector2(6942.0, -481.0))
-	var treeLogInPlace: TimeobjectState = TimeobjectState.new("treeLogInPlace", Vector2(6942.0, -481.0), PI, 1.0, true, "tree_log_bridge.png", Vector2.ZERO, [Vector2(-201,21),Vector2(198,27),Vector2(198,-8),Vector2(-200,-18)])
+	super()
+	
+	var treeLogNotInPlace: TimeobjectState = TimeobjectState.new("treeLogNotInPlace"
+	).setPosition(Vector2(6012.0, -520.0)
+	).setRotation(0
+	).setTexture(""
+	).setColliderPolygon([])
+	
+	var treeLogInPlace: TimeobjectState = TimeobjectState.new("treeLogInPlace"
+	).setPosition(Vector2(6012.0, -520.0)
+	).setRotation(PI
+	).setTexture("tree_log_bridge.png"
+	).setColliderPolygon([Vector2(-201,21),Vector2(198,27),Vector2(198,-8),Vector2(-200,-18)])
 	
 	treeLogNotInPlace.addCascadeTransition("treeFelled", treeLogInPlace.id)
+	# TO-DO: add cascade transitions for if present tree leaves felled state
 	
 	_observedTimeobjects.push_back("PresentTreeNearRiver")
 	
@@ -18,4 +30,3 @@ func _ready() -> void:
 	
 	_currentState = _statesById[treeLogNotInPlace.id]
 	
-	super()

@@ -6,12 +6,22 @@ func _init() -> void:
 	_timeline = Timeline.PRESENT
 
 func _ready() -> void:
-	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown", Vector2(6615.0,-528.0))
-	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown", Vector2(6615.0,-528.0), 0, 1.0, true, "tree.png")
-	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled", Vector2(6615.0,-528.0), 0, 1.0, true, "tree_felled.png")
+	super()
+	
+	var treeNotGrown: TimeobjectState = TimeobjectState.new("treeNotGrown"
+	).setPosition(Vector2(5543.0,-584.0))
+	
+	var treeGrown: TimeobjectState = TimeobjectState.new("treeGrown"
+	).setPosition(Vector2(5543.0,-584.0)
+	).setTexture("tree.png")
+	
+	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled"
+	).setPosition(Vector2(5543.0,-584.0)
+	).setTexture("tree_felled.png")
 	
 	treeGrown.addInteractionTransition("axe", treeFelled.id)
 	treeNotGrown.addCascadeTransition("saplingPlantedInSpot", treeGrown.id)
+	# TO-DO: additional states to return from grown tree to ungrown tree if sapling in past changes.
 	
 	_observedTimeobjects.push_back("PastSaplingPlantationSpot")
 	
@@ -21,4 +31,3 @@ func _ready() -> void:
 	
 	_currentState = _statesById[treeNotGrown.id]
 	
-	super()

@@ -12,10 +12,12 @@ var _timeline: Timeline
 @onready var _collider: CollisionPolygon2D = $CollisionPolygon2D
 @onready var _interactionArea: Area2D = $InteractionArea2D
 
-enum InteractableLayer {ACTIVE, BACKGROUND}
+enum InteractableLayer {ACTIVE, BACKGROUND, FOREGROUND}
 enum Timeline {PAST, PRESENT}
 
 func _ready() -> void:
-	set_collision_layer_value(2, true)
+	## enable player collision for objects in active layer
+	if _layer == InteractableLayer.ACTIVE:
+		set_collision_layer_value(2, true)
 
 @abstract func interact(item: Item) -> Item

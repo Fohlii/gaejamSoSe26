@@ -6,14 +6,22 @@ func _init() -> void:
 	_timeline = Timeline.PAST
 
 func _ready() -> void:
-	var withoutSapling: TimeobjectState = TimeobjectState.new("emptyPlantationSpot", Vector2(5820.0,-322.0))
-	var withSapling: TimeobjectState = TimeobjectState.new("saplingPlantedInSpot", Vector2(5820.0,-322.0), 0, 1.0, true, "sapling.png")
+	super()
+	
+	var withoutSapling: TimeobjectState = TimeobjectState.new("emptyPlantationSpot"
+	).setPosition(Vector2(5650.0,-550.0)
+	).setTexture(""
+	)#.setItem("P1_sapling.tres")
+	
+	var withSapling: TimeobjectState = TimeobjectState.new("saplingPlantedInSpot"
+	).setPosition(Vector2(5650.0,-550.0)
+	).setTexture("sapling.png")
 	
 	withoutSapling.addInteractionTransition("sapling", withSapling.id)
+	#withSapling.addInteractionTransition("EMPTY_HAND", withoutSapling.id)
 	
 	_statesById.set(withoutSapling.id, withoutSapling)
 	_statesById.set(withSapling.id, withSapling)
 	
 	_currentState = _statesById[withoutSapling.id]
 	
-	super()

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ctw44afg6fuue"]
+
+[ext_resource type="Script" uid="uid://dydnjlayc2n37" path="res://Scenes/Levels/inventory_overlay.gd" id="1_fu62x"]
+[ext_resource type="PackedScene" uid="uid://da05axksd254e" path="res://inventory_slot.tscn" id="2_f8dvy"]
+
+[node name="Inventory" type="Control" unique_id=1480022267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_fu62x")
+slot_scene = ExtResource("2_f8dvy")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1193606403]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 549.0
+offset_right = 1150.0
+offset_bottom = 655.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=899810081]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1368190315]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1366631922]
+layout_mode = 2
+
+[node name="SlotGrid" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=72787448]
+layout_mode = 2
+columns = 5

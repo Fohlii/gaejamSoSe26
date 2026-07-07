@@ -1,5 +1,5 @@
 extends Area2D
-var first_time = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if first_time && Dialogic.VAR.playing:
-		Dialogic.start("River")
-		first_time= false
+	if body.has_method("player"):
+		print("player won")
+		GlobalVars.player_won = true
+		GlobalVars.winning_condition.emit()
 	pass # Replace with function body.
