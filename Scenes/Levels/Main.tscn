@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://cfqp4062r2evg" path="res://Scripts/GD-Scripts/Autoload/GameManager.gd" id="1_d31q8"]
 [ext_resource type="PackedScene" uid="uid://bjjsr5tpl74dk" path="res://Scenes/Levels/Present.tscn" id="2_d31q8"]
 [ext_resource type="PackedScene" uid="uid://dplxe84ckax72" path="res://Scenes/Levels/Past.tscn" id="3_dmpbk"]
-[ext_resource type="Script" uid="uid://lgwkbcpkla53" path="res://Scenes/Levels/controlBehaviour.gd" id="3_oi5um"]
+[ext_resource type="Script" uid="uid://lgwkbcpkla53" path="res://Scripts/GD-Scripts/controlBehaviour.gd" id="3_oi5um"]
 [ext_resource type="PackedScene" uid="uid://u4gh4cyl0hk8" path="res://Scenes/UI-Elements/MainMenu.tscn" id="4_r66ge"]
 [ext_resource type="PackedScene" uid="uid://ckf4dwi6a6ud6" path="res://Scenes/UI-Elements/menu.tscn" id="6_dmpbk"]
 [ext_resource type="AudioStream" uid="uid://bcjknvfayoxf7" path="res://Assets/GameMusic/SFX/click.wav" id="7_r66ge"]
 [ext_resource type="PackedScene" uid="uid://c06n34wl1e32k" path="res://Scenes/UI-Elements/game_over_screen.tscn" id="7_saai4"]
 [ext_resource type="PackedScene" uid="uid://176anl6r8uqn" path="res://Scenes/UI-Elements/game_win.tscn" id="10_4ih0k"]
-[ext_resource type="PackedScene" uid="uid://ctw44afg6fuue" path="res://Scenes/Game-Elements/Inventory.tscn" id="10_nl3m6"]
+[ext_resource type="PackedScene" uid="uid://ctw44afg6fuue" path="res://Scenes/UI-Elements/Inventory.tscn" id="10_nl3m6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nl3m6"]
 

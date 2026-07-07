@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://176anl6r8uqn"]
 
-[ext_resource type="Script" uid="uid://dyt2lymfhwfer" path="res://game_over_screen.gd" id="1_6y63v"]
+[ext_resource type="Script" uid="uid://dyt2lymfhwfer" path="res://Scripts/GD-Scripts/UI/game_over_screen.gd" id="1_6y63v"]
 
 [node name="GameWin" type="Control" unique_id=602681557]
 layout_mode = 3

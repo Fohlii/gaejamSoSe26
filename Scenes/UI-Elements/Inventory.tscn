@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ctw44afg6fuue"]
 
-[ext_resource type="Script" uid="uid://dydnjlayc2n37" path="res://Scenes/Levels/inventory_overlay.gd" id="1_fu62x"]
-[ext_resource type="PackedScene" uid="uid://da05axksd254e" path="res://inventory_slot.tscn" id="2_f8dvy"]
+[ext_resource type="Script" uid="uid://dydnjlayc2n37" path="res://Scripts/GD-Scripts/inventory_overlay.gd" id="1_fu62x"]
+[ext_resource type="PackedScene" uid="uid://da05axksd254e" path="res://Scenes/UI-Elements/inventory_slot.tscn" id="2_f8dvy"]
 
 [node name="Inventory" type="Control" unique_id=1480022267]
 layout_mode = 3
@@ -19,7 +19,7 @@ slot_scene = ExtResource("2_f8dvy")
 layout_mode = 0
 offset_left = -7.0
 offset_top = 549.0
-offset_right = 1150.0
+offset_right = 200.0
 offset_bottom = 655.0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=899810081]

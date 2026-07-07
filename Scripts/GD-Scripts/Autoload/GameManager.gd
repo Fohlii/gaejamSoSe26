@@ -26,14 +26,15 @@ func _ready() -> void:
 	print("main_menu: ", main_menu)
 	Dialogic.signal_event.connect(game_lost)
 	GlobalVars.winning_condition.connect(player_won)
+
 func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("esc"):
 			if main_menu.visible:
 				get_tree().quit()
 			else:
 				show_menu()
-		if Input.is_action_just_pressed("inventory"):
-			inventory_overlay.visible =!inventory_overlay.visible
+		#if Input.is_action_just_pressed("inventory"):
+		#	inventory_overlay.visible =!inventory_overlay.visible
 
 func toggle_time() -> void:
 	GlobalVars.player_in_past = !GlobalVars.player_in_past
@@ -52,6 +53,7 @@ func start_game():
 	add_child(player)
 	player.global_position.x = 600
 	player.global_position.y = -10400
+	inventory_overlay.visible = true
 	player.find_child("Camera2D").make_current()
 	Dialogic.start("timeline")
 
@@ -60,9 +62,10 @@ func show_menu():
 	button_click.play()
 	GlobalVars.esc_pressed.emit()
 	menu.visible = !menu.visible
-	
+
 func game_lost(argument):
 	if argument == "player_lost":
 		game_over.visible = true
+
 func player_won():
 	game_won.visible = true
