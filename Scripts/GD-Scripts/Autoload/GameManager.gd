@@ -33,8 +33,8 @@ func _process(delta: float) -> void:
 				get_tree().quit()
 			else:
 				show_menu()
-		#if Input.is_action_just_pressed("inventory"):
-		#	inventory_overlay.visible =!inventory_overlay.visible
+		if Input.is_action_just_pressed("inventory"):
+			inventory_overlay.visible =!inventory_overlay.visible
 
 func toggle_time() -> void:
 	GlobalVars.player_in_past = !GlobalVars.player_in_past
@@ -48,6 +48,7 @@ func start_game():
 	main_menu.visible = false
 	game_over.visible = false
 	game_won.visible = false
+	inventory_overlay.visible= false
 	if player== null:
 		player =  playerPS.instantiate()
 	add_child(player)
