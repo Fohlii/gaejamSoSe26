@@ -13,7 +13,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_fu62x")
-slot_scene = ExtResource("2_f8dvy")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1193606403]
 layout_mode = 0
@@ -25,13 +24,7 @@ offset_bottom = 655.0
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=899810081]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1368190315]
+[node name="InventorySlot" parent="PanelContainer/MarginContainer" unique_id=2110678202 instance=ExtResource("2_f8dvy")]
 layout_mode = 2
-alignment = 2
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1366631922]
-layout_mode = 2
-
-[node name="SlotGrid" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=72787448]
-layout_mode = 2
-columns = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4

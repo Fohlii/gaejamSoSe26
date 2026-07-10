@@ -1,40 +1,42 @@
 extends Node
 
 signal changed
+@onready var count: Label = $PanelContainer/MarginContainer/VBoxContainer/SlotGrid/InventorySlot/Count
 
 const SLOT_COUNT := 20
 
 var slots: Array = []
 
 
-func add_item(item, amount: int = 1) -> bool:
+func add_item(item,itemTexture: Texture2D, amount: int = 1) -> bool:
 	var remaining := amount
-
+	if item:
+		count.text = item.id
 	# Erst vorhandene Stacks auffüllen
-	for slot in slots:
-		if slot["item"] == item and slot["amount"] < item.max_stack:
-			var free_space: int = item.max_stack - slot["amount"]
-			var to_add: int = min(free_space, remaining)
+		for slot in slots:
+			if slot["item"] == item and slot["amount"] < item.max_stack:
+				var free_space: int = item.max_stack - slot["amount"]
+				var to_add: int = min(free_space, remaining)
 
-			slot["amount"] += to_add
-			remaining -= to_add
+				slot["amount"] += to_add
+				remaining -= to_add
 
-			if remaining <= 0:
-				changed.emit()
-				return true
+				if remaining <= 0:
+					changed.emit()
+					return true
 
 	# Dann leere Slots benutzen
-	for slot in slots:
-		if slot["item"] == null:
-			var to_add: int = min(item.max_stack, remaining)
+		for slot in slots:
+			if slot["item"] == null:
+				var to_add: int = min(item.max_stack, remaining)
 
-			slot["item"] = item
-			slot["amount"] = to_add
-			remaining -= to_add
+				slot["item"] = item
+				slot["amount"] = to_add
+				remaining -= to_add
 
-			if remaining <= 0:
-				changed.emit()
-				return true
+				if remaining <= 0:
+					changed.emit()
+					return true
 
 	changed.emit()
 	return false
