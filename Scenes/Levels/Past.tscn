@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkdrt2ehmiis0" path="res://Scenes/Game-Elements/Timeobject.tscn" id="2_kfgl4"]
 [ext_resource type="Texture2D" uid="uid://bdu6ovywrceu5" path="res://Assets/Background/meerBild.jpg" id="2_qlr6k"]
 [ext_resource type="Script" uid="uid://gr0e5cnprtax" path="res://Scripts/GD-Scripts/ParallaxEnterTrigger.gd" id="3_ff8ec"]
+[ext_resource type="Texture2D" uid="uid://cvk7dkowgdfx6" path="res://Assets/Timeobjects/Textures/light_house_bottom.png" id="4_mekaa"]
 [ext_resource type="Script" uid="uid://db02bsvasqrmx" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P2_TreeForScaffoldingWood.gd" id="5_8gr7i"]
 [ext_resource type="Texture2D" uid="uid://cegtl6ykdkxr7" path="res://Assets/Timeobjects/Textures/tree.png" id="5_c23j1"]
 [ext_resource type="Script" uid="uid://cg4v1biqeti2r" path="res://Scripts/GD-Scripts/pastSmallRiver.gd" id="5_web4q"]
@@ -131,8 +132,12 @@ shape = SubResource("RectangleShape2D_ff8ec")
 position = Vector2(2130, -427)
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=958635539]
+position = Vector2(567.5, -407.70477)
+scale = Vector2(0.49933338, 0.7432165)
+texture = ExtResource("4_mekaa")
 
 [node name="TEMPORARY_SKETCH_REMOVE_LATER" type="Polygon2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=1410438649]
+visible = false
 position = Vector2(125.58478, 2.0057373)
 scale = Vector2(0.6521197, 0.7492864)
 polygon = PackedVector2Array(-441, 8, -199.1665, 8, 361, 8, 362.5337, -663.3055, 183.11865, -659.3017, 180.05176, -604.58295, 84.977295, -605.91754, 81.9104, -545.8604, -164.9768, -545.8604, -168.04395, -595.24066, -258.51807, -596.57526, -258.51807, -651.294, -355.12598, -653.9632, -355.12598, -704.67816, -436.3994, -708.68195)

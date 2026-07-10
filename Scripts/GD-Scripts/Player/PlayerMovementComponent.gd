@@ -47,27 +47,28 @@ func _init(player: PlayerCharacterBody2D) -> void:
 				print("idleMotionState exited")
 			, 
 		func(delta: float):
-			if Input.get_axis("walk_left", "walk_right") != 0:
-				changeState("WalkingMotionState")
-				return processInput(delta)
+			if Dialogic.VAR.canMove:
+				if Input.get_axis("walk_left", "walk_right") != 0:
+					changeState("WalkingMotionState")
+					return processInput(delta)
 			
-			if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
-				changeState("RunningMotionState")
-				return processInput(delta)
+				if Input.get_axis("walk_left", "walk_right") != 0 && Input.is_action_pressed("run"):
+					changeState("RunningMotionState")
+					return processInput(delta)
 			
-			if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
-				changeState("ClimbingMotionState")
-				return processInput(delta)
+				if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
+					changeState("ClimbingMotionState")
+					return processInput(delta)
 			
-			if Input.is_action_pressed("jump"):
-				changeState("JumpingMotionState")
-				return processInput(delta)
+				if Input.is_action_pressed("jump"):
+					changeState("JumpingMotionState")
+					return processInput(delta)
 			
-			if !player.is_on_floor():
-				changeState("FallingMotionState")
-				return Vector2.ZERO
-			
-			return Vector2(move_toward(player.velocity.x, 0, player.WALK_SPEED), player.velocity.y)
+				if !player.is_on_floor():
+					changeState("FallingMotionState")
+					return Vector2.ZERO
+				
+				return Vector2(move_toward(player.velocity.x, 0, player.WALK_SPEED), player.velocity.y)
 			,
 		func():
 			if !player.is_on_floor():
@@ -369,8 +370,10 @@ class MotionState extends RefCounted:
 		return _exitState.call()
 	
 	func processInput(delta: float) -> Vector2:
-		return _processInput.call(delta)
-	
+		if  Dialogic.VAR.canMove:
+			return _processInput.call(delta)
+		else:
+			return Vector2.ZERO
 	func processInputExperimental(delta: float) -> Vector2:
 		_calculateState.call() ## this changes that Motion Statemachine state for the next frame
 		return _calculateMotion.call(delta) ## but it processes the input for this frame as the 'old' state

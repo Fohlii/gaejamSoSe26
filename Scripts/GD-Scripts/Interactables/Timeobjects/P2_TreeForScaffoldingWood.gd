@@ -14,7 +14,7 @@ func _ready() -> void:
 	
 	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled"
 	).setPosition(Vector2(4935.0, -617.0)
-	).setTexture("tree_log_bridge.png"
+	).setTexture("tree_logs.png"
 	).setItem("P1_P2_axe.tres")
 	
 	var treeChoppedNoPlanks: TimeobjectState = TimeobjectState.new("treeChoppedNoPlanks"
@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	var treePlanksDeposited: TimeobjectState = TimeobjectState.new("treePlanksDeposited"
 	).setPosition(Vector2(4935.0, -617.0)
-	).setTexture("icon.svg")
+	).setTexture("tree_logs.png")
 	
 	treeNotChopped.addInteractionTransition("axe", treeFelled.id)
 	treeFelled.addInteractionTransition("EMPTY_HAND", treeChoppedNoPlanks.id)

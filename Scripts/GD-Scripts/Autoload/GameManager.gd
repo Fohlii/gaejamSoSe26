@@ -42,6 +42,7 @@ func toggle_time() -> void:
 	print("Is in past: " + str(GlobalVars.player_in_past))
 
 func start_game():
+	Dialogic.VAR.canMove = true
 	GlobalVars.player_won = false
 	GlobalVars.player_in_past = false
 	Dialogic.VAR.in_past = false
