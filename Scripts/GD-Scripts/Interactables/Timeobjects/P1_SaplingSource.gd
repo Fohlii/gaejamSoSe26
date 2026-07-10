@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 	var saplingTaken: TimeobjectState = TimeobjectState.new("saplingTaken"
 	).setPosition(Vector2(3531.0, -485.0)
-	).setTexture(
+	).setTexture(""
 	).setItem("P1_sapling.tres")
 	
 	saplingNotTaken.addInteractionTransition("EMPTY_HAND", saplingTaken.id)

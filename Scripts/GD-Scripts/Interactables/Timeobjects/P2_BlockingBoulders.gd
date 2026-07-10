@@ -27,12 +27,12 @@ func _ready() -> void:
 		Vector2(149.0, 18.0),
 		Vector2(142.0, 59.0),
 		Vector2(109.0, 96.0)]
-	).setTexture("icon.svg")
+	).setTexture("berg_boden_fuer_geroell.png")
 	
 	var caughtByScaffolding: TimeobjectState = TimeobjectState.new("caughtByScaffolding"
-	).setPosition(Vector2(6116.0, -442.0) #untested location
+	).setPosition(Vector2(6440.0, -549.0)
 	).setColliderPolygon([]
-	).setTexture("icon.svg")
+	).setTexture("scaffoldingWithRocks.png")
 	
 	blockingEntrance.addCascadeTransition("scaffoldingBuilt", caughtByScaffolding.id)
 	#caughtByScaffolding.addCascadeTransition("scaffoldingNotBuilt", blockingEntrance.id)

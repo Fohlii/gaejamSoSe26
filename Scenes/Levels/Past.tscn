@@ -132,7 +132,7 @@ shape = SubResource("RectangleShape2D_ff8ec")
 position = Vector2(2130, -427)
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=958635539]
-position = Vector2(567.5, -407.70477)
+position = Vector2(72.6, -407.705)
 scale = Vector2(0.49933338, 0.7432165)
 texture = ExtResource("4_mekaa")
 

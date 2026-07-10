@@ -10,11 +10,12 @@ func _ready() -> void:
 	
 	var scaffoldingNotBuilt: TimeobjectState = TimeobjectState.new("scaffoldingNotBuilt"
 	).setPosition(Vector2(6482.0, -526.0)
-	).setTexture("")
+	).setTexture("scaffolding_construction.png")
 	
 	var scaffoldingBuilt: TimeobjectState = TimeobjectState.new("scaffoldingBuilt"
 	).setPosition(Vector2(6482.0, -526.0)
-	).setTexture("icon.svg")
+	).setTexture("scaffoldingFinished.png"
+	).setScale(0.75)
 	
 	scaffoldingNotBuilt.addInteractionTransition("woodPlanks", scaffoldingBuilt.id)
 	#scaffoldingBuilt.addInteractionTransition("axe", scaffoldingNotBuilt.id)

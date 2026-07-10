@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 	var withoutSapling: TimeobjectState = TimeobjectState.new("emptyPlantationSpot"
 	).setPosition(Vector2(5650.0,-550.0)
-	).setTexture(""
+	).setTexture("icon.svg"
 	)#.setItem("P1_sapling.tres")
 	
 	var withSapling: TimeobjectState = TimeobjectState.new("saplingPlantedInSpot"

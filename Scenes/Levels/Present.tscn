@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_TreeLogBridge.gd" id="9_do8mn"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scripts/GD-Scripts/quest_areas.gd" id="10_do8mn"]
 [ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P2_BlockingBoulders.gd" id="10_jhuu5"]
-[ext_resource type="Texture2D" uid="uid://cegtl6ykdkxr7" path="res://Assets/Timeobjects/Textures/tree.png" id="11_wprut"]
+[ext_resource type="Texture2D" uid="uid://b5ahohbjdwc8i" path="res://Assets/Timeobjects/Textures/baum.png" id="13_p1k8w"]
 [ext_resource type="Texture2D" uid="uid://b4ssog077csfi" path="res://Assets/Background/berg_boden.png" id="14_trkkw"]
 [ext_resource type="Texture2D" uid="uid://clw380nh7fhas" path="res://Assets/Timeobjects/Textures/icon.svg" id="15_p1k8w"]
 
@@ -46,16 +46,16 @@ load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b
 load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b5c5d0.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58uic"]
-size = Vector2(539.6, 8.399963)
+size = Vector2(598.0001, 16.40002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy4uh"]
-size = Vector2(731.6, 8.400024)
+size = Vector2(489.60007, 9.9999695)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mteok"]
-size = Vector2(119.60011, 214.8)
+size = Vector2(226.00012, 336.40005)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f1n3"]
-size = Vector2(119.60008, 8.400017)
+size = Vector2(130.79996, 8.399971)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wprut"]
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
@@ -296,15 +296,16 @@ position = Vector2(4619, -629.99994)
 scale = Vector2(2.5, 2.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=171603566]
+position = Vector2(0, -268.80002)
 scale = Vector2(1.392101, 1.1394924)
-texture = ExtResource("11_wprut")
+texture = ExtResource("13_p1k8w")
 offset = Vector2(25.22, -460.855)
 
 [node name="BranchPlatformLowerRight" type="StaticBody2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=855314322]
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatformLowerRight" unique_id=1712739291]
-position = Vector2(254.19995, -307.80005)
+position = Vector2(270.6001, -349.40002)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_58uic")
 
@@ -312,8 +313,8 @@ shape = SubResource("RectangleShape2D_58uic")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatformUpperLeft" unique_id=704555476]
-position = Vector2(-381.3999, -522.2)
-scale = Vector2(0.9999998, 0.9999998)
+position = Vector2(-382, -687.4)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_xy4uh")
 
 [node name="TrunkLadderCenter" type="Node2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=2080186998]
@@ -323,7 +324,7 @@ collision_layer = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter/ladder_area" unique_id=1556022839]
-position = Vector2(44.200073, -419.40002)
+position = Vector2(-25, -525.8)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mteok")
 
@@ -331,7 +332,7 @@ shape = SubResource("RectangleShape2D_mteok")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter/ladder_top_platform" unique_id=849979730]
-position = Vector2(44.200073, -522.2)
+position = Vector2(-72.599976, -688.2)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_7f1n3")
 one_way_collision = true
