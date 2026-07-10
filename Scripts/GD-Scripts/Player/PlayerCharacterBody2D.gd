@@ -7,6 +7,8 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var interactionArea: Area2D = $InteractionArea
 @onready var inventoryUI: Node2D = null
 
+var safeSpot: Vector2
+
 @export var WALK_SPEED = 200.0
 @export var RUN_SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
@@ -23,6 +25,7 @@ func _ready() -> void:
 	playerTimetravel = PlayerTimetravelComponent.new(self)
 	playerInteraction = PlayerInteractionComponent.new(self)
 	
+	safeSpot = GlobalVars.spawnpointPresent
 	playerMovement.changeState("IdleMotionState")
 
 func _physics_process(delta: float) -> void:
@@ -36,3 +39,9 @@ func _on_sprite_2d_frame_changed() -> void:
 		left_foot.play()
 	elif sprite_2d.frame == 5:
 		right_foot.play()
+
+func OnDeadlyAreaEntered() -> void:
+	## block movement
+	playerMovement.changeState("Unresponsive")
+	## play dialog
+	Dialogic.start("DieInWater")

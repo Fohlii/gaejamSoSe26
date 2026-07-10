@@ -9,12 +9,28 @@ func _ready() -> void:
 	super()
 	
 	var blockingEntrance: TimeobjectState = TimeobjectState.new("blockingEntrance"
-	).setPosition(Vector2(8916.0, -592.0)
-	).setColliderPolygon([Vector2(-48.0, 55.0), Vector2(-61.0, 35.0), Vector2(-61.0, 12.0), Vector2(-48.0, -13.0), Vector2(-28.0, -26.0), Vector2(-19.0, -58.0), Vector2(-3.0, -86.0), Vector2(18.0, -116.0), Vector2(34.0, -119.0), Vector2(47.0, -86.0), Vector2(49.0, -58.0), Vector2(57.0, -27.0), Vector2(75.0, -16.0), Vector2(85.0, 10.0), Vector2(81.0, 34.0), Vector2(62.0, 55.0)]
+	).setPosition(Vector2(6416.0, -592.0)
+	).setColliderPolygon(
+		[Vector2(-84.0, 96.0),
+		Vector2(-106.0, 61.0),
+		Vector2(-107.0, 21.0),
+		Vector2(-84.0, -22.0),
+		Vector2(-49.0, -45.0),
+		Vector2(-33.0, -102.0),
+		Vector2(-5.0, -149.0),
+		Vector2(32.0, -203.0),
+		Vector2(59.0, -208.0),
+		Vector2(82.0, -150.0),
+		Vector2(85.0, -101.0),
+		Vector2(100.0, -47.0),
+		Vector2(131.0, -28.0),
+		Vector2(149.0, 18.0),
+		Vector2(142.0, 59.0),
+		Vector2(109.0, 96.0)]
 	).setTexture("icon.svg")
 	
-	var caughtByScaffolding: TimeobjectState = TimeobjectState.new("stackedOnScaffolding"
-	).setPosition(Vector2(8916.0, -442.0)
+	var caughtByScaffolding: TimeobjectState = TimeobjectState.new("caughtByScaffolding"
+	).setPosition(Vector2(6416.0, -442.0)
 	).setColliderPolygon([]
 	).setTexture("icon.svg")
 	
