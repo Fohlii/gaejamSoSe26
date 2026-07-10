@@ -16,9 +16,13 @@ func _ready() -> void:
 	
 	var treeLogInPlace: TimeobjectState = TimeobjectState.new("treeLogInPlace"
 	).setPosition(Vector2(6012.0, -520.0)
-	).setRotation(PI
+	).setRotation(0 #using rotation on collision polygon is not good.
 	).setTexture("tree_log_bridge.png"
-	).setColliderPolygon([Vector2(-201,21),Vector2(198,27),Vector2(198,-8),Vector2(-200,-18)])
+	).setColliderPolygon(
+		[Vector2(-231.0, 7.0),
+		Vector2(288.0, 70.0),
+		Vector2(286.0, 86.0),
+		Vector2(-231.0, 29.0)])
 	
 	treeLogNotInPlace.addCascadeTransition("treeFelled", treeLogInPlace.id)
 	# TO-DO: add cascade transitions for if present tree leaves felled state
@@ -28,5 +32,5 @@ func _ready() -> void:
 	_statesById.set(treeLogNotInPlace.id, treeLogNotInPlace)
 	_statesById.set(treeLogInPlace.id, treeLogInPlace)
 	
-	_currentState = _statesById[treeLogInPlace.id]
+	_currentState = _statesById[treeLogNotInPlace.id]
 	

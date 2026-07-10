@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bjjsr5tpl74dk"]
 
-[ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/sapling.gd" id="1_1h27j"]
+[ext_resource type="Script" uid="uid://dipkoc0wsohkm" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_SaplingSource.gd" id="1_1h27j"]
 [ext_resource type="Script" uid="uid://dobfl08sypnya" path="res://Scripts/GD-Scripts/Manager/ParallaxManager.gd" id="2_i4naw"]
 [ext_resource type="Texture2D" uid="uid://dhswacxtufy1m" path="res://Assets/Background/Background_Meadow.jpg" id="2_jkieh"]
-[ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/tree.gd" id="3_ck43e"]
+[ext_resource type="Script" uid="uid://uelukixtv85v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_TreeNearRiver.gd" id="3_ck43e"]
 [ext_resource type="Texture2D" uid="uid://l2w7v7yl5igl" path="res://Assets/Background/background_right_border.jpg" id="3_wprut"]
 [ext_resource type="Texture2D" uid="uid://c4k2gwyud4v63" path="res://Suraki.icon.png" id="4_jkieh"]
 [ext_resource type="Script" uid="uid://bror6q6po8rm" path="res://Scripts/GD-Scripts/lose_game.gd" id="5_ioaai"]
@@ -12,11 +12,12 @@
 [ext_resource type="Script" uid="uid://qats31byq8up" path="res://Scripts/GD-Scripts/tide.gd" id="6_jkieh"]
 [ext_resource type="Texture2D" uid="uid://bdu6ovywrceu5" path="res://Assets/Background/meerBild.jpg" id="7_ioaai"]
 [ext_resource type="Script" uid="uid://bklh2f5yjp57x" path="res://Scripts/GD-Scripts/win_area.gd" id="7_rlqni"]
-[ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/treeLogBridge.gd" id="9_do8mn"]
+[ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_TreeLogBridge.gd" id="9_do8mn"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scripts/GD-Scripts/quest_areas.gd" id="10_do8mn"]
-[ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/BlockingBoulders.gd" id="10_jhuu5"]
+[ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P2_BlockingBoulders.gd" id="10_jhuu5"]
 [ext_resource type="Texture2D" uid="uid://cegtl6ykdkxr7" path="res://Assets/Timeobjects/Textures/tree.png" id="11_wprut"]
 [ext_resource type="Script" uid="uid://bskm7onsj02hu" path="res://Scripts/GD-Scripts/encounterRiver.gd" id="12_jkieh"]
+[ext_resource type="Texture2D" uid="uid://clw380nh7fhas" path="res://Assets/Timeobjects/Textures/icon.svg" id="15_p1k8w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -45,13 +46,13 @@ load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jef47"]
-size = Vector2(43, 596)
+size = Vector2(43, 390)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkieh"]
 size = Vector2(43, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k8w"]
-size = Vector2(30, 1075)
+size = Vector2(30, 926)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h710c"]
 size = Vector2(30, 1)
@@ -69,14 +70,18 @@ z_index = -4
 scroll_scale = Vector2(0.4, 0.1)
 scroll_offset = Vector2(-454, -1600)
 
-[node name="BackgroundLeftEnd" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=316865649]
+[node name="BG_LeftSea" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=1002414960]
+position = Vector2(0, 600)
+texture = ExtResource("7_ioaai")
+
+[node name="BG_LeftBeach" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=316865649]
 position = Vector2(0, 188)
 rotation = -0.09268912
 scale = Vector2(0.78824776, 1)
 texture = SubResource("CompressedTexture2D_ck43e")
 centered = false
 
-[node name="BackgroundMiddleArea" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=488971309]
+[node name="BG_Meadow" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=488971309]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_rgh2o")
 position = Vector2(1473, -5)
@@ -84,14 +89,14 @@ scale = Vector2(1.89009, 1.9940828)
 texture = ExtResource("2_jkieh")
 centered = false
 
-[node name="BackgroundRightEnd" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=288025432]
+[node name="BG_Mountain" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=288025432]
 texture_filter = 1
 position = Vector2(2514, -5.0004883)
 scale = Vector2(2.3849437, 2.3617404)
 texture = ExtResource("3_wprut")
 centered = false
 
-[node name="BackgroundRightEnd2" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=1792378426]
+[node name="BG_Cave" type="Sprite2D" parent="Parallax/FarthestBackLayer" unique_id=1792378426]
 texture_filter = 1
 position = Vector2(3596, -5)
 scale = Vector2(2.3849437, 2.3617404)
@@ -135,7 +140,7 @@ script = ExtResource("5_ioaai")
 [node name="Coast" type="Node2D" parent="Areas" unique_id=750849750]
 
 [node name="ParallaxEnterCoastFromRightTrigger" type="Area2D" parent="Areas/Coast" unique_id=1922197796]
-position = Vector2(2598, -1533)
+position = Vector2(2569, -1556)
 collision_layer = 0
 monitorable = false
 script = ExtResource("6_8ycl7")
@@ -234,11 +239,11 @@ polygon = PackedVector2Array(935, -234, 990, -173, 1043, -119, 1126, -76, 1249, 
 [node name="Meadow" type="Node2D" parent="Areas" unique_id=295658585]
 
 [node name="ParallaxEnterMeadowFromLeftTrigger" type="Area2D" parent="Areas/Meadow" unique_id=277458585]
-position = Vector2(2620, -1534)
+position = Vector2(2649, -1557)
 collision_layer = 0
 monitorable = false
 script = ExtResource("6_8ycl7")
-zoneScrollScale = 0.2
+zoneScrollScale = 0.225
 metadata/_custom_type_script = "uid://gr0e5cnprtax"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/ParallaxEnterMeadowFromLeftTrigger" unique_id=1417510476]
@@ -246,11 +251,11 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_trkkw")
 
 [node name="ParallaxEnterMeadowFromRightTrigger" type="Area2D" parent="Areas/Meadow" unique_id=1002668307]
-position = Vector2(6413, -1540)
+position = Vector2(6384, -1555)
 collision_layer = 0
 monitorable = false
 script = ExtResource("6_8ycl7")
-zoneScrollScale = 0.2
+zoneScrollScale = 0.225
 metadata/_custom_type_script = "uid://gr0e5cnprtax"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/ParallaxEnterMeadowFromRightTrigger" unique_id=505098475]
@@ -282,7 +287,7 @@ collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatform" unique_id=1279184397]
 scale = Vector2(0.8451909, 0.99999994)
-polygon = PackedVector2Array(610.9863, -370.4001, 367.2, -397, 104.2, -406, -270.8, -451, -615.8, -463, -912.9297, -444.4001, -853.2982, -437.60004, -612.8, -448, -271.8, -428, 100.2, -383, 355.2, -379, 567.9192, -362.40002)
+polygon = PackedVector2Array(584.01025, -299.60004, 346.90405, -306.40002, 116.423584, -379.20007, -35.968018, -472.00006, -270.708, -524.00006, -883.114, -524.4001, -838.1537, -508.4001, -272.60107, -503.20007, -43.540283, -454.80005, 113.110596, -358.40002, 337.43872, -286.00006, 558.45386, -284.80005)
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=930101728]
 
@@ -346,10 +351,30 @@ polygon = PackedVector2Array(3309, -466, 3337, -450, 3365, -425, 3415, -425, 336
 position = Vector2(6012, -520)
 script = ExtResource("9_do8mn")
 
+[node name="BrokenBridge" type="Node2D" parent="Areas/Meadow/FrontLayer/Objects" unique_id=682231925]
+
+[node name="Remains" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge" unique_id=660152849]
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Remains" unique_id=1255091296]
+polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 5753, -475, 5781, -491)
+
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Remains" unique_id=1490950027]
+polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 5753, -475, 5781, -491)
+
+[node name="Sunken" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge" unique_id=292196721]
+collision_layer = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Sunken" unique_id=927097069]
+polygon = PackedVector2Array(6201, -75, 6236, -172, 6207, -185, 6180, -171, 6154, -184, 6132, -164, 6111, -172, 6096, -151, 6066, -165, 6049, -151, 6044, -125, 6027, -96, 5991, -104, 5968, -95, 5962, -75)
+
+[node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Sunken" unique_id=868556309]
+polygon = PackedVector2Array(6201, -75, 6236, -172, 6207, -185, 6180, -171, 6154, -184, 6132, -164, 6111, -172, 6096, -151, 6066, -165, 6049, -151, 6044, -125, 6027, -96, 5991, -104, 5968, -95, 5962, -75)
+
 [node name="Mountain" type="Node2D" parent="Areas" unique_id=2135547183]
 
 [node name="ParallaxEnterMountainFromLeftTrigger" type="Area2D" parent="Areas/Mountain" unique_id=109219366]
-position = Vector2(6435, -1540)
+position = Vector2(6464, -1555)
 collision_layer = 0
 monitorable = false
 script = ExtResource("6_8ycl7")
@@ -371,8 +396,13 @@ collision_layer = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower/ladder_area" unique_id=1358997315]
-position = Vector2(21.5, -298)
+position = Vector2(21.5, -195)
 shape = SubResource("RectangleShape2D_jef47")
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower/ladder_area" unique_id=1227301688]
+position = Vector2(21.499966, -194.99997)
+scale = Vector2(0.335939, 3.0468752)
+texture = ExtResource("15_p1k8w")
 
 [node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower" unique_id=1579666001]
 collision_layer = 16
@@ -390,8 +420,13 @@ collision_layer = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper/ladder_area" unique_id=1046833073]
-position = Vector2(15, -537.5)
+position = Vector2(15, -463)
 shape = SubResource("RectangleShape2D_p1k8w")
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper/ladder_area" unique_id=308576957]
+position = Vector2(14.9999695, -463.00006)
+scale = Vector2(0.23437165, 7.234375)
+texture = ExtResource("15_p1k8w")
 
 [node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper" unique_id=679004445]
 collision_layer = 16
@@ -430,26 +465,18 @@ polygon = PackedVector2Array(6424, -450, 6530, -450, 6872, -263, 7324, -263, 732
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/Cave_upper" unique_id=739356774]
-polygon = PackedVector2Array(6872, -613, 7091, -613, 7091, -640, 6872, -640, 6695, -837, 6567, -837, 6567, -1742, 6530, -1657, 6530, -800)
+polygon = PackedVector2Array(6872, -613, 7091, -613, 7091, -640, 6872, -640, 6599, -837, 6567, -837, 6567, -1742, 6530, -1657, 6530, -800)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/Cave_upper" unique_id=309862956]
-polygon = PackedVector2Array(6872, -613, 7091, -613, 7091, -640, 6872, -640, 6695, -837, 6567, -837, 6567, -1742, 6530, -1657, 6530, -800)
+polygon = PackedVector2Array(6872, -613, 7091, -613, 7091, -640, 6872, -640, 6599, -837, 6567, -837, 6567, -1742, 6530, -1657, 6530, -800)
 
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=1844831231]
 
 [node name="P2_BlockingBoulders" parent="Areas/Mountain/FrontLayer/Objects" unique_id=446946623 instance=ExtResource("6_1h27j")]
-position = Vector2(6397, -587)
+position = Vector2(6440, -549)
 collision_layer = 2
 collision_mask = 1
 script = ExtResource("10_jhuu5")
-
-[node name="BrokenBridge" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Objects" unique_id=660152849]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Mountain/FrontLayer/Objects/BrokenBridge" unique_id=1255091296]
-polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 5753, -475, 5781, -491)
-
-[node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Objects/BrokenBridge" unique_id=1490950027]
-polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 5753, -475, 5781, -491)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1308970944]
 

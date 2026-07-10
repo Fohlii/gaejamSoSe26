@@ -44,7 +44,7 @@ func interact(item: Item) -> Item:
 		print(item)
 		if item != null:	
 			if item.textureInInventory != null:
-				inventory_overlay.add_item(item)		
+				inventory_overlay.add_item(item)
 			if item.textureOnCharacter != null:
 				inventory_overlay.add_item(item)
 		else:
