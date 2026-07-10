@@ -89,6 +89,10 @@ project/assembly_name="gaejam SoSe26"
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/itch_uploader/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://c4v1xe0hakhl"
+
 [input]
 
 ui_left={
