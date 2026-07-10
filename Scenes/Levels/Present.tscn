@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ahohbjdwc8i" path="res://Assets/Timeobjects/Textures/baum.png" id="13_p1k8w"]
 [ext_resource type="Texture2D" uid="uid://b4ssog077csfi" path="res://Assets/Background/berg_boden.png" id="14_trkkw"]
 [ext_resource type="Texture2D" uid="uid://clw380nh7fhas" path="res://Assets/Timeobjects/Textures/icon.svg" id="15_p1k8w"]
+[ext_resource type="Texture2D" uid="uid://csavv75rsvhit" path="res://Assets/Background/berg-seite.png" id="16_h710c"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
 load_path = "res://.godot/imported/Background_Sea.jpg-f81d9b044866f23a526eafe83e978754.ctex"
@@ -59,6 +60,9 @@ size = Vector2(130.79996, 8.399971)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wprut"]
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_trkkw"]
+load_path = "res://.godot/imported/berg-seite.png-246a19e423e68fbb695cbb14fa78586c.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jef47"]
 size = Vector2(43, 378)
@@ -410,6 +414,8 @@ collision_layer = 16
 polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 5753, -475, 5781, -491)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Remains" unique_id=1490950027]
+texture = SubResource("CompressedTexture2D_trkkw")
+texture_scale = Vector2(-0.42, -0.42)
 polygon = PackedVector2Array(5781, -513, 5725, -491, 5675, -461, 5725, -450, 5753, -475, 5781, -491)
 
 [node name="Sunken" type="StaticBody2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge" unique_id=292196721]
@@ -419,7 +425,8 @@ collision_layer = 16
 polygon = PackedVector2Array(6201, -75, 6236, -172, 6207, -185, 6180, -171, 6154, -184, 6132, -164, 6111, -172, 6096, -151, 6066, -165, 6049, -151, 6044, -125, 6027, -96, 5991, -104, 5968, -95, 5962, -75)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Sunken" unique_id=868556309]
-texture = ExtResource("14_trkkw")
+texture = ExtResource("16_h710c")
+texture_scale = Vector2(-0.215, -0.215)
 polygon = PackedVector2Array(6201, -75, 6236, -172, 6207, -185, 6180, -171, 6154, -184, 6132, -164, 6111, -172, 6096, -151, 6066, -165, 6049, -151, 6044, -125, 6027, -96, 5991, -104, 5968, -95, 5962, -75)
 
 [node name="Mountain" type="Node2D" parent="Areas" unique_id=2135547183]
