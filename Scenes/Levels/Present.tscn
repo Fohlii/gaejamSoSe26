@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bdu6ovywrceu5" path="res://Assets/Background/meerBild.jpg" id="7_ioaai"]
 [ext_resource type="Script" uid="uid://bklh2f5yjp57x" path="res://Scripts/GD-Scripts/win_area.gd" id="7_rlqni"]
 [ext_resource type="Script" uid="uid://cgjn4pla2b4rq" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_TreeLogBridge.gd" id="9_do8mn"]
+[ext_resource type="Texture2D" uid="uid://dst7agu5qwr42" path="res://Assets/Background/terrible_light_house.png" id="9_trkkw"]
 [ext_resource type="Script" uid="uid://c6mf662slu4ga" path="res://Scripts/GD-Scripts/quest_areas.gd" id="10_do8mn"]
 [ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P2_BlockingBoulders.gd" id="10_jhuu5"]
 [ext_resource type="Texture2D" uid="uid://cegtl6ykdkxr7" path="res://Assets/Timeobjects/Textures/tree.png" id="11_wprut"]
@@ -178,6 +179,7 @@ position = Vector2(2130, -427)
 [node name="TEMPORARY_SKETCH_REMOVE_LATER" type="Polygon2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=149637076]
 position = Vector2(125.58478, 2.0057373)
 scale = Vector2(0.6521197, 0.7492864)
+texture_scale = Vector2(3.575, 3.575)
 polygon = PackedVector2Array(-441, 8, -199.1665, 8, 361, 8, 342, -1668, 225, -1675, 187, -1895, 151, -1972, 100, -2037, 39, -2073, -22, -2094, -82, -2075, -137, -2045, -191, -1981, -240, -1904, -279, -1677, -401, -1675)
 
 [node name="second_floor" type="StaticBody2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=174121158]
@@ -196,6 +198,11 @@ script = ExtResource("7_rlqni")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse/WinArea" unique_id=636619370]
 position = Vector2(113, -1412)
 shape = SubResource("RectangleShape2D_b1ycr")
+
+[node name="TerribleLightHouse" type="Sprite2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=1421749945]
+position = Vector2(119.499954, -747.5)
+scale = Vector2(0.5366667, 0.5403333)
+texture = ExtResource("9_trkkw")
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Coast" unique_id=1761772948]
 
