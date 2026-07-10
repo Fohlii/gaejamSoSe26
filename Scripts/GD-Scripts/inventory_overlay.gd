@@ -1,27 +1,26 @@
 extends Control
 
-@export var slot_scene: PackedScene 
-@onready var slot_grid: GridContainer = $PanelContainer/MarginContainer/VBoxContainer/SlotGrid
+@onready var inventory_slot: Panel = $PanelContainer/MarginContainer/InventorySlot
+@onready var icon: TextureRect = $PanelContainer/MarginContainer/InventorySlot/Icon
+@onready var count: Label = $PanelContainer/MarginContainer/InventorySlot/Count
 
 
-func _ready() -> void:
+func add_item(item: Timeobject) -> void:
+	if item == null:
+		remove_item()
+		return
 
-	Inventory.changed.connect(_refresh)
+	if item.id:
+		count.text = str(item.id)
+	else:
+		count.text = "no item"
 
-	_create_slots()
-	_refresh()
-
-
-func _create_slots() -> void:
-	for child in slot_grid.get_children():
-		child.queue_free()
-
-	for i in range(Inventory.slots.size()):
-		var slot_ui = slot_scene.instantiate()
-		slot_grid.add_child(slot_ui)
+	if item._sprite.texture:
+		icon.texture = item._sprite.texture
+	else:
+		icon.texture = load("res://Assets/Background/baum.png")
 
 
-func _refresh() -> void:
-	for i in range(Inventory.slots.size()):
-		var slot_ui = slot_grid.get_child(i)
-		slot_ui._setSlot(i, Inventory.slots[i])
+func remove_item() -> void:
+	count.text = ""
+	icon.texture = null

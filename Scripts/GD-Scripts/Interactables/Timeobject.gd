@@ -4,7 +4,6 @@
 
 ## All possible states for this Timeobject
 var _statesById: Dictionary[String, TimeobjectState]
-
 ## The currently active state of this Timeobject
 var _currentState: TimeobjectState
 
@@ -39,19 +38,21 @@ func updateTextureAndCollider() -> void:
 
 ## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
 func interact(item: Item) -> Item:
+	var inventory_overlay = get_tree().current_scene.get_node_or_null("UI/InventoryOverlay/Inventory")
 	if !item && _currentState.interactionTransitions.keys().has("EMPTY_HAND"):
 		_interactionTransition("EMPTY_HAND")
-		if item != null:
+		print(item)
+		if item != null:	
 			if item.textureInInventory != null:
-				Inventory.add_item(item.textureInInventory)
+				inventory_overlay.add_item(item)
 			if item.textureOnCharacter != null:
-				Inventory.add_item(item.textureOnCharacter)
+				inventory_overlay.add_item(item)
 		else:
-			Inventory.add_item(self._sprite.texture)
+			inventory_overlay.add_item(self)
 		return _currentState.itemToReturnOnTransition
 	elif item && _currentState.interactionTransitions.keys().has(item.id):
 		_interactionTransition(item.id)
-		Inventory.remove_from_slot(0)
+		inventory_overlay.remove_item()
 		print(item.textureInInventory)
 		return _currentState.itemToReturnOnTransition
 	else:
@@ -123,6 +124,7 @@ class TimeobjectState extends Resource:
 		return self
 	
 	func setItem(itemPath: String = "") -> TimeobjectState:
+		print(itemPath)
 		self.itemToReturnOnTransition = load("res://Resources/Items/" + itemPath) if itemPath != "" else null
 		return self
 	
