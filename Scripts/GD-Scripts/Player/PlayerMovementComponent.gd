@@ -267,11 +267,11 @@ func _init(player: PlayerCharacterBody2D) -> void:
 			if GlobalVars.DEBUG_PLAYERMOVEMENT:
 				print("idleClimbingMotionState process input called")
 			
-			if Input.get_axis("climb_down", "climb_up") != 0 && player.climbCheckArea.has_overlapping_areas():
+			if (Input.get_axis("climb_down", "climb_up") != 0 || Input.get_axis("walk_left", "walk_right") != 0) && player.climbCheckArea.has_overlapping_areas():
 				changeState("ClimbingMotionState")
-				return processInput(delta)
+				return Vector2.ZERO
 			
-			if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
+			if Input.is_action_pressed("jump"):
 				changeState("FallingMotionState")
 				return Vector2.ZERO
 			
@@ -300,17 +300,17 @@ func _init(player: PlayerCharacterBody2D) -> void:
 			
 			if !player.climbCheckArea.has_overlapping_areas():
 				changeState("IdleClimbingMotionState")
-				return processInput(delta)
+				return Vector2.ZERO
 			
-			if Input.get_axis("climb_down", "climb_up") == 0:
+			if (Input.get_axis("climb_down", "climb_up")) == 0 && (Input.get_axis("walk_left", "walk_right") == 0):
 				changeState("IdleClimbingMotionState")
-				return processInput(delta)
+				return Vector2.ZERO
 			
-			if Input.get_axis("walk_left", "walk_right") != 0 || Input.is_action_pressed("jump"):
+			if Input.is_action_pressed("jump"):
 				changeState("FallingMotionState")
 				return Vector2.ZERO
 			
-			return Vector2(0, Input.get_axis("climb_down", "climb_up") * player.CLIMB_VELOCITY)
+			return Vector2(Input.get_axis("walk_left", "walk_right") * player.CLIMB_VELOCITY, Input.get_axis("climb_down", "climb_up") * player.CLIMB_VELOCITY)
 			,
 		func():
 			return
