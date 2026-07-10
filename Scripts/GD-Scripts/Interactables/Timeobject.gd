@@ -43,10 +43,7 @@ func interact(item: Item) -> Item:
 		_interactionTransition("EMPTY_HAND")
 		print(item)
 		if item != null:	
-			if item.textureInInventory != null:
-				inventory_overlay.add_item(item)
-			if item.textureOnCharacter != null:
-				inventory_overlay.add_item(item)
+			inventory_overlay.add_item(item)
 		else:
 			inventory_overlay.add_item(self)
 		return _currentState.itemToReturnOnTransition # successful interaction with empty hand possbily returns an item or null

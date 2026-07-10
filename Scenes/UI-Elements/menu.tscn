@@ -30,6 +30,13 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 7
 
+[node name="Label" type="Label" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=712092243]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 64
+text = "SURAKI"
+
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1596915322]
 layout_mode = 2
 size_flags_vertical = 3
@@ -125,6 +132,8 @@ custom_minimum_size = Vector2(124.25, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+value = 100.0
+rounded = true
 script = ExtResource("2_w633m")
 
 [node name="Label2" type="Label" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=1884975352]
@@ -134,6 +143,7 @@ text = "Sound Effect Volume
 
 [node name="HSlider2" type="HSlider" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer" unique_id=700416821]
 layout_mode = 2
+value = 100.0
 script = ExtResource("3_b8n8p")
 
 [node name="AspectRatioContainer5" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=749738101]
@@ -149,7 +159,7 @@ size_flags_stretch_ratio = 0.65
 [node name="Button" type="Button" parent="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2" unique_id=1097606873]
 custom_minimum_size = Vector2(252.54, 0)
 layout_mode = 2
-text = "Back"
+text = "back"
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="Settings/AspectRatioContainer/VBoxContainer" unique_id=1336176467]
 layout_mode = 2
@@ -202,6 +212,19 @@ offset_right = -33.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+text = "		Interactions
+Move:                    A,  D
+Jump:                    Space
+Timetravel:            Q
+Interact:                 E"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=634155028]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+metadata/_edit_use_anchors_ = true
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay" unique_id=1734624839]
 layout_mode = 2
@@ -213,19 +236,11 @@ ratio = 0.3
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer3/VBoxContainer" unique_id=634155028]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "Back"
-metadata/_edit_use_anchors_ = true
-
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=1463582821]
 oversampling_override = 1.0
 initial_position = 2
 size = Vector2i(327, 100)
-popup_window = true
 dialog_text = "Are you sure you want to exit the game?"
-dialog_autowrap = true
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="." unique_id=1321695019]
 stream = ExtResource("3_i5h8a")
@@ -237,6 +252,6 @@ stream = ExtResource("3_i5h8a")
 [connection signal="value_changed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider" method="_on_value_changed"]
 [connection signal="value_changed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2" to="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2" method="_on_value_changed"]
 [connection signal="pressed" from="Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer2/Button" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="HowToPlay/AspectRatioContainer3/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HowToPlay/AspectRatioContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

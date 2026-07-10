@@ -15,6 +15,7 @@ extends Node
 @onready var sfx_bus_index = AudioServer.get_bus_index("SFX")
 @onready var h_slider: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider
 @onready var h_slider_2: HSlider = $Settings/AspectRatioContainer/VBoxContainer/AspectRatioContainer/GridContainer/HSlider2
+@onready var label: Label = $Label
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,24 +62,27 @@ func _on_settings_button_pressed() -> void:
 	main_menu.visible = false
 	how_to_play.visible = false
 	credits.visible = false
-
+	label.visible = false
+	
 func _on_how_to_play_button_pressed() -> void:
 	await play_click_sound()
 	settings.visible = false
 	main_menu.visible = false
 	how_to_play.visible = true
 	credits.visible = false
-
+	label.visible = false
+	
 func _on_credits_button_pressed() -> void:
 	await play_click_sound()
 	settings.visible = false
 	main_menu.visible = false
 	how_to_play.visible = false
 	credits.visible = true
-
+	label.visible= false
 func _on_button_3_pressed() -> void:
 	await play_click_sound()
 	settings.visible = false
 	main_menu.visible = true
 	how_to_play.visible = false
 	credits.visible = false
+	label.visible = true

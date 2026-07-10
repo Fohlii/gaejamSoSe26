@@ -10,6 +10,7 @@ extends Node
 @onready var control: CanvasLayer = $".."
 @onready var exit: ConfirmationDialog = $ConfirmationDialog
 @onready var dark_overlay: ColorRect = $"../DarkOverlay"
+@onready var label: Label = $Label
 
 func _ready() -> void:
 	GlobalVars.connect( "esc_pressed",_on_esc_pressed)
@@ -51,12 +52,11 @@ func _on_button_3_pressed() -> void:
 	settings.visible = false
 	main_menu.visible = true
 	how_to_play.visible = false
-
+	
 func _on_exit_button_pressed() -> void:
 	play_click_sound()
 	exit.popup_centered(Vector2i(300, 150))
 	main_menu.visible = false
-	
 func _on_confirmation_dialog_confirmed() -> void:
 	play_click_sound()
 	get_tree().quit()

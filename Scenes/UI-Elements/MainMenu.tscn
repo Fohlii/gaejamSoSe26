@@ -267,6 +267,71 @@ size_flags_horizontal = 10
 size_flags_vertical = 0
 ratio = 0.3
 
+[node name="HowToPlay" type="HBoxContainer" parent="HowToPlay" unique_id=637892488]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="HowToPlay/HowToPlay" unique_id=174719629]
+layout_mode = 2
+size_flags_horizontal = 3
+ratio = 0.3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HowToPlay/HowToPlay" unique_id=478539723]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.75
+ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/HowToPlay/AspectRatioContainer" unique_id=1353870001]
+custom_minimum_size = Vector2(0, 550)
+layout_mode = 2
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=250887195]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment_horizontal = 0
+
+[node name="TextureRect" type="ColorRect" parent="HowToPlay/HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=1978910203]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.08, 0.08, 0.08, 0.7411765)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay/HowToPlay/AspectRatioContainer/VBoxContainer/TextureRect" unique_id=1277836695]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_right = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+text = "		Interactions
+Move:                    A,  D
+Jump:                    Space
+Timetravel:            Q
+Interact:                 E"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="HowToPlay/HowToPlay/AspectRatioContainer/VBoxContainer" unique_id=633567011]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/HowToPlay" unique_id=254936892]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+ratio = 0.3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HowToPlay/HowToPlay/AspectRatioContainer3" unique_id=560173535]
+layout_mode = 2
+size_flags_vertical = 0
+
 [node name="Credits" type="HBoxContainer" parent="." unique_id=2119201412]
 visible = false
 offset_right = 1152.0

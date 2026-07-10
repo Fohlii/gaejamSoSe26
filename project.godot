@@ -20,8 +20,6 @@ config/icon="res://icon.svg"
 GlobalVars="*uid://corpmvh0xcksf"
 Dialogic="*uid://ds2q0uclmolvu"
 SaveLoadSettings="*res://Scripts/GD-Scripts/Autoload/save_load_settings.gd"
-Inventory="uid://d2ibs6aajq31d"
-inventory_overlay="uid://dydnjlayc2n37"
 
 [dialogic]
 
