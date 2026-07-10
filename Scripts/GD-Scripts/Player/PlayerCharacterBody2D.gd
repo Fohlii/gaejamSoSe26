@@ -12,7 +12,7 @@ var safeSpot: Vector2
 @export var WALK_SPEED = 200.0
 @export var RUN_SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
-@export var CLIMB_VELOCITY = -70.0
+@export var CLIMB_VELOCITY = -150.0
 @export var STANDING_JUMP_X = 100.0
 @export var TELEPORT_BUFFER = 50
 

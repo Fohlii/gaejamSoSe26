@@ -46,13 +46,13 @@ load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jef47"]
-size = Vector2(43, 390)
+size = Vector2(43, 378)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkieh"]
 size = Vector2(43, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1k8w"]
-size = Vector2(30, 926)
+size = Vector2(30, 906)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h710c"]
 size = Vector2(30, 1)
@@ -166,12 +166,15 @@ polygon = PackedVector2Array(-441, 8, -199.1665, 8, 361, 8, 342, -1668, 225, -16
 
 [node name="second_floor" type="StaticBody2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=174121158]
 position = Vector2(134, -1236)
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse/second_floor" unique_id=998701081]
 position = Vector2(-27.5, 0)
 shape = SubResource("RectangleShape2D_x0asn")
 
 [node name="WinArea" type="Area2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse" unique_id=1665299051]
+collision_layer = 0
+monitorable = false
 script = ExtResource("7_rlqni")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Coast/BackLayer/Objects/Lighthouse/WinArea" unique_id=636619370]
@@ -396,12 +399,12 @@ collision_layer = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower/ladder_area" unique_id=1358997315]
-position = Vector2(21.5, -195)
+position = Vector2(21.5, -189)
 shape = SubResource("RectangleShape2D_jef47")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower/ladder_area" unique_id=1227301688]
-position = Vector2(21.499966, -194.99997)
-scale = Vector2(0.335939, 3.0468752)
+position = Vector2(21.499966, -188.99997)
+scale = Vector2(0.335939, 2.9531252)
 texture = ExtResource("15_p1k8w")
 
 [node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_lower" unique_id=1579666001]
@@ -420,12 +423,12 @@ collision_layer = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper/ladder_area" unique_id=1046833073]
-position = Vector2(15, -463)
+position = Vector2(15, -453)
 shape = SubResource("RectangleShape2D_p1k8w")
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper/ladder_area" unique_id=308576957]
-position = Vector2(14.9999695, -463.00006)
-scale = Vector2(0.23437165, 7.234375)
+position = Vector2(14.9999695, -453.0001)
+scale = Vector2(0.23437165, 7.0781255)
 texture = ExtResource("15_p1k8w")
 
 [node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Mountain/BackLayer/Objects/Cave_ladder_upper" unique_id=679004445]

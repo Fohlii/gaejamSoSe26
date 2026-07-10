@@ -17,7 +17,8 @@ func _ready() -> void:
 	
 	var treeFelled: TimeobjectState = TimeobjectState.new("treeFelled"
 	).setPosition(Vector2(5543.0,-584.0)
-	).setTexture("tree_felled.png")
+	).setTexture("tree_felled.png"
+	).setItem("P1_P2_axe.tres")
 	
 	treeGrown.addInteractionTransition("axe", treeFelled.id)
 	treeNotGrown.addCascadeTransition("saplingPlantedInSpot", treeGrown.id)
