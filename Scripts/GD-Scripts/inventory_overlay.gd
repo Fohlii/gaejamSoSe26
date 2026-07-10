@@ -1,8 +1,8 @@
 extends Control
+@onready var inventory_slot: Panel = $InventorySlot
+@onready var icon: TextureRect = $InventorySlot/Icon
+@onready var count: Label = $InventorySlot/Count
 
-@onready var inventory_slot: Panel = $PanelContainer/MarginContainer/InventorySlot
-@onready var icon: TextureRect = $PanelContainer/MarginContainer/InventorySlot/Icon
-@onready var count: Label = $PanelContainer/MarginContainer/InventorySlot/Count
 
 
 func add_item(item: Item) -> void:
@@ -11,7 +11,7 @@ func add_item(item: Item) -> void:
 		return
 
 	if item.id:
-		count.text = str(item.id)
+		count.text = item.id
 	else:
 		count.text = "no item"
 
