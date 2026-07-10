@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djlb3g6xjrjjw"
-path="res://.godot/imported/terrible_light_house.png-e324ef0dfdbb818d9bdf2f0466fd3058.ctex"
+uid="uid://b5ahohbjdwc8i"
+path="res://.godot/imported/baum.png-3da7247f93863a311116f3439ad57bf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/terrible_light_house.png"
-dest_files=["res://.godot/imported/terrible_light_house.png-e324ef0dfdbb818d9bdf2f0466fd3058.ctex"]
+source_file="res://Assets/Timeobjects/Textures/baum.png"
+dest_files=["res://.godot/imported/baum.png-3da7247f93863a311116f3439ad57bf3.ctex"]
 
 [params]
 

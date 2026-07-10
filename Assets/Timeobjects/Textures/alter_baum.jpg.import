@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5ahohbjdwc8i"
-path="res://.godot/imported/baum.png-89bb861a598ae4d9704b7f48b077dcfc.ctex"
+uid="uid://0vlumt0s7qwe"
+path="res://.godot/imported/alter_baum.jpg-9bce7adb7b00f81a6ec955c9ac766c3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/baum.png"
-dest_files=["res://.godot/imported/baum.png-89bb861a598ae4d9704b7f48b077dcfc.ctex"]
+source_file="res://Assets/Timeobjects/Textures/alter_baum.jpg"
+dest_files=["res://.godot/imported/alter_baum.jpg-9bce7adb7b00f81a6ec955c9ac766c3f.ctex"]
 
 [params]
 

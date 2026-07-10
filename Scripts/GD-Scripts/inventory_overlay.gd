@@ -18,7 +18,7 @@ func add_item(item: Timeobject) -> void:
 	if item._sprite.texture:
 		icon.texture = item._sprite.texture
 	else:
-		icon.texture = load("res://Assets/Background/baum.png")
+		icon.texture = load("res://Assets/Timeobjects/Textures/sapling.png")
 
 
 func remove_item() -> void:
