@@ -30,13 +30,6 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 7
 
-[node name="Label" type="Label" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=712092243]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 64
-text = "SURAKI"
-
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainMenu/AspectRatioContainer/VBoxContainer" unique_id=1596915322]
 layout_mode = 2
 size_flags_vertical = 3
