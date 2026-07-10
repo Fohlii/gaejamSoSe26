@@ -7,7 +7,8 @@ func _init(player: PlayerCharacterBody2D) -> void:
 
 func processInput(delta: float) -> void:
 	if Input.is_action_just_pressed("timetravel"):
-		var targetLocation: Vector2 = Vector2(player.global_position.x, player.global_position.y + ((19999) if (GlobalVars.player_in_past) else (-20001)))
+		var targetLocation: Vector2 = Vector2(player.global_position.x, ((player.global_position.y-20001) if (GlobalVars.player_in_past) else (player.global_position.y+19999)))
+		print(targetLocation)
 		if isTeleportAllowed(targetLocation):
 			player.get_tree().current_scene.toggle_time()
 			player.global_position.y = (targetLocation.y - player.TELEPORT_BUFFER)

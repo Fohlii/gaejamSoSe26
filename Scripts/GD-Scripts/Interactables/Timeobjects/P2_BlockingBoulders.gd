@@ -9,7 +9,7 @@ func _ready() -> void:
 	super()
 	
 	var blockingEntrance: TimeobjectState = TimeobjectState.new("blockingEntrance"
-	).setPosition(Vector2(6416.0, -592.0)
+	).setPosition(Vector2(6440.0, -549.0)
 	).setColliderPolygon(
 		[Vector2(-84.0, 96.0),
 		Vector2(-106.0, 61.0),
@@ -30,7 +30,7 @@ func _ready() -> void:
 	).setTexture("icon.svg")
 	
 	var caughtByScaffolding: TimeobjectState = TimeobjectState.new("caughtByScaffolding"
-	).setPosition(Vector2(6416.0, -442.0)
+	).setPosition(Vector2(6116.0, -442.0) #untested location
 	).setColliderPolygon([]
 	).setTexture("icon.svg")
 	

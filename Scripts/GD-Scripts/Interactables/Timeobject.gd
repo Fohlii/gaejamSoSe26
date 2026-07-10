@@ -43,7 +43,7 @@ func interact(item: Item) -> Item:
 		_interactionTransition("EMPTY_HAND")
 		if item != null:
 			if item.textureInInventory != null:
-				Inventory.add_item(item.textureInInventory)		
+				Inventory.add_item(item.textureInInventory)
 			if item.textureOnCharacter != null:
 				Inventory.add_item(item.textureOnCharacter)
 		else:
