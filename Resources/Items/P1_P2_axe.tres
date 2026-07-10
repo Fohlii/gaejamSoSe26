@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bws0d7w1kq3tw"]
 
 [ext_resource type="Script" uid="uid://dgkwjecg456ux" path="res://Resources/Item.gd" id="1_h3nmf"]
+[ext_resource type="Texture2D" uid="uid://dfkts7q8qyy4f" path="res://Assets/Timeobjects/Textures/stump_with_axe.png" id="2_gxhti"]
 
 [resource]
 script = ExtResource("1_h3nmf")
 id = "axe"
+textureInInventory = ExtResource("2_gxhti")
 metadata/_custom_type_script = "uid://dgkwjecg456ux"

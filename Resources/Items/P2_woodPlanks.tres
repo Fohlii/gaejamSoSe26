@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://c1lwy4e4l7hpf"]
 
 [ext_resource type="Script" uid="uid://dgkwjecg456ux" path="res://Resources/Item.gd" id="1_qfccn"]
+[ext_resource type="Texture2D" uid="uid://rbajpp67l8fs" path="res://Assets/Timeobjects/Textures/tree_felled.png" id="2_yn5tc"]
 
 [resource]
 script = ExtResource("1_qfccn")
 id = "woodPlanks"
+textureInInventory = ExtResource("2_yn5tc")
 metadata/_custom_type_script = "uid://dgkwjecg456ux"

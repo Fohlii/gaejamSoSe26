@@ -1,12 +1,12 @@
 class_name PlayerInteractionComponent extends PlayerComponent
 var playerInteractionArea: Area2D
-var playerInventoryUI: Node2D
+var playerInventoryUI: Node
 var playerInventoryItem: Item
 
 func _init(player: PlayerCharacterBody2D) -> void:
 	super(player)
 	playerInteractionArea = player.interactionArea
-	playerInventoryUI = player.inventoryUI
+	playerInventoryUI = player.get_tree().current_scene.get_node_or_null("UI/InventoryOverlay/Inventory")
 	playerInventoryItem = null
 
 func processInput(delta: float) -> void:
@@ -17,4 +17,4 @@ func processInput(delta: float) -> void:
 
 func _playerInteract(interactable: Interactable):
 	playerInventoryItem = interactable.interact(playerInventoryItem)
-	# TODO update playerInventoryUI with texture from held item or clear
+	playerInventoryUI.add_item(playerInventoryItem)

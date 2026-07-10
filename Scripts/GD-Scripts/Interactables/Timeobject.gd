@@ -38,19 +38,11 @@ func updateTextureAndCollider() -> void:
 
 ## What happens when the player tries to interact with this Node. Note: return can be null if the item is consumed.
 func interact(item: Item) -> Item:
-	var inventory_overlay = get_tree().current_scene.get_node_or_null("UI/InventoryOverlay/Inventory")
 	if item == null && _currentState.interactionTransitions.keys().has("EMPTY_HAND"):
 		_interactionTransition("EMPTY_HAND")
-		print(item)
-		if item != null:	
-			inventory_overlay.add_item(item)
-		else:
-			inventory_overlay.add_item(self)
 		return _currentState.itemToReturnOnTransition # successful interaction with empty hand possbily returns an item or null
 	elif item != null && _currentState.interactionTransitions.keys().has(item.id):
 		_interactionTransition(item.id)
-		inventory_overlay.remove_item()
-		print(item.textureInInventory)
 		return _currentState.itemToReturnOnTransition # successful interaction with an item always returns the specified item even if null
 	else:
 		return item # failed interaction returns item

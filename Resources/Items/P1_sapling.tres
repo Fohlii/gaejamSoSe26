@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://bb7tafnkbioxm"]
 
 [ext_resource type="Script" uid="uid://dgkwjecg456ux" path="res://Resources/Item.gd" id="1_236r7"]
+[ext_resource type="Texture2D" uid="uid://bl4ilarnkb5p0" path="res://Assets/Timeobjects/Textures/sapling.png" id="2_1w18x"]
 
 [resource]
 script = ExtResource("1_236r7")
 id = "sapling"
+textureInInventory = ExtResource("2_1w18x")
 metadata/_custom_type_script = "uid://dgkwjecg456ux"

@@ -5,7 +5,7 @@ extends Control
 @onready var count: Label = $PanelContainer/MarginContainer/InventorySlot/Count
 
 
-func add_item(item: Timeobject) -> void:
+func add_item(item: Item) -> void:
 	if item == null:
 		remove_item()
 		return
@@ -15,10 +15,10 @@ func add_item(item: Timeobject) -> void:
 	else:
 		count.text = "no item"
 
-	if item._sprite.texture:
-		icon.texture = item._sprite.texture
+	if item.textureInInventory:
+		icon.texture = item.textureInInventory
 	else:
-		icon.texture = load("res://Assets/Timeobjects/Textures/sapling.png")
+		icon.texture = load("res://Assets/Timeobjects/Textures/icon.svg")
 
 
 func remove_item() -> void:

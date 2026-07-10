@@ -5,7 +5,7 @@ class_name PlayerCharacterBody2D extends CharacterBody2D
 @onready var right_foot: AudioStreamPlayer2D = $right_foot
 @onready var climbCheckArea: Area2D = $ClimbCheckArea
 @onready var interactionArea: Area2D = $InteractionArea
-@onready var inventoryUI: Node2D = null
+#@onready var inventoryUI: Node = null
 
 var safeSpot: Vector2
 
