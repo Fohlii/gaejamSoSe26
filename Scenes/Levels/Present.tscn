@@ -49,7 +49,7 @@ load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b
 size = Vector2(598.0001, 16.40002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xy4uh"]
-size = Vector2(489.60007, 9.9999695)
+size = Vector2(534.8002, 9.9999695)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mteok"]
 size = Vector2(226.00012, 336.40005)
@@ -296,7 +296,7 @@ position = Vector2(4619, -629.99994)
 scale = Vector2(2.5, 2.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=171603566]
-position = Vector2(0, -268.80002)
+position = Vector2(-56.4, -238.80002)
 scale = Vector2(1.392101, 1.1394924)
 texture = ExtResource("13_p1k8w")
 offset = Vector2(25.22, -460.855)
@@ -305,7 +305,7 @@ offset = Vector2(25.22, -460.855)
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatformLowerRight" unique_id=1712739291]
-position = Vector2(270.6001, -349.40002)
+position = Vector2(207.0001, -308.40002)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_58uic")
 
@@ -313,7 +313,7 @@ shape = SubResource("RectangleShape2D_58uic")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatformUpperLeft" unique_id=704555476]
-position = Vector2(-382, -687.4)
+position = Vector2(-468.20007, -646.4)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_xy4uh")
 
@@ -324,7 +324,7 @@ collision_layer = 64
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter/ladder_area" unique_id=1556022839]
-position = Vector2(-25, -525.8)
+position = Vector2(-88.59999, -484.8)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_mteok")
 
@@ -332,7 +332,7 @@ shape = SubResource("RectangleShape2D_mteok")
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter/ladder_top_platform" unique_id=849979730]
-position = Vector2(-72.599976, -688.2)
+position = Vector2(-137.59998, -645.60004)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_7f1n3")
 one_way_collision = true
