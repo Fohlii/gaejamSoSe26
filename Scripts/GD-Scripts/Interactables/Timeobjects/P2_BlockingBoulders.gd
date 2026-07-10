@@ -42,5 +42,5 @@ func _ready() -> void:
 	_statesById.set(blockingEntrance.id, blockingEntrance)
 	_statesById.set(caughtByScaffolding.id, caughtByScaffolding)
 	
-	_currentState = _statesById[caughtByScaffolding.id]
+	_currentState = _statesById[blockingEntrance.id]
 	

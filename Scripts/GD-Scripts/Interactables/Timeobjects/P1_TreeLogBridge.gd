@@ -32,5 +32,5 @@ func _ready() -> void:
 	_statesById.set(treeLogNotInPlace.id, treeLogNotInPlace)
 	_statesById.set(treeLogInPlace.id, treeLogInPlace)
 	
-	_currentState = _statesById[treeLogInPlace.id]
+	_currentState = _statesById[treeLogNotInPlace.id]
 	

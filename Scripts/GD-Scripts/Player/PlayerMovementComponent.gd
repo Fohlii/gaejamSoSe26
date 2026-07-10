@@ -314,8 +314,8 @@ func _init(player: PlayerCharacterBody2D) -> void:
 				changeState("FallingMotionState")
 				return Vector2.ZERO
 			
-			print("horizontal. ", Input.get_axis("walk_left", "walk_right"))
-			print("vertical. ", Input.get_axis("climb_down", "climb_up"))
+			#print("horizontal. ", Input.get_axis("walk_left", "walk_right"))
+			#print("vertical. ", Input.get_axis("climb_down", "climb_up"))
 			return Vector2(Input.get_axis("walk_left", "walk_right") * -player.CLIMB_VELOCITY, Input.get_axis("climb_down", "climb_up") * player.CLIMB_VELOCITY)
 			,
 		func():
