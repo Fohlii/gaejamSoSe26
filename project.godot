@@ -75,6 +75,7 @@ layout/style_list=["res://Scenes/UI-Elements/dialogs.tres"]
 layout/default_style=""
 glossary/default_case_sensitive=true
 variables={
+"first_start": true,
 "in_past": false,
 "playing": false
 }

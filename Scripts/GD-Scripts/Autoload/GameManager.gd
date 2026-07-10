@@ -43,6 +43,8 @@ func toggle_time() -> void:
 
 func start_game():
 	GlobalVars.player_won = false
+	GlobalVars.player_in_past = false
+	Dialogic.VAR.in_past = false
 	Dialogic.VAR.playing = true
 	timeobjectManager.initializeTimeobjects(get_tree())
 	main_menu.visible = false
@@ -54,9 +56,10 @@ func start_game():
 	add_child(player)
 	player.global_position.x = 600
 	player.global_position.y = -10400
-	inventory_overlay.visible = true
 	player.find_child("Camera2D").make_current()
-	Dialogic.start("timeline")
+	if Dialogic.VAR.first_start:
+		Dialogic.start("timeline")
+		Dialogic.VAR.first_start= false
 
 func show_menu():	
 	game_over.visible = false
