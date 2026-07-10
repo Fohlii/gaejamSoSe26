@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://byan6ra1h5b3o" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P2_BlockingBoulders.gd" id="10_jhuu5"]
 [ext_resource type="Texture2D" uid="uid://cegtl6ykdkxr7" path="res://Assets/Timeobjects/Textures/tree.png" id="11_wprut"]
 [ext_resource type="Script" uid="uid://bskm7onsj02hu" path="res://Scripts/GD-Scripts/encounterRiver.gd" id="12_jkieh"]
+[ext_resource type="Texture2D" uid="uid://b4ssog077csfi" path="res://Assets/Background/berg_boden.png" id="14_trkkw"]
 [ext_resource type="Texture2D" uid="uid://clw380nh7fhas" path="res://Assets/Timeobjects/Textures/icon.svg" id="15_p1k8w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ck43e"]
@@ -59,6 +60,9 @@ size = Vector2(30, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
 size = Vector2(267.5, 803)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h710c"]
+load_path = "res://.godot/imported/berg-seite.png-246a19e423e68fbb695cbb14fa78586c.ctex"
 
 [node name="PresentRoot" type="Node2D" unique_id=2116345146]
 
@@ -348,6 +352,8 @@ polygon = PackedVector2Array(3309, -466, 3337, -450, 3365, -425, 3415, -425, 336
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Objects/SmallStoneBridge" unique_id=1003419788]
 texture_repeat = 2
+texture = ExtResource("14_trkkw")
+texture_scale = Vector2(0.185, 0.185)
 polygon = PackedVector2Array(3309, -466, 3337, -450, 3365, -425, 3415, -425, 3365, -466, 3309, -488, 3253, -499, 3147, -499, 3091, -488, 3035, -466, 2985, -425, 3035, -425, 3063, -450, 3091, -466, 3119, -476, 3147, -483, 3175, -487, 3225, -487, 3253, -483, 3281, -476)
 
 [node name="P1_TreeLogBridge" parent="Areas/Meadow/FrontLayer/Objects" unique_id=1975205875 instance=ExtResource("6_1h27j")]
@@ -372,6 +378,7 @@ collision_layer = 16
 polygon = PackedVector2Array(6201, -75, 6236, -172, 6207, -185, 6180, -171, 6154, -184, 6132, -164, 6111, -172, 6096, -151, 6066, -165, 6049, -151, 6044, -125, 6027, -96, 5991, -104, 5968, -95, 5962, -75)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Meadow/FrontLayer/Objects/BrokenBridge/Sunken" unique_id=868556309]
+texture = ExtResource("14_trkkw")
 polygon = PackedVector2Array(6201, -75, 6236, -172, 6207, -185, 6180, -171, 6154, -184, 6132, -164, 6111, -172, 6096, -151, 6066, -165, 6049, -151, 6044, -125, 6027, -96, 5991, -104, 5968, -95, 5962, -75)
 
 [node name="Mountain" type="Node2D" parent="Areas" unique_id=2135547183]
@@ -463,6 +470,9 @@ collision_layer = 16
 polygon = PackedVector2Array(6424, -450, 6530, -450, 6872, -263, 7324, -263, 7324, -1018, 6872, -1018, 6872, -2057, 7552, -2058, 7556, 4, 6424, -2)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/Cave_lower" unique_id=364038301]
+texture_repeat = 2
+texture = SubResource("CompressedTexture2D_h710c")
+texture_scale = Vector2(0.685, 0.685)
 polygon = PackedVector2Array(6424, -450, 6530, -450, 6872, -263, 7324, -263, 7324, -1018, 6872, -1018, 6872, -2057, 7552, -2058, 7556, 4, 6424, -2)
 
 [node name="Cave_upper" type="StaticBody2D" parent="Areas/Mountain/FrontLayer/Ground/Cave" unique_id=1658304345]
@@ -472,6 +482,8 @@ collision_layer = 16
 polygon = PackedVector2Array(6872, -613, 7091, -613, 7091, -640, 6872, -640, 6599, -837, 6567, -837, 6567, -1742, 6530, -1657, 6530, -800)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/Cave_upper" unique_id=309862956]
+texture = ExtResource("14_trkkw")
+texture_scale = Vector2(1.925, 1.925)
 polygon = PackedVector2Array(6872, -613, 7091, -613, 7091, -640, 6872, -640, 6599, -837, 6567, -837, 6567, -1742, 6530, -1657, 6530, -800)
 
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=1844831231]

@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d2pm63lvdhc7v" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P2_CaveEntranceScaffolding.gd" id="6_qlr6k"]
 [ext_resource type="Script" uid="uid://dbobr54iupq7a" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_StumpWithAxe.gd" id="7_c23j1"]
 [ext_resource type="Script" uid="uid://wif3irqq1hv5" path="res://Scripts/GD-Scripts/Interactables/Timeobjects/P1_PlantSpotNearRiver.gd" id="9_web4q"]
+[ext_resource type="Texture2D" uid="uid://b2ppxw1dm0o4o" path="res://Assets/Background/berg_ecke.png" id="12_q4cgg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlr6k"]
 load_path = "res://.godot/imported/background_right_border.jpg-4bd28463197037fa054f4beedb757def.ctex"
@@ -303,6 +304,9 @@ collision_layer = 16
 polygon = PackedVector2Array(6424, -450, 6630, -450, 6530, -800, 6471, -1434, 6354, -1627, 6065, -1699, 6091, -1724, 6567, -1742, 7552, -3342, 7556, 4, 6424, -2)
 
 [node name="Polygon2D" type="Polygon2D" parent="Areas/Mountain/FrontLayer/Ground/Cave/Cave_lower" unique_id=802876967]
+texture_repeat = 2
+texture = ExtResource("12_q4cgg")
+texture_scale = Vector2(0.735, 0.735)
 polygon = PackedVector2Array(6424, -450, 6630, -450, 6530, -800, 6471, -1434, 6354, -1627, 6065, -1699, 6091, -1724, 6567, -1742, 7552, -3342, 7556, 4, 6424, -2)
 
 [node name="Objects" type="Node2D" parent="Areas/Mountain/FrontLayer" unique_id=489368831]
