@@ -58,7 +58,7 @@ size = Vector2(30, 926)
 size = Vector2(30, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlqni"]
-size = Vector2(123, 803)
+size = Vector2(267.5, 803)
 
 [node name="PresentRoot" type="Node2D" unique_id=2116345146]
 
@@ -448,6 +448,7 @@ position = Vector2(7604, -692)
 script = ExtResource("12_jkieh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Mountain/FrontLayer/Ground/LargeRiver/RiverDialogArea" unique_id=1006255042]
+position = Vector2(-72.25, 0)
 shape = SubResource("RectangleShape2D_rlqni")
 
 [node name="Cave" type="Node2D" parent="Areas/Mountain/FrontLayer/Ground" unique_id=228643836]

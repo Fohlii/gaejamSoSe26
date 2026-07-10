@@ -2,16 +2,10 @@ join character center [animation="Slide From Left" z_index="1"]
 character: Ufff What happened?
 character: Where am i ? My head hurts so badly....
 character: Oh i am on an island but how did i get here?
-character: I should move on since i cannot stay here....
-[wait time="1.0" skippable="true"]
 character: Oh no the water is rising and since i am a robot and will surely die if i get too wet.
-character: I somehow need to cross the sea to reach the other island over there. I am pretty sure in the past this island had been a part of the other....
-character: Oh what is blincking on my arm? Maybe i should press that button...
 label step back
 character: Press Q to timetravel
-[wait time="1.0"]
 if {in_past} == true:
 	character: It seems as i have awackened a special ability. I can travel through the time!!
-	character: I was right in the past this was one single island, now i can cross the sea.
 else:
 	jump step back
