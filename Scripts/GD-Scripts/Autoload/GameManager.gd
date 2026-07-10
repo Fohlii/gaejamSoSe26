@@ -53,7 +53,7 @@ func start_game():
 	inventory_overlay.visible= false
 	if player== null:
 		player =  playerPS.instantiate()
-	add_child(player)
+		add_child(player)
 	player.global_position.x = 600
 	player.global_position.y = -10400
 	player.find_child("Camera2D").make_current()

@@ -19,7 +19,8 @@ func add_item(item: Item) -> void:
 		icon.texture = item.textureInInventory
 	else:
 		icon.texture = load("res://Assets/Timeobjects/Textures/icon.svg")
-
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
 func remove_item() -> void:
 	count.text = ""
