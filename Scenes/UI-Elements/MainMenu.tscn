@@ -224,12 +224,6 @@ ratio = 1.5
 custom_minimum_size = Vector2(0, 550)
 layout_mode = 2
 
-[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/AspectRatioContainer4/VBoxContainer/AspectRatioContainer/VBoxContainer" unique_id=1019892536]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-alignment_horizontal = 0
-
 [node name="TextureRect" type="ColorRect" parent="HowToPlay/AspectRatioContainer4/VBoxContainer/AspectRatioContainer/VBoxContainer" unique_id=1801537988]
 layout_mode = 2
 size_flags_vertical = 3
@@ -237,15 +231,23 @@ color = Color(0.08, 0.08, 0.08, 0.7411765)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HowToPlay/AspectRatioContainer4/VBoxContainer/AspectRatioContainer/VBoxContainer/TextureRect" unique_id=931644874]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_right = -23.299988
+anchors_preset = -1
+anchor_right = 1.166
+anchor_bottom = 1.029
+offset_left = 10.700012
+offset_right = -36.503983
+offset_bottom = -15.950012
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-text = "How To Play
+text = "
+
+
+
+
+How To Play
+
+
 
 Move using A and D keys
 Press Shift to walk faster
@@ -253,6 +255,12 @@ Space to jump
 Q to timetravel
 E to interact
 I to show inventory"
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="HowToPlay/AspectRatioContainer4/VBoxContainer/AspectRatioContainer/VBoxContainer" unique_id=1019892536]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment_horizontal = 0
 
 [node name="Button3" type="Button" parent="HowToPlay/AspectRatioContainer4/VBoxContainer" unique_id=455105560]
 layout_mode = 2
