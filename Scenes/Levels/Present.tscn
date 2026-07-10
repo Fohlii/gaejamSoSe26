@@ -43,6 +43,18 @@ load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rlqni"]
 load_path = "res://.godot/imported/bg_sea_ground.png-a5d19021ce7845c27b78413967b5c5d0.ctex"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58uic"]
+size = Vector2(539.6, 8.399963)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy4uh"]
+size = Vector2(731.6, 8.400024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mteok"]
+size = Vector2(119.60011, 214.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f1n3"]
+size = Vector2(119.60008, 8.400017)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wprut"]
 load_path = "res://.godot/imported/Background_Meadow_Grass.png-2b83ab5df1ab07b3e80b9b329e794504.ctex"
 
@@ -289,12 +301,41 @@ scale = Vector2(1.392101, 1.1394924)
 texture = ExtResource("11_wprut")
 offset = Vector2(25.22, -460.855)
 
-[node name="BranchPlatform" type="StaticBody2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=855314322]
+[node name="BranchPlatformLowerRight" type="StaticBody2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=855314322]
 collision_layer = 16
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatform" unique_id=1279184397]
-scale = Vector2(0.8451909, 0.99999994)
-polygon = PackedVector2Array(584.01025, -299.60004, 346.90405, -306.40002, 116.423584, -379.20007, -35.968018, -472.00006, -270.708, -524.00006, -883.114, -524.4001, -838.1537, -508.4001, -272.60107, -503.20007, -43.540283, -454.80005, 113.110596, -358.40002, 337.43872, -286.00006, 558.45386, -284.80005)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatformLowerRight" unique_id=1712739291]
+position = Vector2(254.19995, -307.80005)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_58uic")
+
+[node name="BranchPlatformUpperLeft" type="StaticBody2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=141599560]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/BranchPlatformUpperLeft" unique_id=704555476]
+position = Vector2(-381.3999, -522.2)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_xy4uh")
+
+[node name="TrunkLadderCenter" type="Node2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree" unique_id=2080186998]
+
+[node name="ladder_area" type="Area2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter" unique_id=414134103]
+collision_layer = 64
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter/ladder_area" unique_id=1556022839]
+position = Vector2(44.200073, -419.40002)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_mteok")
+
+[node name="ladder_top_platform" type="StaticBody2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter" unique_id=1956928822]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/Meadow/BackLayer/Objects/AncientTree/TrunkLadderCenter/ladder_top_platform" unique_id=849979730]
+position = Vector2(44.200073, -522.2)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_7f1n3")
+one_way_collision = true
 
 [node name="FrontLayer" type="Node2D" parent="Areas/Meadow" unique_id=930101728]
 

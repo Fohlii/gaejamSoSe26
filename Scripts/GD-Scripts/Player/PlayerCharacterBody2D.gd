@@ -35,10 +35,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_sprite_2d_frame_changed() -> void:
-	if sprite_2d.frame == 2:
-		left_foot.play()
-	elif sprite_2d.frame == 5:
-		right_foot.play()
+	if is_on_floor():
+		if sprite_2d.frame == 2:
+			left_foot.play()
+		elif sprite_2d.frame == 5:
+			right_foot.play()
 
 func OnDeadlyAreaEntered() -> void:
 	## block movement
